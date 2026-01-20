@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Predictive ML Forecasting Model - Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Analyst Note Styles */
+        .analyst-note {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #14b8a6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .analyst-note h4 {
+            color: #0d7377;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analyst-note h4::before {
+            content: "📝";
+        }
+        .analyst-note p {
+            color: #1a5f5f;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .aha-moment {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .aha-moment h4 {
+            color: #b45309;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .aha-moment h4::before {
+            content: "💡";
+        }
+        .aha-moment p {
+            color: #92400e;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .thought-process {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-left: 4px solid #8b5cf6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .thought-process h4 {
+            color: #6d28d9;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .thought-process h4::before {
+            content: "🧠";
+        }
+        .thought-process p {
+            color: #5b21b6;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Dark mode styles - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-left-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note h4 {
+            color: #5eead4;
+        }
+        body.dark-mode .analyst-note p {
+            color: #ccfbf1;
+        }
+
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-left-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment h4 {
+            color: #fde68a;
+        }
+        body.dark-mode .aha-moment p {
+            color: #fef3c7;
+        }
+
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-left-color: #c084fc;
+        }
+        body.dark-mode .thought-process h4 {
+            color: #e9d5ff;
+        }
+        body.dark-mode .thought-process p {
+            color: #f3e8ff;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>AT&T Predictive ML Forecasting Model</h1>
+            <p class="subtitle">Predictive Analytics Using Python, SQL & Power BI</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-building"></i> AT&T</span>
+                <span class="duration"><i class="fas fa-clock"></i> May 2024 - November 2024</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Senior Data Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                    <p>Build a machine learning forecasting system to predict revenue and network capacity requirements across AT&T's enterprise business units, enabling proactive resource allocation and strategic planning.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Solution</h3>
+                    <p>Collaborated with cross-functional teams (Finance, Data Engineering, IT Infrastructure, Sales Operations, and Network Planning) to develop predictive analytics models using Python (Pandas, NumPy, PySpark) and SQL-based statistical analysis integrated with Snowflake data warehouse, processing 500M+ historical transactions to generate 12-month rolling forecasts with 94.2% accuracy.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Impact</h3>
+                    <p>Improved forecast accuracy by 23%, reduced planning cycle time by 40%, enabled $12M in cost savings through optimized resource allocation, and provided executive dashboards for real-time decision-making.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="analyst-note">
+            <h4>Why Forecasting Became Personal</h4>
+            <p>Before this project, I thought forecasting was just math—plug in numbers, get predictions. But my first week at AT&T changed that perspective entirely. I sat in a budget meeting where the CFO showed a slide: "Q3 forecast missed by $47M." The room got quiet. That miss meant delayed infrastructure investments, hiring freezes in two regions, and scrambled capacity planning that cost the company millions in emergency network expansions. That's when I realized forecasting isn't an academic exercise—it's the heartbeat of enterprise decision-making. Every percentage point of accuracy I could add would translate directly into better resource allocation, smarter hiring decisions, and ultimately, better service for millions of AT&T customers. This project wasn't just about building models; it was about giving leadership the confidence to make bold strategic moves backed by reliable predictions.</p>
+        </div>
+
+        <!-- Challenge -->
+        <section class="section">
+            <h2>Business Challenge</h2>
+            <p>AT&T's enterprise division faced critical challenges in revenue forecasting and capacity planning:</p>
+            <ul class="challenge-list">
+                <li><strong>Manual Forecasting Process:</strong> Finance teams relied on Excel-based models with subjective assumptions, taking 2-3 weeks per forecast cycle</li>
+                <li><strong>Low Accuracy:</strong> Historical forecast accuracy averaged 71%, leading to resource over-provisioning or service degradation</li>
+                <li><strong>Siloed Data:</strong> Revenue data scattered across 15+ systems (Salesforce, SAP, Oracle Financials, network performance databases)</li>
+                <li><strong>Limited Visibility:</strong> No unified view of forecast performance, regional trends, or confidence intervals</li>
+                <li><strong>Seasonal Variability:</strong> Enterprise sales showed complex patterns with holiday effects, contract renewal cycles, and economic indicators</li>
+                <li><strong>Scalability Issues:</strong> Legacy forecasting tools couldn't handle growing data volumes (500M+ transactions annually)</li>
+            </ul>
+            <div class="stat-highlight">
+                <p><strong>Business Impact:</strong> Forecast errors resulted in estimated $18M annual costs from over-provisioned network capacity and $8M in lost revenue from under-provisioned resources.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard -->
+        <section class="section dashboard-section" id="forecast-accuracy">
+            <h2>ML Forecasting Performance Dashboard</h2>
+            <p class="dashboard-description">Real-time forecast accuracy metrics, model performance comparison, and regional revenue predictions with confidence intervals.</p>
+            
+            <div class="dashboard-mockup">
+                <!-- KPI Metrics Row -->
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-brain"></i></div>
+                        <div class="metric-value">94.2%</div>
+                        <div class="metric-label">Forecast Accuracy</div>
+                        <div class="metric-trend positive">+23% vs Baseline</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="metric-value">$847M</div>
+                        <div class="metric-label">Q4 2024 Forecast</div>
+                        <div class="metric-trend neutral">±$18M Range</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-clock"></i></div>
+                        <div class="metric-value">3.2 hrs</div>
+                        <div class="metric-label">Forecast Cycle Time</div>
+                        <div class="metric-trend positive">-40% Time Saved</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-server"></i></div>
+                        <div class="metric-value">512M</div>
+                        <div class="metric-label">Records Processed</div>
+                        <div class="metric-trend neutral">Last 24 Months</div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <!-- Model Performance Comparison -->
+                    <div class="chart-container">
+                        <h3>Analytical Approach Performance (Error %)</h3>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-label">Legacy Excel</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-baseline" style="width: 100%;" data-value="29.0%">29.0%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">SQL Moving Avg</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-baseline" style="width: 62%;" data-value="18.0%">18.0%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Power BI DAX</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 48%;" data-value="14.0%">14.0%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Python Stats</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 41%;" data-value="12.0%">12.0%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Combined Model</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-best" style="width: 20%;" data-value="5.8%">5.8%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note">Lower error rate indicates better accuracy. Combined model integrates SQL trend analysis (35%), Python statistical models (40%), and Power BI DAX calculations (25%).</p>
+                    </div>
+
+                    <!-- Regional Forecast Breakdown -->
+                    <div class="chart-container">
+                        <h3>Q4 2024 Regional Revenue Forecast</h3>
+                        <div class="donut-chart">
+                            <svg viewBox="0 0 200 200" width="200" height="200">
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="30"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#14b8a6" stroke-width="30"
+                                        stroke-dasharray="157 503" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#0d9488" stroke-width="30"
+                                        stroke-dasharray="126 503" stroke-dashoffset="-157" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#d2b48c" stroke-width="30"
+                                        stroke-dasharray="94 503" stroke-dashoffset="-283" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#c9a875" stroke-width="30"
+                                        stroke-dasharray="63 503" stroke-dashoffset="-377" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#b89660" stroke-width="30"
+                                        stroke-dasharray="63 503" stroke-dashoffset="-440" transform="rotate(-90 100 100)"/>
+                            </svg>
+                            <div class="donut-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #14b8a6;"></span>
+                                    <span class="legend-label">Northeast: $265M (31%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #0d9488;"></span>
+                                    <span class="legend-label">Southeast: $212M (25%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #d2b48c;"></span>
+                                    <span class="legend-label">Midwest: $161M (19%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #c9a875;"></span>
+                                    <span class="legend-label">Southwest: $106M (12.5%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #b89660;"></span>
+                                    <span class="legend-label">West: $103M (12.5%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12-Month Forecast Trend -->
+                    <div class="chart-container full-width">
+                        <h3>12-Month Rolling Revenue Forecast with Confidence Intervals</h3>
+                        <div class="line-chart">
+                            <svg viewBox="0 0 600 250" width="100%" height="250">
+                                <!-- Grid lines -->
+                                <line x1="50" y1="200" x2="550" y2="200" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="150" x2="550" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="100" x2="550" y2="100" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="50" x2="550" y2="50" stroke="#e0e0e0" stroke-width="1"/>
+                                
+                                <!-- Confidence interval area -->
+                                <path d="M 50,180 L 92,175 L 133,165 L 175,155 L 217,140 L 258,135 L 300,130 L 342,132 L 383,138 L 425,145 L 467,155 L 508,165 L 550,172 L 550,128 L 508,115 L 467,105 L 425,95 L 383,82 L 342,78 L 300,70 L 258,75 L 217,80 L 175,95 L 133,105 L 92,115 L 50,120 Z" fill="#14b8a6" opacity="0.2"/>
+                                
+                                <!-- Actual revenue line (historical) -->
+                                <polyline points="50,150 92,145 133,135 175,125 217,110" fill="none" stroke="#0d9488" stroke-width="3"/>
+                                
+                                <!-- Forecast line -->
+                                <polyline points="217,110 258,105 300,100 342,105 383,110 425,120 467,130 508,140 550,150" fill="none" stroke="#14b8a6" stroke-width="3" stroke-dasharray="5,5"/>
+                                
+                                <!-- Data points -->
+                                <circle cx="50" cy="150" r="4" fill="#0d9488"/>
+                                <circle cx="92" cy="145" r="4" fill="#0d9488"/>
+                                <circle cx="133" cy="135" r="4" fill="#0d9488"/>
+                                <circle cx="175" cy="125" r="4" fill="#0d9488"/>
+                                <circle cx="217" cy="110" r="4" fill="#0d9488"/>
+                                <circle cx="258" cy="105" r="4" fill="#14b8a6"/>
+                                <circle cx="300" cy="100" r="4" fill="#14b8a6"/>
+                                <circle cx="342" cy="105" r="4" fill="#14b8a6"/>
+                                <circle cx="383" cy="110" r="4" fill="#14b8a6"/>
+                                <circle cx="425" cy="120" r="4" fill="#14b8a6"/>
+                                <circle cx="467" cy="130" r="4" fill="#14b8a6"/>
+                                <circle cx="508" cy="140" r="4" fill="#14b8a6"/>
+                                <circle cx="550" cy="150" r="4" fill="#14b8a6"/>
+                                
+                                <!-- Y-axis labels -->
+                                <text x="35" y="205" font-size="12" fill="#666" text-anchor="end">$600M</text>
+                                <text x="35" y="155" font-size="12" fill="#666" text-anchor="end">$700M</text>
+                                <text x="35" y="105" font-size="12" fill="#666" text-anchor="end">$800M</text>
+                                <text x="35" y="55" font-size="12" fill="#666" text-anchor="end">$900M</text>
+                                
+                                <!-- X-axis labels -->
+                                <text x="50" y="225" font-size="11" fill="#666" text-anchor="middle">Oct'24</text>
+                                <text x="133" y="225" font-size="11" fill="#666" text-anchor="middle">Dec'24</text>
+                                <text x="217" y="225" font-size="11" fill="#666" text-anchor="middle">Feb'25</text>
+                                <text x="300" y="225" font-size="11" fill="#666" text-anchor="middle">Apr'25</text>
+                                <text x="383" y="225" font-size="11" fill="#666" text-anchor="middle">Jun'25</text>
+                                <text x="467" y="225" font-size="11" fill="#666" text-anchor="middle">Aug'25</text>
+                                <text x="550" y="225" font-size="11" fill="#666" text-anchor="middle">Oct'25</text>
+                                
+                                <!-- Legend -->
+                                <line x1="420" y1="30" x2="450" y2="30" stroke="#0d9488" stroke-width="3"/>
+                                <text x="455" y="35" font-size="12" fill="#666">Actual</text>
+                                
+                                <line x1="500" y1="30" x2="530" y2="30" stroke="#14b8a6" stroke-width="3" stroke-dasharray="5,5"/>
+                                <text x="535" y="35" font-size="12" fill="#666">Forecast</text>
+                            </svg>
+                        </div>
+                        <p class="chart-note">Shaded area represents 95% confidence interval (±2.1% variance). Forecast accuracy improves for near-term predictions (1-3 months).</p>
+                    </div>
+                </div>
+
+                <!-- Performance Stats Grid -->
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">5.8%</div>
+                        <div class="stat-label">Mean Absolute Percentage Error (MAPE)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0.967</div>
+                        <div class="stat-label">R² Score (Model Fit)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$38M</div>
+                        <div class="stat-label">Avg Forecast Error Reduced</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2.1%</div>
+                        <div class="stat-label">95% Confidence Interval</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau Dashboard Access -->
+            <div class="tableau-access-box">
+                <div class="tableau-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Full Interactive Tableau Dashboard Available</h3>
+                <p>The complete Tableau dashboard includes:</p>
+                <ul class="dashboard-features">
+                    <li><i class="fas fa-check-circle"></i> Real-time forecast accuracy tracking across all regions and product lines</li>
+                    <li><i class="fas fa-check-circle"></i> Interactive drill-down capabilities by time period, geography, and customer segment</li>
+                    <li><i class="fas fa-check-circle"></i> Model performance comparison with historical baseline metrics</li>
+                    <li><i class="fas fa-check-circle"></i> Scenario analysis tools for what-if revenue planning</li>
+                    <li><i class="fas fa-check-circle"></i> Automated alerts for forecast drift and model retraining triggers</li>
+                    <li><i class="fas fa-check-circle"></i> Executive summary views with KPI scorecards</li>
+                </ul>
+                <p class="tableau-note"><strong>Note:</strong> This dashboard is hosted on AT&T's internal Tableau Server with proprietary data. The visualizations shown above represent the dashboard's functionality and metrics. Available for demonstration upon request.</p>
+            </div>
+        </section>
+
+        <!-- Technical Architecture -->
+        <section class="section">
+            <h2>Solution Architecture</h2>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>Data Sources</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box source">Salesforce CRM<br/><small>Contract & Opportunity Data</small></div>
+                        <div class="arch-box source">SAP ERP<br/><small>Billing & Revenue</small></div>
+                        <div class="arch-box source">Oracle Financials<br/><small>GL & Actuals</small></div>
+                        <div class="arch-box source">Network Systems<br/><small>Capacity & Usage</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Data Integration Layer</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box integration">AWS Glue ETL<br/><small>Data Extraction & Transformation</small></div>
+                        <div class="arch-box integration">Fivetran<br/><small>SaaS Connectors</small></div>
+                        <div class="arch-box integration">dbt<br/><small>Data Modeling</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Data Warehouse</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box warehouse">Snowflake Data Warehouse<br/><small>512M Historical Records | 2.3TB Storage</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Analytics Pipeline (Python & SQL)</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box ml">SQL Analytics<br/><small>Window Functions | CTEs</small></div>
+                        <div class="arch-box ml">Python Analysis<br/><small>Pandas | NumPy | PySpark</small></div>
+                        <div class="arch-box ml">Statistical Models<br/><small>Time Series | Correlation</small></div>
+                        <div class="arch-box ml">Automation<br/><small>Airflow DAGs</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Analytics & Visualization</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box viz">Tableau Server<br/><small>Executive Dashboards</small></div>
+                        <div class="arch-box viz">Power BI<br/><small>DAX | Power Query</small></div>
+                        <div class="arch-box viz">Email Reports<br/><small>Automated Distribution</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Details -->
+        <section class="section">
+            <h2>Implementation Process</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Data Discovery & Requirements (Week 1-2)</h3>
+                        <p><strong>Team Collaboration:</strong> Led cross-functional stakeholder interviews and requirement gathering sessions with:</p>
+                        <ul>
+                            <li><strong>Finance Team (CFO, FP&A Directors, Budget Analysts):</strong> Identified forecast accuracy requirements, budget cycle timelines, and reporting needs. Gathered existing Excel-based forecasting methodologies and pain points.</li>
+                            <li><strong>Sales Operations Team:</strong> Mapped customer contract renewal cycles, sales pipeline data sources, and revenue recognition rules. Defined key dimensions (region, product line, customer segment).</li>
+                            <li><strong>Network Planning & Capacity Engineering:</strong> Discussed network utilization patterns, capacity planning requirements, and infrastructure cost drivers. Identified correlation between revenue forecasts and capacity investments.</li>
+                            <li><strong>Data Engineering Team:</strong> Conducted technical discovery on 15 source systems (Salesforce CRM, SAP ERP, Oracle Financials, network performance databases). Assessed data quality, latency, and integration complexity.</li>
+                            <li><strong>IT Infrastructure & Cloud Engineering:</strong> Evaluated cloud platform options (AWS, Snowflake), compute requirements, and security/compliance constraints for handling financial data.</li>
+                            <li><strong>Business Intelligence Team:</strong> Reviewed existing Tableau dashboards, Power BI reports, and executive reporting requirements. Defined visualization and drill-down capabilities needed.</li>
+                        </ul>
+                        <p><strong>Deliverables:</strong> Established baseline metrics (71% forecast accuracy, 2-3 week cycle time), defined success criteria (>90% accuracy, <5 hour cycle time, 12-month rolling forecasts), and created project charter approved by Finance VP and CTO.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3 id="data-pipeline">Data Pipeline Development (Week 3-6)</h3>
+                        <p><strong>Team Collaboration:</strong> Partnered closely with Data Engineering and IT teams:</p>
+                        <ul>
+                            <li><strong>Data Engineering Team:</strong> Co-designed Snowflake data warehouse schema with fact/dimension tables optimized for time-series analysis. Pair-programmed dbt models for data transformation and quality validation. Jointly implemented CDC (Change Data Capture) for incremental loads.</li>
+                            <li><strong>Platform Engineering (Fivetran Administration):</strong> Configured Fivetran connectors for Salesforce, SAP, and Oracle data sources. Established sync schedules and monitored initial data loads (1.8TB historical data).</li>
+                            <li><strong>Cloud Engineering Team:</strong> Developed AWS Glue jobs for network performance data extraction from legacy systems. Optimized S3 data lake partitioning strategy and implemented IAM security policies.</li>
+                            <li><strong>Data Governance Team:</strong> Implemented PII masking rules, established data lineage tracking, and ensured GDPR/SOX compliance for financial data handling.</li>
+                            <li><strong>Database Administrators:</strong> Tuned Snowflake warehouse sizing (X-Large compute), clustering keys for query performance, and storage optimization strategies.</li>
+                        </ul>
+                        <p><strong>Technical Contributions:</strong> Built SQL-based data quality framework with 37 validation rules, created data profiling reports, and established automated data freshness monitoring. Daily incremental pipeline processing 2.1M new records with <30 min latency.</p>
+                        <div class="code-block">
+                            <h4>Snowflake Data Model (dbt)</h4>
+                            <pre><code>-- models/marts/forecasting/fct_revenue_daily.sql
+{{
+    config(
+        materialized='incremental',
+        unique_key='revenue_date_id',
+        cluster_by=['revenue_date', 'region_id'],
+        tags=['forecasting', 'core']
+    )
+}}
+
+WITH revenue_base AS (
+    SELECT 
+        r.revenue_date,
+        r.region_id,
+        r.product_id,
+        r.customer_segment_id,
+        SUM(r.revenue_amount) AS daily_revenue,
+        COUNT(DISTINCT r.customer_id) AS active_customers,
+        AVG(r.contract_value) AS avg_contract_value
+    FROM {{ ref('stg_sap__revenue') }} r
+    WHERE r.revenue_type = 'RECURRING'
+    {% if is_incremental() %}
+        AND r.revenue_date > (SELECT MAX(revenue_date) FROM {{ this }})
+    {% endif %}
+    GROUP BY 1,2,3,4
+),
+
+network_metrics AS (
+    SELECT
+        n.metric_date,
+        n.region_id,
+        AVG(n.bandwidth_utilization_pct) AS avg_utilization,
+        SUM(n.capacity_gb) AS total_capacity_gb
+    FROM {{ ref('stg_network__performance') }} n
+    GROUP BY 1,2
+),
+
+economic_indicators AS (
+    SELECT
+        e.indicator_date,
+        e.region_id,
+        e.gdp_growth_rate,
+        e.unemployment_rate,
+        e.consumer_confidence_index
+    FROM {{ ref('stg_external__economic_data') }} e
+)
+
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['rb.revenue_date', 'rb.region_id', 'rb.product_id']) }} AS revenue_date_id,
+    rb.revenue_date,
+    rb.region_id,
+    rb.product_id,
+    rb.customer_segment_id,
+    rb.daily_revenue,
+    rb.active_customers,
+    rb.avg_contract_value,
+    nm.avg_utilization,
+    nm.total_capacity_gb,
+    ei.gdp_growth_rate,
+    ei.unemployment_rate,
+    ei.consumer_confidence_index,
+    -- Time-based features
+    EXTRACT(MONTH FROM rb.revenue_date) AS month_num,
+    EXTRACT(QUARTER FROM rb.revenue_date) AS quarter_num,
+    EXTRACT(DAYOFWEEK FROM rb.revenue_date) AS day_of_week,
+    CASE WHEN EXTRACT(MONTH FROM rb.revenue_date) IN (11,12) THEN 1 ELSE 0 END AS is_holiday_season
+FROM revenue_base rb
+LEFT JOIN network_metrics nm 
+    ON rb.revenue_date = nm.metric_date 
+    AND rb.region_id = nm.region_id
+LEFT JOIN economic_indicators ei
+    ON rb.revenue_date = ei.indicator_date
+    AND rb.region_id = ei.region_id</code></pre>
+                        </div>
+
+                        <div class="thought-process">
+                            <h4>The 15-System Data Integration Nightmare</h4>
+                            <p>Here's what nobody tells you about enterprise forecasting: the hardest part isn't the ML—it's getting clean, reliable data. AT&T had revenue data scattered across 15 different systems: Salesforce for pipeline, SAP for billing, Oracle for financials, plus 12 legacy network databases. The first time I tried joining them? Absolute chaos. Customer IDs didn't match (Salesforce used alphanumeric, SAP used integers). Revenue dates were off by a day because of timezone handling. Some systems recognized revenue at invoice, others at payment. I spent three weeks just creating a data dictionary—literally sitting with Finance, Sales Ops, and Network teams to understand what each field ACTUALLY meant. The breakthrough came when I built a "canonical mapping layer" in dbt that translated every system's quirks into a unified schema. That unglamorous work—reconciling field names, handling null values, building validation rules—took 40% of the project timeline. But without it, the most sophisticated ML model would have been garbage-in-garbage-out.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Feature Engineering & Model Development (Week 7-12)</h3>
+                        <p><strong>Team Collaboration:</strong> Worked with Analytics and Data Science peers:</p>
+                        <ul>
+                            <li><strong>Senior Data Scientists:</strong> Brainstormed feature engineering strategies in weekly modeling sessions. Reviewed statistical approaches for time-series analysis, seasonality decomposition, and trend detection. Peer-reviewed Python code for feature generation pipelines.</li>
+                            <li><strong>Domain Experts (Finance & Sales):</strong> Validated business logic for lag periods, contract renewal cycles, and seasonal patterns. Incorporated domain knowledge about fiscal year-end effects, holiday shopping trends, and industry-specific cycles.</li>
+                            <li><strong>Analytics Engineering Team:</strong> Optimized SQL queries for feature computation in Snowflake. Implemented materialized views for rolling calculations and window functions to reduce compute costs.</li>
+                            <li><strong>Machine Learning Platform Team:</strong> Set up Python environment (Pandas, NumPy, Scikit-learn), configured Jupyter notebooks for experimentation, and established model training infrastructure.</li>
+                        </ul>
+                        <p><strong>Technical Contributions:</strong> Engineered 87 features including lag variables (7d, 14d, 30d, 90d, 180d, 365d), rolling statistics (mean, std, min, max), seasonality indicators (month sin/cos, day-of-week encoding, holiday proximity), growth metrics (MoM, YoY, acceleration), and interaction terms (revenue per customer, utilization × capacity). Tested multiple statistical approaches achieving progressive accuracy improvements.</p>
+                        <div class="code-block">
+                            <h4>Feature Engineering Pipeline (Python)</h4>
+                            <pre><code>import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from typing import List, Tuple
+
+class RevenueFeatureEngineering:
+    """
+    Feature engineering pipeline for revenue forecasting.
+    Generates lag features, rolling statistics, seasonality indicators.
+    """
+    
+    def __init__(self, lag_periods: List[int] = [7, 14, 30, 90]):
+        self.lag_periods = lag_periods
+        self.scaler = StandardScaler()
+        
+    def create_lag_features(self, df: pd.DataFrame, 
+                           target_col: str = 'daily_revenue') -> pd.DataFrame:
+        """Create lag features for time series"""
+        for lag in self.lag_periods:
+            df[f'revenue_lag_{lag}d'] = df.groupby('region_id')[target_col].shift(lag)
+        return df
+    
+    def create_rolling_features(self, df: pd.DataFrame,
+                               target_col: str = 'daily_revenue') -> pd.DataFrame:
+        """Create rolling window statistics"""
+        windows = [7, 14, 30, 90]
+        for window in windows:
+            df[f'revenue_rolling_mean_{window}d'] = (
+                df.groupby('region_id')[target_col]
+                .transform(lambda x: x.rolling(window, min_periods=1).mean())
+            )
+            df[f'revenue_rolling_std_{window}d'] = (
+                df.groupby('region_id')[target_col]
+                .transform(lambda x: x.rolling(window, min_periods=1).std())
+            )
+        return df
+    
+    def create_seasonality_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Create cyclical time-based features"""
+        # Month cyclical encoding
+        df['month_sin'] = np.sin(2 * np.pi * df['month_num'] / 12)
+        df['month_cos'] = np.cos(2 * np.pi * df['month_num'] / 12)
+        
+        # Day of week cyclical encoding
+        df['dow_sin'] = np.sin(2 * np.pi * df['day_of_week'] / 7)
+        df['dow_cos'] = np.cos(2 * np.pi * df['day_of_week'] / 7)
+        
+        # Holiday proximity (days to nearest major holiday)
+        df['days_to_holiday'] = self._calculate_holiday_distance(df['revenue_date'])
+        
+        return df
+    
+    def create_growth_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Calculate growth rates and momentum indicators"""
+        df['revenue_mom_growth'] = df.groupby('region_id')['daily_revenue'].pct_change(30)
+        df['revenue_yoy_growth'] = df.groupby('region_id')['daily_revenue'].pct_change(365)
+        df['customer_growth_30d'] = df.groupby('region_id')['active_customers'].pct_change(30)
+        
+        # Revenue acceleration (change in growth rate)
+        df['revenue_acceleration'] = df.groupby('region_id')['revenue_mom_growth'].diff()
+        
+        return df
+    
+    def create_interaction_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Create feature interactions"""
+        df['revenue_per_customer'] = df['daily_revenue'] / df['active_customers'].replace(0, np.nan)
+        df['utilization_x_capacity'] = df['avg_utilization'] * df['total_capacity_gb']
+        df['gdp_x_confidence'] = df['gdp_growth_rate'] * df['consumer_confidence_index']
+        
+        return df
+    
+    def fit_transform(self, df: pd.DataFrame) -> Tuple[pd.DataFrame, List[str]]:
+        """Apply all feature engineering steps"""
+        print("Creating lag features...")
+        df = self.create_lag_features(df)
+        
+        print("Creating rolling features...")
+        df = self.create_rolling_features(df)
+        
+        print("Creating seasonality features...")
+        df = self.create_seasonality_features(df)
+        
+        print("Creating growth features...")
+        df = self.create_growth_features(df)
+        
+        print("Creating interaction features...")
+        df = self.create_interaction_features(df)
+        
+        # Get list of feature columns (exclude target and metadata)
+        feature_cols = [col for col in df.columns if col not in 
+                       ['revenue_date_id', 'revenue_date', 'daily_revenue']]
+        
+        # Handle missing values
+        df[feature_cols] = df[feature_cols].fillna(method='ffill').fillna(0)
+        
+        # Scale features
+        df[feature_cols] = self.scaler.fit_transform(df[feature_cols])
+        
+        print(f"Feature engineering complete. Generated {len(feature_cols)} features.")
+        return df, feature_cols
+    
+    @staticmethod
+    def _calculate_holiday_distance(dates: pd.Series) -> pd.Series:
+        """Calculate days to nearest major holiday"""
+        holidays = pd.to_datetime(['2024-11-28', '2024-12-25', '2025-01-01'])
+        return dates.apply(lambda x: min(abs((x - h).days) for h in holidays))
+
+
+# Usage example
+if __name__ == "__main__":
+    from snowflake_connector import SnowflakeQuery
+    
+    # Load data from Snowflake
+    query = "SELECT * FROM marts.forecasting.fct_revenue_daily WHERE revenue_date >= '2022-01-01'"
+    df = SnowflakeQuery().execute(query)
+    
+    # Apply feature engineering
+    fe = RevenueFeatureEngineering(lag_periods=[7, 14, 30, 90, 180, 365])
+    df_features, feature_columns = fe.fit_transform(df)
+    
+    print(f"\nDataset shape: {df_features.shape}")
+    print(f"Feature columns ({len(feature_columns)}): {feature_columns[:10]}...")
+    print(f"\nSample features:\n{df_features[feature_columns].head()}")</code></pre>
+                        </div>
+
+                        <div class="aha-moment">
+                            <h4>The "87 Features" Revelation</h4>
+                            <p>I'll admit it—when I first started, I was obsessed with finding the "perfect tool." Azure ML Studio? Databricks? AWS SageMaker? I spent days testing different platforms and configurations, trying increasingly complex model setups. Then I hit a wall: no matter what platform I used, accuracy plateaued at around 82%. Frustrated, I went back to basics and asked the Data Scientists a simple question: "What actually DRIVES revenue at AT&T?" That conversation changed everything. They mentioned contract renewal cycles (enterprise clients renew in Q4), fiscal year-end spending surges, network utilization patterns that correlate with demand. I realized I'd been throwing tools at the problem without understanding the DOMAIN. So I pivoted—spent two weeks engineering 87 features based on business logic, not just statistical patterns. Lag variables for 7, 30, 90, and 365 days (matching weekly, monthly, quarterly, and annual cycles). Holiday proximity (Black Friday through New Year's drives enterprise spending). Revenue-per-customer ratios. Network utilization interaction terms. That unglamorous feature work jumped accuracy from 82% to 91%—before I even touched the model ensemble. Lesson learned: domain knowledge beats platform complexity every time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Predictive Model Development (Week 13-16)</h3>
+                        <ul>
+                            <li>Deployed models via Azure ML Studio with automated retraining (MAPE: 8.2%)</li>
+                            <li>Built time-series analysis pipelines in Databricks (MAPE: 7.5%)</li>
+                            <li>Created Python scikit-learn baseline models for comparison (MAPE: 9.1%)</li>
+                            <li>Optimized model weights using statistical validation</li>
+                            <li>Implemented confidence interval estimation using quantile regression</li>
+                            <li>Validated model performance across all regions and product lines</li>
+                        </ul>
+                        <div class="code-block">
+                            <h4>Revenue Forecasting Pipeline</h4>
+                            <pre><code>import pandas as pd
+import numpy as np
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import cross_val_score, TimeSeriesSplit
+from sklearn.metrics import mean_absolute_percentage_error
+from typing import Dict, List, Tuple
+import snowflake.connector
+
+class RevenueForecastPipeline:
+    """
+    Enterprise revenue forecasting pipeline using Python scikit-learn.
+    Integrates with Snowflake data warehouse and Azure ML Studio for deployment.
+    """
+    
+    def __init__(self, snowflake_config: Dict[str, str]):
+        self.sf_config = snowflake_config
+        self.model = None
+        self.feature_columns = None
+        self.metrics = {}
+        
+    def connect_snowflake(self) -> snowflake.connector.SnowflakeConnection:
+        """Establish Snowflake data warehouse connection"""
+        return snowflake.connector.connect(
+            account=self.sf_config['account'],
+            user=self.sf_config['user'],
+            password=self.sf_config['password'],
+            warehouse=self.sf_config['warehouse'],
+            database=self.sf_config['database'],
+            schema=self.sf_config['schema']
+        )
+    
+    def load_training_data(self, query: str) -> pd.DataFrame:
+        """Load historical revenue data from Snowflake"""
+        conn = self.connect_snowflake()
+        df = pd.read_sql(query, conn)
+        conn.close()
+        print(f"Loaded {len(df):,} records from Snowflake")
+        return df
+    
+    def create_time_features(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Engineer time-based features for forecasting"""
+        df = df.copy()
+        df['date'] = pd.to_datetime(df['date'])
+        
+        # Calendar features
+        df['day_of_week'] = df['date'].dt.dayofweek
+        df['month'] = df['date'].dt.month
+        df['quarter'] = df['date'].dt.quarter
+        df['is_month_end'] = df['date'].dt.is_month_end.astype(int)
+        df['is_quarter_end'] = df['date'].dt.is_quarter_end.astype(int)
+        
+        # Lag features (7, 30, 90, 365 days)
+        for lag in [7, 30, 90, 365]:
+            df[f'revenue_lag_{lag}d'] = df['revenue'].shift(lag)
+        
+        # Rolling statistics
+        for window in [7, 30, 90]:
+            df[f'revenue_rolling_mean_{window}d'] = df['revenue'].rolling(window).mean()
+            df[f'revenue_rolling_std_{window}d'] = df['revenue'].rolling(window).std()
+        
+        return df.dropna()
+    
+    def train_model(self, X_train: np.ndarray, y_train: np.ndarray) -> None:
+        """Train Gradient Boosting model with time series cross-validation"""
+        self.model = GradientBoostingRegressor(
+            n_estimators=200,
+            max_depth=6,
+            learning_rate=0.05,
+            min_samples_split=10,
+            min_samples_leaf=5,
+            subsample=0.8,
+            random_state=42
+        )
+        
+        # Time series cross-validation
+        tscv = TimeSeriesSplit(n_splits=5)
+        cv_scores = cross_val_score(self.model, X_train, y_train, 
+                                    cv=tscv, scoring='neg_mean_absolute_percentage_error')
+        
+        self.metrics['cv_mape'] = -cv_scores.mean() * 100
+        print(f"Cross-validation MAPE: {self.metrics['cv_mape']:.2f}%")
+        
+        # Fit final model
+        self.model.fit(X_train, y_train)
+        print("Model training complete.")
+    
+    def generate_forecast(self, X: np.ndarray, periods: int = 12) -> pd.DataFrame:
+        """Generate monthly revenue forecasts with confidence intervals"""
+        predictions = self.model.predict(X)
+        
+        # Bootstrap confidence intervals
+        lower_bound = predictions * 0.95  # 95% CI lower
+        upper_bound = predictions * 1.05  # 95% CI upper
+        
+        forecast_df = pd.DataFrame({
+            'forecast': predictions,
+            'lower_95': lower_bound,
+            'upper_95': upper_bound
+        })
+        
+        return forecast_df
+    
+    def export_to_tableau(self, df: pd.DataFrame, output_path: str) -> None:
+        """Export forecast data for Tableau dashboard integration"""
+        df.to_csv(output_path, index=False)
+        print(f"Forecast exported to {output_path} for Tableau visualization")
+    
+    def predict_with_intervals(self, X: np.ndarray, 
+                               confidence_level: float = 0.95) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Generate predictions with confidence intervals"""
+        ensemble_pred, components = self.predict(X, return_components=True)
+        
+        # Calculate prediction variance across models
+        pred_array = np.array([components[m] for m in components.keys()])
+        pred_std = np.std(pred_array, axis=0)
+        
+        # Confidence interval using normal approximation
+        z_score = 1.96 if confidence_level == 0.95 else 2.576  # 99% CI
+        lower_bound = ensemble_pred - (z_score * pred_std)
+        upper_bound = ensemble_pred + (z_score * pred_std)
+        
+        return ensemble_pred, lower_bound, upper_bound
+    
+    def evaluate(self, X_test: np.ndarray, y_test: np.ndarray) -> Dict[str, float]:
+        """Calculate performance metrics"""
+        predictions = self.predict(X_test)
+        
+        mape = np.mean(np.abs((y_test - predictions) / y_test)) * 100
+        rmse = np.sqrt(np.mean((y_test - predictions) ** 2))
+        mae = np.mean(np.abs(y_test - predictions))
+        r2 = 1 - (np.sum((y_test - predictions) ** 2) / np.sum((y_test - np.mean(y_test)) ** 2))
+        
+        return {
+            'mape': mape,
+            'rmse': rmse,
+            'mae': mae,
+            'r2_score': r2
+        }</code></pre>
+                        </div>
+
+                        <div class="thought-process">
+                            <h4>Why the Combined Approach Won (And Why I Almost Gave Up)</h4>
+                            <p>Three weeks into model development, I was ready to quit. The first Python model hit 8.2% MAPE—solid, but not the breakthrough we needed. Azure ML Studio's AutoML captured sequential patterns beautifully but was unstable, swinging from 6.5% to 12% MAPE depending on configuration. The baseline scikit-learn model was boringly consistent at 9.1% but missed non-linear trends. Then a Data Scientist shared insights on ensemble methods, and I had a lightbulb moment: what if these approaches weren't competing—what if they were complementary? Azure ML excelled at capturing complex feature interactions (like "high utilization + Q4 = revenue spike"). The Databricks pipeline detected subtle temporal dependencies I couldn't engineer manually. Python scikit-learn provided a stable baseline that prevented wild swings. So instead of picking a winner, I built a weighted voting system: 40% Azure ML, 35% Databricks, 25% scikit-learn. Weights optimized through validation data analysis. The result? 5.8% MAPE—better than any single approach. The CFO's reaction when I presented the 94.2% accuracy? "Finally, forecasts I can stake my reputation on." That moment made the three weeks of frustration worth it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Production Deployment & Automation (Week 17-20)</h3>
+                        <p><strong>Team Collaboration:</strong> Coordinated with DevOps, IT Infrastructure, and Business Intelligence teams:</p>
+                        <ul>
+                            <li><strong>DevOps & Platform Engineering:</strong> Containerized forecasting pipeline with Docker. Collaborated on Airflow DAG development for orchestration, scheduling, and error handling. Implemented CI/CD pipelines for automated model deployment.</li>
+                            <li><strong>Cloud Engineering Team:</strong> Provisioned AWS infrastructure (EC2, S3, CloudWatch). Configured auto-scaling policies, monitoring dashboards, and alerting systems. Established backup and disaster recovery procedures.</li>
+                            <li><strong>Database Operations Team:</strong> Optimized Snowflake query performance for real-time forecast retrieval. Created database roles and access controls for forecast tables. Established data retention policies.</li>
+                            <li><strong>Business Intelligence Developers:</strong> Built Tableau dashboards with live Snowflake connections. Designed executive KPI views, regional drill-downs, and forecast accuracy tracking visualizations. Created Power BI dashboards for Finance team.</li>
+                            <li><strong>IT Security & Compliance:</strong> Conducted security review of API endpoints, data encryption, and access logs. Ensured SOX compliance for financial forecast data handling.</li>
+                            <li><strong>Change Management Team:</strong> Coordinated production deployment communications, established rollback procedures, and created user training materials.</li>
+                        </ul>
+                        <p><strong>Technical Contributions:</strong> Deployed automated forecasting pipeline generating daily predictions with 18-minute runtime. Implemented model versioning and experiment tracking. Configured Airflow sensors for data quality checks and model health monitoring. Set up automated email reports distributed to 25+ stakeholders.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <h3>Validation & Continuous Improvement (Week 21-24)</h3>
+                        <p><strong>Team Collaboration:</strong> Partnered with stakeholders for validation and training:</p>
+                        <ul>
+                            <li><strong>Finance Leadership (CFO, FP&A Directors):</strong> Presented 3-month validation results demonstrating 94.2% sustained accuracy. Conducted scenario analysis workshops showing forecast sensitivity to economic variables. Obtained executive approval for full production launch.</li>
+                            <li><strong>Finance Analysts & Budget Teams:</strong> Delivered 4 training sessions (40+ participants) on dashboard interpretation, forecast drill-downs, and confidence interval usage. Created user documentation and quick-reference guides. Established weekly office hours for ongoing support.</li>
+                            <li><strong>Data Quality Team:</strong> Implemented governance framework for model monitoring including forecast drift detection, data freshness checks, and feature distribution alerts. Defined retraining triggers and escalation procedures.</li>
+                            <li><strong>Internal Audit Team:</strong> Documented model methodology, validation procedures, and business controls for SOX compliance. Established audit trail for forecast versioning and approval workflows.</li>
+                            <li><strong>Change Management & Training:</strong> Conducted change impact assessment, created communication plan for stakeholders, and facilitated knowledge transfer to Finance Operations team for ongoing dashboard maintenance.</li>
+                        </ul>
+                        <p><strong>Technical Contributions:</strong> Conducted A/B testing comparing ML forecasts to legacy Excel methods across all regions. Implemented SHAP model explainability for forecast transparency. Created operational runbook documenting pipeline architecture, troubleshooting procedures, and escalation contacts. Established quarterly model review cadence with Finance stakeholders.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Collaboration Section -->
+        <section class="section">
+            <h2>Cross-Functional Team Collaboration</h2>
+            <p class="section-intro">Building a production-grade predictive forecasting system required extensive collaboration across 8 departments and 30+ stakeholders. As the Senior Data Analyst leading this initiative, I served as the bridge between technical teams and business stakeholders, translating requirements into technical solutions and delivering insights that drove strategic decisions.</p>
+            
+            <div class="team-collaboration-grid">
+                <div class="team-card">
+                    <h3><i class="fas fa-chart-pie"></i> Finance & FP&A</h3>
+                    <p><strong>Key Partners:</strong> CFO, FP&A Directors, Budget Analysts, Financial Controllers</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Led weekly requirement gathering sessions to understand forecasting pain points and success metrics</li>
+                        <li>Conducted 8 validation workshops to review forecast accuracy and gather feedback on dashboard design</li>
+                        <li>Delivered 4 training sessions on dashboard interpretation, scenario analysis, and confidence intervals</li>
+                        <li>Presented quarterly business reviews showing ROI and forecast accuracy trends to executive leadership</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Achieved 100% adoption rate across Finance team, replacing all Excel-based forecasting methods</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                    <p><strong>Key Partners:</strong> Senior Data Engineers, Analytics Engineers, Data Architects</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Co-designed Snowflake data warehouse schema optimized for time-series analysis and forecasting queries</li>
+                        <li>Pair-programmed dbt models for data transformation, quality validation, and feature computation</li>
+                        <li>Collaborated on CDC implementation for real-time incremental data loads from 15 source systems</li>
+                        <li>Conducted code reviews ensuring SQL optimization and adherence to data modeling best practices</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Built scalable pipeline processing 512M records with <30 minute latency for daily forecasts</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-network-wired"></i> Network Planning & Capacity Engineering</h3>
+                    <p><strong>Key Partners:</strong> Capacity Planners, Network Architects, Operations Managers</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Analyzed correlation between revenue forecasts and network capacity utilization patterns</li>
+                        <li>Integrated network performance metrics (bandwidth utilization, capacity GB) as forecast features</li>
+                        <li>Delivered regional capacity planning reports enabling proactive infrastructure investments</li>
+                        <li>Established feedback loop for forecast-driven capacity decisions and actual deployment outcomes</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Prevented $8M in network over-provisioning and $4M in emergency capacity additions</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-handshake"></i> Sales Operations</h3>
+                    <p><strong>Key Partners:</strong> Sales Ops Directors, Revenue Operations Analysts, CRM Administrators</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Mapped customer contract renewal cycles and sales pipeline stages for forecasting features</li>
+                        <li>Integrated Salesforce opportunity data and win/loss rates into predictive models</li>
+                        <li>Created sales performance dashboards showing forecast vs actual by region and product line</li>
+                        <li>Participated in quarterly business reviews analyzing sales trends and forecast accuracy</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Improved new product launch forecasts from 65% to 89% accuracy using historical comparable data</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud Engineering & DevOps</h3>
+                    <p><strong>Key Partners:</strong> Platform Engineers, DevOps Specialists, Cloud Architects, Site Reliability Engineers</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Architected AWS infrastructure for model training and inference (EC2, S3, CloudWatch)</li>
+                        <li>Collaborated on Airflow DAG development for pipeline orchestration, scheduling, and monitoring</li>
+                        <li>Implemented CI/CD pipelines with automated testing and deployment for model updates</li>
+                        <li>Configured auto-scaling, alerting, and disaster recovery procedures for production systems</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Deployed highly available forecasting system with 99.7% uptime and 18-minute runtime</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-chart-bar"></i> Business Intelligence</h3>
+                    <p><strong>Key Partners:</strong> Tableau Developers, Power BI Developers, Visualization Designers</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Designed executive dashboards with interactive drill-downs, filters, and scenario planning tools</li>
+                        <li>Built Tableau visualizations showing forecast accuracy, confidence intervals, and regional trends</li>
+                        <li>Created Power BI reports for Finance team with DAX calculations and Power Query transformations</li>
+                        <li>Established dashboard governance including refresh schedules, data lineage, and user access controls</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Delivered 8 interactive dashboards used daily by 50+ executives and analysts</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-shield-alt"></i> IT Security & Compliance</h3>
+                    <p><strong>Key Partners:</strong> Security Engineers, Compliance Officers, Internal Audit Team</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Conducted security reviews for API endpoints, data encryption, and access logging</li>
+                        <li>Implemented PII masking and data governance policies for GDPR/SOX compliance</li>
+                        <li>Documented model methodology, validation procedures, and audit trails for financial forecast data</li>
+                        <li>Established role-based access controls and data classification for sensitive revenue information</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Achieved SOX compliance certification and passed 2 internal audit reviews with zero findings</p>
+                </div>
+
+                <div class="team-card">
+                    <h3><i class="fas fa-users"></i> Data Science & Analytics Community</h3>
+                    <p><strong>Key Partners:</strong> Senior Data Scientists, ML Engineers, Analytics Managers</p>
+                    <p><strong>Collaboration Activities:</strong></p>
+                    <ul>
+                        <li>Participated in weekly modeling sessions brainstorming feature engineering and algorithm selection</li>
+                        <li>Peer-reviewed Python code, statistical approaches, and model validation methodologies</li>
+                        <li>Presented project findings at internal Data Science Guild showcasing ensemble techniques</li>
+                        <li>Mentored junior analysts on time-series forecasting, SQL optimization, and dashboard design</li>
+                    </ul>
+                    <p><strong>Impact:</strong> Contributed best practices adopted by 3 other forecasting projects across organization</p>
+                </div>
+            </div>
+
+            <div class="collaboration-highlight">
+                <h3><i class="fas fa-comments"></i> Communication & Stakeholder Management</h3>
+                <p>Successfully navigated complex stakeholder landscape through:</p>
+                <ul>
+                    <li><strong>Weekly Status Updates:</strong> Sent project updates to 30+ stakeholders with progress, risks, and decisions needed</li>
+                    <li><strong>Bi-weekly Steering Committee:</strong> Presented to executive sponsors (CFO, CTO, VP Finance) for strategic alignment</li>
+                    <li><strong>Technical Working Sessions:</strong> Facilitated 40+ collaborative sessions with Data Engineering, DevOps, and BI teams</li>
+                    <li><strong>Training & Office Hours:</strong> Delivered 12 hours of training and held weekly office hours for 6 months post-launch</li>
+                    <li><strong>Documentation:</strong> Created 250+ pages of technical documentation, user guides, and operational runbooks</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2>Results & Business Impact</h2>
+            <div class="results-grid">
+                <div class="result-card highlight">
+                    <h3>23% Forecast Accuracy Improvement</h3>
+                    <p>Increased from 71% baseline to 94.2% accuracy (5.8% MAPE), reducing forecast error by $38M per quarter</p>
+                </div>
+                <div class="result-card">
+                    <h3>40% Faster Planning Cycles</h3>
+                    <p>Reduced forecast generation time from 2-3 weeks to 3.2 hours, enabling monthly forecast updates vs quarterly</p>
+                </div>
+                <div class="result-card">
+                    <h3>$12M Annual Cost Savings</h3>
+                    <p>Optimized network capacity planning prevented $8M in over-provisioning and $4M in emergency capacity additions</p>
+                </div>
+                <div class="result-card">
+                    <h3>95% Confidence Intervals</h3>
+                    <p>Provided ±2.1% forecast ranges for scenario planning and risk management, improving budget allocation decisions</p>
+                </div>
+                <div class="result-card">
+                    <h3>512M Records Processed</h3>
+                    <p>Scaled to handle 24 months of historical data across 5 regions, 12 product lines, 4 customer segments</p>
+                </div>
+                <div class="result-card">
+                    <h3>Executive Dashboard Adoption</h3>
+                    <p>100% adoption rate across Finance leadership team (8 VPs, CFO), replacing all Excel-based forecasting</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <section class="section">
+            <h2>Technical Challenges & Solutions</h2>
+
+            <div class="aha-moment">
+                <h4>The "Black Box" Crisis That Almost Killed the Project</h4>
+                <p>Week 14. I had just presented the 94.2% accuracy results to the Finance VP. Instead of celebration, I got silence. Then: "How do I know this isn't just luck? How do I explain to the board why we should trust a machine over our analysts?" That question nearly derailed the entire project. I realized I'd been so focused on accuracy that I forgot the human element—Finance teams had built their careers on manual forecasting. They weren't going to abandon decades of experience for a "black box." So I pivoted. I spent two weeks implementing SHAP (SHapley Additive exPlanations) to decompose every single prediction into understandable drivers: "Q4 revenue is up because holiday season (contributes +$12M), plus contract renewals (+$8M), minus seasonal network maintenance (-$3M)." I built a "Forecast Story" feature in Tableau that translated statistical outputs into plain English narratives. The turning point? A Finance Director said, "This is exactly what I do in my head—but you've automated it and made it consistent." That's when adoption shifted from resistance to enthusiasm. Technical accuracy means nothing without organizational trust.</p>
+            </div>
+
+            <div class="challenges">
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Data Quality Issues</h3>
+                    <p><strong>Problem:</strong> Discovered 15% of historical revenue data had timing inconsistencies (backdated transactions, delayed invoice recognition) causing training data corruption.</p>
+                    <p><strong>Solution:</strong> Implemented comprehensive data quality framework in dbt with 37 validation rules, automated anomaly detection using IQR method, and business logic corrections for revenue recognition timing. Built data lineage dashboard showing transformation steps.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Cold Start Problem for New Products</h3>
+                    <p><strong>Problem:</strong> Model struggled to forecast revenue for newly launched products with limited historical data (<3 months), showing 35% MAPE vs 5.8% for mature products.</p>
+                    <p><strong>Solution:</strong> Developed hierarchical forecasting approach using product category-level models for new launches, incorporating market research data and comparable product performance. Transitioned to product-specific models after 6 months of history.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Model Drift During COVID-19</h3>
+                    <p><strong>Problem:</strong> 2020-2021 pandemic data created distribution shift, causing accuracy to drop from 94% to 78% in Q1 2024 retraining.</p>
+                    <p><strong>Solution:</strong> Implemented adaptive weighting scheme giving 60% weight to post-2022 data, added economic volatility features (VIX index, market sentiment), and created ensemble member specializing in high-uncertainty periods. Restored 93.8% accuracy.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Explainability for Finance Teams</h3>
+                    <p><strong>Problem:</strong> Finance stakeholders initially hesitant to trust "black box" ML models, demanding transparency in forecast drivers.</p>
+                    <p><strong>Solution:</strong> Integrated SHAP (SHapley Additive exPlanations) values into Tableau dashboard showing top 10 drivers for each forecast. Created "forecast story" feature explaining why predictions increased/decreased. Conducted 4 training sessions on model interpretation.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Real-Time Reforecasting Requirements</h3>
+                    <p><strong>Problem:</strong> After major contract wins, leadership needed updated forecasts within 2 hours (original batch process took 8 hours).</p>
+                    <p><strong>Solution:</strong> Architected incremental prediction pipeline updating only affected regions/products instead of full reforecast. Optimized feature computation using materialized views in Snowflake. Reduced reforecast time to 18 minutes with same accuracy.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Seasonal Pattern Complexity</h3>
+                    <p><strong>Problem:</strong> Enterprise revenue showed multiple overlapping seasonal patterns (quarterly contracts, holiday effects, fiscal year-end) that simple time series models couldn't capture.</p>
+                    <p><strong>Solution:</strong> Engineered Fourier features capturing multiple seasonality frequencies, added contract renewal calendar as external regressor, and built separate Databricks pipeline for seasonal decomposition. Improved Q4 forecast accuracy from 88% to 96%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Learnings -->
+        <section class="section">
+            <h2>Key Learnings & Best Practices</h2>
+            <div class="learnings">
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Ensemble Models Outperform Single Algorithms</h4>
+                        <p>Individual models achieved 7.5-9.1% MAPE, but weighted ensemble reduced error to 5.8%. Diversity in model architectures (tree-based, neural network) captured different pattern types. Spent extra 20% development time on ensemble optimization that delivered 35% accuracy gain.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Feature Engineering > Model Complexity</h4>
+                        <p>Sophisticated lag features, rolling statistics, and domain-specific variables (contract renewal cycles, network capacity indicators) provided more value than complex model tuning. 87 engineered features improved baseline model from 12.3% to 8.2% MAPE before any hyperparameter optimization.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Business Context Crucial for Adoption</h4>
+                        <p>Technical accuracy alone insufficient for stakeholder buy-in. Adding SHAP explainability, confidence intervals, and "forecast story" narratives increased executive dashboard adoption from 40% to 100%. Weekly office hours with Finance team built trust and gathered improvement ideas.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Automated Monitoring Prevents Silent Failures</h4>
+                        <p>Implemented 12 model health checks (accuracy drift, feature distribution shifts, prediction outliers, data freshness) with Airflow sensors. Caught 3 data pipeline breaks and 1 model drift incident before impacting business decisions. Automated alerts to #data-eng Slack channel enabled 15-minute mean time to detection.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Incremental Deployment Reduces Risk</h4>
+                        <p>Launched ML forecasts as "advisory" alongside manual forecasts for 8 weeks. Ran parallel comparison showing ML consistently outperformed. Built stakeholder confidence before full replacement. Avoided "big bang" deployment risk and identified 2 edge cases needing model refinement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Used -->
+        <section class="section">
+            <h2>Technologies & Tools</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Data Stack</h3>
+                    <ul>
+                        <li>Snowflake (Data Warehouse)</li>
+                        <li>dbt (Data Transformation)</li>
+                        <li>Fivetran (SaaS Connectors)</li>
+                        <li>AWS Glue (ETL)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Analytics & Programming</h3>
+                    <ul>
+                        <li>SQL (Advanced - CTEs, Window Functions)</li>
+                        <li>Python (Pandas, NumPy, scikit-learn)</li>
+                        <li>Azure ML Studio</li>
+                        <li>Databricks</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>Apache Airflow (Orchestration)</li>
+                        <li>AWS CloudWatch (Monitoring)</li>
+                        <li>Git / GitHub Actions</li>
+                        <li>Jira / Confluence</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Visualization</h3>
+                    <ul>
+                        <li>Tableau Server</li>
+                        <li>Power BI (DAX, Power Query)</li>
+                        <li>Excel (Advanced)</li>
+                        <li>Python Plotly</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="analyst-note">
+            <h4>What This Project Taught Me About Data Leadership</h4>
+            <p>Looking back at this project six months later, the technical achievements—94.2% accuracy, $12M savings, 512M records processed—are impressive on paper. But the real lessons were about people, not algorithms. I learned that data projects live or die by stakeholder trust. That the unglamorous work (data cleaning, documentation, training sessions) often matters more than the sophisticated ML. That "good enough" deployed beats "perfect" in development. Most importantly, I discovered that my role as a Data Analyst isn't just to build models—it's to be a translator between business strategy and technical execution. When the CFO now uses my forecasts to confidently present to the board, when Finance Directors no longer spend three weeks in spreadsheet hell, when Network Planning can proactively invest instead of reactively scramble—that's the real impact. The 94.2% accuracy is just the enabler. The transformation in how AT&T makes data-driven decisions? That's the legacy.</p>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="section cta-section">
+            <h2>Interested in Predictive Analytics Solutions?</h2>
+            <p>This project demonstrates the end-to-end process of building production-grade predictive analytics systems for business forecasting. From data engineering to dashboard deployment, I specialize in translating business problems into scalable analytical solutions using SQL, Python, and business intelligence tools.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="archives.html" class="btn btn-secondary">View More Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="case-study-footer">
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+        </div>
+        <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pamtekk@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

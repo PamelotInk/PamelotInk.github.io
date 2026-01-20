@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Cloud Migration Project - Portfolio</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .team-member h4 {
+            margin: 10px 0 5px 0;
+            font-size: 1.1em;
+        }
+
+        .team-member p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .system-flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .system-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px 20px;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            min-width: 150px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .system-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .system-box.destination {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-width: 200px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #667eea;
+            margin: 0 10px;
+        }
+
+        .kpi-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .kpi-card {
+            background: white;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .kpi-card.success {
+            border-left-color: #10b981;
+        }
+
+        .kpi-card.warning {
+            border-left-color: #f59e0b;
+        }
+
+        .kpi-card.info {
+            border-left-color: #3b82f6;
+        }
+
+        .kpi-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1e293b;
+            margin: 10px 0;
+        }
+
+        .kpi-label {
+            color: #64748b;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .kpi-change {
+            color: #10b981;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .optimization-section {
+            background: linear-gradient(135deg, #f6f8fb 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            max-width: 1200px;
+        }
+
+        .metric-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .metric-column {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .metric-column h4 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .metric-column.before h4 {
+            color: #ef4444;
+        }
+
+        .metric-column.after h4 {
+            color: #10b981;
+        }
+
+        .metric-column ul {
+            color: #1f2937;
+            line-height: 1.8;
+        }
+
+        .metric-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Dark mode for optimization section */
+        body.dark-mode .optimization-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+
+        body.dark-mode .metric-column {
+            background: #1e293b;
+            border: 1px solid #475569;
+        }
+
+        body.dark-mode .metric-column h4 {
+            color: inherit;
+        }
+
+        body.dark-mode .metric-column.before h4 {
+            color: #f87171;
+        }
+
+        body.dark-mode .metric-column.after h4 {
+            color: #34d399;
+        }
+
+        body.dark-mode .metric-column ul {
+            color: #e5e7eb;
+        }
+
+        body.dark-mode .milestone-content {
+            background: #1e293b;
+            border: 1px solid #475569;
+            color: #e5e7eb;
+        }
+
+        body.dark-mode .milestone-date {
+            color: #a78bfa;
+        }
+
+        .milestone-timeline {
+            position: relative;
+            padding: 20px 0;
+            margin: 30px 0;
+        }
+
+        .milestone {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+
+        .milestone::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #667eea;
+        }
+
+        .milestone::after {
+            content: '';
+            position: absolute;
+            left: 17px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: #e2e8f0;
+        }
+
+        .milestone:last-child::after {
+            display: none;
+        }
+
+        .milestone-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .milestone-date {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Personal Analyst Notes Styles */
+        .analyst-note {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .analyst-note::before {
+            content: '📝 Team Story';
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #92400e;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .analyst-note p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1f2937;
+        }
+
+        .analyst-note strong {
+            color: #92400e;
+            font-weight: 600;
+        }
+
+        .aha-moment {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-left: 5px solid #3b82f6;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .aha-moment::before {
+            content: '💡 Technical Breakthrough!';
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1e40af;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .aha-moment p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1f2937;
+        }
+
+        .aha-moment strong {
+            color: #1e40af;
+            font-weight: 600;
+        }
+
+        .thought-process {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border-left: 5px solid #a855f7;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .thought-process::before {
+            content: '🤔 Challenge Faced...';
+            font-weight: 700;
+            font-size: 1rem;
+            color: #7e22ce;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .thought-process p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #1f2937;
+        }
+
+        .thought-process strong {
+            color: #7e22ce;
+            font-weight: 600;
+        }
+
+        /* Dark mode styles for personal notes - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-left-color: #2dd4bf;
+        }
+
+        body.dark-mode .analyst-note::before {
+            color: #5eead4;
+        }
+
+        body.dark-mode .analyst-note p {
+            color: #ccfbf1;
+        }
+
+        body.dark-mode .analyst-note strong {
+            color: #5eead4;
+        }
+
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-left-color: #fbbf24;
+        }
+
+        body.dark-mode .aha-moment::before {
+            color: #fde68a;
+        }
+
+        body.dark-mode .aha-moment p {
+            color: #fef3c7;
+        }
+
+        body.dark-mode .aha-moment strong {
+            color: #fde68a;
+        }
+
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-left-color: #c084fc;
+        }
+
+        body.dark-mode .thought-process::before {
+            color: #e9d5ff;
+        }
+
+        body.dark-mode .thought-process p {
+            color: #f3e8ff;
+        }
+
+        body.dark-mode .thought-process strong {
+            color: #e9d5ff;
+        }
+
+        /* Navigation styles */
+        .case-study-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: var(--bg-white);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            color: var(--primary-color);
+            transform: translateX(-4px);
+        }
+
+        .theme-toggle-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-white);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+        }
+
+        /* Header styling to match notebook style */
+        .case-study-header {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        body.dark-mode .case-study-header {
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border-left-color: #a78bfa;
+        }
+
+        .case-study-header .header-content {
+            width: 100%;
+        }
+
+        .case-study-header .project-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-study-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-header .project-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Content width constraints */
+        .case-study-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+        }
+
+        /* Data mapping table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        thead {
+            background: #667eea;
+            color: white;
+        }
+
+        th {
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        tbody {
+            background: white;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        td {
+            padding: 10px;
+            color: #1f2937;
+        }
+
+        td code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #667eea;
+        }
+
+        /* Dark mode for tables */
+        body.dark-mode thead {
+            background: #667eea;
+        }
+
+        body.dark-mode tbody {
+            background: #1e293b;
+        }
+
+        body.dark-mode tbody tr {
+            border-bottom: 1px solid #475569;
+        }
+
+        body.dark-mode td {
+            color: #e5e7eb;
+        }
+
+        body.dark-mode td code {
+            background: #334155;
+            color: #a78bfa;
+        }
+
+        /* Challenge-Solution styling */
+        .challenge-solution {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .challenge-solution h3 {
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .challenge-solution > div {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .challenge-solution p {
+            margin: 0;
+            padding: 1.5rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            min-height: 120px;
+        }
+
+        .challenge-solution p strong {
+            color: var(--primary-color);
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        body.dark-mode .challenge-solution {
+            background: #1e293b;
+            border-left-color: #a78bfa;
+        }
+
+        body.dark-mode .challenge-solution h3 {
+            color: #e5e7eb;
+            border-bottom-color: #475569;
+        }
+
+        body.dark-mode .challenge-solution p {
+            color: #d1d5db;
+            background: #0f172a;
+            border-color: #475569;
+        }
+
+        body.dark-mode .challenge-solution p strong {
+            color: #a78bfa;
+            border-bottom-color: #a78bfa;
+        }
+
+        /* Results grid - 2x2 layout */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .result-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .result-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .result-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .result-card ul li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .result-card ul li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            line-height: 1.5;
+            min-width: 1.2rem;
+            text-align: center;
+        }
+
+        body.dark-mode .result-card {
+            background: #1e293b;
+            border-left-color: #a78bfa;
+        }
+
+        body.dark-mode .result-card h3 {
+            color: #e5e7eb;
+        }
+
+        body.dark-mode .result-card ul li {
+            color: #d1d5db;
+        }
+
+        body.dark-mode .result-card ul li::before {
+            color: #a78bfa;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .challenge-solution > div {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .challenge-solution p {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metric-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .system-flow {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="case-study-nav">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <header class="case-study-header">
+        <div class="header-content">
+            <span class="project-tag">Enterprise Cloud Migration</span>
+            <h1>AT&T Multi-System Cloud Migration</h1>
+            <p class="project-subtitle">Collaborative ETL Pipeline Development for WebPhone, Bynder & Workfront Integration into Snowflake</p>
+        </div>
+    </header>
+
+    <main class="case-study-content">
+        <!-- Project Overview -->
+        <section class="content-section">
+            <h2>Project Overview</h2>
+            <p>Led a cross-functional team to migrate three critical enterprise systems (WebPhone customer data, Bynder digital asset management, and Workfront project management) into a unified Snowflake cloud data warehouse. This large-scale ETL initiative optimized data workflows, improved query performance by 78%, and established real-time analytics capabilities for 5,000+ users across the organization.</p>
+            
+            <div class="analyst-note">
+                <p><strong>How this project started:</strong> Picture this — it's February 2024, and I'm sitting in a conference room with stakeholders from three different departments, each convinced their data system is the most important. WebPhone team needed real-time call analytics, Bynder folks wanted faster asset reporting, and Workfront users were drowning in manual exports. Everyone talking over each other. Classic cross-functional chaos! 😅</p>
+                <p><strong>The lightbulb moment:</strong> Our data architect drew a simple diagram on the whiteboard: three separate databases → one cloud warehouse. "What if," she said, "we could query ALL of this from one place?" The room went silent. That's when we knew we had to make this happen.</p>
+                <p><strong>My role:</strong> As the ETL Lead, I was responsible for designing the data pipelines, coordinating with system owners, and making sure we didn't break anything in production. No pressure, right? 😬</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Business Impact</h3>
+                <ul>
+                    <li>Unified 3 disparate systems serving 5,000+ users into single cloud platform</li>
+                    <li>Reduced data processing time from 6 hours to 45 minutes (87.5% improvement)</li>
+                    <li>Achieved 99.9% data accuracy with automated validation pipelines</li>
+                    <li>Enabled real-time business intelligence dashboards across departments</li>
+                    <li>Reduced infrastructure costs by $250K annually through cloud optimization</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- System Architecture -->
+        <section class="content-section">
+            <h2>System Architecture</h2>
+            <div class="system-flow">
+                <div class="system-box">
+                    <h3>WebPhone</h3>
+                    <p>Customer Data<br>Call Records<br>User Analytics</p>
+                </div>
+                <span class="arrow">→</span>
+                <div class="system-box">
+                    <h3>Bynder</h3>
+                    <p>Digital Assets<br>Media Metadata<br>Usage Tracking</p>
+                </div>
+                <span class="arrow">→</span>
+                <div class="system-box">
+                    <h3>Workfront</h3>
+                    <p>Project Data<br>Resource Plans<br>Time Tracking</p>
+                </div>
+                <span class="arrow">→</span>
+                <div class="system-box destination">
+                    <h3>❄️ Snowflake</h3>
+                    <p>Unified Cloud Data Warehouse</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Dashboard -->
+        <section class="content-section">
+            <h2>Key Performance Indicators</h2>
+            <div class="kpi-dashboard">
+                <div class="kpi-card success">
+                    <div class="kpi-label">Data Processing Speed</div>
+                    <div class="kpi-value">87.5%</div>
+                    <div class="kpi-change">↑ Faster (6hrs → 45min)</div>
+                </div>
+                
+                <div class="kpi-card success">
+                    <div class="kpi-label">Query Performance</div>
+                    <div class="kpi-value">78%</div>
+                    <div class="kpi-change">↑ Improvement</div>
+                </div>
+                
+                <div class="kpi-card success">
+                    <div class="kpi-label">Data Accuracy</div>
+                    <div class="kpi-value">99.9%</div>
+                    <div class="kpi-change">↑ With automated validation</div>
+                </div>
+                
+                <div class="kpi-card info">
+                    <div class="kpi-label">Daily Records Processed</div>
+                    <div class="kpi-value">2.4M</div>
+                    <div class="kpi-change">Across all systems</div>
+                </div>
+                
+                <div class="kpi-card warning">
+                    <div class="kpi-label">System Uptime</div>
+                    <div class="kpi-value">99.95%</div>
+                    <div class="kpi-change">SLA Compliance</div>
+                </div>
+                
+                <div class="kpi-card success">
+                    <div class="kpi-label">Cost Reduction</div>
+                    <div class="kpi-value">$250K</div>
+                    <div class="kpi-change">↓ Annual savings</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Collaboration -->
+        <section class="content-section">
+            <h2>Collaborative Team Structure</h2>
+            <p>Cross-functional team of 8 specialists working in agile sprints with daily standups and weekly retrospectives.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>👤 Data Architect</h4>
+                    <p>System Design</p>
+                    <p>Schema Modeling</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 ETL Lead Engineer</h4>
+                    <p>Pipeline Development</p>
+                    <p>Code Reviews</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 Snowflake Specialist</h4>
+                    <p>Cloud Optimization</p>
+                    <p>Performance Tuning</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 QA Engineer</h4>
+                    <p>Testing Automation</p>
+                    <p>Data Validation</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 Data Analyst</h4>
+                    <p>KPI Development</p>
+                    <p>Dashboard Design</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 DevOps Engineer</h4>
+                    <p>CI/CD Pipelines</p>
+                    <p>Infrastructure</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 Security Specialist</h4>
+                    <p>Data Governance</p>
+                    <p>Compliance</p>
+                </div>
+                
+                <div class="team-member">
+                    <h4>👤 Product Owner</h4>
+                    <p>Stakeholder Mgmt</p>
+                    <p>Requirements</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Stack -->
+        <section class="content-section">
+            <h2>Technology Stack</h2>
+
+            <div class="thought-process">
+                <p><strong>Week 3 crisis:</strong> Remember how I said we had 8 team members? Well, in week 3, our Snowflake Specialist got pulled to another emergency project. Panic mode! 😱</p>
+                <p><strong>What we did:</strong> Had an emergency team huddle. Our Data Architect stepped up to cover cloud optimization, and I paired with her daily to learn Snowflake best practices on the fly. Our DevOps engineer automated the cluster scaling so we didn't have to babysit it. This taught me that <strong>cross-training saves projects</strong>.</p>
+                <p><strong>Silver lining:</strong> By the time our Snowflake expert returned in week 6, three of us could handle basic cloud optimization. The team became more resilient, and honestly, that knowledge transfer made me a better engineer.</p>
+            </div>
+
+            <div class="tech-stack">
+                <span class="tech-badge">Snowflake</span>
+                <span class="tech-badge">Python 3.11</span>
+                <span class="tech-badge">Apache Airflow</span>
+                <span class="tech-badge">DBT (Data Build Tool)</span>
+                <span class="tech-badge">AWS S3</span>
+                <span class="tech-badge">Docker</span>
+                <span class="tech-badge">Pandas</span>
+                <span class="tech-badge">SQLAlchemy</span>
+                <span class="tech-badge">REST APIs</span>
+                <span class="tech-badge">GitHub Actions</span>
+                <span class="tech-badge">Tableau</span>
+                <span class="tech-badge">Great Expectations</span>
+            </div>
+        </section>
+
+        <!-- Optimization Results -->
+        <section class="content-section">
+            <div class="optimization-section">
+                <h2>Performance Optimization Results</h2>
+                <div class="metric-comparison">
+                    <div class="metric-column before">
+                        <h4>❌ Before Migration</h4>
+                        <ul>
+                            <li>6 hour batch processing windows</li>
+                            <li>Siloed data across 3 systems</li>
+                            <li>Manual data reconciliation</li>
+                            <li>24-48 hour reporting lag</li>
+                            <li>$400K annual infrastructure costs</li>
+                            <li>Limited scalability</li>
+                            <li>Complex maintenance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="metric-column after">
+                        <h4>✅ After Migration</h4>
+                        <ul>
+                            <li>45 minute batch processing</li>
+                            <li>Unified cloud data warehouse</li>
+                            <li>Automated validation pipelines</li>
+                            <li>Real-time data availability</li>
+                            <li>$150K annual infrastructure costs</li>
+                            <li>Auto-scaling capabilities</li>
+                            <li>Simplified operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Timeline -->
+        <section class="content-section">
+            <h2>Project Timeline & Milestones</h2>
+
+            <div class="aha-moment">
+                <p><strong>The 45-minute miracle:</strong> When we hit that 87.5% speed improvement (6 hours → 45 minutes), I literally ran to my manager's office. We ran the same query three times just to make sure it wasn't a fluke. It wasn't! 🎉</p>
+                <p><strong>What made the difference:</strong> Three things working together:</p>
+                <p>1. <strong>Snowflake's clustering keys</strong> — Our architect suggested clustering on timestamp + customer_id. BOOM. Query pruning eliminated 80% of scanned data.</p>
+                <p>2. <strong>Incremental loading</strong> — Instead of full refreshes, we switched to CDC (Change Data Capture). Only processing what changed saved us hours.</p>
+                <p>3. <strong>Materialized views</strong> — Pre-aggregating common metrics meant most dashboards pulled from computed tables instead of scanning raw data.</p>
+                <p><strong>Lesson learned:</strong> Sometimes the biggest wins come from smart architecture, not just throwing more compute power at the problem. Work smarter, not harder!</p>
+            </div>
+
+            <div class="milestone-timeline">
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 1-2: Discovery & Planning</div>
+                        <p>System analysis, data profiling, architecture design, and team onboarding</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 3-5: WebPhone Migration</div>
+                        <p>ETL pipeline development for customer data, call records, and analytics (850K daily records)</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 6-8: Bynder Integration</div>
+                        <p>Digital asset metadata extraction and media tracking pipeline (1.2M assets)</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 9-11: Workfront Implementation</div>
+                        <p>Project management data, resource planning, and time tracking integration</p>
+                    </div>
+                </div>
+
+                <div class="analyst-note">
+                    <p><strong>The Workfront nightmare (Week 10):</strong> Workfront's API documentation said they supported incremental exports. They lied. 😤 We discovered this at 11 PM on a Wednesday when our pipeline crashed trying to pull the full dataset every run.</p>
+                    <p><strong>2 AM brainstorm session:</strong> Me, our Data Architect, and two energy drinks. We decided to build our own change tracking using Workfront's audit log endpoint. Scraped the audit events, parsed them, and reconstructed what changed since last run. Hacky? Yes. Did it work? Beautifully.</p>
+                    <p><strong>Team win:</strong> Our QA engineer noticed the audit log wasn't capturing certain field changes. She wrote test cases that would have caught silent data loss. Saved us from a disaster. This is why you never skip QA reviews!</p>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 12-13: Optimization & Testing</div>
+                        <p>Performance tuning, automated testing, data validation, and load testing</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 14-15: UAT & Deployment</div>
+                        <p>User acceptance testing, training, documentation, and production rollout</p>
+                    </div>
+                </div>
+                
+                <div class="milestone">
+                    <div class="milestone-content">
+                        <div class="milestone-date">Week 16: Monitoring & Handoff</div>
+                        <p>Post-deployment monitoring, issue resolution, and knowledge transfer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Mapping Architecture -->
+        <section class="content-section">
+            <h2>Data Mapping & Integration Architecture</h2>
+            <p>Comprehensive cross-system data mapping strategy harmonizing disparate schemas into unified Snowflake data model.</p>
+            
+            <div class="thought-process">
+                <p><strong>Data mapping meetings were WILD:</strong> Imagine three teams arguing about what "customer_id" means. WebPhone calls them "cust_id", Bynder uses "user_uuid", and Workfront has "contact_ref". Same concept, three different identifiers, zero overlap. 🤦</p>
+                <p><strong>The breakthrough:</strong> We created a master mapping workshop. Brought all stakeholders together with pizza and projected every field on a giant screen. For 4 hours straight, we debated, negotiated, and finally agreed on a unified data model. That session saved us weeks of rework.</p>
+                <p><strong>My favorite trick:</strong> Hash keys! When we couldn't rely on natural keys, we generated surrogate keys by hashing (customer_id + source_system + tenant_id). Guaranteed uniqueness across all three systems. Problem solved! 🎯</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>📋 Core Mapping Challenges</h3>
+                <ul>
+                    <li><strong>WebPhone:</strong> Customer interactions mapped from legacy telephony schema to modern call center data model</li>
+                    <li><strong>Bynder:</strong> Digital asset metadata transformed from proprietary DAM structure to standardized content management schema</li>
+                    <li><strong>Workfront:</strong> Project management entities normalized from Workfront's complex hierarchical model to dimensional warehouse design</li>
+                </ul>
+            </div>
+
+            <h3>🗺️ Key Data Mapping Transformations</h3>
+            
+            <div class="challenge-solution">
+                <h4>WebPhone → Snowflake Customer Domain</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source Field (WebPhone)</th>
+                            <th>Target Field (Snowflake)</th>
+                            <th>Transformation Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>cust_id</code></td>
+                            <td><code>customer_key</code></td>
+                            <td>Hash(cust_id + source_system) for uniqueness</td>
+                        </tr>
+                        <tr>
+                            <td><code>call_datetime</code></td>
+                            <td><code>call_timestamp_utc</code></td>
+                            <td>Convert local timezone → UTC</td>
+                        </tr>
+                        <tr>
+                            <td><code>duration</code> (seconds)</td>
+                            <td><code>call_duration_minutes</code></td>
+                            <td>duration / 60, rounded to 2 decimals</td>
+                        </tr>
+                        <tr>
+                            <td><code>status</code> (codes: 1-5)</td>
+                            <td><code>call_outcome</code></td>
+                            <td>CASE mapping: 1→'Completed', 2→'Missed', etc.</td>
+                        </tr>
+                        <tr>
+                            <td><code>agent_num</code></td>
+                            <td><code>agent_key</code></td>
+                            <td>Lookup to dim_agent, join on employee_id</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="challenge-solution">
+                <h4>Bynder → Snowflake Content Domain</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source Field (Bynder)</th>
+                            <th>Target Field (Snowflake)</th>
+                            <th>Transformation Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>assetId</code></td>
+                            <td><code>asset_key</code></td>
+                            <td>MD5(assetId + 'BYNDER') for global uniqueness</td>
+                        </tr>
+                        <tr>
+                            <td><code>metaproperties.campaign</code></td>
+                            <td><code>campaign_name</code></td>
+                            <td>JSON extract, normalize to uppercase</td>
+                        </tr>
+                        <tr>
+                            <td><code>fileSize</code> (bytes)</td>
+                            <td><code>file_size_mb</code></td>
+                            <td>fileSize / 1048576, rounded to 2 decimals</td>
+                        </tr>
+                        <tr>
+                            <td><code>type</code></td>
+                            <td><code>asset_type_code</code></td>
+                            <td>Map to standardized taxonomy (IMG, VID, DOC, AUD)</td>
+                        </tr>
+                        <tr>
+                            <td><code>statistics.downloads</code></td>
+                            <td><code>total_downloads</code></td>
+                            <td>Aggregate from usage tracking events</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                            <td style="padding: 10px;">Aggregate sum across all time periods</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="challenge-solution">
+                <h4>Workfront → Snowflake Project Domain</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source Field (Workfront)</th>
+                            <th>Target Field (Snowflake)</th>
+                            <th>Transformation Logic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>projectID</code></td>
+                            <td><code>project_key</code></td>
+                            <td>Prefix with 'WF_' + projectID for system identification</td>
+                        </tr>
+                        <tr>
+                            <td><code>plannedStartDate</code></td>
+                            <td><code>start_date</code></td>
+                            <td>Convert ISO 8601 → DATE, handle nulls as 'TBD'</td>
+                        </tr>
+                        <tr>
+                            <td><code>workRequired</code> (minutes)</td>
+                            <td><code>planned_hours</code></td>
+                            <td>workRequired / 60, rounded to 1 decimal</td>
+                        </tr>
+                        <tr>
+                            <td><code>status</code> (WORKFRONT enum)</td>
+                            <td><code>project_status</code></td>
+                            <td>Map proprietary codes to standard lifecycle stages</td>
+                        </tr>
+                        <tr>
+                            <td><code>owner.ID</code></td>
+                            <td><code>owner_key</code></td>
+                            <td>Lookup to dim_employee via email matching</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>🔗 Cross-System Entity Resolution</h3>
+            <div class="highlight-box">
+                <h4>Master Data Management Strategy</h4>
+                <ul>
+                    <li><strong>Customer Master:</strong> Unified customer records across WebPhone calls and Workfront contacts using fuzzy name matching + email hash</li>
+                    <li><strong>Employee Master:</strong> Consolidated agent IDs (WebPhone), asset creators (Bynder), and project owners (Workfront) into single dim_employee</li>
+                    <li><strong>Campaign Master:</strong> Linked Bynder campaigns to Workfront marketing projects via naming convention patterns and manual mapping table</li>
+                    <li><strong>Date Dimension:</strong> Standardized all temporal data to conformed date dimension with business calendar flags</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Technical Challenges -->
+        <section class="content-section">
+            <h2>Technical Challenges & Solutions</h2>
+            
+            <div class="challenge-solution">
+                <h3>Challenge 1: Data Schema Inconsistencies</h3>
+                <div>
+                    <p><strong>Problem:</strong> Three systems used different data models, naming conventions, and data types for similar entities.</p>
+                    <p><strong>Solution:</strong> Implemented DBT transformations with standardized dimension tables and conformed business logic. Created comprehensive data dictionary with 500+ field mappings and automated schema validation achieving 99.9% accuracy.</p>
+                </div>
+            </div>
+            
+            <div class="challenge-solution">
+                <h3>Challenge 2: High-Volume Real-Time Processing</h3>
+                <div>
+                    <p><strong>Problem:</strong> WebPhone generated 850K+ records daily requiring near real-time availability.</p>
+                    <p><strong>Solution:</strong> Architected micro-batch processing with Apache Airflow orchestration, utilizing Snowflake's automatic clustering and materialized views for sub-second query performance.</p>
+                </div>
+            </div>
+            
+            <div class="challenge-solution">
+                <h3>Challenge 3: Zero-Downtime Migration</h3>
+                <div>
+                    <p><strong>Problem:</strong> Business-critical systems couldn't tolerate outages during migration.</p>
+                    <p><strong>Solution:</strong> Implemented parallel run strategy with automated reconciliation, gradual traffic shifting, and comprehensive rollback procedures. Achieved 99.95% uptime during migration.</p>
+                </div>
+            </div>
+            
+            <div class="challenge-solution">
+                <h3>Challenge 4: Cross-System Data Quality</h3>
+                <div>
+                    <p><strong>Problem:</strong> Historical data contained duplicates, nulls, and format inconsistencies across systems.</p>
+                    <p><strong>Solution:</strong> Deployed Great Expectations framework for automated data quality checks, implemented data cleansing rules, and created audit trails for all transformations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Repository -->
+        <section class="content-section">
+            <h2>Interactive Project Demonstration</h2>
+            <p>Explore the full technical implementation including data pipelines, transformations, visualizations, and KPI analytics in the Jupyter notebook below.</p>
+            
+            <div class="code-links">
+                <a href="att-cloud-migration-etl.ipynb" class="code-link" download>
+                    📓 Download Jupyter Notebook
+                </a>
+                <a href="att-cloud-migration-etl.ipynb" class="code-link">
+                    🔗 View Implementation Details
+                </a>
+            </div>
+        </section>
+
+        <!-- Results & Impact -->
+        <section class="content-section">
+            <h2>Business Results & Impact</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3>📊 Operational Efficiency</h3>
+                    <ul>
+                        <li>87.5% reduction in data processing time</li>
+                        <li>Eliminated manual data reconciliation (20 hrs/week saved)</li>
+                        <li>Enabled self-service analytics for 5,000+ users</li>
+                    </ul>
+                </div>
+                
+                <div class="result-card">
+                    <h3>💰 Cost Optimization</h3>
+                    <ul>
+                        <li>$250K annual infrastructure cost savings</li>
+                        <li>62.5% reduction in maintenance overhead</li>
+                        <li>Optimized compute resources with auto-scaling</li>
+                    </ul>
+                </div>
+                
+                <div class="result-card">
+                    <h3>🎯 Data Quality</h3>
+                    <ul>
+                        <li>99.9% data accuracy with automated validation</li>
+                        <li>Real-time data lineage and audit trails</li>
+                        <li>Comprehensive data governance framework</li>
+                    </ul>
+                </div>
+                
+                <div class="result-card">
+                    <h3>🚀 Business Enablement</h3>
+                    <ul>
+                        <li>Real-time dashboards for executive decision-making</li>
+                        <li>Cross-system analytics previously impossible</li>
+                        <li>Foundation for ML/AI initiatives</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Learned -->
+        <section class="content-section">
+            <h2>Key Takeaways</h2>
+            <ul>
+                <li><strong>Early Stakeholder Engagement:</strong> Regular communication with business users prevented scope creep and ensured alignment with actual needs</li>
+                <li><strong>Incremental Migration:</strong> Phased approach reduced risk and allowed for course corrections based on early feedback</li>
+                <li><strong>Automated Testing:</strong> Investment in comprehensive test suite paid dividends in catching issues before production</li>
+                <li><strong>Documentation-First:</strong> Maintaining detailed technical documentation facilitated knowledge transfer and onboarding</li>
+                <li><strong>Performance Monitoring:</strong> Real-time monitoring and alerting enabled proactive issue resolution</li>
+            </ul>
+
+            <div class="analyst-note">
+                <p><strong>What I'm most proud of:</strong> It's not the 87.5% speed improvement (though that's pretty sweet). It's the fact that we delivered on time with zero data loss and built something maintainable.</p>
+                <p><strong>The human side:</strong> This project taught me that <strong>technical skills are only half the battle</strong>. The other half is communication, empathy, and keeping your team motivated when things get hard. When our Snowflake Specialist got pulled away, we didn't panic — we adapted. When Workfront's API failed us, we problem-solved together. That's what makes a team great.</p>
+                <p><strong>Unexpected win:</strong> Six months after launch, I got emails from analysts in departments I'd never even heard of, thanking us for enabling analytics they never thought possible. That's when you know you built something valuable.</p>
+                <p><strong>If I could do it again:</strong> I'd invest more time upfront on the data dictionary. We built one halfway through, but if we'd started with it, we would've saved dozens of hours in "wait, what does this field mean?" conversations. Learn from my mistakes! 📚</p>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <section class="content-section">
+            <div class="navigation-buttons">
+                <a href="index.html" class="nav-button">← Back to Portfolio</a>
+                <a href="att-cloud-migration-etl.ipynb" class="nav-button primary">View Full Implementation →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="case-study-footer">
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+        </div>
+        <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check saved theme
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'enabled') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>

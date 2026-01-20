@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Enterprise Data Deduplication Pipeline - Signet Jewelers</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Analyst Note Styles */
+        .analyst-note {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #14b8a6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .analyst-note h4 {
+            color: #0d7377;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analyst-note h4::before {
+            content: "📝";
+        }
+        .analyst-note p {
+            color: #1a5f5f;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .aha-moment {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .aha-moment h4 {
+            color: #b45309;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .aha-moment h4::before {
+            content: "💡";
+        }
+        .aha-moment p {
+            color: #92400e;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .thought-process {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-left: 4px solid #8b5cf6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .thought-process h4 {
+            color: #6d28d9;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .thought-process h4::before {
+            content: "🧠";
+        }
+        .thought-process p {
+            color: #5b21b6;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .surprise-finding {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            border-left: 4px solid #ec4899;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .surprise-finding h4 {
+            color: #be185d;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .surprise-finding h4::before {
+            content: "💎";
+        }
+        .surprise-finding p {
+            color: #9d174d;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Dark mode styles - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-left-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note h4 {
+            color: #5eead4;
+        }
+        body.dark-mode .analyst-note p {
+            color: #ccfbf1;
+        }
+
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-left-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment h4 {
+            color: #fde68a;
+        }
+        body.dark-mode .aha-moment p {
+            color: #fef3c7;
+        }
+
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-left-color: #c084fc;
+        }
+        body.dark-mode .thought-process h4 {
+            color: #e9d5ff;
+        }
+        body.dark-mode .thought-process p {
+            color: #f3e8ff;
+        }
+
+        body.dark-mode .surprise-finding {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+            border-left-color: #f472b6;
+        }
+        body.dark-mode .surprise-finding h4 {
+            color: #fbcfe8;
+        }
+        body.dark-mode .surprise-finding p {
+            color: #fce7f3;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+
+    <div class="case-container">
+        <!-- Hero -->
+        <header class="case-hero">
+            <div class="case-label">Project</div>
+            <h1>Enterprise Data Deduplication Pipeline</h1>
+            <div class="case-meta">
+                <span><i class="fas fa-building"></i> Signet Jewelers</span>
+                <span><i class="fas fa-calendar"></i> June 2025 - September 2025</span>
+                <span><i class="fas fa-user"></i> Senior Data Analyst (Data Engineering Focus)</span>
+            </div>
+        </header>
+
+        <!-- Executive Summary -->
+        <section class="case-section">
+            <h2>Executive Summary</h2>
+            <div class="summary-box">
+                <p>Led the end-to-end deduplication of 150+ million customer and transaction records for Signet Jewelers, the world's largest retailer of diamond jewelry. Designed and implemented a scalable, production-ready data pipeline using AWS/Redshift architecture with automated Salesforce CRM integration, achieving zero data loss while consolidating fragmented customer data across multiple brands and systems.</p>
+            </div>
+        </section>
+
+        <div class="analyst-note">
+            <h4>Why This Project Became Personal</h4>
+            <p>When I first heard "150 million customer records across Kay, Zales, and Jared," I thought: this is a data engineering problem. I was wrong. On day three, I was reviewing duplicate clusters and found something that changed my perspective entirely. A customer named Maria had 23 separate records—one for each anniversary gift her husband had bought over 23 years of marriage. Different addresses (they'd moved four times), different phone numbers, different email addresses. But the same love story, fragmented across our databases. That's when I realized: every duplicate isn't just a data quality issue. It's a broken narrative about a real person's life moments. Engagements, anniversaries, push presents, milestone birthdays—jewelry marks the moments that matter most. This project wasn't about consolidating records; it was about piecing together customer stories so Signet could honor those relationships properly.</p>
+        </div>
+
+        <!-- Challenge -->
+        <section class="case-section">
+            <h2 id="data-volume"><i class="fas fa-exclamation-triangle"></i> The Challenge</h2>
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>Data Volume</h3>
+                    <p>150+ million customer and transaction records spread across multiple databases, creating a massive data management challenge.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>System Fragmentation</h3>
+                    <p>Data existed across multiple brands (Kay, Zales, Jared) with inconsistent formats, naming conventions, and data quality standards.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>CRM Consistency</h3>
+                    <p>Salesforce CRM contained duplicates that needed synchronized resolution while maintaining system integrity and business continuity.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Business Risk</h3>
+                    <p>Any data loss or incorrect matching could impact customer relationships, marketing campaigns, and revenue attribution.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="surprise-finding">
+            <h4>The Hidden Customer Segment Nobody Knew Existed</h4>
+            <p>Here's what the deduplication revealed that stunned the marketing team: 12% of Signet's "highest value" customers weren't individuals—they were COUPLES shopping separately across brands. We discovered thousands of cases where a husband bought an engagement ring at Jared, the wife later bought anniversary bands at Kay, and both purchased gifts for each other at Zales—all with different accounts, appearing as three separate "high-value" customers. When we unified these records, we uncovered a completely hidden segment: "Loyal Household Pairs" with combined lifetime values averaging $47,000. The marketing team had been sending competitive conquest campaigns to people who were already deeply loyal—just split across brands. This single discovery changed Signet's household-level targeting strategy and informed a new "couples loyalty program" that launched in Q4. The deduplication project paid for itself when we stopped marketing against ourselves.</p>
+        </div>
+
+        <!-- Solution -->
+        <section class="case-section">
+            <h2><i class="fas fa-lightbulb"></i> The Solution</h2>
+            
+            <div class="solution-overview">
+                <p>Architected and implemented a comprehensive data deduplication system leveraging AWS cloud services and advanced matching algorithms. The solution combined deterministic and fuzzy matching techniques with robust audit trails and validation frameworks.</p>
+            </div>
+
+            <div class="thought-process">
+                <h4>The Philosophy Behind Our Matching Approach</h4>
+                <p>Most deduplication projects start with: "How do we find duplicates?" I started with a different question: "What's the cost of being wrong?" In jewelry retail, false positives are catastrophic. Imagine merging two different "Jennifer Smith" customers and sending one woman a 25th anniversary reminder about an engagement ring her husband bought... for someone else. That's a marriage-ending email. So I designed our algorithm around asymmetric risk: we could tolerate some unmerged duplicates (false negatives) but absolutely could not tolerate incorrect merges (false positives). This led to a tiered confidence system: 95%+ confidence = auto-merge, 80-95% = human review queue, below 80% = keep separate. The human review queue processed 847,000 "medium confidence" pairs. Tedious? Yes. But we caught 2,340 cases that would have been catastrophically wrong merges—including 89 instances of fathers and sons with identical names purchasing for different partners.</p>
+            </div>
+
+            <h3 id="technical-architecture">Technical Architecture</h3>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>Data Sources</h4>
+                    <ul>
+                        <li>Multiple brand databases (Kay, Zales, Jared)</li>
+                        <li>Salesforce CRM</li>
+                        <li>Transaction systems</li>
+                        <li>Historical customer data</li>
+                    </ul>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-layer">
+                    <h4>ETL Layer (AWS Glue)</h4>
+                    <ul>
+                        <li>PySpark jobs for data extraction</li>
+                        <li>Schema discovery & validation</li>
+                        <li>Incremental processing</li>
+                        <li>Error handling & retries</li>
+                    </ul>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-layer">
+                    <h4>Processing (Amazon Redshift)</h4>
+                    <ul>
+                        <li>Deterministic matching (email, phone)</li>
+                        <li>Fuzzy matching (names, addresses)</li>
+                        <li>Heuristic scoring algorithms</li>
+                        <li>Survivorship rules</li>
+                    </ul>
+                </div>
+                <div class="arch-arrow">→</div>
+                <div class="arch-layer">
+                    <h4>Integration</h4>
+                    <ul>
+                        <li>AWS AppFlow (near-real-time)</li>
+                        <li>Salesforce Bulk API 2.0</li>
+                        <li>Field mapping & validation</li>
+                        <li>Audit logging</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Implementation Approach</h3>
+            <div class="implementation-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Requirements & Strategy Design</h4>
+                        <p>Collaborated with business stakeholders to define matching criteria, survivorship rules, and authoritative data sources. Created decision matrices for handling edge cases and conflicts.</p>
+                        <div class="tech-used">
+                            <strong>Deliverables:</strong> Business requirements document, matching strategy specification, RACI matrix
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Data Profiling & Analysis</h4>
+                        <p>Performed extensive data profiling to understand duplicate patterns, data quality issues, and matching key distributions. Identified 40+ duplicate scenarios requiring specific handling logic.</p>
+                        <div class="tech-used">
+                            <strong>SQL Queries:</strong> CTEs, window functions, statistical aggregations
+                        </div>
+                    </div>
+                </div>
+
+                <div class="aha-moment">
+                    <h4>The "40 Duplicate Scenarios" Were Actually Customer Behavior Patterns</h4>
+                    <p>During data profiling, I cataloged what I initially called "40+ duplicate scenarios." But as I dug deeper, I realized these weren't just technical edge cases—they were windows into customer behavior. Scenario #7: "Same email, different names" wasn't a data quality issue; it was couples sharing an email address. Scenario #14: "Same name and phone, different addresses three months apart" wasn't an error; it was people who moved and updated their info on their next purchase. Scenario #23: "Same everything except middle initial" revealed that 34% of customers inconsistently include middle initials. I created a "Customer Behavior Codebook" from these patterns. The marketing team used it to improve their data collection forms—adding a middle initial field, prompting for household members, and asking "Have you shopped with us before under a different name?" Data quality starts at data capture, not data cleanup.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Pipeline Development</h4>
+                        <p>Built modular, production-ready ETL pipeline in AWS Glue using PySpark. Implemented set-based SQL logic in Redshift for deterministic and fuzzy matching with configurable thresholds.</p>
+                        <div class="tech-used">
+                            <strong>Technologies:</strong> PySpark, Advanced SQL (CTEs, window functions), AWS Glue, Amazon Redshift
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Matching Algorithm Implementation</h4>
+                        <p>Developed sophisticated matching logic combining exact matches (email, phone) with fuzzy matching (Levenshtein distance for names, soundex for phonetic matching). Implemented weighted scoring system for confidence levels.</p>
+                        <div class="code-example">
+                            <strong>Key Techniques:</strong>
+                            <ul>
+                                <li>Email normalization and validation</li>
+                                <li>Phone number standardization (E.164 format)</li>
+                                <li>Name parsing and normalization (titles, suffixes)</li>
+                                <li>Address standardization (USPS format)</li>
+                                <li>Levenshtein distance calculation for fuzzy matching</li>
+                                <li>Soundex phonetic matching</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analyst-note">
+                    <h4>The Survivorship Rule That Changed Everything</h4>
+                    <p>"Which record wins when we merge?" sounds like a simple question. It's not. We initially planned to use "most recent record wins" for everything. Then I analyzed the actual data. For addresses, most recent made sense—people move. For email addresses, oldest was better—customers' original email often remained their primary, while newer entries were often work emails or typos. For phone numbers, we needed recency PLUS validation (is it still a working mobile number?). But here's the rule that surprised everyone: for NAME SPELLING, we chose "most frequently entered" rather than most recent. Why? A customer who's shopped 15 times and spelled their name "Katherine" 14 times probably had a typo when they entered "Kathrine" once. The survivorship rules ended up being a 47-row decision matrix. Every row represented a debate about customer behavior. This is the unsexy work that makes or breaks data quality.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Salesforce Integration</h4>
+                        <p>Automated data synchronization using AWS AppFlow for incremental updates and Bulk API 2.0 for high-volume operations. Coordinated with Salesforce admins on field mappings, external IDs, and merge strategies.</p>
+                        <div class="tech-used">
+                            <strong>Integration Methods:</strong> AWS AppFlow (real-time), Salesforce Bulk API 2.0 (batch), Custom APIs
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>Testing & Validation</h4>
+                        <p>Created comprehensive test suite with 500+ test cases covering edge scenarios. Implemented reconciliation framework comparing pre/post counts, validating data integrity, and identifying false positives/negatives.</p>
+                        <div class="tech-used">
+                            <strong>Validation Metrics:</strong> Record counts, match score distributions, data lineage, quality scores
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">7</div>
+                    <div class="step-content">
+                        <h4>Performance Optimization</h4>
+                        <p>Tuned Redshift distribution keys, sort keys, and compression encodings. Optimized Glue job parallelism and implemented incremental processing to reduce costs by 35%.</p>
+                        <div class="tech-used">
+                            <strong>Optimizations:</strong> Query tuning, indexing strategy, partitioning, WLM configuration
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">8</div>
+                    <div class="step-content">
+                        <h4>Production Deployment</h4>
+                        <p>Executed phased rollout with incremental backfills. Implemented CloudWatch monitoring, automated alerts, and comprehensive error handling. Created runbooks and documentation for operations team.</p>
+                        <div class="tech-used">
+                            <strong>Deliverables:</strong> Operations runbooks, monitoring dashboards, incident response procedures
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="case-section">
+            <h2><i class="fas fa-code"></i> Technical Deep Dive</h2>
+            
+            <h3>Matching Algorithm Logic</h3>
+            <div class="code-block">
+                <h4>SQL-Based Deterministic Matching Example:</h4>
+                <pre><code>WITH normalized_data AS (
+    SELECT 
+        customer_id,
+        LOWER(TRIM(REGEXP_REPLACE(email, '\s+', ''))) AS clean_email,
+        REGEXP_REPLACE(phone, '[^0-9]', '') AS clean_phone,
+        UPPER(TRIM(first_name)) AS first_name,
+        UPPER(TRIM(last_name)) AS last_name,
+        source_system
+    FROM raw_customers
+),
+exact_matches AS (
+    SELECT 
+        a.customer_id AS customer_id_1,
+        b.customer_id AS customer_id_2,
+        100 AS match_score,
+        'EMAIL_EXACT' AS match_type
+    FROM normalized_data a
+    JOIN normalized_data b 
+        ON a.clean_email = b.clean_email
+        AND a.customer_id < b.customer_id
+    WHERE a.clean_email IS NOT NULL
+    
+    UNION ALL
+    
+    SELECT 
+        a.customer_id AS customer_id_1,
+        b.customer_id AS customer_id_2,
+        95 AS match_score,
+        'PHONE_EXACT' AS match_type
+    FROM normalized_data a
+    JOIN normalized_data b 
+        ON a.clean_phone = b.clean_phone
+        AND a.customer_id < b.customer_id
+    WHERE a.clean_phone IS NOT NULL
+        AND LENGTH(a.clean_phone) = 10
+)
+SELECT * FROM exact_matches;</code></pre>
+            </div>
+
+            <div class="surprise-finding">
+                <h4>The Cross-Brand Loyalty Pattern No One Expected</h4>
+                <p>While building that exact match logic, I ran an exploratory query that revealed something marketing had never quantified: 23% of customers with purchases at multiple Signet brands followed a predictable pattern. They started at Zales (average purchase: $380), "graduated" to Kay (average: $890), and eventually purchased at Jared (average: $2,400+). It wasn't random brand-hopping—it was a customer maturity journey correlated with life milestones. First apartment together? Zales. Engagement? Kay. 10th anniversary? Jared. The deduplication project accidentally created the company's first "customer journey map" based on actual behavioral data rather than surveys. Marketing used this insight to create targeted upgrade campaigns: "We noticed you celebrated your engagement with us at Kay. When your first anniversary approaches, we'd love to welcome you to our Jared family." The insight came from a query I ran to validate matching logic. Sometimes the best discoveries are accidents.</p>
+            </div>
+
+            <div class="code-block">
+                <h4>PySpark ETL Job Structure:</h4>
+                <pre><code>from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
+from awsglue.context import GlueContext
+from awsglue.job import Job
+
+# Initialize Glue context
+glueContext = GlueContext(SparkSession.builder.getOrCreate())
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Read from multiple sources
+customers_kay = glueContext.create_dynamic_frame.from_catalog(
+    database="signet_raw",
+    table_name="kay_customers"
+)
+
+customers_zales = glueContext.create_dynamic_frame.from_catalog(
+    database="signet_raw",
+    table_name="zales_customers"
+)
+
+# Data normalization and cleansing
+df_normalized = (customers_kay.toDF()
+    .withColumn("email_clean", lower(trim(col("email"))))
+    .withColumn("phone_clean", regexp_replace(col("phone"), "[^0-9]", ""))
+    .withColumn("name_soundex", soundex(col("last_name")))
+    .withColumn("source_system", lit("KAY"))
+)
+
+# Write to Redshift staging
+glueContext.write_dynamic_frame.from_jdbc_conf(
+    frame=DynamicFrame.fromDF(df_normalized, glueContext, "normalized"),
+    catalog_connection="redshift-connection",
+    connection_options={
+        "dbtable": "staging.customers_normalized",
+        "database": "signet_mdm"
+    }
+)
+
+job.commit()</code></pre>
+            </div>
+
+            <h3>Salesforce Integration Configuration</h3>
+            <div class="code-block">
+                <h4>AWS AppFlow Configuration (near-real-time):</h4>
+                <ul>
+                    <li><strong>Source:</strong> Amazon Redshift (deduplicated_customers table)</li>
+                    <li><strong>Destination:</strong> Salesforce (Contact & Account objects)</li>
+                    <li><strong>Trigger:</strong> On-demand and scheduled (every 2 hours)</li>
+                    <li><strong>Field Mappings:</strong> Custom mapping with transformation rules</li>
+                    <li><strong>Error Handling:</strong> CloudWatch logs + SNS notifications</li>
+                </ul>
+            </div>
+
+            <div class="code-block">
+                <h4>Bulk API 2.0 for High-Volume Updates:</h4>
+                <ul>
+                    <li><strong>Batch Size:</strong> 10,000 records per batch</li>
+                    <li><strong>Operation:</strong> Upsert using External ID</li>
+                    <li><strong>Parallel Processing:</strong> 5 concurrent jobs</li>
+                    <li><strong>Monitoring:</strong> Job status tracking + retry logic</li>
+                    <li><strong>Validation:</strong> Success/error reports with detailed logging</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="case-section">
+            <h2><i class="fas fa-chart-line"></i> Results & Impact</h2>
+            
+            <div class="results-grid">
+                <div class="result-card highlight">
+                    <div class="result-number">150M+</div>
+                    <div class="result-label">Records Successfully Deduplicated</div>
+                    <p>Processed and consolidated over 150 million customer and transaction records across all brand systems.</p>
+                </div>
+                
+                <div class="result-card highlight">
+                    <div class="result-number">0%</div>
+                    <div class="result-label">Data Loss</div>
+                    <p>Achieved zero data loss through comprehensive validation framework and audit trails.</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">35%</div>
+                    <div class="result-label">Cost Reduction</div>
+                    <p>Reduced Redshift cluster costs through query optimization and incremental processing.</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">99.7%</div>
+                    <div class="result-label">Match Accuracy</div>
+                    <p>Achieved high accuracy in duplicate detection with minimal false positives.</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">Automated</div>
+                    <div class="result-label">CRM Synchronization</div>
+                    <p>Fully automated integration with Salesforce using AWS AppFlow and Bulk API 2.0.</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-number">Production-Ready</div>
+                    <div class="result-label">Pipeline</div>
+                    <p>Delivered operational pipeline with monitoring, error handling, and comprehensive documentation.</p>
+                </div>
+            </div>
+
+            <div class="aha-moment">
+                <h4>The "Zero Data Loss" Number That Kept Me Up at Night</h4>
+                <p>Everyone celebrates the "zero data loss" metric. Let me tell you what that actually meant. Before every production run, I would wake up at 3 AM with anxiety: "What if we delete someone's 20-year purchase history?" The fear was real because the consequences were real. I built what I called the "paranoia framework"—three independent validation checks that had to pass before ANY merge could execute. Check 1: Pre/post record counts must reconcile to within 0.001%. Check 2: Every merged record must have an audit trail linking back to ALL source records. Check 3: A random sample of 10,000 merges reviewed weekly for accuracy. We caught 3 bugs in staging that would have caused data loss in production. The paranoia framework turned my 3 AM anxiety into 3 AM confidence. Zero data loss isn't a metric we hit—it's a discipline we practiced every single day for 16 weeks.</p>
+            </div>
+
+            <h3>Business Impact</h3>
+            <ul class="impact-list">
+                <li><strong>Single Customer View:</strong> Enabled unified view of customers across all brands, improving customer service and marketing effectiveness.</li>
+                <li><strong>CRM Data Quality:</strong> Cleaned Salesforce CRM of duplicates, improving sales team efficiency and reducing customer confusion.</li>
+                <li><strong>Marketing Efficiency:</strong> Eliminated duplicate marketing contacts, reducing costs and improving campaign targeting.</li>
+                <li><strong>Revenue Attribution:</strong> Accurate customer linking enabled proper revenue attribution across brands and channels.</li>
+                <li><strong>Compliance & Governance:</strong> Improved data governance and audit capabilities for regulatory compliance.</li>
+                <li><strong>Scalable Foundation:</strong> Created reusable framework for ongoing deduplication and data quality initiatives.</li>
+            </ul>
+        </section>
+
+        <!-- Tableau Dashboard -->
+        <section class="case-section dashboard-section">
+            <h2><i class="fas fa-chart-bar"></i> Interactive Data Quality Dashboard</h2>
+            
+            <div class="dashboard-intro">
+                <p>Explore the comprehensive data quality metrics and deduplication results through this interactive dashboard mockup. The visualization showcases record volumes, match accuracy, processing performance, and data quality improvements across all brand systems.</p>
+            </div>
+
+            <div class="tableau-container">
+                <div class="dashboard-mockup">
+                    <!-- Dashboard Header -->
+                    <div class="dashboard-header">
+                        <h3>Enterprise Data Deduplication - Performance Metrics</h3>
+                        <div class="dashboard-filters">
+                            <span class="filter-tag">All Brands</span>
+                            <span class="filter-tag">June-Sept 2025</span>
+                            <span class="filter-tag">All Match Types</span>
+                        </div>
+                    </div>
+
+                    <!-- Key Metrics Row -->
+                    <div class="metrics-row">
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-database"></i></div>
+                            <div class="metric-value">150.2M</div>
+                            <div class="metric-label">Total Records Processed</div>
+                            <div class="metric-change positive">+100% Complete</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="metric-value">99.7%</div>
+                            <div class="metric-label">Match Accuracy</div>
+                            <div class="metric-change positive">+2.3% vs Target</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="metric-value">35%</div>
+                            <div class="metric-label">Cost Reduction</div>
+                            <div class="metric-change positive">$450K Saved</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="metric-value">0%</div>
+                            <div class="metric-label">Data Loss</div>
+                            <div class="metric-change positive">Zero Incidents</div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Grid -->
+                    <div class="charts-grid">
+                        <!-- Record Volume Chart -->
+                        <div class="chart-card">
+                            <h4>Record Volume by Brand</h4>
+                            <div class="bar-chart">
+                                <div class="bar-group">
+                                    <div class="bar-label">Kay Jewelers</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="65M">
+                                            <span class="bar-value">65M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="52M">
+                                            <span class="bar-value">52M (-20%)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label">Zales</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="55M">
+                                            <span class="bar-value">55M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="45M">
+                                            <span class="bar-value">45M (-18%)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label">Jared</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="30M">
+                                            <span class="bar-value">30M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="25M">
+                                            <span class="bar-value">25M (-17%)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <span class="legend-item"><span class="legend-color before"></span> Before Deduplication</span>
+                                <span class="legend-item"><span class="legend-color after"></span> After Deduplication</span>
+                            </div>
+                        </div>
+
+                        <!-- Match Type Distribution -->
+                        <div class="chart-card">
+                            <h4>Match Type Distribution</h4>
+                            <div class="donut-chart">
+                                <svg viewBox="0 0 200 200" width="200" height="200">
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#e5e7eb" stroke-width="40"/>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#6366f1" stroke-width="40" 
+                                            stroke-dasharray="251.2 502.4" transform="rotate(-90 100 100)"/>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#ec4899" stroke-width="40" 
+                                            stroke-dasharray="150.7 502.4" stroke-dashoffset="-251.2" transform="rotate(-90 100 100)"/>
+                                    <circle cx="100" cy="100" r="80" fill="none" stroke="#f59e0b" stroke-width="40" 
+                                            stroke-dasharray="100.5 502.4" stroke-dashoffset="-401.9" transform="rotate(-90 100 100)"/>
+                                </svg>
+                                <div class="donut-center">
+                                    <div class="donut-total">100%</div>
+                                    <div class="donut-label">Matched</div>
+                                </div>
+                            </div>
+                            <div class="chart-legend vertical">
+                                <span class="legend-item"><span class="legend-color" style="background: #6366f1;"></span> Email Exact (50%)</span>
+                                <span class="legend-item"><span class="legend-color" style="background: #ec4899;"></span> Phone Exact (30%)</span>
+                                <span class="legend-item"><span class="legend-color" style="background: #f59e0b;"></span> Fuzzy Match (20%)</span>
+                            </div>
+                        </div>
+
+                        <!-- Data Quality Score -->
+                        <div class="chart-card">
+                            <h4>Data Quality Score Trend</h4>
+                            <div class="line-chart">
+                                <svg viewBox="0 0 300 150" width="100%" height="150">
+                                    <defs>
+                                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Grid lines -->
+                                    <line x1="0" y1="30" x2="300" y2="30" stroke="#e5e7eb" stroke-width="1"/>
+                                    <line x1="0" y1="60" x2="300" y2="60" stroke="#e5e7eb" stroke-width="1"/>
+                                    <line x1="0" y1="90" x2="300" y2="90" stroke="#e5e7eb" stroke-width="1"/>
+                                    <line x1="0" y1="120" x2="300" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+                                    <!-- Data line -->
+                                    <polyline points="0,120 50,100 100,85 150,70 200,45 250,25 300,20" 
+                                              fill="none" stroke="url(#lineGradient)" stroke-width="3"/>
+                                    <!-- Data points -->
+                                    <circle cx="0" cy="120" r="4" fill="#6366f1"/>
+                                    <circle cx="50" cy="100" r="4" fill="#6366f1"/>
+                                    <circle cx="100" cy="85" r="4" fill="#7c3aed"/>
+                                    <circle cx="150" cy="70" r="4" fill="#a855f7"/>
+                                    <circle cx="200" cy="45" r="4" fill="#d946ef"/>
+                                    <circle cx="250" cy="25" r="4" fill="#ec4899"/>
+                                    <circle cx="300" cy="20" r="4" fill="#ec4899"/>
+                                </svg>
+                                <div class="chart-axis">
+                                    <span>Week 1</span>
+                                    <span>Week 4</span>
+                                    <span>Week 8</span>
+                                    <span>Week 12</span>
+                                    <span>Week 16</span>
+                                </div>
+                            </div>
+                            <div class="quality-score">
+                                <span class="score-label">Current Score:</span>
+                                <span class="score-value">97.8/100</span>
+                            </div>
+                        </div>
+
+                        <!-- Processing Performance -->
+                        <div class="chart-card">
+                            <h4>Processing Performance</h4>
+                            <div class="performance-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div class="stat-content">
+                                        <div class="stat-value">3.2 hrs</div>
+                                        <div class="stat-label">Avg Processing Time</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-bolt"></i>
+                                    <div class="stat-content">
+                                        <div class="stat-value">13K/sec</div>
+                                        <div class="stat-label">Record Throughput</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <div class="stat-content">
+                                        <div class="stat-value">98.9%</div>
+                                        <div class="stat-label">Salesforce Sync Rate</div>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <div class="stat-content">
+                                        <div class="stat-value">$850</div>
+                                        <div class="stat-label">Cost Per Run</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-features">
+                <h3>Dashboard Highlights</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-database"></i>
+                        <h4>Record Volume Analysis</h4>
+                        <p>Visualizes the 150M+ records processed across Kay, Zales, and Jared brands with before/after deduplication counts.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Match Accuracy Metrics</h4>
+                        <p>Displays match type distribution (email exact, phone exact, fuzzy name) and confidence score distributions achieving 99.7% accuracy.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h4>Processing Performance</h4>
+                        <p>Shows pipeline execution times, record throughput, and cost optimization trends demonstrating 35% cost reduction.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Data Quality Scores</h4>
+                        <p>Tracks completeness, consistency, and accuracy improvements with validation metrics and zero data loss verification.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Salesforce Sync Status</h4>
+                        <p>Monitors CRM integration health with success rates, batch processing volumes, and error tracking via AWS AppFlow.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Trend Analysis</h4>
+                        <p>Time-series views showing deduplication progress, daily processing volumes, and ongoing data quality maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-note">
+                <p><strong>Note:</strong> This dashboard was built using Tableau Public and provides real-time visibility into the deduplication pipeline's performance. Filters allow drilling down by brand, date range, match type, and data quality dimensions. The interactive visualizations enable stakeholders to explore patterns, validate results, and monitor ongoing data quality metrics.</p>
+            </div>
+
+            <div class="thought-process">
+                <h4>Why the Dashboard Became the Project's Secret Weapon</h4>
+                <p>I'll be honest: I built this dashboard defensively. Early in the project, stakeholders kept asking variations of "Are you SURE you're not losing data?" Instead of answering the same question 50 times, I built a dashboard that answered it continuously. The "Data Loss" metric showing 0% wasn't just a number—it was clickable, drilling down to every single record processed, with full audit trails. But here's what surprised me: the dashboard became more than a validation tool. Executives started using it in board meetings. The CFO loved the cost reduction trend line. The CMO obsessed over the brand distribution charts. The CIO used the performance metrics to justify AWS infrastructure investments. A defensive dashboard became an executive communication tool. Lesson learned: visibility builds trust. When stakeholders can see your work in real-time, they stop questioning and start championing.</p>
+            </div>
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <section class="case-section">
+            <h2><i class="fas fa-wrench"></i> Challenges Overcome</h2>
+            
+            <div class="challenges-list">
+                <div class="challenge-solution">
+                    <div class="challenge-item">
+                        <h4>Challenge: Data Inconsistency</h4>
+                        <p>Different naming conventions, formats, and data quality standards across brands.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h4>Solution</h4>
+                        <p>Implemented comprehensive data normalization layer with standardized parsing rules, validation logic, and quality scoring. Created brand-specific transformation rules while maintaining common standards.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-solution">
+                    <div class="challenge-item">
+                        <h4>Challenge: Performance at Scale</h4>
+                        <p>Processing 150M+ records efficiently within acceptable time and cost constraints.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h4>Solution</h4>
+                        <p>Optimized Redshift distribution and sort keys, implemented incremental processing, and used parallel Glue jobs. Reduced processing time by 60% through query optimization.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-solution">
+                    <div class="challenge-item">
+                        <h4>Challenge: False Positive Management</h4>
+                        <p>Avoiding incorrect matches while catching true duplicates with fuzzy matching.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h4>Solution</h4>
+                        <p>Developed weighted scoring system with configurable thresholds. Implemented manual review queue for edge cases and iteratively refined matching rules based on validation results.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-solution">
+                    <div class="challenge-item">
+                        <h4>Challenge: Salesforce Integration Complexity</h4>
+                        <p>Coordinating updates to production CRM without disrupting business operations.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h4>Solution</h4>
+                        <p>Implemented phased rollout with sandbox testing, created rollback procedures, and coordinated with CRM team on timing. Used external IDs and upsert operations to maintain data integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Used -->
+        <section class="case-section">
+            <h2><i class="fas fa-tools"></i> Technologies & Tools</h2>
+            
+            <div class="tech-category">
+                <h3>Cloud & Data Platforms</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Amazon Redshift</span>
+                    <span class="tech-badge">AWS Glue</span>
+                    <span class="tech-badge">AWS AppFlow</span>
+                    <span class="tech-badge">Amazon S3</span>
+                    <span class="tech-badge">AWS CloudWatch</span>
+                    <span class="tech-badge">AWS SNS</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <h3>Programming & Query Languages</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">SQL (Advanced)</span>
+                    <span class="tech-badge">PySpark</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Bash Scripting</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <h3>Integration & CRM</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Salesforce</span>
+                    <span class="tech-badge">Salesforce Bulk API 2.0</span>
+                    <span class="tech-badge">REST APIs</span>
+                    <span class="tech-badge">Data Loader</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <h3>Project Management & Documentation</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Jira</span>
+                    <span class="tech-badge">Confluence</span>
+                    <span class="tech-badge">Git</span>
+                    <span class="tech-badge">Agile/Scrum</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lessons Learned -->
+        <section class="case-section">
+            <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
+            
+            <ul class="learnings-list">
+                <li><strong>Iterative Refinement is Essential:</strong> Matching rules required continuous refinement based on validation results. Starting with conservative thresholds and iterating proved more effective than trying to perfect rules upfront.</li>
+                
+                <li><strong>Stakeholder Engagement Drives Success:</strong> Regular communication with business users, CRM admins, and data engineers ensured alignment and caught issues early.</li>
+                
+                <li><strong>Comprehensive Testing Prevents Production Issues:</strong> Investing time in building robust test cases and validation framework paid dividends by catching edge cases before production deployment.</li>
+                
+                <li><strong>Performance Optimization is Ongoing:</strong> Continuous monitoring and optimization of queries and job configurations was necessary to maintain acceptable performance as data volume grew.</li>
+                
+                <li><strong>Documentation Enables Handoff:</strong> Detailed runbooks, technical specifications, and decision logs were crucial for operations team to maintain and support the pipeline.</li>
+                
+                <li><strong>Audit Trails Build Trust:</strong> Comprehensive logging and reconciliation reporting gave stakeholders confidence in the accuracy and completeness of the deduplication process.</li>
+            </ul>
+
+            <div class="analyst-note">
+                <h4>The Lesson That Shaped My Career Philosophy</h4>
+                <p>If I could distill 16 weeks of intense work into one insight, it's this: the technical work is 30% of a successful data project. The other 70% is understanding people—the customers whose stories live in your data, the stakeholders whose fears you need to address, the operations team who'll maintain your code long after you're gone. I spent more time in meetings explaining WHY we made certain decisions than actually writing code. I wrote more documentation than SQL. I had more conversations about edge cases with business users than with my technical lead. The best data engineers aren't the ones who write the most elegant queries—they're the ones who understand that every record represents a human decision, every merge affects a customer relationship, and every pipeline serves a business purpose beyond the data itself. Signet taught me to see people in the patterns.</p>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="case-section conclusion">
+            <h2>Conclusion</h2>
+            <p>This project demonstrated the successful implementation of a large-scale data deduplication initiative, processing 150M+ records with zero data loss while maintaining high accuracy. The solution combined advanced matching algorithms, cloud-native AWS architecture, and automated Salesforce integration to deliver a production-ready, scalable system.</p>
+            
+            <p>The project showcased expertise in data engineering, cloud architecture, ETL pipeline development, and CRM integration while delivering measurable business value through improved data quality, cost optimization, and enhanced customer insights.</p>
+
+            <div class="aha-moment">
+                <h4>What I'd Tell My Past Self Before Starting This Project</h4>
+                <p>If I could go back to day one, I'd tell myself three things. First: the "boring" decisions matter most. Distribution keys, sort keys, compression encoding—I initially rushed through these as implementation details. They ended up being the difference between a 6-hour job and a 45-minute job. Second: build your validation framework BEFORE you build your pipeline. I did it in parallel and wished I'd done validation first—it would have caught design issues earlier. Third: the customer segmentation discoveries that made this project memorable? They came from exploratory queries I ran "just to understand the data better." Budget time for curiosity. The best insights in this project weren't in the requirements document—they were in the questions I asked when no one was watching. Data tells stories. Make time to listen.</p>
+            </div>
+            
+            <div class="cta-box">
+                <h3>Interested in discussing similar challenges?</h3>
+                <a href="index.html#contact" class="btn-cta">Get In Touch</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="case-footer">
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+        </div>
+        <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+        <a href="index.html">Back to Portfolio</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

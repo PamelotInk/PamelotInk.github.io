@@ -1,0 +1,441 @@
+/* Additional Dashboard Styles for YP Campaigns Case Study */
+
+/* Dashboard Container */
+.dashboard-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.metric-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.metric-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.metric-content {
+    flex: 1;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #14b8a6;
+    line-height: 1.2;
+}
+
+.metric-change {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.metric-change.positive {
+    color: #10b981;
+}
+
+.metric-change.negative {
+    color: #ef4444;
+}
+
+/* Charts */
+.charts-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.chart-container {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+
+.chart-container.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-container h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.chart-note {
+    margin-top: 15px;
+    padding: 12px;
+    background: #fff;
+    border-left: 4px solid #14b8a6;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Bar Chart */
+.bar-chart {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Funnel Chart */
+.funnel-chart {
+    background: white;
+    border-radius: 8px;
+    padding: 30px 20px;
+    overflow: hidden;
+}
+
+.funnel-stage {
+    margin: 0 auto;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s;
+    min-width: 300px;
+}
+
+.funnel-stage:hover {
+    transform: translateX(5px);
+}
+
+.funnel-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.funnel-arrow {
+    text-align: center;
+    font-size: 24px;
+    color: #14b8a6;
+    margin: 5px 0;
+}
+
+/* Line Chart */
+.line-chart {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Performance Table */
+.data-table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 8px;
+}
+
+.performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.performance-table thead {
+    background: #14b8a6;
+    color: white;
+}
+
+.performance-table th,
+.performance-table td {
+    padding: 14px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.performance-table th {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.performance-table tbody tr {
+    transition: background 0.2s;
+}
+
+.performance-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.performance-table tbody tr.top-performer {
+    background: #f0fdf9;
+}
+
+.performance-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.highlight-metric {
+    color: #14b8a6;
+    font-weight: 700;
+}
+
+/* Performance Stats */
+.performance-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(20, 184, 166, 0.2);
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+/* Tableau Access Box */
+.tableau-access-box {
+    background: linear-gradient(135deg, #f0fdf9 0%, #e6f7f5 100%);
+    border: 2px solid #14b8a6;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 40px;
+}
+
+.tableau-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #14b8a6, #0d9488);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.tableau-access-box h3 {
+    color: #14b8a6;
+    margin: 0 0 15px 0;
+    font-size: 1.4rem;
+}
+
+.tableau-access-box p {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.dashboard-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.dashboard-features li {
+    padding: 12px 0;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.dashboard-features li i {
+    color: #14b8a6;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.tableau-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-left: 4px solid #14b8a6;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .dashboard-container {
+    background: #1a1625;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .metric-card {
+    background: #251e35;
+    border-color: #3d3450;
+}
+
+body.dark-mode .metric-label {
+    color: #a0a0a0;
+}
+
+body.dark-mode .metric-value {
+    color: #a78bfa;
+}
+
+body.dark-mode .chart-container {
+    background: #251e35;
+    border-color: #3d3450;
+}
+
+body.dark-mode .chart-container h3 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .chart-note {
+    background: #1a1625;
+    border-left-color: #a78bfa;
+    color: #a0a0a0;
+}
+
+body.dark-mode .bar-chart,
+body.dark-mode .funnel-chart,
+body.dark-mode .line-chart {
+    background: #1a1625;
+}
+
+body.dark-mode .funnel-arrow {
+    color: #a78bfa;
+}
+
+body.dark-mode .data-table-wrapper,
+body.dark-mode .performance-table {
+    background: #1a1625;
+}
+
+body.dark-mode .performance-table thead {
+    background: #8b5cf6;
+}
+
+body.dark-mode .performance-table th,
+body.dark-mode .performance-table td {
+    border-bottom-color: #3d3450;
+    color: #e0e0e0;
+}
+
+body.dark-mode .performance-table tbody tr:hover {
+    background: #1a1625;
+}
+
+body.dark-mode .performance-table tbody tr.top-performer {
+    background: #2d2440;
+}
+
+body.dark-mode .highlight-metric {
+    color: #a78bfa;
+}
+
+body.dark-mode .stat-card {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    box-shadow: 0 4px 6px rgba(139, 92, 246, 0.3);
+}
+
+body.dark-mode .tableau-access-box {
+    background: linear-gradient(135deg, #1a1625 0%, #251e35 100%);
+    border-color: #a78bfa;
+}
+
+body.dark-mode .tableau-icon {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+body.dark-mode .tableau-access-box h3 {
+    color: #a78bfa;
+}
+
+body.dark-mode .tableau-access-box p {
+    color: #a0a0a0;
+}
+
+body.dark-mode .dashboard-features li {
+    color: #e0e0e0;
+}
+
+body.dark-mode .dashboard-features li i {
+    color: #a78bfa;
+}
+
+body.dark-mode .tableau-note {
+    background: #251e35;
+    border-left-color: #a78bfa;
+    color: #a0a0a0;
+}
+
+/* Dark mode SVG text colors */
+body.dark-mode svg text {
+    fill: #1a1a1a !important;
+}
+
+body.dark-mode svg line {
+    stroke: #3d3450 !important;
+}

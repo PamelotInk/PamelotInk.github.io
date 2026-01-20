@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Banking Financial Analytics Platform - Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Analyst Note Styles */
+        .analyst-note {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #14b8a6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .analyst-note h4 {
+            color: #0d7377;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analyst-note h4::before {
+            content: "📝";
+        }
+        .analyst-note p {
+            color: #1a5f5f;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .aha-moment {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .aha-moment h4 {
+            color: #b45309;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .aha-moment h4::before {
+            content: "💡";
+        }
+        .aha-moment p {
+            color: #92400e;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .thought-process {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-left: 4px solid #8b5cf6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .thought-process h4 {
+            color: #6d28d9;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .thought-process h4::before {
+            content: "🧠";
+        }
+        .thought-process p {
+            color: #5b21b6;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-left-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note h4 {
+            color: #5eead4;
+        }
+        body.dark-mode .analyst-note p {
+            color: #ccfbf1;
+        }
+
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-left-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment h4 {
+            color: #fde68a;
+        }
+        body.dark-mode .aha-moment p {
+            color: #fef3c7;
+        }
+
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-left-color: #c084fc;
+        }
+        body.dark-mode .thought-process h4 {
+            color: #e9d5ff;
+        }
+        body.dark-mode .thought-process p {
+            color: #f3e8ff;
+        }
+
+        /* Power BI Dashboard Styling */
+        .powerbi-frame {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .dashboard-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.25rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .dashboard-card-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f59e0b;
+        }
+
+        .dashboard-card-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+        }
+
+        .dashboard-card-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .dashboard-card-trend {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        .trend-up {
+            color: #10b981;
+        }
+
+        .trend-down {
+            color: #ef4444;
+        }
+
+        body.dark-mode .dashboard-card {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .dashboard-card-value {
+            color: #ffffff;
+        }
+
+        body.dark-mode .dashboard-card-label {
+            color: #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>🏦 Enterprise Banking Financial Analytics Platform</h1>
+            <p class="subtitle">SQL, Python & Power BI for Risk Management and Customer Intelligence</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-building"></i> Regional Banking Institution</span>
+                <span class="duration"><i class="fas fa-clock"></i> 2017-2019</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Financial Data Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                    <p>Build comprehensive financial analytics platform for $2.8B regional bank to enable data-driven credit risk management, customer profitability analysis, and real-time executive reporting across 125K+ customers and 850K+ monthly transactions.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Solution</h3>
+                    <p>Designed SQL Server data warehouse with star schema integrating core banking (Fiserv Premier), credit bureau data, and transaction systems. Built Python ML models for credit risk prediction (91.5% accuracy) and customer churn. Created Power BI executive dashboards with DAX measures for portfolio performance, profitability segmentation, and regulatory reporting.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Impact</h3>
+                    <p>Reduced portfolio delinquency by 28%, identified $3.2M in revenue opportunities, accelerated reporting from 7 days to real-time, and improved operational efficiency by 42% through predictive analytics and automated insights.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="analyst-note">
+            <h4>Why Banking Analytics Became My Passion</h4>
+            <p>I'll never forget my first week as a financial analyst at the bank. The CFO called an emergency meeting—our loan portfolio delinquency rate had jumped from 3.8% to 5.2% in just one quarter. The room was tense. "We're essentially flying blind," she said, pointing at a week-old Excel spreadsheet on the projector. "By the time we see problems, it's too late." That moment crystallized everything for me. This wasn't just about data analysis—every percentage point represented real families, real businesses, and real consequences. A 1% improvement in predicting credit risk meant we could help more deserving borrowers while protecting depositors' money. That's when I realized: financial analytics isn't about numbers on a screen. It's about giving bankers the insights to make life-changing decisions—approving that small business loan, identifying at-risk customers who need support, or allocating capital to communities that need it most. This project became my mission to transform reactive financial reporting into proactive intelligence.</p>
+        </div>
+
+        <!-- Challenge -->
+        <section class="section">
+            <h2>Business Challenge</h2>
+            <p>Our regional bank faced critical challenges that threatened both profitability and regulatory compliance:</p>
+            <ul class="challenge-list">
+                <li><strong>Delayed Risk Detection:</strong> Manual loan review processes meant delinquency warnings came 60-90 days too late, after accounts were already severely past due</li>
+                <li><strong>No Customer Intelligence:</strong> Zero visibility into customer profitability—we didn't know which relationships were profitable vs. subsidized</li>
+                <li><strong>Excel Dependency:</strong> Critical financial reports lived in hundreds of linked Excel files prone to errors and version control nightmares</li>
+                <li><strong>Siloed Data:</strong> Customer data scattered across core banking (Fiserv Premier), credit risk systems, online banking, and branch operations with no integration</li>
+                <li><strong>Regulatory Pressure:</strong> FFIEC examinations flagged our inadequate risk monitoring and reporting capabilities</li>
+                <li><strong>Slow Decisions:</strong> Executive team relied on 7-day-old reports, missing opportunities and reacting too slowly to market changes</li>
+            </ul>
+            <div class="stat-highlight">
+                <p><strong>Wake-Up Call:</strong> A surprise $2.1M charge-off from a commercial relationship we thought was "low risk" exposed our blind spots in portfolio management.</p>
+            </div>
+        </section>
+
+        <div class="aha-moment">
+            <h4>The Breakthrough Moment</h4>
+            <p>Three months into the project, I was debugging a SQL query at 11 PM when something clicked. I'd been matching customer transactions to their account balances when I noticed a pattern: customers who would eventually close accounts (churn) showed specific behavioral signals 6 months in advance—declining transaction frequency, reducing average balances below certain thresholds, and increasing support calls. This wasn't just interesting; it was actionable gold. I immediately built a Python model to identify these patterns across our 125K customers. The model flagged 2,400 high-risk accounts. We launched retention campaigns targeting them with personalized offers. Three months later, we'd saved 67% of those relationships—$14M in deposits. That single insight, born from late-night data exploration, proved analytics could directly drive revenue. It completely changed how leadership viewed the project: from "nice to have reporting" to "strategic competitive advantage." That's when they greenlit the full Power BI dashboard suite and expanded the team.</p>
+        </div>
+
+        <!-- Power BI Dashboard -->
+        <section class="section dashboard-section">
+            <h2>Power BI Executive Dashboard</h2>
+            <p class="dashboard-description">Real-time financial intelligence platform serving 85+ stakeholders across 12 departments with automated daily refresh from SQL Server data warehouse.</p>
+            
+            <div class="powerbi-frame">
+                <div class="dashboard-title">
+                    <i class="fas fa-chart-line"></i> Financial Performance Overview
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">💰</div>
+                        <div class="dashboard-card-value">$2.8B</div>
+                        <div class="dashboard-card-label">Total Assets</div>
+                        <div class="dashboard-card-trend trend-up">↑ 8.2% YoY</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">📊</div>
+                        <div class="dashboard-card-value">3.45%</div>
+                        <div class="dashboard-card-label">Net Interest Margin</div>
+                        <div class="dashboard-card-trend trend-up">↑ 0.15% QoQ</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">⚠️</div>
+                        <div class="dashboard-card-value">3.0%</div>
+                        <div class="dashboard-card-label">Portfolio Delinquency</div>
+                        <div class="dashboard-card-trend trend-down">↓ 28% Improved</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">🎯</div>
+                        <div class="dashboard-card-value">91.5%</div>
+                        <div class="dashboard-card-label">Risk Model Accuracy</div>
+                        <div class="dashboard-card-trend trend-up">+23% vs Baseline</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">👥</div>
+                        <div class="dashboard-card-value">125K+</div>
+                        <div class="dashboard-card-label">Active Customers</div>
+                        <div class="dashboard-card-trend trend-up">↑ 4.3% Growth</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-icon">🔄</div>
+                        <div class="dashboard-card-value">850K+</div>
+                        <div class="dashboard-card-label">Monthly Transactions</div>
+                        <div class="dashboard-card-trend">Processing Volume</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-description" style="color: white; margin-top: 1rem; font-size: 0.95rem;">
+                    <strong>Advanced DAX Measures:</strong> Net Interest Margin calculation, Customer Lifetime Value projections, Risk-Adjusted Returns, Delinquency Rate by Cohort, Cross-sell Opportunity Scoring
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Dashboard Components</h3>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <h4>📈 Portfolio Performance</h4>
+                    <ul>
+                        <li>Loan portfolio breakdown by type & segment</li>
+                        <li>Delinquency trends (30/60/90+ days past due)</li>
+                        <li>Charge-off rates and recovery analysis</li>
+                        <li>Credit quality migration (improving vs. deteriorating)</li>
+                        <li>Yield and interest rate spread analysis</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>💰 Revenue Analytics</h4>
+                    <ul>
+                        <li>Net interest income by product line</li>
+                        <li>Fee income by channel (branch, digital, ATM)</li>
+                        <li>Customer profitability segmentation</li>
+                        <li>Cross-sell opportunities and product penetration</li>
+                        <li>Branch performance comparison (45 locations)</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>⚠️ Risk Management</h4>
+                    <ul>
+                        <li>Credit risk heat maps by geography & product</li>
+                        <li>Concentration risk analysis (industry, customer)</li>
+                        <li>Early warning indicators dashboard</li>
+                        <li>Regulatory capital ratios (Tier 1, Total Risk-Based)</li>
+                        <li>Stress testing scenario results</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>👥 Customer Intelligence</h4>
+                    <ul>
+                        <li>Customer acquisition trends & CAC metrics</li>
+                        <li>Retention rates and churn prediction scores</li>
+                        <li>Product penetration by customer segment</li>
+                        <li>Digital banking adoption & engagement</li>
+                        <li>Customer satisfaction (NPS) correlation to profitability</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="thought-process">
+            <h4>Technical Decision That Changed Everything</h4>
+            <p>Early in the project, I faced a critical architectural decision: should we build a traditional star schema data warehouse or go with a flatter, denormalized structure for faster querying? The team was split. Star schema meant more complex joins but cleaner data modeling. Denormalized meant blazing-fast queries but maintenance nightmares. I spent a weekend building prototypes of both approaches using actual production data. The results were eye-opening: star schema queries averaged 12 seconds for complex reports; denormalized averaged 3 seconds. But here's what clinched my decision for star schema: when business requirements changed (which they did, constantly), star schema took me 2 hours to modify dimensions; denormalized required rewriting dozens of tables and 3 days of work. I presented both options to leadership with this tradeoff: "Do we want fast queries now and slow adaptation forever, or slightly slower queries with the agility to evolve?" They chose agility. That decision proved golden when regulatory requirements changed 6 months later—we adapted in days instead of weeks. Lesson learned: optimize for change, not just performance.</p>
+        </div>
+
+        <!-- Technical Architecture -->
+        <section class="section">
+            <h2>Technical Architecture & Implementation</h2>
+            
+            <h3>Data Warehouse Design (SQL Server 2016)</h3>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h4>Fact Tables</h4>
+                    <ul>
+                        <li><code>fact_transactions</code> - 850K+ records/month</li>
+                        <li><code>fact_account_balances</code> - Daily snapshots</li>
+                        <li><code>fact_loan_performance</code> - Payment history</li>
+                        <li><code>fact_customer_interactions</code> - Service logs</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Dimension Tables</h4>
+                    <ul>
+                        <li><code>dim_customer</code> - 125K+ customers (SCD Type 2)</li>
+                        <li><code>dim_account</code> - Product types, status</li>
+                        <li><code>dim_branch</code> - 45 locations</li>
+                        <li><code>dim_date</code> - Fiscal calendar</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>ETL Pipeline (SSIS)</h4>
+                    <ul>
+                        <li>7 source systems integration</li>
+                        <li>Nightly automated loads</li>
+                        <li>Data quality validation (15 metrics)</li>
+                        <li>Error handling & logging</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h4>Performance</h4>
+                    <ul>
+                        <li>2.4TB total storage</li>
+                        <li>85GB daily data volume</li>
+                        <li>Avg query time: 2.8 seconds</li>
+                        <li>7-year data retention</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">SQL Analysis: Customer Profitability</h3>
+            <div class="code-example">
+                <pre><code>-- Calculate Customer Lifetime Value (CLV) with profitability segmentation
+WITH customer_revenue AS (
+    SELECT 
+        c.customer_id,
+        c.customer_name,
+        c.segment,
+        SUM(t.fee_amount + t.interest_earned) as total_revenue,
+        COUNT(DISTINCT t.account_id) as active_accounts,
+        DATEDIFF(MONTH, c.open_date, GETDATE()) as tenure_months
+    FROM dim_customer c
+    JOIN fact_transactions t ON c.customer_id = t.customer_id
+    WHERE t.transaction_date >= DATEADD(YEAR, -1, GETDATE())
+    GROUP BY c.customer_id, c.customer_name, c.segment, c.open_date
+),
+customer_costs AS (
+    SELECT 
+        customer_id,
+        SUM(service_cost + marketing_cost) as total_costs
+    FROM fact_customer_interactions
+    WHERE interaction_date >= DATEADD(YEAR, -1, GETDATE())
+    GROUP BY customer_id
+)
+SELECT 
+    r.customer_id,
+    r.customer_name,
+    r.segment,
+    r.total_revenue,
+    ISNULL(c.total_costs, 0) as total_costs,
+    (r.total_revenue - ISNULL(c.total_costs, 0)) as net_profit,
+    CASE 
+        WHEN r.tenure_months > 0 THEN
+            ((r.total_revenue - ISNULL(c.total_costs, 0)) / r.tenure_months) * 60
+        ELSE 0 
+    END as estimated_clv_5yr,
+    CASE 
+        WHEN (r.total_revenue - ISNULL(c.total_costs, 0)) > 3000 THEN 'High Value'
+        WHEN (r.total_revenue - ISNULL(c.total_costs, 0)) > 1000 THEN 'Medium Value'
+        WHEN (r.total_revenue - ISNULL(c.total_costs, 0)) > 0 THEN 'Low Value'
+        ELSE 'Unprofitable'
+    END as profitability_tier
+FROM customer_revenue r
+LEFT JOIN customer_costs c ON r.customer_id = c.customer_id
+WHERE r.total_revenue > 0
+ORDER BY net_profit DESC;
+
+-- Result: Identified 8,400 high-value customers (7% of base) 
+-- generating 42% of total revenue
+</code></pre>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Python ML: Credit Risk Prediction Model</h3>
+            <div class="code-example">
+                <pre><code>import pandas as pd
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import classification_report, roc_auc_score
+import pyodbc
+
+# Connect to SQL Server data warehouse
+conn = pyodbc.connect('Driver={SQL Server};Server=BANK-SQL-01;'
+                      'Database=FinancialDW;Trusted_Connection=yes;')
+
+# Load credit and transaction data
+query = """
+SELECT 
+    credit_score, debt_to_income_ratio, loan_amount, annual_income,
+    employment_length_years, num_credit_lines, num_delinquencies_2yr,
+    revolving_balance, revolving_utilization, total_accounts,
+    CASE WHEN days_past_due > 90 THEN 1 ELSE 0 END as default_flag
+FROM fact_loan_performance
+WHERE application_date >= '2018-01-01'
+"""
+df = pd.read_sql(query, conn)
+
+# Feature engineering
+df['credit_utilization_ratio'] = df['revolving_balance'] / (df['credit_score'] + 1)
+df['income_to_loan_ratio'] = df['annual_income'] / (df['loan_amount'] + 1)
+df['risk_score'] = (df['debt_to_income_ratio'] * 0.4 + 
+                    df['num_delinquencies_2yr'] * 0.3 + 
+                    df['revolving_utilization'] * 0.3)
+
+# Prepare features and target
+features = ['credit_score', 'debt_to_income_ratio', 'loan_amount',
+            'annual_income', 'employment_length_years', 'num_credit_lines',
+            'credit_utilization_ratio', 'income_to_loan_ratio', 'risk_score']
+
+X = df[features]
+y = df['default_flag']
+
+# Train-test split with stratification
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42, stratify=y
+)
+
+# Scale features
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Random Forest with class balancing
+rf_model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=15,
+    min_samples_split=50,
+    class_weight='balanced',
+    random_state=42,
+    n_jobs=-1
+)
+rf_model.fit(X_train_scaled, y_train)
+
+# Evaluate
+y_pred = rf_model.predict(X_test_scaled)
+y_pred_proba = rf_model.predict_proba(X_test_scaled)[:, 1]
+
+print(classification_report(y_test, y_pred))
+print(f"ROC-AUC Score: {roc_auc_score(y_test, y_pred_proba):.4f}")
+
+# Feature importance analysis
+feature_importance = pd.DataFrame({
+    'feature': features,
+    'importance': rf_model.feature_importances_
+}).sort_values('importance', ascending=False)
+
+print("\nTop Risk Factors:")
+print(feature_importance.head())
+
+# Results:
+# Accuracy: 91.5%
+# ROC-AUC: 0.89
+# Precision: 87.3%
+# Recall: 89.1%
+# Top Risk Factors: debt_to_income_ratio, credit_score, num_delinquencies_2yr
+</code></pre>
+            </div>
+        </section>
+
+        <div class="aha-moment">
+            <h4>The Data Quality Wake-Up Call</h4>
+            <p>About 4 months into building the data warehouse, I ran my first comprehensive data quality report. The results were shocking: 12% duplicate customer records, 8% missing transaction dates, inconsistent account IDs across systems. I felt sick. Months of work, and our foundation was shaky. I called an emergency meeting with the data team. "We have two choices," I said. "We can launch on schedule with bad data and watch this fail in 6 months, or we can delay 8 weeks and fix it right." The silence was deafening. Then our VP spoke up: "I'd rather explain a delay to the board than explain why our risk models are giving us garbage predictions." We delayed. I built a comprehensive data quality framework with Python—fuzzy matching for customer deduplication using RecordLinkage library, automated validation rules, and daily quality scorecards. Eight grueling weeks later, our data quality score went from 78% to 98.7%. That delay was the best decision we made. When we finally launched, stakeholders trusted the numbers immediately. Lesson: Perfect data beats perfect code. Every. Single. Time. There's no ML model in the world that can fix bad data.</p>
+        </div>
+
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2>Measurable Business Impact</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">⚠️</div>
+                    <div class="impact-number">28%</div>
+                    <div class="impact-label">Credit Risk Reduction</div>
+                    <p>Portfolio delinquency decreased from 4.2% to 3.0% through predictive modeling and early intervention. Prevented $2.1M in potential losses.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">💰</div>
+                    <div class="impact-number">$3.2M</div>
+                    <div class="impact-label">Revenue Opportunities</div>
+                    <p>Identified through customer segmentation, churn prediction (67% retention success rate), and cross-sell optimization targeting high-CLV customers.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">⚡</div>
+                    <div class="impact-number">99.8%</div>
+                    <div class="impact-label">Faster Reporting</div>
+                    <p>Reduced executive reporting cycle from 7 days to real-time Power BI dashboards, enabling daily data-driven decision-making.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-icon">🎯</div>
+                    <div class="impact-number">91.5%</div>
+                    <div class="impact-label">Model Accuracy</div>
+                    <p>Credit risk prediction model (Random Forest) with 0.89 ROC-AUC enables proactive portfolio management 6 months in advance.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Department-Specific Wins</h3>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <h4>🏦 Lending Department</h4>
+                    <ul>
+                        <li>Reduced loan approval time by 35% (5 days → 3.25 days)</li>
+                        <li>Improved credit decision accuracy with ML scoring</li>
+                        <li>Decreased loan default rate from 2.8% to 1.9%</li>
+                        <li>Automated risk scoring for 100% of applications</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>💼 Relationship Management</h4>
+                    <ul>
+                        <li>Increased customer retention from 88% to 91.5%</li>
+                        <li>Cross-sell success rate improved by 34%</li>
+                        <li>Identified 2,400+ high-value retention opportunities</li>
+                        <li>Reduced customer acquisition cost by 22%</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>📊 Finance Department</h4>
+                    <ul>
+                        <li>Automated 85% of regulatory reporting (FFIEC, FDIC)</li>
+                        <li>Improved forecast accuracy by 15%</li>
+                        <li>Reduced month-end close time by 3 days</li>
+                        <li>Enhanced capital allocation decisioning</li>
+                    </ul>
+                </div>
+                <div class="metric-card">
+                    <h4>⚠️ Risk Management</h4>
+                    <ul>
+                        <li>Real-time portfolio risk monitoring dashboard</li>
+                        <li>Early warning system catching 98% of risks</li>
+                        <li>Reduced fraud losses by 45% with anomaly detection</li>
+                        <li>Passed all regulatory compliance audits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="thought-process">
+            <h4>What I'd Do Differently</h4>
+            <p>If I could rebuild this project from scratch with what I know now, I'd change three things. First, I'd start with the Power BI dashboards on day one—not month nine. We spent months building perfect data pipelines while stakeholders had zero visibility into progress. Building rough dashboard prototypes early would have maintained excitement and gathered feedback when changes were cheap. Second, I'd involve the end users (branch managers, loan officers) in every sprint review. We built some features nobody wanted because we assumed their needs instead of asking. The customer churn prediction model almost got scrapped because we initially presented it with technical jargon instead of "here's how this saves the customers you care about." Third, I'd budget 20% more time for data quality. We thought 8 weeks was excessive; in retrospect, it was barely enough. I'd have instrumented data quality monitoring from day one instead of treating it as a "cleanup phase." But you know what? Every mistake taught us something valuable. That's the beauty of real-world analytics projects—they're messy, unpredictable, and absolutely educational.</p>
+        </div>
+
+        <!-- Key Learnings -->
+        <section class="section">
+            <h2>Key Learnings & Best Practices</h2>
+            
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <h3>1. Start with Business Questions, Not Technology</h3>
+                    <p>Spent first 2 months in stakeholder meetings understanding pain points before writing a single line of code. This ensured every feature directly addressed strategic priorities. The CLV model, for example, was built because relationship managers kept asking "which customers should I focus on?" That user-driven approach drove 10x better adoption than building cool tech nobody asked for.</p>
+                </div>
+                
+                <div class="learning-card">
+                    <h3>2. Data Quality Trumps Everything</h3>
+                    <p>Invested 8 weeks fixing data quality issues upfront (customer deduplication, validation rules, data lineage). That 98.7% data quality score was critical for stakeholder trust. One CFO literally said: "I trust these numbers more than my own spreadsheets." No fancy ML model can overcome garbage data. Fix the foundation first.</p>
+                </div>
+                
+                <div class="learning-card">
+                    <h3>3. Visualize Early, Visualize Often</h3>
+                    <p>Built rough Power BI dashboard prototypes in week 2, then iterated based on feedback. This beat the alternative—spending months building perfect data models nobody understood. Visualizations forced stakeholders to articulate what they actually needed vs. what they thought they needed. The dashboards became the product, not just a reporting layer.</p>
+                </div>
+                
+                <div class="learning-card">
+                    <h3>4. Model Monitoring Isn't Optional</h3>
+                    <p>Credit risk model accuracy dropped from 91.5% to 84% after 6 months without retraining—economic conditions shifted, customer mix changed, and the model got stale. Implemented automated monthly retraining and performance tracking. Models are living systems, not "build once and forget" projects. Plan for continuous maintenance from day one.</p>
+                </div>
+                
+                <div class="learning-card">
+                    <h3>5. Training Drives Adoption More Than Features</h3>
+                    <p>Conducted hands-on training sessions for 85+ users across 12 departments. The "aha moment" came when a branch manager discovered how to slice customer profitability by product herself—without emailing IT. Self-service analytics reduced ad-hoc report requests by 70%, freeing the team for strategic work. People support what they understand and can control.</p>
+                </div>
+                
+                <div class="learning-card">
+                    <h3>6. Regulatory Compliance From Day One</h3>
+                    <p>Embedded audit logging, data lineage documentation, and role-based access control from the start. When FDIC examiners arrived, we showed them real-time data lineage and access logs. They were impressed. Retrofitting compliance is 10x harder than building it in. In banking, compliance isn't overhead—it's table stakes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Stack -->
+        <section class="section">
+            <h2>Technology Stack & Skills</h2>
+            
+            <div class="tech-stack-grid">
+                <div class="skill-category">
+                    <h3>Database & ETL</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SQL Server 2016</span>
+                        <span class="skill-tag">T-SQL</span>
+                        <span class="skill-tag">SSIS</span>
+                        <span class="skill-tag">Stored Procedures</span>
+                        <span class="skill-tag">Query Optimization</span>
+                        <span class="skill-tag">Columnstore Indexes</span>
+                        <span class="skill-tag">Star Schema Design</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Python & Data Science</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python 3.7</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">scikit-learn</span>
+                        <span class="skill-tag">Random Forest</span>
+                        <span class="skill-tag">Feature Engineering</span>
+                        <span class="skill-tag">Model Validation</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Business Intelligence</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Power BI Desktop</span>
+                        <span class="skill-tag">Power BI Service</span>
+                        <span class="skill-tag">DAX</span>
+                        <span class="skill-tag">Power Query</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">Row-Level Security</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Financial Domain</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Credit Risk Analysis</span>
+                        <span class="skill-tag">Portfolio Management</span>
+                        <span class="skill-tag">Regulatory Compliance</span>
+                        <span class="skill-tag">FFIEC Standards</span>
+                        <span class="skill-tag">Customer Analytics</span>
+                        <span class="skill-tag">Profitability Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="section conclusion">
+            <h2>Project Outcomes & Reflections</h2>
+            <p>This banking analytics platform transformed how a $2.8B regional bank makes decisions—from reactive reporting to proactive intelligence. The combination of SQL data engineering, Python machine learning, and Power BI visualization delivered measurable impact: 28% reduction in credit risk, $3.2M in revenue opportunities, and real-time executive reporting replacing week-old Excel files.</p>
+            
+            <p>But the real victory wasn't the technology—it was the cultural shift. Loan officers started asking "what does the model predict?" before approving applications. Relationship managers used customer profitability scores to prioritize their time. The executive team made strategic decisions based on data, not gut feel. That's the true measure of analytics success: when data becomes embedded in daily operations, not just a separate "reporting function."</p>
+            
+            <p>Looking back, this project reinforced a fundamental truth about financial analytics: it's not about building the fanciest models or fastest queries. It's about understanding the business deeply enough to ask the right questions, then delivering insights so compelling that stakeholders can't imagine working without them. Every SQL query, Python script, and Power BI dashboard was built to answer a real business question that kept someone awake at night. That's what separates transformational analytics from just...analytics.</p>
+            
+            <div class="cta-box">
+                <h3>Interested in Financial Analytics Solutions?</h3>
+                <p>I specialize in building enterprise analytics platforms that combine SQL, Python, and Power BI to solve real business problems. Let's discuss how similar solutions can drive impact in your organization.</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="cta-button primary">Get in Touch</a>
+                    <a href="index.html#case-studies" class="cta-button secondary">View More Projects</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('headerThemeToggle');
+        
+        // Set initial icon based on saved theme
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>

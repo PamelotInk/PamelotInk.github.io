@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-11-10 15:17:02",
+  "significant_experiments": [
+    {
+      "experiment_name": "Homepage Hero Test",
+      "experiment_id": 1,
+      "control_rate": "10.11%",
+      "variant_rate": "12.02%",
+      "lift": "18.9%",
+      "confidence": "100.0%",
+      "winner": "variant",
+      "control_impressions": 37000,
+      "control_conversions": 3740,
+      "variant_impressions": 37000,
+      "variant_conversions": 4446,
+      "recommendation": "\ud83d\ude80 Ship the variant!"
+    },
+    {
+      "experiment_name": "Homepage Hero Test",
+      "experiment_id": 2,
+      "control_rate": "9.89%",
+      "variant_rate": "11.79%",
+      "lift": "19.2%",
+      "confidence": "100.0%",
+      "winner": "variant",
+      "control_impressions": 7000,
+      "control_conversions": 692,
+      "variant_impressions": 7000,
+      "variant_conversions": 825,
+      "recommendation": "\ud83d\ude80 Ship the variant!"
+    }
+  ]
+}

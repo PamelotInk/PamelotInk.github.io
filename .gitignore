@@ -1,0 +1,23 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs
+*.log
+streamlit.err
+
+# Local databases
+*.db

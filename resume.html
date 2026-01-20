@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela Austin - Resume</title>
+    <link rel="stylesheet" href="resume-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Sticky Header Styles for Resume Page */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: var(--bg-container);
+            border-bottom: 2px solid var(--border-color);
+            z-index: 2000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 100%;
+            height: 100%;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .header-theme-toggle {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-container);
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .header-theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+        }
+
+        .header-theme-toggle .sun-icon,
+        .header-theme-toggle .moon-icon {
+            position: absolute;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .header-theme-toggle .sun-icon {
+            color: #fbbf24;
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .header-theme-toggle .moon-icon {
+            color: #60a5fa;
+            opacity: 0;
+            transform: rotate(180deg) scale(0);
+        }
+
+        body.dark-mode .header-theme-toggle {
+            border-color: #ff8c00;
+        }
+
+        body.dark-mode .header-theme-toggle:hover {
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+        }
+
+        body.dark-mode .header-theme-toggle .sun-icon {
+            opacity: 0;
+            transform: rotate(-180deg) scale(0);
+        }
+
+        body.dark-mode .header-theme-toggle .moon-icon {
+            opacity: 1;
+            transform: rotate(0deg) scale(1);
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .header-nav-link {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .header-nav-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .header-social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .header-social-links a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+
+        .header-social-links a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        body {
+            padding-top: 60px;
+        }
+
+        @media print {
+            .sticky-header {
+                display: none;
+            }
+            body {
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+        
+        // Theme toggle for header button
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerThemeToggle = document.getElementById('headerThemeToggle');
+            if (headerThemeToggle) {
+                headerThemeToggle.addEventListener('click', function() {
+                    document.body.classList.toggle('dark-mode');
+                    if (document.body.classList.contains('dark-mode')) {
+                        localStorage.setItem('darkMode', 'enabled');
+                    } else {
+                        localStorage.setItem('darkMode', 'disabled');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="resume-container">
+        <a href="assets/docs/Pamela_Austin_Resume.pdf" download class="print-button no-print">
+            <i class="fas fa-download"></i> Download Resume (PDF)
+        </a>
+        <button onclick="window.location.href='index.html'" class="back-button no-print">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </button>
+
+        <!-- Header -->
+        <header class="resume-header">
+            <h1>Pamela Austin</h1>
+            <div class="contact-info">
+                <span>📍 Riverdale, GA 30296</span>
+                <span>✉️ <a href="mailto:pamtekk@gmail.com">pamtekk@gmail.com</a></span>
+                <span>🔗 <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/">linkedin.com/in/pamela-austin-621a32a4</a></span>
+            </div>
+        </header>
+
+        <!-- Education & Experience Highlights -->
+        <section class="resume-section">
+            <div class="highlights-row">
+                <div class="highlights-column">
+                    <h2>Education & Certification</h2>
+                    <p><strong>B.S. Computer Science</strong> — National American University (2016)</p>
+                    <p><strong>A.S. Finance & Accounting</strong> — University of Phoenix (2011)</p>
+                    <p><strong>IBM</strong> — Databases and SQL for Data Science with Python</p>
+                </div>
+                <div class="highlights-column bordered">
+                    <h2>Experience Highlights</h2>
+                    <p><strong>10+ Years</strong> in Data Analytics & Engineering</p>
+                    <p><strong>Industries:</strong> Telecommunications, Healthcare, Retail, Finance</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="resume-section">
+            <h2>Professional Summary</h2>
+            <p><strong>Data Analyst & Engineer</strong> with 10+ years of experience delivering high-impact data solutions across telecommunications, healthcare, retail, and finance. Proven expertise in designing scalable ETL pipelines, building predictive ML models, and creating executive-level business intelligence dashboards. Track record of quantifiable results: led deduplication of <strong>150M+ records</strong> with zero data loss, designed cloud migration pipelines achieving <strong>87.5% faster processing</strong> and <strong>$250K annual savings</strong>, built HIPAA-compliant healthcare data warehouses with <strong>98.7% data quality</strong>, and developed ML forecasting models with <strong>94.2% accuracy</strong> generating <strong>$12M in cost savings</strong>. Expert in AWS (Redshift, Glue, S3, AppFlow), Snowflake, Python/PySpark, advanced SQL, and visualization tools (Power BI, Tableau). Known for translating complex business requirements into production-ready, scalable data solutions.</p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="resume-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Data Platforms & Cloud:</strong>
+                    <span>Snowflake, Amazon Redshift, AWS (Glue, AppFlow, S3, CloudWatch), IBM Cloud Pak for Data, Databricks, SAS</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Programming & Analytics:</strong>
+                    <span>SQL (Advanced: CTEs, Window Functions, Query Optimization), Python (Pandas, NumPy, PySpark), Statistical Analysis, Machine Learning</span>
+                </div>
+                <div class="skill-category">
+                    <strong>ETL & Data Engineering:</strong>
+                    <span>AWS Glue (PySpark), Fivetran, dbt, Talend, Data Warehousing, Data Modeling, Pipeline Orchestration</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Visualization & BI:</strong>
+                    <span>Power BI (DAX, Power Query, Service), Tableau, Looker, Advanced Excel, KPI Dashboard Development</span>
+                </div>
+                <div class="skill-category">
+                    <strong>CRM & Business Tools:</strong>
+                    <span>Salesforce (SFDC, Bulk API 2.0, Data Loader), Workfront, ZoomInfo, Google Analytics</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Project Management:</strong>
+                    <span>Jira, Confluence, Agile/Scrum, Sprint Planning, Backlog Management, RICE Prioritization</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Specializations:</strong>
+                    <span>Data Deduplication, Data Governance, HIPAA Compliance, A/B Testing, Financial Modeling, Predictive Analytics</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="resume-section">
+            <h2>Professional Experience</h2>
+
+            <!-- Signet Jewelers -->
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <h3>Senior Data Analyst (Data Engineering Focus)</h3>
+                        <div class="company">Signet Jewelers, Contract via Rules IQ — Remote</div>
+                    </div>
+                    <div class="date">June 2025 – September 2025</div>
+                </div>
+                <p class="job-subtitle">Enterprise Data Deduplication | AWS/Redshift Pipeline Development | Salesforce Integration</p>
+                <ul class="achievements">
+                    <li><strong>Led end-to-end deduplication of 150M+ customer and transaction records</strong> by designing a business-criteria matching strategy and scalable AWS/Redshift SQL pipeline; orchestrated ETL with AWS Glue and automated CRM syncs to Salesforce using AWS AppFlow and Bulk API 2.0.</li>
+                    <li><strong>Designed comprehensive deduplication strategy</strong> from business requirements: defined deterministic and fuzzy matching keys, heuristic scoring algorithms, authoritative source hierarchy (including Salesforce), and merge/survivorship rules supporting CRM, reporting, and analytics.</li>
+                    <li><strong>Developed post-pipeline validation framework</strong> using Python (Pandas) to automatically query Redshift and Salesforce API, compare pre/post-merge record counts, and generate daily reconciliation reports—<strong>reducing manual QA and audit preparation time by 75%</strong>.</li>
+                    <li><strong>Built production-ready deduplication pipeline</strong> in Amazon Redshift using advanced SQL (CTEs, window functions, staging tables) to score, identify, consolidate, and flag duplicates with full audit trail.</li>
+                    <li><strong>Orchestrated ETL jobs with AWS Glue (PySpark)</strong>, creating modular jobs for incremental processing, schema discovery, and automated retry logic.</li>
+                    <li><strong>Implemented performance optimizations</strong>: tuned Redshift distribution/sort keys, compression encodings, partitioning strategies, and Glue job parallelism—reducing runtime and cluster costs.</li>
+                    <li><strong>Produced comprehensive documentation</strong>: Confluence runbooks, technical specs, SQL snippets, Glue job descriptions, AppFlow mappings, and decision logs for seamless handoff.</li>
+                    <li>Partnered with Data Engineers on pipeline operationalization (CloudWatch monitoring, alerts, error handling) and Salesforce developers on Bulk API 2.0 integration.</li>
+                </ul>
+                <div class="technologies">
+                    <strong>Technologies:</strong> Amazon Redshift • AWS Glue (PySpark) • AWS AppFlow • Salesforce Bulk API 2.0 • Advanced SQL • Python (Pandas) • CloudWatch • Jira • Confluence • Git
+                </div>
+            </div>
+
+            <!-- AT&T -->
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <h3>Senior Data Analyst</h3>
+                        <div class="company">AT&T — Atlanta, GA</div>
+                    </div>
+                    <div class="date">March 2024 – March 2025</div>
+                </div>
+                <p class="job-subtitle">Business Intelligence | Predictive Analytics | Process Automation | Data Integration</p>
+                <ul class="achievements">
+                    <li><strong>Developed predictive ML model</strong> to forecast project completion timelines, enabling proactive decision-making, optimized resource allocation, and improved operational efficiency across marketing operations.</li>
+                    <li><strong>Built custom Windows Form application</strong> that automated client onboarding and intake processes—<strong>reducing client setup time by 48%</strong> and improving data consistency across business development operations.</li>
+                    <li><strong>Automated data ingestion pipelines</strong> using APIs and Fivetran/dbt, <strong>reducing manual data retrieval by 40%</strong> and enabling near-real-time analytics.</li>
+                    <li><strong>Designed comprehensive data validation framework</strong> improving data integrity across Snowflake and Power BI; <strong>reduced dashboard refresh times by 25%</strong> for real-time stakeholder insights.</li>
+                    <li><strong>Built interactive Power BI dashboards</strong> visualizing compensation trends, workforce costs, and budget allocations for executive-level financial planning and strategic decision-making.</li>
+                    <li><strong>Integrated Workfront API with Snowflake</strong> for centralized marketing analysis, creating unified data models across disparate systems.</li>
+                    <li><strong>Led Agile ceremonies</strong>: backlog management and sprint planning using story points and RICE method to prioritize high-impact deliverables.</li>
+                    <li>Partnered with Finance, HR, Marketing, and IT stakeholders, leading data discovery sessions and aligning analytics with organizational goals.</li>
+                    <li>Integrated and optimized data enrichment platforms (ZoomInfo, Salesforce SFDC) enhancing data accuracy and completeness for strategic decision-making.</li>
+                </ul>
+                <div class="technologies">
+                    <strong>Technologies:</strong> Power BI (DAX) • Snowflake • SQL • Python (Pandas, NumPy) • Tableau • Workfront API • Machine Learning • Salesforce • Fivetran • dbt
+                </div>
+            </div>
+
+            <!-- Syilum LLC -->
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <h3>Product Data Analyst</h3>
+                        <div class="company">Syilum LLC — Atlanta, GA</div>
+                    </div>
+                    <div class="date">January 2016 – March 2024</div>
+                </div>
+                <p class="job-subtitle">Product Analytics | Data Integration | IBM Cloud Pak for Data | Financial Modeling</p>
+                <ul class="achievements">
+                    <li><strong>IBM Cloud Pak for Data (CP4D) & Watson Query expert</strong>: Integrated diverse data sources, executed distributed queries, and optimized data workflows for real-time analytics—leveraging CP4D's data governance, AI-driven insights, and visualization tools.</li>
+                    <li><strong>Analyzed software product performance</strong> by tracking user behavior, engagement metrics, and feature adoption; conducted A/B testing, user research, and competitor analysis to guide product enhancements.</li>
+                    <li><strong>Designed KPI dashboards in Power BI</strong> tracking product success, adoption rates, and operational efficiency for executive stakeholders.</li>
+                    <li><strong>Implemented automated data quality checks</strong> using Python and Talend, ensuring high-quality datasets for predictive modeling and reporting.</li>
+                    <li><strong>Conducted campaign performance analysis</strong> measuring ROI, customer acquisition costs, and conversion rates across multiple marketing channels.</li>
+                    <li><strong>Assisted in budgeting, forecasting, and financial modeling</strong> to optimize marketing spending and improve cost efficiency.</li>
+                    <li><strong>Developed customized Workfront reports</strong> to analyze project data, track KPIs, and provide operational improvement insights.</li>
+                    <li>Utilized Snowflake and SQL to query, clean, and structure large datasets; built ETL pipelines for data transformation.</li>
+                    <li>Partnered with cross-functional teams (Product, Marketing, Finance, IT) on process optimization, automation, and analytics-driven decision-making.</li>
+                    <li>Participated in data governance initiatives ensuring data quality, security, and compliance across platforms.</li>
+                </ul>
+                <div class="technologies">
+                    <strong>Technologies:</strong> Power BI • IBM CP4D • Watson Query • Python • Talend • Snowflake • SQL • Workfront • SAS • Databricks
+                </div>
+            </div>
+
+            <!-- Support Optics -->
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <h3>Data Analyst</h3>
+                        <div class="company">Support Optics — Contract (Finance, Business Intelligence, Healthcare)</div>
+                    </div>
+                    <div class="date">January 2013 – January 2016</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Delivered actionable insights</strong> for clients across finance, business intelligence, and healthcare through in-depth data analysis and research.</li>
+                    <li><strong>Finance:</strong> Designed data collection methodologies improving accuracy and reliability; analyzed financial data to identify trends, optimize resource allocation, and support investment strategies.</li>
+                    <li><strong>Business Intelligence:</strong> Developed interactive dashboards and reports using Power BI, Tableau, and Excel enabling clients to track KPIs and improve operational efficiency.</li>
+                    <li><strong>Healthcare:</strong> Analyzed large healthcare datasets identifying patterns and quality improvement opportunities; developed predictive models forecasting healthcare outcomes.</li>
+                    <li>Performed statistical analysis including regression, hypothesis testing, and clustering to extract insights and improve business strategies.</li>
+                    <li>Conducted data validation and quality assurance ensuring accuracy, consistency, and integrity of datasets.</li>
+                </ul>
+                <div class="technologies">
+                    <strong>Technologies:</strong> SQL • Python • Tableau • Power BI • Statistical Modeling • Predictive Analytics • Excel
+                </div>
+            </div>
+
+            <!-- AT&T/YP -->
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <h3>Marketing Data Analyst</h3>
+                        <div class="company">AT&T / YP Advertising Solutions — Tucker, GA</div>
+                    </div>
+                    <div class="date">January 2010 – December 2013</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Analyzed 100+ marketing campaigns</strong> providing audience insights that improved targeting strategies and <strong>increased ROAS by 20%</strong>.</li>
+                    <li><strong>Applied statistical analysis and visualization tools</strong> (Tableau, Power BI) to measure campaign performance, tracking conversion rates, CTR, and CAC.</li>
+                    <li><strong>Designed and executed A/B tests</strong> and multivariate experiments optimizing campaigns based on analytical results.</li>
+                    <li>Conducted consumer preference research, market trend analysis, and competitor benchmarking for data-driven product positioning.</li>
+                    <li>Developed Tableau dashboard visualizing sales and churn data; applied SQL and dbt to transform raw retailer data into analytical datasets.</li>
+                    <li>Performed data cleansing, transformation, and validation ensuring accuracy in campaign analytics and reporting.</li>
+                </ul>
+                <div class="technologies">
+                    <strong>Technologies:</strong> SQL • Python • Tableau • Power BI • Google Analytics • A/B Testing • dbt • Market Research
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Competencies -->
+        <section class="resume-section">
+            <h2>Core Competencies</h2>
+            <ul class="competencies">
+                <li>Data Engineering & ETL Pipelines</li>
+                <li>Business Intelligence & Analytics</li>
+                <li>Machine Learning & Predictive Modeling</li>
+                <li>Data Governance & Quality Assurance</li>
+                <li>Dashboard Development & Visualization</li>
+                <li>Process Automation & Optimization</li>
+                <li>Cloud Data Warehousing (AWS, Snowflake)</li>
+                <li>Agile Project Management</li>
+                <li>Cross-Functional Collaboration</li>
+                <li>Financial Modeling & Forecasting</li>
+                <li>Marketing Analytics & Campaign ROI</li>
+                <li>Healthcare Data Analysis (HIPAA)</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="resume-footer">
+            <p>References available upon request</p>
+        </footer>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</body>
+</html>

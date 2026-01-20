@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Performance & ROI Optimization - Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="stylesheet" href="dashboard-styles-addon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Narrative Styles */
+        .analyst-note, .aha-moment, .thought-process, .surprise-finding {
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+        .analyst-note {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: #14b8a6;
+        }
+        .aha-moment {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        .thought-process {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: #8b5cf6;
+        }
+        .surprise-finding {
+            background: rgba(236, 72, 153, 0.1);
+            border-color: #ec4899;
+        }
+        .analyst-note strong, .aha-moment strong, .thought-process strong, .surprise-finding strong {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .analyst-note p, .aha-moment p, .thought-process p, .surprise-finding p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Dark mode adjustments for personal notes - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note strong { color: #5eead4; }
+        body.dark-mode .analyst-note p { color: #ccfbf1; }
+        
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment strong { color: #fde68a; }
+        body.dark-mode .aha-moment p { color: #fef3c7; }
+        
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-color: #c084fc;
+        }
+        body.dark-mode .thought-process strong { color: #e9d5ff; }
+        body.dark-mode .thought-process p { color: #f3e8ff; }
+        
+        body.dark-mode .surprise-finding {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+            border-color: #f472b6;
+        }
+        body.dark-mode .surprise-finding strong { color: #fbcfe8; }
+        body.dark-mode .surprise-finding p { color: #fce7f3; }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>Campaign Performance & ROI Optimization</h1>
+            <p class="subtitle">Digital Marketing Analytics for 100+ Multi-Channel Campaigns</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-building"></i> AT&T \ YP Advertising</span>
+                <span class="duration"><i class="fas fa-clock"></i> 2010 - 2013</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Marketing Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section summary">
+            <h2>Executive Summary</h2>
+            <p class="lead">Designed and implemented comprehensive marketing analytics framework for YP Advertising (a division of AT&T), analyzing 100+ digital campaigns across search, display, and local advertising channels. Delivered data-driven insights that improved ROAS (Return on Ad Spend) by 20%, reduced customer acquisition costs by 15%, and enabled real-time campaign optimization for 500+ small business clients.</p>
+            
+            <div class="analyst-note">
+                <strong><i class="fas fa-user-edit"></i> Why This Project Mattered to Me</strong>
+                <p>This was my first role where I got to see the direct impact of data on real businesses. These weren't faceless enterprise accounts—they were local plumbers, dentists, and pizza shop owners whose livelihoods depended on getting their advertising right. When I helped a struggling family restaurant double their phone orders through better campaign targeting, I knew data analytics was my calling.</p>
+            </div>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card">
+                <h4>Campaign Scope</h4>
+                <p>100+ digital campaigns analyzed; 500+ clients; $8.5M monthly ad spend tracked across Google Ads, Bing, Facebook, display networks.</p>
+            </div>
+            <div class="summary-card">
+                <h4>Performance Gains</h4>
+                <p>20% ROAS improvement; 15% CAC reduction; 35% increase in conversion tracking accuracy; 25% faster campaign optimization cycles.</p>
+            </div>
+            <div class="summary-card">
+                <h4>Impact</h4>
+                <p>$1.7M annual cost savings; automated reporting saved 40+ hours weekly; enabled self-service analytics for account managers.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Business Challenge</h2>
+            <ul class="challenge-list">
+                <li><strong>Fragmented Data Sources:</strong> Campaign data siloed across Google Ads, Bing, Facebook, internal CRM, billing systems — no unified view of performance</li>
+                <li><strong>Manual Reporting:</strong> Account managers spending 20+ hours weekly compiling spreadsheets for client reports, delaying optimization decisions</li>
+                <li><strong>Attribution Gaps:</strong> Inability to track customer journey across multiple touchpoints; last-click attribution severely undervalued upper-funnel efforts</li>
+                <li><strong>ROI Uncertainty:</strong> Clients demanding clearer connection between ad spend and business outcomes (calls, store visits, purchases)</li>
+                <li><strong>Audience Insights:</strong> Limited segmentation capabilities; campaigns treated all customers the same despite varying lifetime values</li>
+                <li><strong>Competitive Pressure:</strong> Local advertising market becoming commoditized; needed differentiation through superior analytics and insights</li>
+            </ul>
+            
+            <div class="thought-process">
+                <strong><i class="fas fa-brain"></i> My Initial Assessment</strong>
+                <p>Walking into a room full of account managers drowning in spreadsheets, I realized the problem wasn't just "too much manual work"—it was that they couldn't answer the most basic client question: "Is my advertising working?" A local florist shouldn't need an MBA to understand their marketing ROI. My goal became radical simplification: one dashboard, one number, one clear answer.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Campaign Performance Dashboard</h2>
+            <p>Real-time analytics dashboard providing comprehensive visibility into campaign performance across Google Ads, Bing, Facebook, and display networks. Enabled account managers and clients to monitor KPIs, identify optimization opportunities, and track ROI across the customer journey.</p>
+
+            <!-- Dashboard Container -->
+            <div class="dashboard-container">
+                <!-- KPI Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Monthly Ad Spend</div>
+                            <div class="metric-value">$8.5M</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> +12% vs. Last Month
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #d2b48c, #c9a875);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Return on Ad Spend</div>
+                            <div class="metric-value">4.2x</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> +20% Improvement
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Total Conversions</div>
+                            <div class="metric-value">12,450</div>
+                            <div class="metric-change positive">
+                                <i class="fas fa-arrow-up"></i> +18% MoM
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon" style="background: linear-gradient(135deg, #c9a875, #d2b48c);">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="metric-content">
+                            <div class="metric-label">Cost per Acquisition</div>
+                            <div class="metric-value">$85</div>
+                            <div class="metric-change negative">
+                                <i class="fas fa-arrow-down"></i> -15% Reduction
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <!-- Channel Performance Bar Chart -->
+                    <div class="chart-container">
+                        <h3>Campaign Performance by Channel</h3>
+                        <div class="bar-chart">
+                            <svg viewBox="0 0 500 280" width="100%" height="280">
+                                <!-- Y-axis labels -->
+                                <text x="35" y="50" font-size="11" fill="#666" text-anchor="end">5.0x</text>
+                                <text x="35" y="100" font-size="11" fill="#666" text-anchor="end">4.0x</text>
+                                <text x="35" y="150" font-size="11" fill="#666" text-anchor="end">3.0x</text>
+                                <text x="35" y="200" font-size="11" fill="#666" text-anchor="end">2.0x</text>
+                                <text x="35" y="250" font-size="11" fill="#666" text-anchor="end">1.0x</text>
+                                
+                                <!-- Grid lines -->
+                                <line x1="50" y1="50" x2="480" y2="50" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="100" x2="480" y2="100" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="150" x2="480" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="200" x2="480" y2="200" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="250" x2="480" y2="250" stroke="#e0e0e0" stroke-width="1"/>
+                                
+                                <!-- Bars -->
+                                <!-- Google Ads -->
+                                <rect x="70" y="58" width="70" height="192" fill="#14b8a6" opacity="0.85"/>
+                                <text x="105" y="48" font-size="14" text-anchor="middle" fill="#14b8a6" font-weight="bold">4.8x</text>
+                                <text x="105" y="268" font-size="12" text-anchor="middle" fill="#333">Google Ads</text>
+                                
+                                <!-- Facebook -->
+                                <rect x="170" y="78" width="70" height="172" fill="#0d9488" opacity="0.85"/>
+                                <text x="205" y="68" font-size="14" text-anchor="middle" fill="#0d9488" font-weight="bold">4.1x</text>
+                                <text x="205" y="268" font-size="12" text-anchor="middle" fill="#333">Facebook</text>
+                                
+                                <!-- Bing -->
+                                <rect x="270" y="108" width="70" height="142" fill="#d2b48c" opacity="0.85"/>
+                                <text x="305" y="98" font-size="14" text-anchor="middle" fill="#d2b48c" font-weight="bold">3.6x</text>
+                                <text x="305" y="268" font-size="12" text-anchor="middle" fill="#333">Bing</text>
+                                
+                                <!-- Display -->
+                                <rect x="370" y="133" width="70" height="117" fill="#90a4ae" opacity="0.85"/>
+                                <text x="405" y="123" font-size="14" text-anchor="middle" fill="#90a4ae" font-weight="bold">2.9x</text>
+                                <text x="405" y="268" font-size="12" text-anchor="middle" fill="#333">Display</text>
+                                
+                                <!-- Axis -->
+                                <line x1="50" y1="50" x2="50" y2="250" stroke="#333" stroke-width="2"/>
+                                <line x1="50" y1="250" x2="480" y2="250" stroke="#333" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p class="chart-note">Google Ads delivered highest ROAS at 4.8x. Display network underperformed; reallocated 25% of budget to search.</p>
+                    </div>
+
+                    <!-- Conversion Funnel -->
+                    <div class="chart-container">
+                        <h3>Customer Journey Conversion Funnel</h3>
+                        <div class="funnel-chart">
+                            <div class="funnel-stage" style="width: 100%; background: linear-gradient(135deg, #14b8a6, #0d9488);">
+                                <div class="funnel-label">
+                                    <span class="funnel-name">Impressions</span>
+                                    <span class="funnel-value">2.5M</span>
+                                </div>
+                            </div>
+                            <div class="funnel-arrow">↓</div>
+                            <div class="funnel-stage" style="width: 85%; background: linear-gradient(135deg, #14b8a6, #0d9488); opacity: 0.9;">
+                                <div class="funnel-label">
+                                    <span class="funnel-name">Clicks</span>
+                                    <span class="funnel-value">85K (3.4% CTR)</span>
+                                </div>
+                            </div>
+                            <div class="funnel-arrow">↓</div>
+                            <div class="funnel-stage" style="width: 70%; background: linear-gradient(135deg, #0d9488, #14b8a6); opacity: 0.9;">
+                                <div class="funnel-label">
+                                    <span class="funnel-name">Website Visits</span>
+                                    <span class="funnel-value">65K (76%)</span>
+                                </div>
+                            </div>
+                            <div class="funnel-arrow">↓</div>
+                            <div class="funnel-stage" style="width: 55%; background: linear-gradient(135deg, #d2b48c, #c9a875); opacity: 0.9;">
+                                <div class="funnel-label">
+                                    <span class="funnel-name">Leads Generated</span>
+                                    <span class="funnel-value">18K (28%)</span>
+                                </div>
+                            </div>
+                            <div class="funnel-arrow">↓</div>
+                            <div class="funnel-stage" style="width: 40%; background: linear-gradient(135deg, #c9a875, #d2b48c); opacity: 0.95;">
+                                <div class="funnel-label">
+                                    <span class="funnel-name">Conversions</span>
+                                    <span class="funnel-value">12,450 (69%)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note">69% lead-to-conversion rate. Drop-off analysis identified form complexity as primary barrier; simplified from 12 to 6 fields.</p>
+                    </div>
+                </div>
+                
+                <div class="aha-moment" style="margin: 1rem 0;">
+                    <strong><i class="fas fa-lightbulb"></i> The Form Field Revelation</strong>
+                    <p>We were losing 40% of leads at the form stage. Everyone assumed mobile was broken. But when I analyzed the funnel by device AND form completion time, I found desktop users were abandoning just as fast. The 12-field form asked for "Company Size" and "Annual Revenue"—questions a local electrician doesn't know or care about. Cutting to 6 essential fields (name, phone, service needed) nearly doubled our conversion rate overnight.</p>
+                </div>
+
+                <!-- Performance Trend Line Chart -->
+                <div class="chart-container full-width">
+                    <h3>Campaign Performance Trend (Last 90 Days)</h3>
+                    <div class="line-chart">
+                        <svg viewBox="0 0 800 260" width="100%" height="260">
+                            <!-- Grid -->
+                            <line x1="60" y1="30" x2="60" y2="210" stroke="#333" stroke-width="2"/>
+                            <line x1="60" y1="210" x2="660" y2="210" stroke="#333" stroke-width="2"/>
+                            
+                            <line x1="60" y1="170" x2="660" y2="170" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="60" y1="130" x2="660" y2="130" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="60" y1="90" x2="660" y2="90" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="60" y1="50" x2="660" y2="50" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            
+                            <!-- Y-axis labels -->
+                            <text x="45" y="215" font-size="11" fill="#666" text-anchor="end">2.5x</text>
+                            <text x="45" y="175" font-size="11" fill="#666" text-anchor="end">3.0x</text>
+                            <text x="45" y="135" font-size="11" fill="#666" text-anchor="end">3.5x</text>
+                            <text x="45" y="95" font-size="11" fill="#666" text-anchor="end">4.0x</text>
+                            <text x="45" y="55" font-size="11" fill="#666" text-anchor="end">4.5x</text>
+                            
+                            <!-- ROAS Line (teal) -->
+                            <polyline 
+                                points="60,170 120,162 180,150 240,145 300,138 360,132 420,125 480,118 540,110 600,105 660,100" 
+                                fill="none" 
+                                stroke="#14b8a6" 
+                                stroke-width="4"
+                                stroke-linejoin="round"/>
+                            
+                            <!-- Data points -->
+                            <circle cx="60" cy="170" r="5" fill="#14b8a6"/>
+                            <circle cx="180" cy="150" r="5" fill="#14b8a6"/>
+                            <circle cx="300" cy="138" r="5" fill="#14b8a6"/>
+                            <circle cx="420" cy="125" r="5" fill="#14b8a6"/>
+                            <circle cx="540" cy="110" r="5" fill="#14b8a6"/>
+                            <circle cx="660" cy="100" r="6" fill="#14b8a6" stroke="white" stroke-width="2"/>
+                            
+                            <!-- Conversions Line (tan) -->
+                            <polyline 
+                                points="60,185 120,180 180,172 240,168 300,160 360,155 420,145 480,138 540,128 600,120 660,115" 
+                                fill="none" 
+                                stroke="#d2b48c" 
+                                stroke-width="4"
+                                stroke-linejoin="round"/>
+                            
+                            <!-- Data points -->
+                            <circle cx="60" cy="185" r="5" fill="#d2b48c"/>
+                            <circle cx="180" cy="172" r="5" fill="#d2b48c"/>
+                            <circle cx="300" cy="160" r="5" fill="#d2b48c"/>
+                            <circle cx="420" cy="145" r="5" fill="#d2b48c"/>
+                            <circle cx="540" cy="128" r="5" fill="#d2b48c"/>
+                            <circle cx="660" cy="115" r="6" fill="#d2b48c" stroke="white" stroke-width="2"/>
+                            
+                            <!-- X-axis labels -->
+                            <text x="60" y="230" font-size="10" fill="#666" text-anchor="middle">90d ago</text>
+                            <text x="240" y="230" font-size="10" fill="#666" text-anchor="middle">60d ago</text>
+                            <text x="420" y="230" font-size="10" fill="#666" text-anchor="middle">30d ago</text>
+                            <text x="660" y="230" font-size="10" fill="#666" text-anchor="middle">Today</text>
+                            
+                            <!-- Legend -->
+                            <rect x="520" y="18" width="25" height="4" fill="#14b8a6"/>
+                            <text x="550" y="23" font-size="11" fill="#333">ROAS (4.2x)</text>
+                            
+                            <rect x="640" y="18" width="25" height="4" fill="#d2b48c"/>
+                            <text x="670" y="23" font-size="11" fill="#333">Conv/Day (410)</text>
+                        </svg>
+                    </div>
+                    <p class="chart-note">Steady ROAS improvement from 3.1x to 4.2x over 90 days through audience segmentation, bid optimization, and negative keyword expansion.</p>
+                </div>
+
+                <!-- Audience Segment Table -->
+                <div class="chart-container full-width">
+                    <h3>Top Performing Audience Segments</h3>
+                    <div class="data-table-wrapper">
+                        <table class="performance-table">
+                            <thead>
+                                <tr>
+                                    <th>Segment</th>
+                                    <th>Impressions</th>
+                                    <th>CTR</th>
+                                    <th>Conversions</th>
+                                    <th>ROAS</th>
+                                    <th>Customer LTV</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="top-performer">
+                                    <td><strong>Small Business Owners</strong></td>
+                                    <td>850K</td>
+                                    <td><span class="highlight-metric">4.2%</span></td>
+                                    <td>3,200</td>
+                                    <td><span class="highlight-metric">5.1x</span></td>
+                                    <td>$1,850</td>
+                                </tr>
+                                <tr class="top-performer">
+                                    <td><strong>Professional Services</strong></td>
+                                    <td>410K</td>
+                                    <td><span class="highlight-metric">3.9%</span></td>
+                                    <td>2,100</td>
+                                    <td><span class="highlight-metric">4.8x</span></td>
+                                    <td>$1,780</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Local Service Providers</strong></td>
+                                    <td>720K</td>
+                                    <td>3.8%</td>
+                                    <td>2,800</td>
+                                    <td>4.6x</td>
+                                    <td>$1,620</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Retail Storefronts</strong></td>
+                                    <td>620K</td>
+                                    <td>3.5%</td>
+                                    <td>2,450</td>
+                                    <td>4.3x</td>
+                                    <td>$1,490</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Healthcare Providers</strong></td>
+                                    <td>380K</td>
+                                    <td>3.3%</td>
+                                    <td>1,560</td>
+                                    <td>4.0x</td>
+                                    <td>$1,390</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Home Services</strong></td>
+                                    <td>340K</td>
+                                    <td>3.1%</td>
+                                    <td>1,340</td>
+                                    <td>3.8x</td>
+                                    <td>$1,280</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="chart-note">Small Business Owners and Professional Services segments delivered highest ROAS and LTV. Allocated 40% of budget to these high-performing segments.</p>
+                    
+                    <div class="surprise-finding">
+                        <strong><i class="fas fa-exclamation-circle"></i> The "Pizza Shop Paradox"</strong>
+                        <p>Everyone wanted to chase law firms and dentists because of their high LTV. But I discovered something counterintuitive: pizza shops had the lowest individual LTV but the highest referral rate. One happy pizzeria owner told five friends. Those "low value" accounts were actually our best acquisition channel—we just never measured word-of-mouth. This completely changed how we thought about customer lifetime value.</p>
+                    </div>
+                </div>
+
+                <!-- Performance Stats -->
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">500+</div>
+                        <div class="stat-label">Active Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">35%</div>
+                        <div class="stat-label">Tracking Accuracy Increase</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">40 hrs</div>
+                        <div class="stat-label">Weekly Reporting Time Saved</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$1.7M</div>
+                        <div class="stat-label">Annual Cost Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau Access Note -->
+            <div class="tableau-access-box">
+                <div class="tableau-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Interactive Tableau Dashboard Suite</h3>
+                <p>The complete Tableau dashboard platform includes:</p>
+                <ul class="dashboard-features">
+                    <li><i class="fas fa-check-circle"></i> Real-time campaign performance monitoring across all channels with automated hourly refreshes</li>
+                    <li><i class="fas fa-check-circle"></i> Multi-touch attribution modeling showing weighted customer journey touchpoints (first 40%, middle 20%, last 40%)</li>
+                    <li><i class="fas fa-check-circle"></i> Audience segment performance analysis with RFM scoring and LTV prediction capabilities</li>
+                    <li><i class="fas fa-check-circle"></i> Keyword and ad copy performance drill-down with quality score and impression share metrics</li>
+                    <li><i class="fas fa-check-circle"></i> Budget pacing alerts and automated anomaly detection for underperforming campaigns</li>
+                    <li><i class="fas fa-check-circle"></i> Client-facing white-label dashboards with customizable KPI thresholds and branding</li>
+                    <li><i class="fas fa-check-circle"></i> Competitive benchmarking showing performance vs. industry averages and peer campaigns</li>
+                </ul>
+                <p class="tableau-note"><strong>Note:</strong> Dashboards integrated with Google Ads, Bing, Facebook APIs with daily automated data refresh. Self-service analytics enabled for 15 account managers and 500+ clients. Contact for live demo access.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Data Architecture & Integration</h2>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <div class="arch-label">Data Sources</div>
+                    <div class="arch-boxes">
+                        <div class="arch-box source">Google Ads API</div>
+                        <div class="arch-box source">Bing Ads API</div>
+                        <div class="arch-box source">Facebook API</div>
+                        <div class="arch-box source">CRM (Salesforce)</div>
+                        <div class="arch-box source">Billing System</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <div class="arch-label">ETL & Processing</div>
+                    <div class="arch-boxes">
+                        <div class="arch-box processing">Python Scripts</div>
+                        <div class="arch-box processing">SQL Server ETL</div>
+                        <div class="arch-box processing">Data Validation</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <div class="arch-label">Data Warehouse</div>
+                    <div class="arch-boxes">
+                        <div class="arch-box storage">SQL Server 2012</div>
+                        <div class="arch-box storage">Campaign Mart</div>
+                        <div class="arch-box storage">Customer Mart</div>
+                    </div>
+                </div>
+                <div class="arch-layer">
+                    <div class="arch-label">Analytics & Reporting</div>
+                    <div class="arch-boxes">
+                        <div class="arch-box analytics">Tableau Dashboards</div>
+                        <div class="arch-box analytics">Excel Templates</div>
+                        <div class="arch-box analytics">Automated Reports</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Implementation Phases</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Phase 1: Data Integration (Months 1-2)</h3>
+                        <ul>
+                            <li>Established API connections to Google Ads, Bing, Facebook for automated data extraction</li>
+                            <li>Built Python scripts to standardize data formats across platforms</li>
+                            <li>Created SQL Server data warehouse with campaign and customer dimensional models</li>
+                            <li>Implemented daily ETL jobs to refresh data overnight</li>
+                            <li>Connected CRM and billing systems for revenue attribution</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Phase 2: Metric Definition & KPI Framework (Month 3)</h3>
+                        <ul>
+                            <li>Collaborated with account managers and clients to define success metrics</li>
+                            <li>Standardized KPI calculations (ROAS, CAC, LTV, CTR, conversion rate) across all campaigns</li>
+                            <li>Implemented multi-touch attribution model (weighted first/last/linear)</li>
+                            <li>Created data quality checks and anomaly detection rules</li>
+                            <li>Documented business logic and metric definitions in data dictionary</li>
+                        </ul>
+                        
+                        <div class="analyst-note">
+                            <strong><i class="fas fa-user-edit"></i> The "Three Different ROASes" Problem</strong>
+                            <p>During one meeting, three account managers quoted three different ROAS numbers for the same client. One used revenue/spend, another used profit/spend, and the third excluded returns. That moment taught me that standardization isn't bureaucracy—it's the foundation of trust. We spent an entire week just aligning on definitions before building anything, and it saved us months of arguments later.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Phase 3: Dashboard Development (Months 4-6)</h3>
+                        <ul>
+                            <li>Designed Tableau dashboard prototypes with 5 account managers (iterative feedback)</li>
+                            <li>Built 3 core dashboards: Campaign Performance, Audience Insights, ROI Attribution</li>
+                            <li>Implemented drill-down capabilities from campaign → ad group → keyword level</li>
+                            <li>Created client-facing dashboards with white-label branding</li>
+                            <li>Enabled self-service analytics with filters and parameter controls</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Phase 4: Audience Segmentation (Months 7-9)</h3>
+                        <ul>
+                            <li>Analyzed customer transaction history and behavioral data to identify high-value segments</li>
+                            <li>Developed RFM (Recency, Frequency, Monetary) segmentation model</li>
+                            <li>Built predictive LTV model using logistic regression</li>
+                            <li>Created lookalike audiences for prospecting campaigns</li>
+                            <li>A/B tested segment-specific messaging and offers</li>
+                        </ul>
+                        
+                        <div class="aha-moment">
+                            <strong><i class="fas fa-lightbulb"></i> The "Seasonal Business" Breakthrough</strong>
+                            <p>Our RFM model kept flagging HVAC companies as "at-risk" every spring because their winter activity dropped. Classic false positive. But this mistake led to a breakthrough: we built season-adjusted scoring that recognized industry patterns. An HVAC company quiet in April was normal; a tax preparer quiet in April was actually churning. This nuance improved our retention predictions by 40%.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Phase 5: Automation & Scale (Months 10-12)</h3>
+                        <ul>
+                            <li>Automated weekly client reports sent via email (500+ clients)</li>
+                            <li>Built alerting system for budget pacing and performance anomalies</li>
+                            <li>Created Excel templates with Tableau data extracts for offline analysis</li>
+                            <li>Trained 15 account managers on dashboard usage and data interpretation</li>
+                            <li>Documented processes and created knowledge base for ongoing support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Code Example: Multi-Touch Attribution</h2>
+            <div class="code-block">
+                <h4>SQL — Weighted Attribution Model</h4>
+                <pre><code>-- Multi-touch attribution model with weighted credit
+-- First touch: 40%, Last touch: 40%, Middle touches: 20% distributed
+
+WITH customer_touchpoints AS (
+    SELECT 
+        c.customer_id,
+        c.conversion_date,
+        c.conversion_revenue,
+        ct.touchpoint_date,
+        ct.campaign_id,
+        ct.channel,
+        ct.ad_spend,
+        ROW_NUMBER() OVER (
+            PARTITION BY c.customer_id, c.conversion_date 
+            ORDER BY ct.touchpoint_date ASC
+        ) AS touch_sequence,
+        COUNT(*) OVER (
+            PARTITION BY c.customer_id, c.conversion_date
+        ) AS total_touches
+    FROM conversions c
+    INNER JOIN campaign_touchpoints ct
+        ON c.customer_id = ct.customer_id
+        AND ct.touchpoint_date <= c.conversion_date
+        AND ct.touchpoint_date >= DATEADD(day, -30, c.conversion_date)
+),
+attributed_revenue AS (
+    SELECT
+        customer_id,
+        conversion_date,
+        conversion_revenue,
+        campaign_id,
+        channel,
+        ad_spend,
+        touch_sequence,
+        total_touches,
+        CASE 
+            -- First touch gets 40%
+            WHEN touch_sequence = 1 THEN conversion_revenue * 0.40
+            -- Last touch gets 40%
+            WHEN touch_sequence = total_touches THEN conversion_revenue * 0.40
+            -- Middle touches split remaining 20%
+            ELSE conversion_revenue * 0.20 / NULLIF(total_touches - 2, 0)
+        END AS attributed_revenue
+    FROM customer_touchpoints
+)
+SELECT
+    campaign_id,
+    channel,
+    SUM(ad_spend) AS total_ad_spend,
+    SUM(attributed_revenue) AS total_attributed_revenue,
+    SUM(attributed_revenue) / NULLIF(SUM(ad_spend), 0) AS roas,
+    COUNT(DISTINCT customer_id) AS influenced_customers
+FROM attributed_revenue
+GROUP BY campaign_id, channel
+ORDER BY total_attributed_revenue DESC;
+</code></pre>
+            </div>
+            
+            <div class="thought-process">
+                <strong><i class="fas fa-brain"></i> Why 40/20/40 Attribution?</strong>
+                <p>Everyone wanted me to use a fancy machine learning model for attribution. But when I interviewed account managers, they needed something they could explain to a pizza shop owner in 30 seconds. "The first ad that caught your attention gets credit. The last ad before you called gets credit. Everything in between shares the rest." That story resonated. Sometimes the best model isn't the most sophisticated one—it's the one people actually believe and act on.</p>
+            </div>
+        </section>
+
+        <section class="section results-grid">
+            <h2>Results & Impact</h2>
+            <div class="result-card">
+                <h4>20% ROAS Improvement</h4>
+                <p>Average return on ad spend increased from 3.5x to 4.2x through better targeting, bid optimization, and audience segmentation.</p>
+            </div>
+            <div class="result-card">
+                <h4>15% CAC Reduction</h4>
+                <p>Customer acquisition costs dropped from $100 to $85 by identifying and focusing on high-converting audience segments.</p>
+            </div>
+            <div class="result-card">
+                <h4>$1.7M Annual Savings</h4>
+                <p>Improved campaign efficiency and reduced wasted ad spend on underperforming keywords and placements.</p>
+            </div>
+            <div class="result-card">
+                <h4>40 Hours Weekly Saved</h4>
+                <p>Automated reporting eliminated manual data compilation, freeing account managers for strategic optimization work.</p>
+            </div>
+            <div class="result-card">
+                <h4>35% Attribution Accuracy</h4>
+                <p>Multi-touch attribution revealed that 35% of conversions were incorrectly attributed to last-click, validating upper-funnel investments.</p>
+            </div>
+            <div class="result-card">
+                <h4>500+ Clients Enabled</h4>
+                <p>Self-service dashboards empowered clients to monitor their campaigns in real-time, increasing transparency and satisfaction.</p>
+            </div>
+            
+            <div class="surprise-finding">
+                <strong><i class="fas fa-exclamation-circle"></i> The Dashboard Nobody Expected to Love</strong>
+                <p>I built the dashboards for account managers, assuming clients wouldn't care about the technical details. Wrong. A 67-year-old locksmith became our biggest dashboard power user. He'd call his account manager to brag about his week-over-week CTR improvements. That's when I realized: people don't hate data, they hate feeling confused by it. Give them something clear, and they'll become data enthusiasts.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Challenges & Solutions</h2>
+            <div class="challenges">
+                <div class="challenge-card">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Challenge: API Rate Limits</h4>
+                    <p><strong>Issue:</strong> Google Ads and Facebook APIs had strict rate limits, causing ETL failures when pulling data for 500+ clients.</p>
+                    <p><strong>Solution:</strong> Implemented batching strategy with exponential backoff retry logic. Prioritized high-spend campaigns for real-time sync, pulled low-spend campaigns once daily. Added queuing system to spread API calls across the day.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Challenge: Duplicate Conversion Tracking</h4>
+                    <p><strong>Issue:</strong> Pixels on client websites sometimes fired multiple times, inflating conversion counts by 15-20%.</p>
+                    <p><strong>Solution:</strong> Built deduplication logic based on customer_id + timestamp window (5 minutes). Added conversion quality score to flag suspicious patterns. Worked with web team to implement proper pixel placement.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Challenge: Cross-Device Attribution</h4>
+                    <p><strong>Issue:</strong> Customers often researched on mobile but converted on desktop, making attribution difficult.</p>
+                    <p><strong>Solution:</strong> Implemented probabilistic device graph using hashed email addresses and phone numbers from CRM. Matched ~60% of conversions to previous mobile touchpoints, revealing mobile's true upper-funnel value.</p>
+                </div>
+                
+                <div class="analyst-note">
+                    <strong><i class="fas fa-user-edit"></i> A Hard Privacy Lesson</strong>
+                    <p>My first cross-device solution used raw email addresses. It worked beautifully until our security team (rightfully) shut it down. That failure taught me to always think about privacy from Day 1, not as an afterthought. The hashed approach actually worked better because it forced cleaner matching logic. Sometimes constraints make you build better solutions.</p>
+                </div>
+                
+                <div class="challenge-card">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Challenge: Dashboard Performance at Scale</h4>
+                    <p><strong>Issue:</strong> Tableau dashboards became slow when filtering across 100+ campaigns with 2+ years of historical data.</p>
+                    <p><strong>Solution:</strong> Created aggregated summary tables for common queries. Implemented incremental extracts instead of full refreshes. Added data source filters to limit query scope. Optimized calculations to use fixed LOD expressions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Key Learnings</h2>
+            
+            <div class="aha-moment">
+                <strong><i class="fas fa-lightbulb"></i> The Lesson That Shaped My Career</strong>
+                <p>Three years into this role, I realized the most valuable thing I built wasn't the dashboard or the attribution model—it was trust. When account managers stopped double-checking my numbers and started making decisions based on them, that's when I knew we'd succeeded. Technical excellence matters, but earning the confidence of people who depend on your data? That's the real win.</p>
+            </div>
+            
+            <ul class="learnings">
+                <li><strong>Last-click attribution significantly undervalues upper-funnel campaigns.</strong> Multi-touch models revealed that awareness and consideration channels drove 35% more conversions than credited under last-click.</li>
+                <li><strong>Audience segmentation unlocks 2-3x performance improvements.</strong> Treating all customers the same wastes budget — targeting high-LTV segments dramatically improved ROAS.</li>
+                <li><strong>Self-service analytics empowers faster decision-making.</strong> Giving account managers and clients direct dashboard access eliminated bottlenecks and enabled real-time optimization.</li>
+                <li><strong>Automated reporting is non-negotiable at scale.</strong> Manually compiling reports for 500+ clients is impossible — automation was critical to scaling the business.</li>
+                <li><strong>Data quality is the foundation of trust.</strong> Early investment in validation rules and anomaly detection prevented countless errors and maintained stakeholder confidence.</li>
+                <li><strong>Collaboration with stakeholders ensures adoption.</strong> Iterative dashboard design with account managers (not in isolation) ensured the final product met real business needs.</li>
+            </ul>
+        </section>
+
+        <section class="section tech-grid">
+            <h2>Technology Stack</h2>
+            <div class="tech-category"><strong>Data Sources:</strong> Google Ads API, Bing Ads API, Facebook Marketing API, Salesforce CRM, Custom Billing System</div>
+            <div class="tech-category"><strong>ETL & Processing:</strong> Python (requests, pandas), SQL Server SSIS, Custom ETL Scripts</div>
+            <div class="tech-category"><strong>Data Warehouse:</strong> SQL Server 2012, Star Schema (Campaign Fact, Customer Dimension, Date Dimension)</div>
+            <div class="tech-category"><strong>Analytics & BI:</strong> Tableau Desktop/Server, Excel (Power Query, Pivot Tables), Custom Reporting Engine</div>
+            <div class="tech-category"><strong>Attribution & Modeling:</strong> SQL (Window Functions, CTEs), Python (scikit-learn for LTV prediction)</div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="case-study-footer">
+        <div class="footer-content">
+            <div class="disclaimer">
+                <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+            </div>
+            <a href="index.html" class="footer-link">← Back to Home</a>
+            <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pamtekk@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

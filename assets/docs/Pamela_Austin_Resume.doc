@@ -1,0 +1,224 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<title>Pamela Austin - Resume</title>
+<!--[if gte mso 9]>
+<xml>
+<w:WordDocument>
+<w:View>Print</w:View>
+<w:Zoom>100</w:Zoom>
+<w:DoNotOptimizeForBrowser/>
+</w:WordDocument>
+</xml>
+<![endif]-->
+<style>
+body {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    color: #333;
+    margin: 0.5in;
+}
+h1 {
+    font-size: 24pt;
+    color: #14b8a6;
+    margin-bottom: 5pt;
+    text-align: center;
+    border-bottom: none;
+}
+.contact-info {
+    text-align: center;
+    font-size: 10pt;
+    color: #666;
+    margin-bottom: 15pt;
+}
+h2 {
+    font-size: 13pt;
+    color: #14b8a6;
+    border-bottom: 2px solid #14b8a6;
+    padding-bottom: 3pt;
+    margin-top: 15pt;
+    margin-bottom: 8pt;
+}
+h3 {
+    font-size: 11pt;
+    color: #333;
+    margin-bottom: 2pt;
+    margin-top: 10pt;
+}
+.company {
+    font-style: italic;
+    color: #666;
+}
+.date {
+    float: right;
+    font-weight: bold;
+    color: #666;
+}
+.job-header {
+    margin-bottom: 5pt;
+}
+.job-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+ul {
+    margin-top: 5pt;
+    margin-bottom: 10pt;
+    padding-left: 20pt;
+}
+li {
+    margin-bottom: 3pt;
+}
+.technologies {
+    font-size: 10pt;
+    color: #666;
+    margin-top: 5pt;
+    padding: 5pt;
+    background-color: #f5f5f5;
+}
+.skills-grid {
+    margin-bottom: 10pt;
+}
+.skill-category {
+    margin-bottom: 5pt;
+}
+.competencies {
+    column-count: 2;
+    column-gap: 20pt;
+}
+.summary {
+    text-align: justify;
+}
+p {
+    margin-bottom: 8pt;
+}
+</style>
+</head>
+<body>
+
+<h1>Pamela Austin</h1>
+<div class="contact-info">
+📍 Riverdale, GA 30296 &nbsp;|&nbsp; 🔗 linkedin.com/in/pamela-austin-621a32a4
+</div>
+
+<h2>Professional Summary</h2>
+<p class="summary">Data Analyst with 10+ years of experience specializing in data engineering, ETL pipeline development, and business intelligence across telecommunications, healthcare, retail, and finance. Proven track record of delivering measurable business impact: designed cloud migration pipelines achieving 87.5% faster processing and $250K annual savings, built HIPAA-compliant healthcare data warehouses integrating 50K+ patient records with 98.7% data quality, and developed predictive ML models with 94.2% accuracy generating $12M in cost savings. Expert in AWS (Redshift, Glue, S3), Snowflake, Python/PySpark, SQL, and visualization tools (Power BI, Tableau). Strong collaborator who translates complex data challenges into scalable, production-ready solutions.</p>
+
+<h2>Education</h2>
+<p><strong>Bachelor of Science in Computer Science</strong> <span class="date">September 2016</span><br>
+National American University, Rapid City, SD</p>
+<p><strong>Associate of Science in Finance Accounting</strong> <span class="date">August 2011</span><br>
+University of Phoenix, Phoenix, AR</p>
+
+<h2>Certifications</h2>
+<ul>
+<li>IBM - Databases and SQL for Data Science with Python</li>
+</ul>
+
+<h2>Technical Skills</h2>
+<div class="skills-grid">
+<p><strong>Data Visualization & BI:</strong> Tableau, Power BI (DAX, Power Query), Looker, Advanced Excel</p>
+<p><strong>Programming & Analytics:</strong> SQL (Advanced), Python (Pandas, NumPy, PySpark), Statistical Analysis, Machine Learning</p>
+<p><strong>Data Platforms:</strong> Snowflake, Amazon Redshift, IBM Cloud Pak for Data (CP4D), Watson Query, SAS, Databricks</p>
+<p><strong>Cloud & ETL:</strong> AWS (Glue, AppFlow, CloudWatch), Fivetran, dbt, Talend, Data Warehousing</p>
+<p><strong>Business Tools:</strong> Workfront, Salesforce (SFDC, Bulk API 2.0), ZoomInfo, Google Analytics</p>
+<p><strong>Project Management:</strong> Jira, Confluence, Agile Methodologies, Sprint Planning, Backlog Management</p>
+<p><strong>Specializations:</strong> Data Cleansing, Data Governance, HIPAA Compliance, A/B Testing, Financial Modeling</p>
+</div>
+
+<h2>Professional Experience</h2>
+
+<div class="job-header">
+<h3>Senior Data Analyst (Data Engineering Focus) <span class="date">June 2025 – September 2025</span></h3>
+<div class="company">Signet Jewelers, Contract (Rules IQ) - Remote</div>
+</div>
+<ul>
+<li>Led end-to-end deduplication of 150M+ customer and transaction records by designing and implementing a business-criteria matching strategy and a scalable AWS/Redshift SQL pipeline; orchestrated ETL with AWS Glue and automated CRM syncs to Salesforce using AWS AppFlow and Bulk API 2.0.</li>
+<li>Designed the deduplication strategy from business requirements: defined deterministic and fuzzy matching keys, heuristic scoring, authoritative sources, and merge/survivorship rules to support CRM, reporting and analytics.</li>
+<li>Built a repeatable, production-ready deduplication pipeline in Amazon Redshift using set-based SQL (CTEs, window functions, staging tables) to score, identify, consolidate, and flag duplicates.</li>
+<li>Orchestrated ETL and transformation jobs with AWS Glue (PySpark), creating modular Glue jobs for incremental processing, schema discovery, and automated retries.</li>
+<li>Automated secure data movement to Salesforce using AWS AppFlow for near-real-time integrations and Bulk API 2.0 for high-volume upserts/merges.</li>
+<li>Implemented performance and cost optimizations in Redshift and Glue: tuned distribution/sort keys, compression encodings, partitioning, and Glue job parallelism.</li>
+</ul>
+<div class="technologies"><strong>Technologies:</strong> Amazon Redshift, AWS Glue (PySpark), AWS AppFlow, Salesforce Bulk API 2.0, Advanced SQL, CloudWatch, Jira, Confluence</div>
+
+<div class="job-header">
+<h3>Data Analyst - Senior <span class="date">March 2024 – March 2025</span></h3>
+<div class="company">AT&T - Atlanta, GA</div>
+</div>
+<ul>
+<li>Results-driven Data Analyst with expertise in Power BI, Snowflake, SQL, and Workfront, specializing in data integration, business intelligence, and process automation.</li>
+<li>Team development with a predictive ML model to forecast project completion timelines, enabling proactive decision-making, optimized resource allocation, and improved operational efficiency.</li>
+<li>Built a custom Microsoft Windows Form application that automated new client onboarding and intake processes, reducing client setup time by 48% and improved data consistency.</li>
+<li>Familiarity with automated data ingestion pipelines using APIs and Fivetran/dbt, reducing manual data retrieval by 40%.</li>
+<li>Collected and integrated data from Workfront API into Snowflake for centralized marketing analysis.</li>
+<li>Designed and implemented a comprehensive data validation framework, improving data integrity across Snowflake and Power BI; enhanced dashboard performance, reducing refresh times by 25%.</li>
+<li>Built interactive Power BI dashboards to visualize compensation trends, workforce costs, and budget allocations.</li>
+<li>Led backlog management and sprint planning, utilizing story points and the RICE method to prioritize high-impact tasks.</li>
+</ul>
+<div class="technologies"><strong>Technologies:</strong> Power BI, Snowflake, SQL, Python, DAX, Workfront, Tableau, ETL, Agile, Machine Learning, Salesforce (SFDC)</div>
+
+<div class="job-header">
+<h3>Product Data Analyst <span class="date">January 2016 – March 2024</span></h3>
+<div class="company">Syilum LLC - Atlanta, GA</div>
+</div>
+<ul>
+<li>Analyzed and evaluated the performance and effectiveness of company software products by tracking user behavior, engagement metrics, and feature adoption.</li>
+<li>Conducted in-depth A/B testing, user research, and competitor analysis to guide product enhancements and feature rollouts.</li>
+<li>Expertise in utilizing SAS and Databricks to clean and process large datasets.</li>
+<li>Designed KPI dashboards in Power BI to track product success, adoption rates, and operational efficiency.</li>
+<li>IBM Cloud Pak for Data (CP4D) & Watson Query Experience: Integrated diverse data sources, executing distributed queries, and optimizing data workflows for real-time analytics.</li>
+<li>Implemented automated data quality checks and data cleansing processes using Python and Talend.</li>
+<li>Utilized Snowflake and SQL to query, clean, and structure large datasets for analytics and reporting.</li>
+<li>Conducted campaign performance analysis, measuring ROI, customer acquisition costs, and conversion rates.</li>
+<li>Assisted in budgeting, forecasting, and financial modeling to optimize marketing spending.</li>
+</ul>
+<div class="technologies"><strong>Technologies:</strong> Power BI, IBM CP4D, Watson Query, Python, Talend, Snowflake, SQL, Workfront, SAS, Databricks</div>
+
+<div class="job-header">
+<h3>Data Analyst <span class="date">January 2013 – January 2016</span></h3>
+<div class="company">Support Optics - Contract (Finance, Business Intelligence, Healthcare)</div>
+</div>
+<ul>
+<li>Conducted in-depth data analysis and research for clients in finance, business intelligence, and healthcare, delivering actionable insights to drive strategic decision-making.</li>
+<li>Finance: Designed and implemented data collection methodologies to improve data accuracy and reliability. Analyzed financial data to identify trends and optimize resource allocation.</li>
+<li>Business Intelligence: Developed interactive dashboards and reports using Power BI, Tableau, and Excel.</li>
+<li>Healthcare: Analyzed large healthcare datasets to identify patterns and opportunities for quality improvement. Developed predictive models to forecast healthcare outcomes.</li>
+<li>Performed statistical analysis, including regression analysis, hypothesis testing, and clustering.</li>
+</ul>
+<div class="technologies"><strong>Technologies:</strong> SQL, Python, Tableau, Power BI, Statistical Modeling, Predictive Analytics, Data Visualization</div>
+
+<div class="job-header">
+<h3>Marketing Data Analyst <span class="date">January 2010 – December 2013</span></h3>
+<div class="company">AT&T/YP Advertising Solutions - Tucker, GA</div>
+</div>
+<ul>
+<li>Campaign Analytics: Applied statistical analysis and data visualization tools (Tableau, Power BI) to measure campaign performance, tracking KPIs such as conversion rates, CTR, and CAC.</li>
+<li>Audience Insights & Segmentation: Analyzed audience data from 100+ marketing campaigns, improving targeting strategies and increased ROAS by 20%.</li>
+<li>Market Research & Competitive Analysis: Conducted consumer preference research, market trend analysis, and competitor benchmarking.</li>
+<li>Designed and executed A/B tests and multivariate experiments to optimize campaigns based on analytical results.</li>
+</ul>
+<div class="technologies"><strong>Technologies:</strong> Marketing Analytics, SQL, Python, Tableau, Power BI, Google Analytics, A/B Testing, Data Visualization</div>
+
+<h2>Core Competencies</h2>
+<ul class="competencies">
+<li>Data Engineering & Pipeline Development</li>
+<li>Business Intelligence & Analytics</li>
+<li>Data Governance & Quality Assurance</li>
+<li>Machine Learning & Predictive Modeling</li>
+<li>Dashboard Development & Visualization</li>
+<li>Process Automation & Optimization</li>
+<li>Agile Project Management</li>
+<li>Cross-Functional Collaboration</li>
+<li>Financial Modeling & Forecasting</li>
+<li>Marketing Analytics & Campaign Optimization</li>
+<li>Healthcare Data Analysis (HIPAA Compliant)</li>
+<li>Product Performance Analytics</li>
+</ul>
+
+<p style="text-align: center; margin-top: 20pt; color: #666; font-style: italic;">References available upon request</p>
+
+</body>
+</html>

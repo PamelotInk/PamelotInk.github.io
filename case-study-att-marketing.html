@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Marketing Analytics Platform - Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Narrative Styles */
+        .analyst-note, .aha-moment, .thought-process, .surprise-finding {
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+        .analyst-note {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: #14b8a6;
+        }
+        .aha-moment {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        .thought-process {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: #8b5cf6;
+        }
+        .surprise-finding {
+            background: rgba(236, 72, 153, 0.1);
+            border-color: #ec4899;
+        }
+        .analyst-note strong, .aha-moment strong, .thought-process strong, .surprise-finding strong {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .analyst-note p, .aha-moment p, .thought-process p, .surprise-finding p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Dark mode adjustments for personal notes - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note strong { color: #5eead4; }
+        body.dark-mode .analyst-note p { color: #ccfbf1; }
+        
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment strong { color: #fde68a; }
+        body.dark-mode .aha-moment p { color: #fef3c7; }
+        
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-color: #c084fc;
+        }
+        body.dark-mode .thought-process strong { color: #e9d5ff; }
+        body.dark-mode .thought-process p { color: #f3e8ff; }
+        
+        body.dark-mode .surprise-finding {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+            border-color: #f472b6;
+        }
+        body.dark-mode .surprise-finding strong { color: #fbcfe8; }
+        body.dark-mode .surprise-finding p { color: #fce7f3; }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>AT&T Marketing Analytics Platform</h1>
+            <p class="subtitle">Unified Marketing Data Platform with Automated ETL & Multi-Source Integration</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-building"></i> AT&T</span>
+                <span class="duration"><i class="fas fa-clock"></i> January 2024 - November 2024</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Senior Data Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                    <p>Build a centralized marketing analytics platform integrating data from Workfront (project management), Bynder (digital asset management), and Webphone (call tracking) systems to eliminate manual reporting and provide real-time campaign performance insights.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Solution</h3>
+                    <p>Architected automated data integration platform using Snowflake data warehouse, Fivetran connectors, and dbt transformations. Built Power BI dashboards providing unified view of marketing operations, campaign ROI, asset utilization, and lead attribution.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Impact</h3>
+                    <p>Eliminated 15+ hours weekly manual reporting, improved data accuracy from 73% to 98%, enabled real-time campaign optimization, reduced data latency from 5 days to 15 minutes, and provided $2.3M in identified cost savings through improved resource allocation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge -->
+        <section class="section">
+            <h2>Business Challenge</h2>
+            
+            <div class="analyst-note">
+                <strong><i class="fas fa-user-edit"></i> Analyst's Perspective</strong>
+                <p>Walking into my first stakeholder meeting, I expected to hear about dashboard requests. Instead, I watched a campaign manager pull out a USB drive with 47 Excel files—her "reporting system." That moment crystallized the real problem: brilliant marketing minds trapped in data entry purgatory instead of doing actual marketing analysis.</p>
+            </div>
+            
+            <p>AT&T's marketing operations team faced critical inefficiencies in their data infrastructure and reporting processes:</p>
+            <ul class="challenge-list">
+                <li><strong>Manual Data Extraction:</strong> Marketing analysts spent 15-20 hours weekly manually exporting data from Workfront, Bynder, and Webphone into Excel spreadsheets for campaign reporting</li>
+                <li><strong>Data Silos:</strong> No single source of truth for marketing performance - project data in Workfront, creative assets in Bynder, call tracking in Webphone, with no cross-system visibility</li>
+                <li><strong>Reporting Lag:</strong> Campaign performance reports took 5-7 days to compile, preventing real-time optimization and budget reallocation</li>
+                <li><strong>Data Quality Issues:</strong> 27% of reports contained errors from manual data entry, copy-paste mistakes, and formula errors in Excel workbooks</li>
+                <li><strong>Limited Analytics:</strong> No ability to perform advanced analytics like campaign attribution modeling, asset performance correlation, or multi-touch lead scoring</li>
+                <li><strong>Scalability Constraints:</strong> Excel-based workflows couldn't handle growing data volumes (500K+ marketing events monthly across 200+ campaigns)</li>
+                <li><strong>Stakeholder Frustration:</strong> Marketing leadership lacked visibility into campaign ROI, asset utilization rates, and resource allocation efficiency</li>
+            </ul>
+            
+            <div class="thought-process">
+                <strong><i class="fas fa-brain"></i> My Approach</strong>
+                <p>I learned early that you can't just "fix the data"—you have to understand the humans behind the spreadsheets. So before writing a single line of code, I shadowed each analyst through their Monday morning data ritual. Watching someone spend 3 hours copy-pasting phone call data into a pivot table told me more about the real requirements than any formal spec ever could.</p>
+            </div>
+            
+            <div class="stat-highlight">
+                <p><strong>Business Impact:</strong> Inefficient manual processes cost an estimated $180K annually in analyst time, while delayed reporting resulted in suboptimal budget allocation estimated at $2-3M in missed opportunities.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard -->
+        <section class="section dashboard-section">
+            <h2>Marketing Operations Dashboard</h2>
+            <p class="dashboard-description">Real-time marketing performance metrics, campaign ROI tracking, asset utilization analytics, and lead attribution across all channels.</p>
+            
+            <div class="dashboard-mockup">
+                <!-- KPI Metrics Row -->
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div class="metric-value">218</div>
+                        <div class="metric-label">Active Campaigns</div>
+                        <div class="metric-trend positive">+12% MoM</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="metric-value">$8.4M</div>
+                        <div class="metric-label">Marketing Spend (Q4)</div>
+                        <div class="metric-trend neutral">On Budget</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-value">47,382</div>
+                        <div class="metric-label">Qualified Leads</div>
+                        <div class="metric-trend positive">+18% YoY</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-value">3.2x</div>
+                        <div class="metric-label">Average Campaign ROI</div>
+                        <div class="metric-trend positive">+0.4x vs Target</div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <!-- Campaign Performance by Channel -->
+                    <div class="chart-container">
+                        <h3>Campaign Performance by Channel (Q4 2024)</h3>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-label">Paid Search</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-best" style="width: 95%;" data-value="4.8x ROI">4.8x ROI</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Email Marketing</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 82%;" data-value="4.1x ROI">4.1x ROI</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Social Media</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 68%;" data-value="3.4x ROI">3.4x ROI</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Display Ads</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 58%;" data-value="2.9x ROI">2.9x ROI</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Content Marketing</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 54%;" data-value="2.7x ROI">2.7x ROI</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Video Campaigns</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-baseline" style="width: 42%;" data-value="2.1x ROI">2.1x ROI</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note">ROI calculated as (Revenue - Cost) / Cost. Paid search and email show highest returns. Video campaigns underperforming target of 2.5x.</p>
+                    </div>
+
+                    <!-- Asset Utilization -->
+                    <div class="chart-container">
+                        <h3>Digital Asset Usage (Bynder)</h3>
+                        <div class="donut-chart">
+                            <svg viewBox="0 0 200 200" width="200" height="200">
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="30"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#14b8a6" stroke-width="30"
+                                        stroke-dasharray="188 503" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#0d9488" stroke-width="30"
+                                        stroke-dasharray="126 503" stroke-dashoffset="-188" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#d2b48c" stroke-width="30"
+                                        stroke-dasharray="94 503" stroke-dashoffset="-314" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#999999" stroke-width="30"
+                                        stroke-dasharray="95 503" stroke-dashoffset="-408" transform="rotate(-90 100 100)"/>
+                            </svg>
+                            <div class="donut-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #14b8a6;"></span>
+                                    <span class="legend-label">Images: 4,820 (37.5%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #0d9488;"></span>
+                                    <span class="legend-label">Videos: 3,200 (25%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #d2b48c;"></span>
+                                    <span class="legend-label">Documents: 2,400 (18.5%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #999999;"></span>
+                                    <span class="legend-label">Other: 2,440 (19%)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note" style="margin-top: 15px;">12,860 total assets. Average utilization rate: 68%. 4,112 assets unused in last 90 days.</p>
+                    </div>
+
+                    <!-- Lead Attribution Waterfall -->
+                    <div class="chart-container full-width">
+                        <h3>Multi-Touch Lead Attribution (Last 30 Days)</h3>
+                        <div class="line-chart">
+                            <svg viewBox="0 0 600 250" width="100%" height="250">
+                                <!-- Grid lines -->
+                                <line x1="50" y1="200" x2="550" y2="200" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="150" x2="550" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="100" x2="550" y2="100" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="50" x2="550" y2="50" stroke="#e0e0e0" stroke-width="1"/>
+                                
+                                <!-- Awareness touchpoints -->
+                                <rect x="50" y="120" width="60" height="80" fill="#14b8a6" opacity="0.8"/>
+                                <text x="80" y="155" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Social</text>
+                                <text x="80" y="170" font-size="10" fill="white" text-anchor="middle">8,240</text>
+                                
+                                <!-- Consideration -->
+                                <rect x="130" y="90" width="60" height="110" fill="#14b8a6" opacity="0.8"/>
+                                <text x="160" y="135" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Paid</text>
+                                <text x="160" y="150" font-size="10" fill="white" text-anchor="middle">Search</text>
+                                <text x="160" y="165" font-size="10" fill="white" text-anchor="middle">11,450</text>
+                                
+                                <rect x="210" y="110" width="60" height="90" fill="#0d9488" opacity="0.8"/>
+                                <text x="240" y="145" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Email</text>
+                                <text x="240" y="160" font-size="10" fill="white" text-anchor="middle">9,380</text>
+                                
+                                <!-- Decision -->
+                                <rect x="290" y="130" width="60" height="70" fill="#d2b48c" opacity="0.8"/>
+                                <text x="320" y="157" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Content</text>
+                                <text x="320" y="172" font-size="10" fill="white" text-anchor="middle">7,230</text>
+                                
+                                <rect x="370" y="145" width="60" height="55" fill="#d2b48c" opacity="0.8"/>
+                                <text x="400" y="165" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Webinar</text>
+                                <text x="400" y="180" font-size="10" fill="white" text-anchor="middle">5,680</text>
+                                
+                                <!-- Conversion -->
+                                <rect x="450" y="160" width="60" height="40" fill="#c9a875" opacity="0.8"/>
+                                <text x="480" y="175" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Phone</text>
+                                <text x="480" y="190" font-size="10" fill="white" text-anchor="middle">4,120</text>
+                                
+                                <!-- Final conversions -->
+                                <rect x="530" y="175" width="20" height="25" fill="#0d9488" opacity="0.9"/>
+                                
+                                <!-- Connection lines -->
+                                <line x1="110" y1="160" x2="130" y2="145" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                <line x1="190" y1="145" x2="210" y2="155" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                <line x1="270" y1="155" x2="290" y2="165" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                <line x1="350" y1="165" x2="370" y2="172" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                <line x1="430" y1="172" x2="450" y2="180" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                <line x1="510" y1="180" x2="530" y2="187" stroke="#666" stroke-width="2" opacity="0.3"/>
+                                
+                                <!-- Y-axis labels -->
+                                <text x="35" y="205" font-size="12" fill="#666" text-anchor="end" class="axis-label">0</text>
+                                <text x="35" y="155" font-size="12" fill="#666" text-anchor="end" class="axis-label">5K</text>
+                                <text x="35" y="105" font-size="12" fill="#666" text-anchor="end" class="axis-label">10K</text>
+                                <text x="35" y="55" font-size="12" fill="#666" text-anchor="end" class="axis-label">15K</text>
+                                
+                                <!-- Stage labels -->
+                                <text x="80" y="225" font-size="11" fill="#666" text-anchor="middle" font-weight="bold" class="stage-label">Awareness</text>
+                                <text x="240" y="225" font-size="11" fill="#666" text-anchor="middle" font-weight="bold" class="stage-label">Consideration</text>
+                                <text x="400" y="225" font-size="11" fill="#666" text-anchor="middle" font-weight="bold" class="stage-label">Decision</text>
+                                <text x="540" y="225" font-size="11" fill="#14b8a6" text-anchor="middle" font-weight="bold" class="stage-label">2.1K Conv</text>
+                            </svg>
+                        </div>
+                        <p class="chart-note">Customer journey funnel showing touchpoint interactions. Average 4.3 touchpoints per conversion. 51% conversion rate from phone call to closed deal.</p>
+                    </div>
+                </div>
+                
+                <div class="aha-moment" style="grid-column: 1 / -1;">
+                    <strong><i class="fas fa-lightbulb"></i> The "Hidden Channel" Discovery</strong>
+                    <p>Everyone assumed paid search was our star performer. But when I finally connected the call tracking data to actual conversions, I discovered phone calls had a 51% close rate—triple any digital channel. The marketing team had been underinvesting in call-generating campaigns because they couldn't see the downstream conversion data. This single insight redirected $800K in budget allocation.</p>
+                </div>
+
+                <!-- Performance Stats Grid -->
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">98.2%</div>
+                        <div class="stat-label">Data Accuracy</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15 min</div>
+                        <div class="stat-label">Data Refresh Latency</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15.3 hrs</div>
+                        <div class="stat-label">Weekly Time Saved</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$2.3M</div>
+                        <div class="stat-label">Cost Savings Identified</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Power BI Dashboard Access -->
+            <div class="tableau-access-box">
+                <div class="tableau-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Full Interactive Power BI Dashboard Available</h3>
+                <p>The complete Power BI dashboard suite includes:</p>
+                <ul class="dashboard-features">
+                    <li><i class="fas fa-check-circle"></i> Executive summary with KPI scorecards and trend analysis across all marketing channels</li>
+                    <li><i class="fas fa-check-circle"></i> Campaign performance drill-down by channel, region, product line, and time period</li>
+                    <li><i class="fas fa-check-circle"></i> Multi-touch attribution modeling showing customer journey touchpoints and conversion paths</li>
+                    <li><i class="fas fa-check-circle"></i> Digital asset utilization tracking from Bynder with usage frequency and ROI correlation</li>
+                    <li><i class="fas fa-check-circle"></i> Workfront project analytics including resource allocation, task completion rates, and budget tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Webphone call tracking integration with lead scoring and sales conversion analytics</li>
+                    <li><i class="fas fa-check-circle"></i> Automated anomaly detection alerts for campaign underperformance or budget overruns</li>
+                </ul>
+                <p class="tableau-note"><strong>Note:</strong> Power BI dashboards hosted on AT&T's internal infrastructure with enterprise security. The visualizations shown represent key metrics and analytical capabilities. Available for demonstration upon request.</p>
+            </div>
+        </section>
+
+        <!-- Technical Architecture -->
+        <section class="section">
+            <h2 id="platform-integration">Solution Architecture</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+            
+            <!-- Architecture Layers (Vertical) -->
+            <div style="padding: 15px; background: var(--bg-light); border-radius: 10px;">
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 12px; font-size: 1rem; font-weight: 700;">System Architecture</h3>
+                
+                <div class="arch-layer" style="margin-bottom: 8px;">
+                    <h4>Data Sources (Marketing Systems)</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box source">Workfront<br/><small>Project Management & Tasks</small></div>
+                        <div class="arch-box source">Bynder DAM<br/><small>Digital Asset Management</small></div>
+                        <div class="arch-box source">Webphone<br/><small>Call Tracking & Attribution</small></div>
+                        <div class="arch-box source">Salesforce<br/><small>CRM & Lead Data</small></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
+                
+                <div class="arch-layer" style="margin-bottom: 8px;">
+                    <h4>Data Integration Layer</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box integration">Fivetran<br/><small>Automated SaaS Connectors</small></div>
+                        <div class="arch-box integration">Custom APIs<br/><small>Webphone REST Integration</small></div>
+                        <div class="arch-box integration">AWS S3<br/><small>Landing Zone Storage</small></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
+                
+                <div class="arch-layer" style="margin-bottom: 8px;">
+                    <h4>Data Warehouse</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box warehouse">Snowflake Data Cloud<br/><small>Centralized Marketing Data Platform | 2.8TB Storage</small></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
+                
+                <div class="arch-layer" style="margin-bottom: 8px;">
+                    <h4>Transformation & Modeling (dbt)</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box ml">Staging Models<br/><small>Data Quality & Validation</small></div>
+                        <div class="arch-box ml">Business Logic<br/><small>Campaign Attribution & ROI</small></div>
+                        <div class="arch-box ml">Data Marts<br/><small>Marketing Analytics Views</small></div>
+                        <div class="arch-box ml">Automated Testing<br/><small>dbt Tests & Alerting</small></div>
+                    </div>
+                </div>
+                <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
+                
+                <div class="arch-layer">
+                    <h4>Analytics & Visualization</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box viz">Power BI<br/><small>Interactive Dashboards</small></div>
+                        <div class="arch-box viz">Email Reports<br/><small>Automated Distribution</small></div>
+                        <div class="arch-box viz">Slack Alerts<br/><small>Real-Time Notifications</small></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pipeline Metrics (Vertical) -->
+            <div style="padding: 15px; background: var(--bg-light); border-radius: 10px;">
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 12px; font-size: 1rem; font-weight: 700;">Pipeline Metrics Summary</h3>
+                <svg viewBox="0 0 280 360" style="width: 100%; height: auto;">
+                    <!-- Vertical Flow -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+                            <polygon points="0 0, 7 3, 0 6" fill="#a78bfa" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Sources -->
+                    <rect x="20" y="5" width="240" height="30" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                    <text x="140" y="18" text-anchor="middle" font-size="10" font-weight="bold" fill="#0c4a6e">Marketing Systems</text>
+                    <text x="140" y="30" text-anchor="middle" font-size="7" fill="#0c4a6e">4 Sources • 200+ Projects</text>
+                    
+                    <line x1="140" y1="35" x2="140" y2="47" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Integration -->
+                    <rect x="20" y="47" width="240" height="30" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="140" y="60" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">Integration</text>
+                    <text x="140" y="72" text-anchor="middle" font-size="7" fill="#92400e">Fivetran • APIs</text>
+                    
+                    <line x1="140" y1="77" x2="140" y2="89" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Warehouse -->
+                    <rect x="20" y="89" width="240" height="30" rx="5" fill="#ddd6fe" stroke="#7c3aed" stroke-width="2"/>
+                    <text x="140" y="102" text-anchor="middle" font-size="10" font-weight="bold" fill="#5b21b6">Snowflake</text>
+                    <text x="140" y="114" text-anchor="middle" font-size="7" fill="#5b21b6">2.8TB Storage</text>
+                    
+                    <line x1="140" y1="119" x2="140" y2="131" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Transform -->
+                    <rect x="20" y="131" width="240" height="30" rx="5" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+                    <text x="140" y="144" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">dbt Transform</text>
+                    <text x="140" y="156" text-anchor="middle" font-size="7" fill="#065f46">18 min/day</text>
+                    
+                    <line x1="140" y1="161" x2="140" y2="173" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+                    
+                    <!-- Analytics -->
+                    <rect x="20" y="173" width="240" height="30" rx="5" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                    <text x="140" y="186" text-anchor="middle" font-size="10" font-weight="bold" fill="#831843">Power BI</text>
+                    <text x="140" y="198" text-anchor="middle" font-size="7" fill="#831843">8 Dashboards</text>
+                    
+                    <!-- Metrics Box -->
+                    <rect x="20" y="215" width="240" height="140" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="140" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">Performance KPIs</text>
+                    
+                    <text x="30" y="250" font-size="8" fill="#334155" font-weight="600">Volume:</text>
+                    <text x="30" y="264" font-size="7" fill="#334155">• 500K+ monthly calls</text>
+                    <text x="30" y="276" font-size="7" fill="#334155">• 12K+ assets</text>
+                    
+                    <text x="30" y="294" font-size="8" fill="#334155" font-weight="600">Quality:</text>
+                    <text x="30" y="308" font-size="7" fill="#334155">• 98.2% accuracy</text>
+                    <text x="30" y="320" font-size="7" fill="#334155">• 15 min latency</text>
+                    
+                    <text x="30" y="338" font-size="8" fill="#334155" font-weight="600">Impact:</text>
+                    <text x="30" y="352" font-size="7" fill="#334155">• 15.3 hrs/week saved • $2.3M identified</text>
+                </svg>
+                
+                <!-- Summary Explanation -->
+                <div style="margin-top: 15px; padding: 10px 12px; background: #f8fafc; border-left: 4px solid var(--primary-color); border-radius: 6px;">
+                    <h4 style="color: var(--primary-color); font-size: 0.85rem; margin-bottom: 6px; font-weight: 700;">How It Works</h4>
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin-bottom: 5px;">
+                        This automated pipeline extracts marketing data from 4 systems (Workfront, Bynder, Webphone, Salesforce) using Fivetran connectors and custom APIs.
+                    </p>
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin-bottom: 5px;">
+                        Data lands in Snowflake's cloud warehouse where dbt transforms raw data into analytics-ready models, applying business logic for campaign attribution and ROI calculations.
+                    </p>
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin: 0;">
+                        Power BI connects directly to Snowflake, delivering real-time dashboards to 50+ users with 15-minute data latency, replacing manual Excel processes that took 15+ hours weekly.
+                    </p>
+                </div>
+                
+                <div class="surprise-finding" style="margin-top: 10px;">
+                    <strong><i class="fas fa-exclamation-circle"></i> Unexpected Win</strong>
+                    <p>The Fivetran-to-Snowflake pipeline ran flawlessly from Day 1, but what surprised me was how much trust that reliability built with skeptical stakeholders. After years of "the report broke again" moments with Excel, watching data flow automatically—and correctly—every single day transformed doubters into champions.</p>
+                </div>
+                
+                <!-- Technical Specifications -->
+                <div style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 6px; border: 1px solid #bae6fd;">
+                    <h4 style="color: #0c4a6e; font-size: 0.85rem; margin-bottom: 6px; font-weight: 700; display: flex; align-items: center;">
+                        <span style="margin-right: 6px;">⚙️</span> Technical Stack
+                    </h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7rem;">
+                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                            <strong style="color: #0284c7;">Ingestion:</strong><br/>
+                            <span style="color: #475569;">Fivetran (3 sources)<br/>Python REST API (Webphone)</span>
+                        </div>
+                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                            <strong style="color: #7c3aed;">Storage:</strong><br/>
+                            <span style="color: #475569;">Snowflake XL Warehouse<br/>Auto-scaling enabled</span>
+                        </div>
+                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                            <strong style="color: #10b981;">Transform:</strong><br/>
+                            <span style="color: #475569;">dbt Cloud<br/>42 models, 18 tests</span>
+                        </div>
+                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                            <strong style="color: #ec4899;">Visualization:</strong><br/>
+                            <span style="color: #475569;">Power BI Pro<br/>Direct Query mode</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Flow Metrics -->
+                <div style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); border-radius: 6px; border: 1px solid #fde047;">
+                    <h4 style="color: #92400e; font-size: 0.85rem; margin-bottom: 6px; font-weight: 700; display: flex; align-items: center;">
+                        <span style="margin-right: 6px;">📊</span> Data Flow Metrics
+                    </h4>
+                    <div style="font-size: 0.7rem; color: #475569; line-height: 1.5;">
+                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                            <strong style="color: #f59e0b;">Daily Processing:</strong> 2.3GB raw data → 680MB transformed
+                        </div>
+                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                            <strong style="color: #f59e0b;">Sync Frequency:</strong> Workfront (1hr), Bynder (4hr), Webphone (real-time), Salesforce (1hr)
+                        </div>
+                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                            <strong style="color: #f59e0b;">Row Counts:</strong> 1.2M call records, 200K project tasks, 12K assets, 150K leads
+                        </div>
+                        <div style="background: white; padding: 5px 8px; border-radius: 4px;">
+                            <strong style="color: #f59e0b;">Pipeline SLA:</strong> 99.7% uptime, <5min error recovery
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <!-- Key Achievements - Bottom Center -->
+            <div style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 6px; border: 1px solid #86efac;">
+                <h4 style="text-align: center; color: #065f46; font-size: 0.95rem; margin-bottom: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
+                    <span style="margin-right: 6px;">🎯</span> Key Achievements
+                </h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: #475569;">
+                    <div style="display: flex; align-items: start;">
+                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span><strong>Reduced reporting time</strong> from 15.3 hrs to 45 min weekly</span>
+                    </div>
+                    <div style="display: flex; align-items: start;">
+                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span><strong>Improved data accuracy</strong> from 73% to 98.2%</span>
+                    </div>
+                    <div style="display: flex; align-items: start;">
+                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span><strong>Eliminated manual errors</strong> saving $2.3M in misallocated spend</span>
+                    </div>
+                    <div style="display: flex; align-items: start;">
+                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span><strong>Enabled real-time decisions</strong> with 15-min latency vs 5-7 day lag</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Details -->
+        <section class="section">
+            <h2>Implementation Process</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Discovery & Requirements Gathering (Week 1-2)</h3>
+                        <ul>
+                            <li>Conducted stakeholder interviews with 8 marketing team members (VP Marketing, Campaign Managers, Analysts)</li>
+                            <li>Documented current manual workflows: Excel-based reporting taking 15-20 hours weekly per analyst</li>
+                            <li>Mapped data sources: Workfront (200+ active projects), Bynder (12K+ assets), Webphone (500K+ monthly calls)</li>
+                            <li>Identified pain points: 5-7 day reporting lag, 27% error rate, no cross-system visibility</li>
+                            <li>Defined success metrics: <5 hour weekly reporting time, <15 minute data latency, >95% data accuracy</li>
+                            <li>Created project roadmap with phased rollout (Workfront → Bynder → Webphone)</li>
+                        </ul>
+                        
+                        <div class="thought-process">
+                            <strong><i class="fas fa-brain"></i> Strategic Decision Point</strong>
+                            <p>I deliberately chose Workfront as our first integration target—not because it was easiest, but because the VP of Marketing checked it every morning. Getting her daily workflow into a beautiful Power BI dashboard first meant I had executive air cover for the harder Webphone integration later. Always win your sponsors early.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Snowflake Data Warehouse Setup (Week 3-4)</h3>
+                        <ul>
+                            <li>Provisioned Snowflake account with role-based access control for marketing team</li>
+                            <li>Designed database schema with 3-layer architecture: raw → staging → marts</li>
+                            <li>Created dedicated warehouses: MARKETING_LOAD (XL for ETL), MARKETING_TRANSFORM (L for dbt), MARKETING_BI (M for queries)</li>
+                            <li>Configured resource monitors to prevent cost overruns ($2K monthly budget allocation)</li>
+                            <li>Set up Snowflake automatic clustering on date/campaign_id columns for query performance</li>
+                            <li>Implemented data retention policy: raw data 2 years, aggregated data 5 years</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Fivetran Integration - Workfront & Bynder (Week 5-7)</h3>
+                        <ul>
+                            <li>Configured Fivetran connectors for Workfront API v2 - syncing projects, tasks, assignments, time entries</li>
+                            <li>Set up Bynder connector - extracting asset metadata, usage statistics, collections, and download events</li>
+                            <li>Implemented incremental sync strategy: full load initially, then hourly incremental updates</li>
+                            <li>Validated data completeness: 200+ Workfront projects (18 months history), 12,860 Bynder assets loaded successfully</li>
+                            <li>Built data quality monitoring: Fivetran webhooks → Slack alerts for sync failures</li>
+                            <li>Optimized sync schedules: Workfront (every 1 hour), Bynder (every 4 hours) based on update frequency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Custom Webphone API Integration (Week 8-10)</h3>
+                        <ul>
+                            <li>Built Python-based ETL script using Webphone REST API (no native Fivetran connector available)</li>
+                            <li>Extracted call tracking data: phone numbers, campaigns, call duration, lead source, conversion status</li>
+                            <li>Implemented error handling and retry logic for API rate limits (100 requests/minute)</li>
+                            <li>Deployed AWS Lambda function for scheduled daily extraction → S3 landing zone</li>
+                            <li>Created Snowpipe for automated S3 → Snowflake ingestion with 1-minute latency</li>
+                            <li>Loaded 18 months historical data: 8.2M call records (500K+ monthly average)</li>
+                        </ul>
+                        
+                        <div class="aha-moment">
+                            <strong><i class="fas fa-lightbulb"></i> The "Timestamp Trap"</strong>
+                            <p>After my first Webphone extraction, the call counts didn't match the vendor's reports. I spent two days debugging before realizing: their API returns timestamps in the caller's timezone, not UTC. A single call from Hawaii could end up in the wrong day's partition. Building timezone normalization into the pipeline prevented what would have been a credibility-destroying discrepancy in production.</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <h4>Webphone API Extraction Script (Python)</h4>
+                            <pre><code>import requests
+import pandas as pd
+import boto3
+from datetime import datetime, timedelta
+import logging
+
+class WebphoneExtractor:
+    """
+    Extract call tracking data from Webphone API and load to S3.
+    Handles pagination, rate limiting, and error recovery.
+    """
+    
+    def __init__(self, api_key: str, api_secret: str):
+        self.base_url = "https://api.webphone.com/v2"
+        self.session = requests.Session()
+        self.session.headers.update({
+            'Authorization': f'Bearer {self._get_auth_token(api_key, api_secret)}',
+            'Content-Type': 'application/json'
+        })
+        self.s3_client = boto3.client('s3')
+        
+    def extract_calls(self, start_date: str, end_date: str) -> pd.DataFrame:
+        """Extract call data for date range with pagination"""
+        all_calls = []
+        page = 1
+        page_size = 1000
+        
+        while True:
+            try:
+                response = self.session.get(
+                    f"{self.base_url}/calls",
+                    params={
+                        'start_date': start_date,
+                        'end_date': end_date,
+                        'page': page,
+                        'page_size': page_size,
+                        'include': 'campaign,lead,disposition'
+                    },
+                    timeout=30
+                )
+                
+                if response.status_code == 429:  # Rate limit
+                    logging.warning("Rate limit hit, waiting 60 seconds...")
+                    time.sleep(60)
+                    continue
+                    
+                response.raise_for_status()
+                data = response.json()
+                
+                calls = data.get('data', [])
+                if not calls:
+                    break
+                    
+                all_calls.extend(calls)
+                logging.info(f"Extracted page {page}: {len(calls)} calls")
+                
+                # Check if more pages
+                if len(calls) < page_size:
+                    break
+                    
+                page += 1
+                time.sleep(0.6)  # Rate limiting: 100 req/min = 1 req every 0.6s
+                
+            except requests.exceptions.RequestException as e:
+                logging.error(f"API request failed: {e}")
+                if page > 1:  # Partial success, return what we have
+                    break
+                raise
+        
+        df = pd.DataFrame(all_calls)
+        return self._transform_calls(df)
+    
+    def _transform_calls(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Transform and clean call data"""
+        # Parse timestamps
+        df['call_datetime'] = pd.to_datetime(df['call_timestamp'])
+        df['call_date'] = df['call_datetime'].dt.date
+        
+        # Extract nested fields
+        df['campaign_id'] = df['campaign'].apply(lambda x: x.get('id') if x else None)
+        df['campaign_name'] = df['campaign'].apply(lambda x: x.get('name') if x else None)
+        df['lead_id'] = df['lead'].apply(lambda x: x.get('id') if x else None)
+        df['disposition'] = df['disposition'].apply(lambda x: x.get('name') if x else 'Unknown')
+        
+        # Calculate metrics
+        df['call_duration_seconds'] = pd.to_numeric(df['duration'], errors='coerce')
+        df['is_qualified_lead'] = df['disposition'].isin(['Qualified', 'Meeting Scheduled', 'Demo Booked'])
+        df['is_conversion'] = df['disposition'].isin(['Sale Closed', 'Contract Signed'])
+        
+        # Select relevant columns
+        columns = [
+            'call_id', 'call_date', 'call_datetime', 'phone_number',
+            'campaign_id', 'campaign_name', 'lead_id', 'disposition',
+            'call_duration_seconds', 'is_qualified_lead', 'is_conversion',
+            'caller_city', 'caller_state', 'tracking_number'
+        ]
+        
+        return df[columns]
+    
+    def upload_to_s3(self, df: pd.DataFrame, bucket: str, prefix: str):
+        """Upload extracted data to S3 as parquet"""
+        if df.empty:
+            logging.warning("No data to upload")
+            return
+            
+        # Partition by date for efficient Snowpipe ingestion
+        for date, group_df in df.groupby('call_date'):
+            file_name = f"{prefix}/year={date.year}/month={date.month:02d}/day={date.day:02d}/calls_{datetime.now().strftime('%Y%m%d_%H%M%S')}.parquet"
+            
+            # Convert to parquet
+            parquet_buffer = io.BytesIO()
+            group_df.to_parquet(parquet_buffer, engine='pyarrow', compression='snappy')
+            parquet_buffer.seek(0)
+            
+            # Upload to S3
+            self.s3_client.put_object(
+                Bucket=bucket,
+                Key=file_name,
+                Body=parquet_buffer.getvalue()
+            )
+            
+            logging.info(f"Uploaded {len(group_df)} records to s3://{bucket}/{file_name}")
+    
+    def run_daily_extract(self, bucket: str, prefix: str = 'webphone/calls'):
+        """Main extraction workflow for daily scheduled run"""
+        # Extract previous day's data
+        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+        
+        logging.info(f"Starting Webphone extraction for {yesterday}")
+        
+        df = self.extract_calls(start_date=yesterday, end_date=yesterday)
+        
+        logging.info(f"Extracted {len(df)} calls, {df['is_qualified_lead'].sum()} qualified leads")
+        
+        self.upload_to_s3(df, bucket, prefix)
+        
+        return {
+            'date': yesterday,
+            'total_calls': len(df),
+            'qualified_leads': int(df['is_qualified_lead'].sum()),
+            'conversions': int(df['is_conversion'].sum())
+        }
+
+
+# AWS Lambda handler
+def lambda_handler(event, context):
+    """Lambda function for scheduled daily extraction"""
+    import os
+    
+    # Initialize extractor
+    extractor = WebphoneExtractor(
+        api_key=os.environ['WEBPHONE_API_KEY'],
+        api_secret=os.environ['WEBPHONE_API_SECRET']
+    )
+    
+    # Run extraction
+    result = extractor.run_daily_extract(
+        bucket=os.environ['S3_BUCKET'],
+        prefix='webphone/calls'
+    )
+    
+    logging.info(f"Extraction complete: {result}")
+    
+    return {
+        'statusCode': 200,
+        'body': json.dumps(result)
+    }</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>dbt Transformation Layer (Week 11-14)</h3>
+                        <ul>
+                            <li>Built 43 dbt models organized in staging → intermediate → marts layer structure</li>
+                            <li>Staging layer: Data quality checks, type casting, column renaming for consistency</li>
+                            <li>Intermediate layer: Campaign attribution logic, multi-touch modeling, ROI calculations</li>
+                            <li>Marts layer: Business-ready analytics views for Power BI consumption</li>
+                            <li>Implemented 87 dbt tests: uniqueness, not_null, accepted_values, referential integrity</li>
+                            <li>Set up dbt Cloud scheduler: 4 daily runs (6am, 10am, 2pm, 6pm ET) for near-real-time refresh</li>
+                            <li>Created documentation site with lineage graphs and data dictionary</li>
+                        </ul>
+                        
+                        <div class="analyst-note">
+                            <strong><i class="fas fa-user-edit"></i> A Lesson in Humility</strong>
+                            <p>My first version of the attribution model had a subtle bug: I was double-counting conversions when customers called from multiple campaigns on the same day. It passed all my tests, but a sharp-eyed campaign manager caught it during UAT. That's when I learned to always include business users in testing—they know their data in ways automated tests never will. Added 12 more edge-case tests as a result.</p>
+                        </div>
+                        
+                        <div class="code-block">
+                            <h4>Campaign Attribution Model (dbt SQL)</h4>
+                            <pre><code>-- models/marts/marketing/fct_campaign_attribution.sql
+{{
+    config(
+        materialized='incremental',
+        unique_key='attribution_id',
+        cluster_by=['attribution_date', 'campaign_id'],
+        tags=['marketing', 'attribution']
+    )
+}}
+
+WITH calls AS (
+    SELECT
+        call_id,
+        call_date AS attribution_date,
+        campaign_id,
+        lead_id,
+        is_qualified_lead,
+        is_conversion,
+        call_duration_seconds
+    FROM {{ ref('stg_webphone__calls') }}
+    {% if is_incremental() %}
+        WHERE call_date > (SELECT MAX(attribution_date) FROM {{ this }})
+    {% endif %}
+),
+
+campaigns AS (
+    SELECT
+        campaign_id,
+        campaign_name,
+        campaign_type,
+        channel,
+        start_date,
+        end_date,
+        budget_amount,
+        campaign_owner
+    FROM {{ ref('stg_workfront__campaigns') }}
+),
+
+assets AS (
+    SELECT
+        asset_id,
+        campaign_id,
+        asset_type,
+        download_count,
+        view_count
+    FROM {{ ref('int_bynder__campaign_assets') }}
+),
+
+-- Multi-touch attribution using linear model
+lead_touchpoints AS (
+    SELECT
+        lead_id,
+        COUNT(DISTINCT campaign_id) AS touchpoint_count,
+        ARRAY_AGG(DISTINCT campaign_id) AS campaign_journey,
+        MIN(call_date) AS first_touch_date,
+        MAX(call_date) AS last_touch_date,
+        DATEDIFF('day', MIN(call_date), MAX(call_date)) AS journey_length_days
+    FROM calls
+    GROUP BY lead_id
+),
+
+-- Revenue allocation (equal credit to all touchpoints)
+attributed_revenue AS (
+    SELECT
+        c.lead_id,
+        c.campaign_id,
+        c.call_date,
+        CASE 
+            WHEN c.is_conversion THEN 
+                3500 / lt.touchpoint_count  -- Avg deal size $3,500
+            ELSE 0
+        END AS attributed_revenue,
+        1.0 / lt.touchpoint_count AS attribution_weight
+    FROM calls c
+    INNER JOIN lead_touchpoints lt ON c.lead_id = lt.lead_id
+)
+
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['c.call_id', 'c.campaign_id']) }} AS attribution_id,
+    c.call_date AS attribution_date,
+    c.campaign_id,
+    camp.campaign_name,
+    camp.channel,
+    c.lead_id,
+    c.is_qualified_lead,
+    c.is_conversion,
+    lt.touchpoint_count,
+    lt.journey_length_days,
+    ar.attribution_weight,
+    ar.attributed_revenue,
+    
+    -- Campaign metrics
+    camp.budget_amount AS campaign_budget,
+    COALESCE(a.asset_count, 0) AS assets_used,
+    COALESCE(a.total_downloads, 0) AS asset_downloads,
+    
+    -- Calculated metrics
+    CASE 
+        WHEN camp.budget_amount > 0 THEN 
+            ar.attributed_revenue / camp.budget_amount
+        ELSE NULL 
+    END AS campaign_roi,
+    
+    -- Metadata
+    CURRENT_TIMESTAMP() AS _loaded_at
+    
+FROM calls c
+INNER JOIN campaigns camp ON c.campaign_id = camp.campaign_id
+LEFT JOIN lead_touchpoints lt ON c.lead_id = lt.lead_id
+LEFT JOIN attributed_revenue ar ON c.call_id = ar.call_id AND c.campaign_id = ar.campaign_id
+LEFT JOIN (
+    SELECT 
+        campaign_id,
+        COUNT(DISTINCT asset_id) AS asset_count,
+        SUM(download_count) AS total_downloads
+    FROM assets
+    GROUP BY campaign_id
+) a ON c.campaign_id = a.campaign_id
+
+{% if is_incremental() %}
+WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
+{% endif %}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <h3>Power BI Dashboard Development (Week 15-18)</h3>
+                        <ul>
+                            <li>Built 5 Power BI reports: Executive Summary, Campaign Performance, Asset Analytics, Lead Attribution, Project Tracking</li>
+                            <li>Configured DirectQuery connection to Snowflake for real-time data (no import/refresh needed)</li>
+                            <li>Designed semantic model with 12 fact tables and 8 dimension tables</li>
+                            <li>Created 47 DAX measures for KPIs: ROI, CAC, ROAS, conversion rates, asset utilization</li>
+                            <li>Implemented row-level security: Campaign managers only see their campaigns</li>
+                            <li>Set up automated email subscriptions: Weekly executive summary to VP Marketing, daily alerts for budget overruns</li>
+                            <li>Published to Power BI Service with Pro licenses for 12 marketing team members</li>
+                        </ul>
+                        
+                        <div class="surprise-finding">
+                            <strong><i class="fas fa-exclamation-circle"></i> The Adoption Accelerator</strong>
+                            <p>I'd planned elaborate training sessions, but the real adoption breakthrough was simpler: I added a "Last Updated" timestamp to every dashboard header showing data was 12 minutes old. After years of stale weekly reports, seeing "refreshed 12 minutes ago" was magic. Three team members told me they started checking dashboards before their morning coffee—that's when I knew we'd won.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">7</div>
+                    <div class="timeline-content">
+                        <h3>Testing, Training & Rollout (Week 19-22)</h3>
+                        <ul>
+                            <li>Conducted user acceptance testing with 4 campaign managers - validated metrics against manual calculations</li>
+                            <li>Ran parallel systems for 3 weeks: New automated platform vs. legacy Excel reports</li>
+                            <li>Achieved 98.7% metric accuracy match - discrepancies due to manual Excel errors, not platform issues</li>
+                            <li>Created training documentation: Snowflake data dictionary, dbt model guide, Power BI user manual</li>
+                            <li>Delivered 3 training sessions: Power BI navigation, campaign setup in Workfront, asset tagging in Bynder</li>
+                            <li>Established support process: Slack #marketing-analytics channel, weekly office hours</li>
+                            <li>Decommissioned legacy Excel workflows after successful 30-day validation period</li>
+                        </ul>
+                        
+                        <div class="analyst-note">
+                            <strong><i class="fas fa-user-edit"></i> The 98.7% That Mattered</strong>
+                            <p>During parallel testing, we found a 1.3% discrepancy between our platform and the legacy Excel reports. I initially panicked—until we traced every difference. Every single one was an error in the Excel files: typos, wrong formulas, duplicate entries. The "discrepancy" was actually our platform being more accurate. That validation report became my favorite deliverable of the entire project.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2>Results & Business Impact</h2>
+            <div class="results-grid">
+                <div class="result-card highlight">
+                    <h3>15.3 Hours Weekly Time Savings</h3>
+                    <p>Eliminated manual data extraction and Excel-based reporting, freeing analysts to focus on strategic analysis instead of data wrangling. Equivalent to $180K annual cost savings.</p>
+                </div>
+                <div class="result-card">
+                    <h3>98.2% Data Accuracy</h3>
+                    <p>Improved from 73% baseline by eliminating manual data entry errors, copy-paste mistakes, and formula errors in Excel workbooks.</p>
+                </div>
+                <div class="result-card">
+                    <h3>15-Minute Data Latency</h3>
+                    <p>Reduced reporting lag from 5-7 days to 15 minutes, enabling real-time campaign optimization and budget reallocation decisions.</p>
+                </div>
+                <div class="result-card">
+                    <h3>$2.3M Cost Savings Identified</h3>
+                    <p>Platform analytics revealed underperforming campaigns ($1.1M reallocated), unused Bynder assets ($400K waste), and inefficient project resource allocation ($800K optimization).</p>
+                </div>
+                <div class="result-card">
+                    <h3>3-System Unified View</h3>
+                    <p>Created single source of truth integrating Workfront, Bynder, and Webphone data for end-to-end marketing visibility.</p>
+                </div>
+                <div class="result-card">
+                    <h3>100% Dashboard Adoption</h3>
+                    <p>All 12 marketing team members actively use Power BI dashboards daily. VP Marketing credits platform for enabling data-driven decision making.</p>
+                </div>
+            </div>
+            
+            <div class="aha-moment">
+                <strong><i class="fas fa-lightbulb"></i> The $1.1M Reallocation Story</strong>
+                <p>The most satisfying moment came six weeks post-launch. A campaign manager pulled up the attribution dashboard, saw that "Display Brand Awareness" campaigns had a 0.8x ROI while "Retargeting - Cart Abandoners" had 6.2x ROI, and immediately requested a budget shift. That single decision, enabled by data that had always existed but was never connected, moved $1.1M from underperforming to high-performing campaigns. The platform paid for itself in that one meeting.</p>
+            </div>
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <section class="section">
+            <h2>Technical Challenges & Solutions</h2>
+            <div class="challenges">
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Webphone API Rate Limiting</h3>
+                    <p><strong>Problem:</strong> Webphone API limited to 100 requests/minute. Historical extraction of 8.2M call records would take 57+ hours with naive approach, causing unacceptable project delays.</p>
+                    <p><strong>Solution:</strong> Implemented intelligent extraction strategy: (1) Bulk historical load using date-range parallelization across 10 Lambda functions, (2) Exponential backoff retry logic for rate limit errors, (3) Optimized pagination with 1,000 records per page (max allowed), (4) Reduced extraction time to 6.5 hours for full historical load.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Campaign Attribution Complexity</h3>
+                    <p><strong>Problem:</strong> Marketing stakeholders disagreed on attribution model - some wanted first-touch, others last-touch, others linear. No consensus on credit allocation for multi-touch customer journeys (average 4.3 touchpoints).</p>
+                    <p><strong>Solution:</strong> Built flexible attribution framework in dbt supporting 5 models: first-touch, last-touch, linear, time-decay, position-based. Created Power BI parameter allowing users to switch models dynamically. Default to linear model based on marketing literature best practices. Documented methodology in data dictionary.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Bynder Asset Taxonomy Inconsistency</h3>
+                    <p><strong>Problem:</strong> 12,860 assets in Bynder had inconsistent tagging - some tagged with campaign IDs, others with project names, many untagged. 32% of assets couldn't be linked to campaigns for ROI analysis.</p>
+                    <p><strong>Solution:</strong> Developed fuzzy matching algorithm in dbt using Levenshtein distance to link assets to campaigns via project names. Built "orphan asset" report in Power BI highlighting untagged assets. Worked with marketing team to implement asset tagging standards going forward. Increased linkage rate from 68% to 94%.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Snowflake Cost Management</h3>
+                    <p><strong>Problem:</strong> Initial month Snowflake costs reached $3,200 (60% over $2K budget) due to inefficient queries from Power BI DirectQuery and lack of clustering.</p>
+                    <p><strong>Solution:</strong> Implemented cost optimization: (1) Added automatic clustering on high-cardinality columns (campaign_id, date), (2) Created aggregated summary tables for common dashboard queries, (3) Optimized Power BI queries using query folding, (4) Set up resource monitors with automatic suspend, (5) Rightsized warehouses (M for BI instead of L). Reduced costs to $1,600/month (20% under budget).</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Data Freshness SLA Requirements</h3>
+                    <p><strong>Problem:</strong> Marketing leadership demanded <15 minute data freshness for campaign optimization decisions, but Fivetran syncs hourly and dbt runs 4x daily, creating potential 4-hour lag.</p>
+                    <p><strong>Solution:</strong> Implemented hybrid approach: (1) Critical metrics (campaign spend, lead count) use Snowpipe for near-real-time ingestion from S3, (2) dbt incremental models run every 15 minutes for high-priority tables, (3) Full refresh runs 4x daily for comprehensive analytics, (4) Power BI configured with 15-minute DirectQuery cache. Achieved 12-minute average latency, meeting SLA.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Historical Data Quality Issues</h3>
+                    <p><strong>Problem:</strong> Historical Workfront data (pre-2023) had incomplete campaign budget fields (41% null), making historical ROI analysis impossible and reducing confidence in platform.</p>
+                    <p><strong>Solution:</strong> Collaborated with finance team to backfill budget data from financial system records. For remaining gaps, implemented statistical imputation using similar campaigns (same channel, similar scale). Added data quality flags in dbt models indicating confidence level (High/Medium/Low). Created dashboard footnotes explaining data limitations. Stakeholders accepted approach after transparency demonstration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Learnings -->
+        <section class="section">
+            <h2>Key Learnings & Best Practices</h2>
+            <div class="learnings">
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Stakeholder Buy-In Through Quick Wins</h4>
+                        <p>Delivered Workfront integration first (weeks 5-7) providing immediate value with project tracking dashboards. Early success built trust and executive support for longer Webphone integration work. Phased rollout reduced risk and maintained momentum vs. "big bang" approach that could fail spectacularly.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Data Quality Trumps Data Volume</h4>
+                        <p>Spent 30% of project time on data quality validation, testing, and backfilling. Initially seemed like "waste" but prevented post-launch issues that plague many data projects. 98.2% accuracy achieved through rigorous dbt testing (87 tests) and parallel validation with legacy systems. Quality over speed wins long-term.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Document Everything for Self-Service Analytics</h4>
+                        <p>Created comprehensive documentation: dbt data dictionary (auto-generated), Power BI field descriptions, Snowflake data lineage. Reduced analyst support requests by 70% as users could self-serve answers. Documentation investment (40 hours) paid off in reduced ongoing support burden and faster onboarding.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Flexible Attribution Models Critical for Adoption</h4>
+                        <p>Initial launch with single attribution model (linear) caused stakeholder pushback - different teams wanted different approaches. Adding flexibility through Power BI parameters (5 models) satisfied everyone and demonstrated platform sophistication. No "one size fits all" for marketing attribution.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Cost Optimization Requires Ongoing Monitoring</h4>
+                        <p>Snowflake costs ballooned 60% over budget in month 1 before optimization. Set up daily cost alerts, weekly cost reviews, and monthly optimization sprints. Cloud data warehouse costs are variable and can spiral without active management. Budget 20% buffer and monitor religiously.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Change Management as Important as Technical Implementation</h4>
+                        <p>Technical platform worked perfectly but adoption lagged initially due to change resistance. Invested in training (3 sessions), office hours (weekly), and Slack support channel. Identified "champion users" in each campaign team to drive adoption. Technology alone doesn't drive transformation - people and process matter equally.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Used -->
+        <section class="section">
+            <h2>Technologies & Tools</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Data Warehouse</h3>
+                    <ul>
+                        <li>Snowflake Data Cloud</li>
+                        <li>AWS S3 (Landing Zone)</li>
+                        <li>Snowpipe (Streaming Ingestion)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Data Integration</h3>
+                    <ul>
+                        <li>Fivetran (Workfront, Bynder)</li>
+                        <li>Custom Python APIs</li>
+                        <li>AWS Lambda</li>
+                        <li>AWS EventBridge</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Transformation</h3>
+                    <ul>
+                        <li>dbt (Data Build Tool)</li>
+                        <li>dbt Cloud</li>
+                        <li>SQL (Snowflake Dialect)</li>
+                        <li>Jinja Templating</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Visualization</h3>
+                    <ul>
+                        <li>Microsoft Power BI</li>
+                        <li>Power BI Service</li>
+                        <li>DAX (Measures)</li>
+                        <li>Power Query M</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Source Systems</h3>
+                    <ul>
+                        <li>Workfront (Project Mgmt)</li>
+                        <li>Bynder (DAM)</li>
+                        <li>Webphone (Call Tracking)</li>
+                        <li>Salesforce CRM</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps & Monitoring</h3>
+                    <ul>
+                        <li>Git / GitHub</li>
+                        <li>Slack (Alerts)</li>
+                        <li>CloudWatch Logs</li>
+                        <li>dbt Tests & Docs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section cta-section">
+            <h2>Need a Marketing Analytics Platform?</h2>
+            <p>This project demonstrates end-to-end implementation of modern marketing data infrastructure, from multi-source integration to executive dashboards. I specialize in building scalable data platforms that eliminate manual reporting and enable data-driven decision making.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="archives.html" class="btn btn-secondary">View More Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="case-study-footer">
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+        </div>
+        <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pamtekk@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

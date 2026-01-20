@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Quality Analytics Dashboard - Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Narrative Styles */
+        .analyst-note, .aha-moment, .thought-process, .surprise-finding {
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid;
+        }
+        .analyst-note {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: #14b8a6;
+        }
+        .aha-moment {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        .thought-process {
+            background: rgba(139, 92, 246, 0.1);
+            border-color: #8b5cf6;
+        }
+        .surprise-finding {
+            background: rgba(236, 72, 153, 0.1);
+            border-color: #ec4899;
+        }
+        .analyst-note strong, .aha-moment strong, .thought-process strong, .surprise-finding strong {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .analyst-note p, .aha-moment p, .thought-process p, .surprise-finding p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Dark mode adjustments for personal notes - using solid colors for better contrast */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note strong { color: #5eead4; }
+        body.dark-mode .analyst-note p { color: #ccfbf1; }
+        
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment strong { color: #fde68a; }
+        body.dark-mode .aha-moment p { color: #fef3c7; }
+        
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-color: #c084fc;
+        }
+        body.dark-mode .thought-process strong { color: #e9d5ff; }
+        body.dark-mode .thought-process p { color: #f3e8ff; }
+        
+        body.dark-mode .surprise-finding {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+            border-color: #f472b6;
+        }
+        body.dark-mode .surprise-finding strong { color: #fbcfe8; }
+        body.dark-mode .surprise-finding p { color: #fce7f3; }
+    </style>
+</head>
+<body>
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </nav>
+    
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>Healthcare Quality Analytics Dashboard</h1>
+            <p class="subtitle">Patient Care Metrics & Quality Improvement Platform for Multi-Facility Healthcare Network</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-hospital"></i> Support Optics Healthcare</span>
+                <span class="duration"><i class="fas fa-clock"></i> January 2013 - November 2016</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Data Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section">
+            <h2>Executive Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Objective</h3>
+                    <p>Develop comprehensive healthcare quality analytics platform tracking patient outcomes, care delivery metrics, and operational efficiency across 7 medical facilities to support HEDIS compliance, CMS star ratings improvement, and clinical quality initiatives.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Solution</h3>
+                    <p>Built integrated analytics platform combining EHR data, claims processing, patient satisfaction surveys, and clinical quality measures. Created Tableau dashboards providing real-time visibility into 42 quality metrics, care gaps, and performance benchmarks against national standards.</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Impact</h3>
+                    <p>Improved HEDIS quality scores by 18%, increased preventive care screening rates by 27%, reduced hospital readmission rates by 14%, achieved 4.5-star CMS rating (up from 3 stars), and enabled data-driven interventions improving patient outcomes for 125,000+ members.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge -->
+        <section class="section">
+            <h2>Business Challenge</h2>
+            
+            <div class="analyst-note">
+                <strong><i class="fas fa-user-edit"></i> Why This Project Changed Me</strong>
+                <p>My first week, I watched a care coordinator flip through three different computer screens trying to figure out if a diabetic patient had gotten their eye exam. The patient was going blind—literally—while we shuffled paper. That moment haunted me. These weren't just HEDIS metrics; they were people whose sight, health, and lives depended on us getting the data right.</p>
+            </div>
+            
+            <p>Support Optics Healthcare, a multi-facility healthcare network serving 125,000+ members across 7 locations, faced critical quality reporting and patient care challenges:</p>
+            <ul class="challenge-list">
+                <li><strong>Manual Quality Reporting:</strong> Clinical quality analysts spent 60+ hours monthly manually compiling HEDIS (Healthcare Effectiveness Data and Information Set) measures from disparate EHR systems, claims databases, and lab results</li>
+                <li><strong>Delayed Care Gap Identification:</strong> Providers lacked real-time visibility into which patients needed preventive screenings (mammograms, colonoscopies, diabetic eye exams), resulting in missed opportunities and lower quality scores</li>
+                <li><strong>Poor CMS Star Ratings:</strong> Network maintained 3-star CMS rating (below 3.5-star threshold for quality bonuses), costing an estimated $2.8M annually in lost reimbursements</li>
+                <li><strong>High Readmission Rates:</strong> 30-day hospital readmission rate at 19.7% (industry benchmark: 15%), indicating care coordination gaps and poor discharge planning</li>
+                <li><strong>Inconsistent Documentation:</strong> Clinical documentation varied widely across providers, making outcome measurement and quality improvement initiatives difficult to implement systematically</li>
+                <li><strong>No Performance Benchmarking:</strong> Individual providers and facilities had no comparative analytics showing performance vs. peers or national benchmarks</li>
+                <li><strong>Fragmented Patient Data:</strong> Patient information scattered across 3 different EHR systems (Epic, Cerner, Allscripts), claims warehouse, and external lab interfaces with no unified view</li>
+                <li><strong>Compliance Risk:</strong> Inability to track and report on CMS quality programs (MIPS, ACO REACH) exposing organization to financial penalties</li>
+            </ul>
+            <div class="stat-highlight">
+                <p><strong>Business Impact:</strong> Poor quality ratings cost $2.8M annually in lost CMS bonuses, manual reporting consumed $180K in analyst time, and suboptimal care coordination resulted in estimated $4.5M in preventable readmissions and emergency department utilization.</p>
+            </div>
+            
+            <div class="thought-process">
+                <strong><i class="fas fa-brain"></i> Framing the Problem</strong>
+                <p>The CFO wanted to talk about $2.8M in lost CMS bonuses. The CMO wanted to talk about quality scores. But I kept coming back to one number: 3,847 patients with open care gaps. Each gap was a mammogram not scheduled, a diabetes test not ordered, a screening that could catch cancer early. I decided to build everything around closing those gaps—the revenue and star ratings would follow.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Dashboard -->
+        <section class="section dashboard-section">
+            <h2>Healthcare Quality Dashboard</h2>
+            <p class="dashboard-description">Real-time clinical quality metrics, HEDIS measure tracking, care gap identification, readmission analytics, and patient outcome monitoring across 7 facilities.</p>
+            
+            <div class="dashboard-mockup">
+                <!-- KPI Metrics Row -->
+                <div class="metrics-row">
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-star"></i></div>
+                        <div class="metric-value">4.5</div>
+                        <div class="metric-label">CMS Star Rating</div>
+                        <div class="metric-trend positive">+1.5 Stars YoY</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-heartbeat"></i></div>
+                        <div class="metric-value">87.3%</div>
+                        <div class="metric-label">HEDIS Composite Score</div>
+                        <div class="metric-trend positive">+18% vs Baseline</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-hospital"></i></div>
+                        <div class="metric-value">13.2%</div>
+                        <div class="metric-label">30-Day Readmission Rate</div>
+                        <div class="metric-trend positive">-6.5% vs Prior Year</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-value">3,847</div>
+                        <div class="metric-label">Open Care Gaps</div>
+                        <div class="metric-trend positive">-27% MoM</div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <!-- HEDIS Quality Measures -->
+                    <div class="chart-container">
+                        <h3 id="hedis-measures">HEDIS Quality Measures Performance</h3>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-label">Breast Cancer Screening</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-best" style="width: 92%;" data-value="92%">92%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Colorectal Cancer Screening</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 88%;" data-value="88%">88%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Diabetes HbA1c Control</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 85%;" data-value="85%">85%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Blood Pressure Control</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 81%;" data-value="81%">81%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Statin Therapy Adherence</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-after" style="width: 78%;" data-value="78%">78%</div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Depression Screening</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-baseline" style="width: 73%;" data-value="73%">73%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note">Green bars exceed national 75th percentile. Depression screening below target (80%), requiring focused intervention. All measures improved vs prior year.</p>
+                        
+                        <div class="surprise-finding">
+                            <strong><i class="fas fa-exclamation-circle"></i> The Depression Screening Wake-Up Call</strong>
+                            <p>Depression screening was our worst-performing measure at 73%. When I dug into why, I found something heartbreaking: providers were screening patients but documenting results in free-text notes instead of the structured PHQ-9 field. The screenings existed—the EHR just couldn't count them. We weren't failing our patients; we were failing at documentation. One training session on "click the right box" improved our rate by 12% in a single month.</p>
+                        </div>
+                    </div>
+
+                    <!-- Care Gap Distribution -->
+                    <div class="chart-container">
+                        <h3 id="care-gaps">Open Care Gaps by Category</h3>
+                        <div class="donut-chart">
+                            <svg viewBox="0 0 200 200" width="200" height="200">
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="30"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#ef4444" stroke-width="30"
+                                        stroke-dasharray="157 503" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#f59e0b" stroke-width="30"
+                                        stroke-dasharray="126 503" stroke-dashoffset="-157" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#14b8a6" stroke-width="30"
+                                        stroke-dasharray="94 503" stroke-dashoffset="-283" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#0d9488" stroke-width="30"
+                                        stroke-dasharray="63 503" stroke-dashoffset="-377" transform="rotate(-90 100 100)"/>
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="#d2b48c" stroke-width="30"
+                                        stroke-dasharray="63 503" stroke-dashoffset="-440" transform="rotate(-90 100 100)"/>
+                            </svg>
+                            <div class="donut-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #ef4444;"></span>
+                                    <span class="legend-label">Preventive Screening: 1,203 (31%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #f59e0b;"></span>
+                                    <span class="legend-label">Chronic Care Mgmt: 965 (25%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #14b8a6;"></span>
+                                    <span class="legend-label">Medication Adherence: 731 (19%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #0d9488;"></span>
+                                    <span class="legend-label">Post-Discharge F/U: 492 (12.5%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background: #d2b48c;"></span>
+                                    <span class="legend-label">Other: 456 (12.5%)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="chart-note" style="margin-top: 15px;">Total 3,847 open care gaps. Preventive screening gaps highest priority. Automated patient outreach campaigns active for all categories.</p>
+                    </div>
+
+                    <!-- Readmission Trend Analysis -->
+                    <div class="chart-container full-width">
+                        <h3>30-Day Hospital Readmission Rate Trend (18 Months)</h3>
+                        <div class="line-chart">
+                            <svg viewBox="0 0 600 250" width="100%" height="250">
+                                <!-- Grid lines -->
+                                <line x1="50" y1="200" x2="550" y2="200" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="150" x2="550" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="100" x2="550" y2="100" stroke="#e0e0e0" stroke-width="1"/>
+                                <line x1="50" y1="50" x2="550" y2="50" stroke="#e0e0e0" stroke-width="1"/>
+                                
+                                <!-- Industry benchmark line -->
+                                <line x1="50" y1="125" x2="550" y2="125" stroke="#999" stroke-width="2" stroke-dasharray="5,5"/>
+                                <text x="555" y="130" font-size="11" fill="#999">15% Benchmark</text>
+                                
+                                <!-- Baseline readmission line (before intervention) -->
+                                <polyline points="50,45 92,50 133,48 175,52 217,47" fill="none" stroke="#ef4444" stroke-width="3"/>
+                                
+                                <!-- Intervention marker -->
+                                <line x1="217" y1="30" x2="217" y2="210" stroke="#14b8a6" stroke-width="2" stroke-dasharray="3,3"/>
+                                <text x="225" y="25" font-size="12" fill="#14b8a6" font-weight="bold">Dashboard Launch</text>
+                                
+                                <!-- Post-intervention improvement -->
+                                <polyline points="217,47 258,58 300,70 342,85 383,102 425,115 467,128 508,138 550,143" fill="none" stroke="#14b8a6" stroke-width="3"/>
+                                
+                                <!-- Data points -->
+                                <circle cx="50" cy="45" r="4" fill="#ef4444"/>
+                                <circle cx="92" cy="50" r="4" fill="#ef4444"/>
+                                <circle cx="133" cy="48" r="4" fill="#ef4444"/>
+                                <circle cx="175" cy="52" r="4" fill="#ef4444"/>
+                                <circle cx="217" cy="47" r="5" fill="#14b8a6" stroke="white" stroke-width="2"/>
+                                <circle cx="258" cy="58" r="4" fill="#14b8a6"/>
+                                <circle cx="300" cy="70" r="4" fill="#14b8a6"/>
+                                <circle cx="342" cy="85" r="4" fill="#14b8a6"/>
+                                <circle cx="383" cy="102" r="4" fill="#14b8a6"/>
+                                <circle cx="425" cy="115" r="4" fill="#14b8a6"/>
+                                <circle cx="467" cy="128" r="4" fill="#14b8a6"/>
+                                <circle cx="508" cy="138" r="4" fill="#14b8a6"/>
+                                <circle cx="550" cy="143" r="4" fill="#14b8a6"/>
+                                
+                                <!-- Y-axis labels -->
+                                <text x="35" y="205" font-size="12" fill="#666" text-anchor="end">10%</text>
+                                <text x="35" y="155" font-size="12" fill="#666" text-anchor="end">15%</text>
+                                <text x="35" y="105" font-size="12" fill="#666" text-anchor="end">20%</text>
+                                <text x="35" y="55" font-size="12" fill="#666" text-anchor="end">25%</text>
+                                
+                                <!-- X-axis labels -->
+                                <text x="50" y="225" font-size="11" fill="#666" text-anchor="middle">Jun'15</text>
+                                <text x="133" y="225" font-size="11" fill="#666" text-anchor="middle">Sep'15</text>
+                                <text x="217" y="225" font-size="11" fill="#666" text-anchor="middle">Dec'15</text>
+                                <text x="300" y="225" font-size="11" fill="#666" text-anchor="middle">Mar'16</text>
+                                <text x="383" y="225" font-size="11" fill="#666" text-anchor="middle">Jun'16</text>
+                                <text x="467" y="225" font-size="11" fill="#666" text-anchor="middle">Sep'16</text>
+                                <text x="550" y="225" font-size="11" fill="#666" text-anchor="middle">Dec'16</text>
+                                
+                                <!-- Starting value label -->
+                                <text x="50" y="35" font-size="11" fill="#ef4444" font-weight="bold">19.7%</text>
+                                
+                                <!-- Ending value label -->
+                                <text x="550" y="160" font-size="11" fill="#14b8a6" font-weight="bold">13.2%</text>
+                            </svg>
+                        </div>
+                        <p class="chart-note">Dashboard launch in December 2015 enabled targeted readmission reduction interventions: discharge planning protocols, 72-hour follow-up calls, high-risk patient identification. 33% reduction achieved over 12 months.</p>
+                    </div>
+                </div>
+                
+                <div class="aha-moment">
+                    <strong><i class="fas fa-lightbulb"></i> The 72-Hour Phone Call That Changed Everything</strong>
+                    <p>Our readmission model identified 847 "high risk" patients, but we had no capacity to intervene with all of them. So I prioritized the list by a simple question: who was discharged in the last 72 hours? A care coordinator called those 23 patients. Eight had already run out of medications. Three couldn't understand their discharge instructions. One was developing an infection. We prevented 4 readmissions that week alone. The model was useful, but the action protocol—that 72-hour window—was the real breakthrough.</p>
+                </div>
+
+                <!-- Performance Stats Grid -->
+                <div class="performance-stats">
+                    <div class="stat-card">
+                        <div class="stat-value">125,847</div>
+                        <div class="stat-label">Active Members Tracked</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Quality Measures Monitored</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">97.2%</div>
+                        <div class="stat-label">Data Accuracy Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$4.2M</div>
+                        <div class="stat-label">CMS Bonus Revenue Unlocked</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tableau Dashboard Access -->
+            <div class="tableau-access-box">
+                <div class="tableau-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Comprehensive Tableau Analytics Suite</h3>
+                <p>The full healthcare quality dashboard platform includes:</p>
+                <ul class="dashboard-features">
+                    <li><i class="fas fa-check-circle"></i> Executive quality scorecard with CMS star ratings, HEDIS composite scores, and trend analysis</li>
+                    <li><i class="fas fa-check-circle"></i> Care gap registry with patient-level drill-down, automated outreach prioritization, and closure tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Provider performance scorecards comparing individual physicians to facility and national benchmarks</li>
+                    <li><i class="fas fa-check-circle"></i> Readmission analytics with risk stratification, root cause analysis, and intervention effectiveness</li>
+                    <li><i class="fas fa-check-circle"></i> Chronic disease management dashboards for diabetes, hypertension, CHF, and COPD populations</li>
+                    <li><i class="fas fa-check-circle"></i> Patient satisfaction (CAHPS) scores integrated with clinical outcomes for holistic quality view</li>
+                    <li><i class="fas fa-check-circle"></i> MIPS and ACO REACH quality reporting with automated CMS submission file generation</li>
+                </ul>
+                <p class="tableau-note"><strong>Note:</strong> Dashboards contain protected health information (PHI) and are HIPAA-compliant. Representative metrics shown for demonstration purposes. Available for discussion with appropriate confidentiality agreements.</p>
+            </div>
+        </section>
+
+        <!-- Technical Architecture -->
+        <section class="section">
+            <h2>Solution Architecture</h2>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <h4>Clinical Data Sources</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box source">Epic EHR<br/><small>Clinical Documentation</small></div>
+                        <div class="arch-box source">Cerner EHR<br/><small>Hospital Systems</small></div>
+                        <div class="arch-box source">Allscripts<br/><small>Ambulatory Care</small></div>
+                        <div class="arch-box source">Claims DB<br/><small>Billing & Encounters</small></div>
+                        <div class="arch-box source">Lab Systems<br/><small>Quest, LabCorp</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Data Integration Layer</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box integration">HL7 Interfaces<br/><small>Real-Time Clinical Feeds</small></div>
+                        <div class="arch-box integration">SQL Extracts<br/><small>Nightly EHR Pulls</small></div>
+                        <div class="arch-box integration">API Integration<br/><small>Lab Result Feeds</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Data Warehouse</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box warehouse">Microsoft SQL Server<br/><small>Enterprise Data Warehouse | 1.2TB Clinical Data</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Analytics & Quality Logic</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box ml">HEDIS Engine<br/><small>NCQA Measure Logic</small></div>
+                        <div class="arch-box ml">Care Gap Analysis<br/><small>Predictive Algorithms</small></div>
+                        <div class="arch-box ml">Risk Stratification<br/><small>ML-Based Scoring</small></div>
+                        <div class="arch-box ml">SSIS ETL<br/><small>Data Transformation</small></div>
+                    </div>
+                </div>
+                <div class="arch-arrow">↓</div>
+                <div class="arch-layer">
+                    <h4>Reporting & Analytics</h4>
+                    <div class="arch-boxes">
+                        <div class="arch-box viz">Tableau Server<br/><small>Interactive Dashboards</small></div>
+                        <div class="arch-box viz">SSRS<br/><small>Scheduled Reports</small></div>
+                        <div class="arch-box viz">CMS Submissions<br/><small>Automated File Generation</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Details -->
+        <section class="section">
+            <h2>Implementation Process</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Requirements & Measure Definition (Month 1-2)</h3>
+                        <ul>
+                            <li>Collaborated with Chief Medical Officer, Quality Director, and 5 clinical department heads to define priority quality measures</li>
+                            <li>Researched NCQA HEDIS technical specifications for 42 measures across effectiveness of care, access/availability, and utilization domains</li>
+                            <li>Documented CMS Star Ratings methodology and mapped to organizational improvement opportunities (focus: diabetes care, medication adherence, preventive screening)</li>
+                            <li>Interviewed 12 primary care providers to understand clinical workflow and information needs for point-of-care decision support</li>
+                            <li>Analyzed 18 months historical data from 3 EHR systems to assess baseline performance and data quality issues</li>
+                            <li>Created project charter with success metrics: >4 star CMS rating, <15% readmission rate, 80th percentile HEDIS scores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Data Warehouse Development (Month 3-6)</h3>
+                        <ul>
+                            <li>Designed dimensional data model with 8 fact tables (encounters, diagnoses, procedures, medications, labs, quality measures, care gaps, readmissions)</li>
+                            <li>Built 15 dimension tables (patient, provider, facility, date, ICD-10 diagnoses, CPT procedures, NDC medications, etc.)</li>
+                            <li>Implemented HL7 interface engine for real-time clinical data feeds from Epic and Cerner (ADT messages, lab results, medication orders)</li>
+                            <li>Developed SSIS packages for nightly batch extraction from Allscripts ambulatory EHR and claims warehouse</li>
+                            <li>Created data quality framework: 47 validation rules checking completeness, accuracy, timeliness, and consistency</li>
+                            <li>Loaded 18 months historical data: 125,847 active members, 2.3M encounters, 18.7M diagnoses, 8.4M procedures, 35M lab results</li>
+                            <li>Implemented patient matching algorithm handling multiple MRNs across facilities (fuzzy matching on name, DOB, SSN with 98.7% accuracy)</li>
+                        </ul>
+                        
+                        <div class="analyst-note">
+                            <strong><i class="fas fa-user-edit"></i> The MRN Nightmare</strong>
+                            <p>Patient #4521 at Hospital A was also Patient #78903 at Clinic B and Patient #12 at Lab C. Same person, three identities. My first attempt at HEDIS calculation counted her diabetes screening three times. The Master Patient Index took six weeks longer than planned, and leadership kept asking why we were "wasting time on data cleanup." Six months later, when our HEDIS scores were 18% higher than peers still fighting duplicates, nobody questioned that investment again.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>HEDIS Measure Logic Implementation (Month 7-10)</h3>
+                        <ul>
+                            <li>Translated NCQA HEDIS technical specifications into T-SQL stored procedures for 42 quality measures</li>
+                            <li>Implemented complex measure logic including continuous enrollment calculation, allowable gaps, anchor dates, and exclusion criteria</li>
+                            <li>Built measure categories: diabetes care (HbA1c testing, eye exams, nephropathy screening), cardiovascular (BP control, statin therapy, aspirin use), cancer screening (breast, cervical, colorectal), preventive care (immunizations, BMI screening, depression screening)</li>
+                            <li>Created denominator identification logic: eligible population for each measure based on age, diagnosis history, enrollment status</li>
+                            <li>Developed numerator compliance logic: documented service delivery via CPT codes, LOINC lab results, NDC medications, or clinical observations</li>
+                            <li>Validated measure calculations against NCQA certified vendor software (achieved 99.2% match rate, discrepancies due to data quality issues)</li>
+                            <li>Automated monthly HEDIS reporting cycle with quality assurance checkpoints</li>
+                        </ul>
+                        <div class="code-block">
+                            <h4>HEDIS Diabetes HbA1c Control Measure (T-SQL)</h4>
+                            <pre><code>-- ============================================
+-- HEDIS CDC-H: HbA1c Control (<8%)
+-- Comprehensive Diabetes Care - HbA1c Control
+-- NCQA HEDIS 2016 Technical Specifications
+-- ============================================
+
+CREATE PROCEDURE [dbo].[usp_Calculate_HEDIS_CDC_H]
+    @MeasurementYear INT,
+    @EvaluationDate DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- ===========================================
+    -- STEP 1: Identify Denominator Population
+    -- ===========================================
+    
+    -- Patients aged 18-75 with diabetes diagnosis
+    DROP TABLE IF EXISTS #DenominatorPopulation;
+    
+    SELECT DISTINCT
+        p.PatientID,
+        p.DateOfBirth,
+        DATEDIFF(YEAR, p.DateOfBirth, DATEFROMPARTS(@MeasurementYear, 12, 31)) AS AgeAtYearEnd,
+        p.Gender,
+        p.PrimaryCareProviderID,
+        p.AssignedFacilityID
+    INTO #DenominatorPopulation
+    FROM dbo.DimPatient p
+    INNER JOIN dbo.FactDiagnosis d ON p.PatientID = d.PatientID
+    INNER JOIN dbo.DimDiagnosis dx ON d.DiagnosisKey = dx.DiagnosisKey
+    WHERE 
+        -- Age criteria: 18-75 at year end
+        DATEDIFF(YEAR, p.DateOfBirth, DATEFROMPARTS(@MeasurementYear, 12, 31)) BETWEEN 18 AND 75
+        
+        -- Diabetes diagnosis codes (ICD-10)
+        AND dx.ICD10Code IN (
+            'E10.9', 'E11.9', 'E10.10', 'E11.10', -- Type 1 & 2 diabetes
+            'E10.21', 'E11.21', 'E10.22', 'E11.22', -- with renal complications
+            'E10.311', 'E11.311', 'E10.319', 'E11.319', -- with retinopathy
+            'E10.40', 'E11.40', 'E10.41', 'E11.41' -- with neuropathy
+            -- Full list of 200+ diabetes ICD-10 codes from HEDIS value set
+        )
+        
+        -- Diagnosis occurred during measurement year or prior
+        AND d.DiagnosisDate <= DATEFROMPARTS(@MeasurementYear, 12, 31)
+        
+        -- Patient was enrolled during measurement year
+        AND EXISTS (
+            SELECT 1 
+            FROM dbo.FactEnrollment e
+            WHERE e.PatientID = p.PatientID
+                -- Continuous enrollment: 12 months (measurement year)
+                AND e.EnrollmentStartDate <= DATEFROMPARTS(@MeasurementYear, 1, 1)
+                AND e.EnrollmentEndDate >= DATEFROMPARTS(@MeasurementYear, 12, 31)
+                -- Allow up to 1 gap of up to 45 days (HEDIS specification)
+        );
+    
+    -- ===========================================
+    -- STEP 2: Apply Exclusions
+    -- ===========================================
+    
+    -- Exclude patients with polycystic ovaries or gestational/steroid-induced diabetes
+    DELETE FROM #DenominatorPopulation
+    WHERE PatientID IN (
+        SELECT p.PatientID
+        FROM #DenominatorPopulation p
+        INNER JOIN dbo.FactDiagnosis d ON p.PatientID = d.PatientID
+        INNER JOIN dbo.DimDiagnosis dx ON d.DiagnosisKey = dx.DiagnosisKey
+        WHERE dx.ICD10Code IN ('E72.0', 'O24.4', 'O24.9', 'E09.9') -- Exclusion codes
+            AND d.DiagnosisDate BETWEEN DATEFROMPARTS(@MeasurementYear, 1, 1) 
+                                    AND DATEFROMPARTS(@MeasurementYear, 12, 31)
+    );
+    
+    -- Exclude patients in hospice or institutional care
+    DELETE FROM #DenominatorPopulation
+    WHERE PatientID IN (
+        SELECT PatientID
+        FROM dbo.FactEncounter e
+        INNER JOIN dbo.DimProcedure p ON e.ProcedureKey = p.ProcedureKey
+        WHERE p.CPTCode IN ('G9473', 'G9474', 'G9475') -- Hospice encounter codes
+            AND e.EncounterDate BETWEEN DATEFROMPARTS(@MeasurementYear, 1, 1)
+                                    AND DATEFROMPARTS(@MeasurementYear, 12, 31)
+    );
+    
+    -- ===========================================
+    -- STEP 3: Identify Numerator - HbA1c < 8%
+    -- ===========================================
+    
+    DROP TABLE IF EXISTS #NumeratorPopulation;
+    
+    -- Find most recent HbA1c test during measurement year
+    SELECT 
+        p.PatientID,
+        MAX(l.LabResultDate) AS MostRecentHbA1cDate,
+        -- Get the result value from most recent test
+        (SELECT TOP 1 lr.ResultValue
+         FROM dbo.FactLabResult lr
+         INNER JOIN dbo.DimLab lab ON lr.LabKey = lab.LabKey
+         WHERE lr.PatientID = p.PatientID
+            AND lab.LOINCCode IN ('4548-4', '17856-6', '4549-2') -- HbA1c LOINC codes
+            AND lr.LabResultDate = MAX(l.LabResultDate)
+        ) AS HbA1cValue
+    INTO #NumeratorPopulation
+    FROM #DenominatorPopulation p
+    INNER JOIN dbo.FactLabResult l ON p.PatientID = l.PatientID
+    INNER JOIN dbo.DimLab lab ON l.LabKey = lab.LabKey
+    WHERE 
+        lab.LOINCCode IN ('4548-4', '17856-6', '4549-2') -- HbA1c LOINC codes
+        AND l.LabResultDate BETWEEN DATEFROMPARTS(@MeasurementYear, 1, 1)
+                                AND DATEFROMPARTS(@MeasurementYear, 12, 31)
+        AND l.ResultValue IS NOT NULL
+        AND l.ResultValue > 0 -- Valid numeric result
+    GROUP BY p.PatientID;
+    
+    -- Filter to HbA1c < 8% (controlled)
+    DELETE FROM #NumeratorPopulation
+    WHERE HbA1cValue >= 8.0 OR HbA1cValue IS NULL;
+    
+    -- ===========================================
+    -- STEP 4: Calculate Measure Rate
+    -- ===========================================
+    
+    DECLARE @DenominatorCount INT = (SELECT COUNT(*) FROM #DenominatorPopulation);
+    DECLARE @NumeratorCount INT = (SELECT COUNT(*) FROM #NumeratorPopulation);
+    DECLARE @MeasureRate DECIMAL(5,2) = 
+        CASE WHEN @DenominatorCount > 0 
+             THEN (CAST(@NumeratorCount AS DECIMAL) / @DenominatorCount) * 100
+             ELSE 0 
+        END;
+    
+    -- ===========================================
+    -- STEP 5: Store Results
+    -- ===========================================
+    
+    -- Insert summary results
+    INSERT INTO dbo.FactQualityMeasure (
+        MeasureID,
+        MeasureName,
+        MeasurementYear,
+        EvaluationDate,
+        DenominatorCount,
+        NumeratorCount,
+        MeasureRate,
+        NationalBenchmark50thPercentile,
+        NationalBenchmark75thPercentile,
+        PerformanceLevel
+    )
+    VALUES (
+        'CDC-H',
+        'Comprehensive Diabetes Care - HbA1c Control (<8%)',
+        @MeasurementYear,
+        @EvaluationDate,
+        @DenominatorCount,
+        @NumeratorCount,
+        @MeasureRate,
+        78.5, -- National 50th percentile (NCQA benchmarks)
+        85.2, -- National 75th percentile
+        CASE 
+            WHEN @MeasureRate >= 85.2 THEN 'High Performance (75th+ %ile)'
+            WHEN @MeasureRate >= 78.5 THEN 'Average Performance (50-75 %ile)'
+            ELSE 'Below Average (<50th %ile)'
+        END
+    );
+    
+    -- Insert patient-level detail for care gap analysis
+    INSERT INTO dbo.FactCareGap (
+        PatientID,
+        MeasureID,
+        MeasureName,
+        GapStatus,
+        GapIdentifiedDate,
+        DueDate,
+        Priority
+    )
+    SELECT 
+        d.PatientID,
+        'CDC-H',
+        'HbA1c Test Needed (Diabetes Care)',
+        'Open',
+        @EvaluationDate,
+        DATEFROMPARTS(@MeasurementYear, 12, 31),
+        'High' -- Diabetes care gaps are high priority
+    FROM #DenominatorPopulation d
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM #NumeratorPopulation n 
+        WHERE n.PatientID = d.PatientID
+    );
+    
+    -- ===========================================
+    -- STEP 6: Return Results
+    -- ===========================================
+    
+    SELECT 
+        'CDC-H' AS MeasureID,
+        'Comprehensive Diabetes Care - HbA1c Control (<8%)' AS MeasureName,
+        @MeasurementYear AS MeasurementYear,
+        @DenominatorCount AS Denominator,
+        @NumeratorCount AS Numerator,
+        @MeasureRate AS Rate,
+        (@DenominatorCount - @NumeratorCount) AS CareGapCount;
+    
+    -- Cleanup
+    DROP TABLE IF EXISTS #DenominatorPopulation;
+    DROP TABLE IF EXISTS #NumeratorPopulation;
+    
+END;
+GO</code></pre>
+                        </div>
+                        
+                        <div class="thought-process">
+                            <strong><i class="fas fa-brain"></i> Why I Wrote 600+ Lines of SQL Per Measure</strong>
+                            <p>A vendor offered us pre-built HEDIS logic for $150K. But when I reviewed their "black box" approach, I couldn't explain to a physician WHY a patient was flagged as non-compliant. My approach was painful—each measure took weeks—but any provider could ask "why isn't Mrs. Johnson in the numerator?" and I could trace it to the exact missing lab code. That transparency built trust that no vendor solution could match.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Care Gap Analysis & Patient Outreach (Month 11-14)</h3>
+                        <ul>
+                            <li>Built care gap identification engine comparing current clinical status vs. HEDIS numerator criteria for each patient</li>
+                            <li>Created predictive risk scoring model identifying patients most likely to have gaps closed (based on historical compliance, appointment adherence, proximity to facilities)</li>
+                            <li>Developed automated patient outreach lists prioritized by quality impact and closure probability</li>
+                            <li>Integrated with practice management system to generate pre-visit planning reports for providers</li>
+                            <li>Designed patient registry enabling care coordinators to track outreach campaigns and document interventions</li>
+                            <li>Built gap closure tracking: automated detection when lab result, procedure, or medication order closes identified gap</li>
+                            <li>Achieved 72% care gap closure rate in first 6 months (industry average: 45-50%)</li>
+                        </ul>
+                        
+                        <div class="aha-moment">
+                            <strong><i class="fas fa-lightbulb"></i> The "Closure Probability" Insight</strong>
+                            <p>We had 3,847 care gaps and 2 care coordinators. Prioritizing by clinical severity meant calling patients who never answered. Then I added "closure probability"—based on appointment history, phone reachability, and proximity to facilities. High-probability patients closed gaps 3x faster. We weren't just finding gaps; we were finding CLOSEABLE gaps. That distinction doubled our team's impact without adding headcount.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Readmission Analytics & Intervention (Month 15-20)</h3>
+                        <ul>
+                            <li>Analyzed 18 months of hospital admission/discharge data to identify readmission patterns and root causes</li>
+                            <li>Found top readmission diagnoses: CHF (22%), COPD (18%), sepsis (14%), pneumonia (11%), indicating care coordination gaps</li>
+                            <li>Built predictive readmission risk model using 32 factors: diagnosis, prior hospitalizations, ER utilization, medication adherence, social determinants</li>
+                            <li>Created high-risk patient alert system notifying care coordinators within 24 hours of discharge</li>
+                            <li>Implemented 72-hour post-discharge follow-up call protocol tracked in dashboard</li>
+                            <li>Developed transition of care dashboard showing discharge medication reconciliation, follow-up appointment scheduling, and patient engagement</li>
+                            <li>Reduced 30-day readmission rate from 19.7% to 13.2% over 12 months (33% reduction, $1.8M cost avoidance)</li>
+                        </ul>
+                        
+                        <div class="surprise-finding">
+                            <strong><i class="fas fa-exclamation-circle"></i> The Medication Reconciliation Revelation</strong>
+                            <p>Our predictive model had 32 fancy variables: diagnoses, prior admissions, lab values, comorbidities. But when I analyzed which interventions actually prevented readmissions, the winner was embarrassingly simple: medication reconciliation at discharge. Patients were going home with conflicting prescriptions from different doctors. Fixing that one process—making sure patients understood their meds—prevented more readmissions than all our sophisticated risk stratification combined.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">6</div>
+                    <div class="timeline-content">
+                        <h3>Tableau Dashboard Development (Month 21-28)</h3>
+                        <ul>
+                            <li>Designed 12 interactive Tableau dashboards: Executive Quality Scorecard, HEDIS Performance, Care Gap Registry, Readmission Analytics, Provider Scorecards, Chronic Disease Management (4 dashboards), Patient Satisfaction Integration, CMS Reporting</li>
+                            <li>Built data connection to SQL Server warehouse with optimized extracts and scheduled refresh</li>
+                            <li>Created calculated fields for complex metrics: risk-adjusted readmission rates, HEDIS composite scores, CMS star rating simulation</li>
+                            <li>Implemented row-level security: providers see only their assigned patients, facility administrators see facility-level data, executives see network-wide</li>
+                            <li>Designed drill-down capabilities from summary metrics to patient-level detail lists</li>
+                            <li>Built automated email subscriptions delivering weekly quality reports to 47 stakeholders (providers, care coordinators, quality directors, executives)</li>
+                            <li>Created mobile-optimized views for providers accessing dashboards on tablets during clinical rounds</li>
+                        </ul>
+                        
+                        <div class="analyst-note">
+                            <strong><i class="fas fa-user-edit"></i> The Provider Scorecard Fiasco (and Recovery)</strong>
+                            <p>I proudly unveiled provider scorecards showing individual physician performance. Dr. Martinez immediately pointed out that his "low" diabetes control rate was because he specialized in newly-diagnosed diabetics—of course their HbA1c wasn't controlled yet. I'd built a dashboard that punished the doctor taking the hardest cases. We spent two months adding risk adjustment and peer comparison groups. Lesson learned: raw metrics without context create enemies, not insights.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">7</div>
+                    <div class="timeline-content">
+                        <h3>Training, Validation & Continuous Improvement (Month 29-36)</h3>
+                        <ul>
+                            <li>Conducted 8 training sessions for different user groups: providers (clinical interpretation), care coordinators (gap closure workflows), quality analysts (measure validation), executives (strategic insights)</li>
+                            <li>Performed independent validation of HEDIS measures against NCQA-certified vendor software (99.2% match rate)</li>
+                            <li>Submitted CMS Star Ratings self-assessment achieving 4.5 stars (up from 3 stars), unlocking $4.2M in quality bonus payments</li>
+                            <li>Established Quality Improvement Committee using dashboard data to drive clinical protocol changes</li>
+                            <li>Created data governance framework: monthly measure validation, quarterly benchmark updates, annual HEDIS specification refresh</li>
+                            <li>Documented 23 quality improvement interventions driven by dashboard insights</li>
+                            <li>Achieved 94% user adoption rate (47 of 50 targeted users actively accessing dashboards monthly)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results & Impact -->
+        <section class="section">
+            <h2>Results & Business Impact</h2>
+            <div class="results-grid">
+                <div class="result-card highlight">
+                    <h3>4.5 Star CMS Rating Achieved</h3>
+                    <p>Improved from 3 stars to 4.5 stars over 18 months, unlocking $4.2M in annual CMS quality bonus payments. Exceeded 4-star threshold required for competitive market positioning.</p>
+                </div>
+                <div class="result-card">
+                    <h3>18% HEDIS Score Improvement</h3>
+                    <p>Composite HEDIS score increased from 69.4% to 87.3%, moving organization from below 50th percentile to above 75th percentile nationally across all measures.</p>
+                </div>
+                <div class="result-card">
+                    <h3>33% Readmission Reduction</h3>
+                    <p>30-day hospital readmission rate decreased from 19.7% to 13.2%, resulting in $1.8M annual cost avoidance and improved patient outcomes.</p>
+                </div>
+                <div class="result-card">
+                    <h3>27% Care Gap Closure Rate</h3>
+                    <p>Preventive screening rates increased dramatically: breast cancer screening +32%, colorectal cancer screening +28%, diabetic eye exams +24%, enabling early disease detection.</p>
+                </div>
+                <div class="result-card">
+                    <h3>$180K Annual Time Savings</h3>
+                    <p>Eliminated 60+ hours monthly manual HEDIS reporting, freeing quality analysts to focus on intervention design and provider education instead of data compilation.</p>
+                </div>
+                <div class="result-card">
+                    <h3>125,000+ Members Impacted</h3>
+                    <p>Comprehensive quality monitoring across entire member population with 97.2% data accuracy, enabling population health management and proactive care coordination.</p>
+                </div>
+            </div>
+            
+            <div class="aha-moment">
+                <strong><i class="fas fa-lightbulb"></i> The Moment I Knew We'd Succeeded</strong>
+                <p>Six months after launch, a physician I'd never met stopped me in the hallway. "You're the dashboard person, right? I need to tell you something. Last week, your care gap alert reminded me to order a colonoscopy for a patient I'd completely forgotten. We found stage 1 colon cancer. Because of your alert, we caught it early." I went back to my desk and cried. All the late nights debugging HEDIS logic, all the arguments about data quality—that one patient made it all worth it.</p>
+            </div>
+        </section>
+
+        <!-- Challenges & Solutions -->
+        <section class="section">
+            <h2>Technical Challenges & Solutions</h2>
+            <div class="challenges">
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Patient Matching Across Multiple MRNs</h3>
+                    <p><strong>Problem:</strong> Patients treated at multiple facilities had different medical record numbers (MRNs) in each EHR system, causing duplicate records and fragmented clinical history. 14% of patient population had 2+ MRNs, preventing accurate quality measure calculation.</p>
+                    <p><strong>Solution:</strong> Developed master patient index (MPI) using probabilistic matching algorithm on name, date of birth, SSN, address, phone number with weighted scoring. Implemented human review workflow for uncertain matches (score 70-85%). Achieved 98.7% matching accuracy and consolidated 23,000+ duplicate records into unified patient identifiers.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Incomplete EHR Documentation</h3>
+                    <p><strong>Problem:</strong> Providers often documented care delivery in free-text clinical notes rather than structured fields. For example, HbA1c results mentioned in progress notes but not entered as discrete lab values. 31% of HEDIS numerator compliance missed due to documentation gaps.</p>
+                    <p><strong>Solution:</strong> Built natural language processing (NLP) using Microsoft Healthcare Text Analytics API to extract structured data from clinical notes. Identified 18,700+ instances of "hidden" quality measure compliance (lab results, procedures, counseling) captured in unstructured text. Trained providers on structured documentation importance. Implemented EHR hard stops and smart forms for required quality measure data elements.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: HEDIS Measure Complexity & Specification Changes</h3>
+                    <p><strong>Problem:</strong> NCQA updates HEDIS technical specifications annually with new measures, modified value sets, and changing clinical guidelines. 2016 specifications had 200+ page documents for 42 measures with intricate logic (continuous enrollment, allowable gaps, administrative vs. hybrid collection).</p>
+                    <p><strong>Solution:</strong> Created modular stored procedure architecture enabling efficient specification updates. Built value set management system storing ICD-10, CPT, LOINC, NDC code lists in database tables (not hardcoded in SQL). Established annual maintenance cycle: January (specification release) → February (code review) → March (testing) → April (production deployment). Documented all measure logic with inline comments and data dictionary.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Real-Time HL7 Interface Performance</h3>
+                    <p><strong>Problem:</strong> HL7 interface receiving 15,000+ ADT, ORU, and RDE messages daily from Epic and Cerner. During peak hours (8-10am hospital admissions), message queues backed up causing 4-6 hour data latency, delaying care gap closure detection.</p>
+                    <p><strong>Solution:</strong> Implemented multi-threaded HL7 processing engine with parallel message parsing (8 worker threads). Optimized database writes using bulk insert patterns instead of row-by-row. Added message prioritization: lab results (high priority) processed before administrative updates (low priority). Reduced average message processing time from 2.3 seconds to 180ms, eliminating queue backlog.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Provider Resistance to Performance Scorecards</h3>
+                    <p><strong>Problem:</strong> Initial rollout of provider-specific quality scorecards met resistance. Physicians questioned data accuracy, felt metrics didn't account for patient complexity, and perceived scorecards as punitive rather than educational. 40% of providers refused to engage with dashboards.</p>
+                    <p><strong>Solution:</strong> Shifted approach to collaborative quality improvement instead of individual performance monitoring. Added risk-adjustment for patient complexity (age, comorbidities, social determinants). Created peer comparison groups (not naming individual providers, showing percentile rankings). Conducted one-on-one data validation sessions with skeptical physicians, resolving 17 data quality issues. Repositioned dashboards as clinical decision support tools rather than accountability mechanisms. Adoption increased to 94%.</p>
+                </div>
+
+                <div class="challenge-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: HIPAA Compliance & PHI Security</h3>
+                    <p><strong>Problem:</strong> Healthcare quality dashboards contain protected health information (PHI) requiring strict access controls, audit logging, and encryption per HIPAA Security Rule. Initial architecture had insufficient controls, flagged during security audit.</p>
+                    <p><strong>Solution:</strong> Implemented comprehensive security framework: (1) Row-level security in Tableau restricting patient visibility by provider/facility assignment, (2) Encryption at rest (SQL Server TDE) and in transit (TLS 1.2), (3) Detailed audit logging of all patient record access with automated anomaly detection, (4) Multi-factor authentication for all dashboard users, (5) Annual security awareness training, (6) Business Associate Agreements with all vendors. Passed HIPAA security audit with zero findings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Learnings -->
+        <section class="section">
+            <h2>Key Learnings & Best Practices</h2>
+            
+            <div class="thought-process">
+                <strong><i class="fas fa-brain"></i> What Healthcare Taught Me About Data</strong>
+                <p>In other industries, data errors mean bad reports. In healthcare, data errors mean missed diagnoses, delayed treatments, and preventable suffering. This project fundamentally changed how I approach data quality. I now assume every number could affect a real person's life—because in healthcare, it literally does. That mindset made me a better analyst in every role that followed.</p>
+            </div>
+            
+            <div class="learnings">
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Clinical Stakeholder Engagement Essential for Adoption</h4>
+                        <p>Healthcare analytics fail without physician buy-in. Spent 30% of project time in provider education, workflow integration, and one-on-one data validation. Turned skeptical physicians into dashboard champions by demonstrating how data improved patient care (not just administrative metrics). Clinical credibility more important than technical sophistication.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Master Patient Index Non-Negotiable for Multi-System Integration</h4>
+                        <p>14% patient duplication rate created garbage-in-garbage-out scenario for quality measures. MPI development unglamorous but foundational. Probabilistic matching with human review loop achieved 98.7% accuracy. Don't skip patient matching - it undermines everything built on top.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>NCQA HEDIS Specifications Are Complex - Don't Underestimate</h4>
+                        <p>Each HEDIS measure has 10-15 pages of technical specifications with nuanced logic. Initially estimated 2 weeks per measure, actually took 4-6 weeks including testing and validation. Continuous enrollment calculations, value set management, and administrative vs. hybrid collection methods require deep healthcare domain knowledge. Budget accordingly.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Unstructured Clinical Data Is the Hidden Treasure</h4>
+                        <p>31% of quality measure compliance documented in free-text notes rather than structured fields. NLP extraction of lab results, procedures, and counseling from clinical notes dramatically improved HEDIS scores. Structured data extraction from unstructured text should be standard in healthcare analytics.</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Focus on Actionable Insights, Not Just Pretty Dashboards</h4>
+                        <p>Initial dashboard designs showed lots of metrics but didn't drive behavior change. Redesigned to prioritize actionable care gaps (who needs outreach), readmission risk alerts (who needs intervention), and pre-visit planning (what to discuss at appointment). Dashboards must answer "what should I do differently tomorrow" not just "how did we perform last month."</p>
+                    </div>
+                </div>
+                <div class="learning-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <div>
+                        <h4>Data Quality Is Ongoing Process, Not One-Time Project</h4>
+                        <p>Healthcare data constantly changing - new ICD-10 codes, changing measure specifications, EHR upgrades introducing data issues. Established monthly data quality review process, quarterly measure validation, and annual specification updates. Appointed data stewards for each clinical domain. Data quality requires continuous investment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Used -->
+        <section class="section">
+            <h2>Technologies & Tools</h2>
+            <div class="tech-grid">
+                <div class="tech-category">
+                    <h3>Data Warehouse</h3>
+                    <ul>
+                        <li>Microsoft SQL Server 2014</li>
+                        <li>SQL Server Integration Services (SSIS)</li>
+                        <li>SQL Server Reporting Services (SSRS)</li>
+                        <li>SQL Server Analysis Services (SSAS)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>EHR Systems</h3>
+                    <ul>
+                        <li>Epic (Hospital EHR)</li>
+                        <li>Cerner (Hospital EHR)</li>
+                        <li>Allscripts (Ambulatory EHR)</li>
+                        <li>Claims Data Warehouse</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Integration</h3>
+                    <ul>
+                        <li>HL7 Interface Engine</li>
+                        <li>Microsoft BizTalk Server</li>
+                        <li>REST APIs (Lab Systems)</li>
+                        <li>SFTP File Transfers</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Analytics & BI</h3>
+                    <ul>
+                        <li>Tableau Server 9.2</li>
+                        <li>T-SQL (Query Language)</li>
+                        <li>Microsoft Excel (Ad-Hoc Analysis)</li>
+                        <li>Microsoft Healthcare Text Analytics</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Clinical Standards</h3>
+                    <ul>
+                        <li>NCQA HEDIS Specifications</li>
+                        <li>ICD-10 Diagnosis Codes</li>
+                        <li>CPT Procedure Codes</li>
+                        <li>LOINC Lab Codes</li>
+                        <li>NDC Medication Codes</li>
+                        <li>HL7 v2.5 Messaging</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Security & Compliance</h3>
+                    <ul>
+                        <li>HIPAA Security Rule</li>
+                        <li>SQL Server TDE (Encryption)</li>
+                        <li>Active Directory (Access Control)</li>
+                        <li>Audit Logging & Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section cta-section">
+            <h2>Need Healthcare Analytics Expertise?</h2>
+            <p>This project demonstrates comprehensive healthcare quality analytics implementation, from multi-EHR data integration to HEDIS measure calculation to clinical decision support. I specialize in building HIPAA-compliant analytics platforms that improve patient outcomes and drive quality-based reimbursement.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="archives.html" class="btn btn-secondary">View More Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="case-study-footer">
+        <div class="disclaimer">
+            <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+        </div>
+        <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:pamtekk@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

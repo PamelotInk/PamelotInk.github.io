@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pamela Austin - Senior Data Analyst. Data Engineering. Business Intelligence. Analytics.">
+    <title>Pamela Austin | Data Analyst</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="homepage">
+    <!-- 3D Floating Data Elements -->
+    <div class="data-3d-container" id="data3dContainer">
+        <div class="data-element" data-speed="0.02" style="--x: 10%; --y: 20%;">
+            <span class="data-icon">📊</span>
+        </div>
+        <div class="data-element" data-speed="0.03" style="--x: 85%; --y: 15%;">
+            <span class="data-icon">{ }</span>
+        </div>
+        <div class="data-element" data-speed="0.015" style="--x: 75%; --y: 70%;">
+            <span class="data-icon">📈</span>
+        </div>
+        <div class="data-element" data-speed="0.025" style="--x: 20%; --y: 75%;">
+            <span class="data-icon">⚙️</span>
+        </div>
+        <div class="data-element" data-speed="0.018" style="--x: 50%; --y: 10%;">
+            <span class="data-icon">λ</span>
+        </div>
+        <div class="data-element" data-speed="0.022" style="--x: 90%; --y: 45%;">
+            <span class="data-icon">🔷</span>
+        </div>
+        <div class="data-element" data-speed="0.028" style="--x: 5%; --y: 50%;">
+            <span class="data-icon">SQL</span>
+        </div>
+        <div class="data-element" data-speed="0.012" style="--x: 60%; --y: 85%;">
+            <span class="data-icon">∑</span>
+        </div>
+        <div class="data-element" data-speed="0.02" style="--x: 30%; --y: 40%;">
+            <span class="data-icon">🐍</span>
+        </div>
+        <div class="data-element" data-speed="0.016" style="--x: 70%; --y: 30%;">
+            <span class="data-icon">☁️</span>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="#home" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <!-- Sidebar Toggle Button -->
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        
+        <div class="sidebar-inner">
+            <div class="profile">
+                <div class="avatar">
+                    <div class="avatar-placeholder">PA</div>
+                </div>
+                <h1 class="site-title">Pamela Austin</h1>
+                <p class="site-subtitle">Data Engineering. Business Intelligence. Analytics.</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#home" class="nav-link active" title="Home">
+                    <i class="fas fa-home"></i><span> Home</span><small class="nav-label">Home</small>
+                </a>
+                <a href="archives.html" class="nav-link" title="Archives">
+                    <i class="fas fa-archive"></i><span> Archives</span><small class="nav-label">Archives</small>
+                </a>
+                <a href="resume.html" class="nav-link" target="_blank" title="Resumé">
+                    <i class="fas fa-file-alt"></i><span> Resumé</span><small class="nav-label">Resumé</small>
+                </a>
+                <a href="#case-studies" class="nav-link" title="Projects">
+                    <i class="fas fa-briefcase"></i><span> Projects</span><small class="nav-label">Projects</small>
+                </a>
+                <a href="#contact" class="nav-link" title="Contact">
+                    <i class="fas fa-envelope"></i><span> Contact</span><small class="nav-label">Contact</small>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>&copy; 2025 Pamela Austin</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Intro Section -->
+            <article class="intro-card">
+                <h2 class="greeting">Pamela Austin</h2>
+                
+                <div class="intro-text">
+                    <p>I'm an experienced <strong>Data Analyst</strong> with 10+ years specializing in data engineering, business intelligence, and analytics. You can check out my resume <a href="resume.html" target="_blank" title="View Resume"><i class="fas fa-file-alt"></i></a>.</p>
+                    
+                    <p>For over a decade, I've helped companies solve business problems with data across telecommunications, healthcare, retail, and finance. I see my role as building scalable data pipelines and creating actionable insights that drive measurable business impact (instead of letting valuable data sit unused).</p>
+                    
+                    <p>I'm passionate about data engineering, especially with modern cloud platforms. I have expertise in <strong>AWS (Redshift, Glue, AppFlow)</strong>, <strong>Snowflake</strong>, <strong>Python/PySpark</strong>, <strong>SQL</strong>, and visualization tools like <strong>Power BI</strong> and <strong>Tableau</strong>.</p>
+                    
+                    <h3>📊 Featured Projects:</h3>
+                    
+                    <p>My work portfolio showcases data solutions that have driven real business value:</p>
+                    
+                    <ul class="featured-list">
+                        <li><a href="case-study-exoplanet.html">🌌 Exoplanet Habitability Analysis</a> – ML analysis of 5,000+ exoplanets with 96.5% accuracy predicting habitable worlds</li>
+                        <li><a href="case-study-signet.html">💎 Enterprise Data Deduplication Pipeline</a> – Processed 150M+ records with zero data loss at Signet Jewelers</li>
+                        <li><a href="case-study-att-ml.html">🤖 Predictive ML Forecasting Model</a> – Achieved 94.2% accuracy with ensemble ML, $12M cost savings at AT&T</li>
+                        <li><a href="case-study-att-cloud-migration.html">☁️ AT&T Cloud Migration ETL Pipeline</a> – Unified 3 enterprise systems into Snowflake, 87.5% faster processing, $250K annual savings</li>
+                        <li><a href="case-study-att-marketing.html">📊 Marketing Analytics Platform</a> – Unified 3-system integration saving 15+ hours weekly, $2.3M savings identified</li>
+                        <li><a href="case-study-bank-financial-analytics.html">🏦 Bank Financial Analytics Platform</a> – SQL/Python/Power BI analytics for $2.8B bank, 91.5% credit risk accuracy, $3.2M revenue opportunities</li>
+                        <li><a href="case-study-healthcare-etl.html">🏥 Healthcare Data Integration & ETL Pipeline</a> – HIPAA-compliant data warehouse integrating 50K+ patients across 3 systems with 98.7% data quality</li>
+                        <li><a href="case-study-healthcare.html">🏥 Healthcare Quality Analytics Dashboard</a> – HEDIS tracking for 125K+ members, 18% score improvement, $4.2M quality bonuses</li>
+                        <li><a href="case-study-yp-campaigns.html">📊 Campaign Performance & ROI Optimization</a> – 100+ digital campaigns analyzed, 20% ROAS improvement at YP Advertising</li>
+                    </ul>
+                    
+                    <h3>💼 Professional Experience:</h3>
+                    
+                    <ul class="experience-list">
+                        <li><strong>Signet Jewelers</strong> – Senior Data Analyst (2025)</li>
+                        <li><strong>AT&T</strong> – Senior Data Analyst (2024-2025)</li>
+                        <li><strong>Syilum LLC</strong> – Business Intelligence Analyst (2016-2024)</li>
+                        <li><strong>Support Optics</strong> – Data Analyst (2013-2016)</li>
+                        <li><strong>AT&T \ YP Advertising</strong> – Marketing Analyst (2010-2013)</li>
+                    </ul>
+                    
+                    <h3>🎓 Education & Certifications:</h3>
+                    
+                    <ul class="education-list">
+                        <li><strong>B.S. Computer Science</strong> – Georgia State University (2016)</li>
+                        <li><strong>A.S. Finance & Accounting</strong> – Georgia State University (2011)</li>
+                        <li><strong>IBM Data Science Professional Certificate</strong> – SQL for Data Science</li>
+                    </ul>
+                </div>
+            </article>
+
+            <h2 class="section-heading" id="case-studies">Recent Work</h2>
+
+            <!-- Project Cards -->
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">Nov 2025</span>
+                    <span class="post-category">Data Science</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-exoplanet.html">🌌 Exoplanet Habitability Analysis</a>
+                </h3>
+                <p class="post-excerpt">
+                    Comprehensive machine learning analysis of 5,000+ exoplanets to predict habitability and estimate life-supporting worlds in our galaxy. Built predictive models using Python scikit-learn and TensorFlow achieving 96.5% accuracy, with interactive visualizations and statistical extrapolation estimating ~300M potentially habitable planets in the Milky Way.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">scikit-learn</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Seaborn</span>
+                </div>
+                <a href="case-study-exoplanet.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">Sep 2025</span>
+                    <span class="post-category">Data Engineering</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-signet.html">Enterprise Data Deduplication Pipeline</a>
+                </h3>
+                <p class="post-excerpt">
+                    Led end-to-end deduplication of 150+ million customer and transaction records for Signet Jewelers. Designed and implemented scalable AWS/Redshift architecture with automated Salesforce integration, achieving zero data loss and 35% cost reduction.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">AWS Redshift</span>
+                    <span class="tag">PySpark</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">ETL Pipeline</span>
+                </div>
+                <a href="case-study-signet.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">May 2024 - Nov 2024</span>
+                    <span class="post-category">Machine Learning</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-att-ml.html">Predictive ML Forecasting Model</a>
+                </h3>
+                <p class="post-excerpt">
+                    Built predictive analytics system for AT&T revenue forecasting, processing 512M records with 94.2% accuracy. Developed forecasting models using Python, scikit-learn, and Azure ML Studio integrated with Snowflake, reducing forecast cycle time by 40% and enabling $12M annual cost savings.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Azure ML Studio</span>
+                    <span class="tag">Databricks</span>
+                    <span class="tag">Snowflake</span>
+                    <span class="tag">scikit-learn</span>
+                </div>
+                <a href="case-study-att-ml.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">Mar 2024</span>
+                    <span class="post-category">Cloud Migration</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-att-cloud-migration.html">☁️ AT&T Multi-System Cloud Migration to Snowflake</a>
+                </h3>
+                <p class="post-excerpt">
+                    Led 8-person cross-functional team migrating WebPhone, Bynder, and Workfront systems into unified Snowflake data warehouse. Comprehensive data mapping of 500+ fields across disparate schemas, processed 2.4M daily records, achieved 87.5% faster processing (6 hrs → 45 min), 99.9% data accuracy, and $250K annual savings. Enabled real-time analytics for 5,000+ users.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Snowflake</span>
+                    <span class="tag">Apache Airflow</span>
+                    <span class="tag">DBT</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Data Mapping</span>
+                    <span class="tag">ETL Pipeline</span>
+                    <span class="tag">Team Leadership</span>
+                </div>
+                <a href="case-study-att-cloud-migration.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">Jan 2024 - Nov 2024</span>
+                    <span class="post-category">Business Intelligence</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-att-marketing.html">Marketing Analytics Platform</a>
+                </h3>
+                <p class="post-excerpt">
+                    Architected unified marketing data platform at AT&T integrating Workfront, Bynder, and Webphone using Snowflake, Fivetran, and dbt. Eliminated 15+ hours weekly manual reporting, improved data accuracy to 98.2%, and enabled real-time campaign optimization with $2.3M cost savings identified.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Snowflake</span>
+                    <span class="tag">Fivetran</span>
+                    <span class="tag">dbt</span>
+                    <span class="tag">A/B Testing</span>
+                </div>
+                <a href="case-study-att-marketing.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">2017-2019</span>
+                    <span class="post-category">Financial Analytics</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-bank-financial-analytics.html">🏦 Enterprise Banking Financial Analytics Platform</a>
+                </h3>
+                <p class="post-excerpt">
+                    Built comprehensive financial analytics platform for $2.8B regional bank analyzing 125K+ customers and 850K+ monthly transactions. Implemented SQL Server data warehouse, Python predictive models (91.5% credit risk accuracy), and Power BI executive dashboards. Reduced credit risk by 28%, increased operational efficiency by 42%, and identified $3.2M in revenue opportunities through customer segmentation and churn prediction.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Financial Analysis</span>
+                    <span class="tag">Risk Management</span>
+                </div>
+                <a href="case-study-bank-financial-analytics.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">2016-2024</span>
+                    <span class="post-category">Product Analytics</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-product-analytics.html">Product Analytics & A/B Testing Framework</a>
+                </h3>
+                <p class="post-excerpt">
+                    Led product analytics initiatives at Syilum LLC for 8+ years using IBM Cloud Pak for Data. Designed A/B testing frameworks, tracked KPIs across multiple products, and created executive dashboards that informed strategic product decisions.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">IBM CP4D</span>
+                    <span class="tag">Watson Query</span>
+                    <span class="tag">A/B Testing</span>
+                    <span class="tag">DAX</span>
+                </div>
+                <a href="case-study-product-analytics.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">2016</span>
+                    <span class="post-category">Data Engineering</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-healthcare-etl.html">🏥 Healthcare Data Integration & ETL Pipeline</a>
+                </h3>
+                <p class="post-excerpt">
+                    Enterprise-grade HIPAA-compliant ETL pipeline integrating 50,000+ patient records from EHR, billing, and pharmacy systems into unified Snowflake data warehouse. Detailed data mapping with PHI de-identification, cross-system patient matching via Master Patient Index, and automated data quality validation (98.7% score). Built AWS Glue/PySpark pipeline with encryption, deduplication, and 99.8% uptime.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">AWS Glue</span>
+                    <span class="tag">PySpark</span>
+                    <span class="tag">Snowflake</span>
+                    <span class="tag">Data Mapping</span>
+                    <span class="tag">HIPAA Compliance</span>
+                    <span class="tag">ETL Pipeline</span>
+                </div>
+                <a href="case-study-healthcare-etl.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">2013-2016</span>
+                    <span class="post-category">Healthcare Analytics</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-healthcare.html">Healthcare Quality Analytics Dashboard</a>
+                </h3>
+                <p class="post-excerpt">
+                    Built HEDIS measure tracking, CMS star ratings, and care gap analysis platform for 125,000+ members across 7 facilities at Support Optics Healthcare. Improved from 3 to 4.5 CMS stars, achieved 18% HEDIS score improvement and 33% readmission reduction, unlocking $4.2M in quality bonuses.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">SSIS</span>
+                    <span class="tag">Tableau</span>
+                    <span class="tag">HEDIS</span>
+                    <span class="tag">Tableau</span>
+                </div>
+                <a href="case-study-healthcare.html" class="read-more">View Project →</a>
+            </article>
+
+            <article class="post-card">
+                <div class="post-meta">
+                    <span class="post-date">2010-2013</span>
+                    <span class="post-category">Marketing Analytics</span>
+                </div>
+                <h3 class="post-title">
+                    <a href="case-study-yp-campaigns.html">Campaign Performance & ROI Optimization</a>
+                </h3>
+                <p class="post-excerpt">
+                    Analyzed 100+ digital marketing campaigns at YP Advertising, delivering insights that improved ROAS by 20%. Created automated Tableau dashboards for real-time campaign monitoring and audience segmentation analysis.
+                </p>
+                <div class="post-tags">
+                    <span class="tag">Marketing Analytics</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Tableau</span>
+                    <span class="tag">Python</span>
+                </div>
+                <a href="case-study-yp-campaigns.html" class="read-more">View Project →</a>
+            </article>
+
+            <!-- Contact Section -->
+            <article class="intro-card" id="contact">
+                <h2>📬 Get In Touch</h2>
+                <div class="intro-text">
+                    <p>I'm always interested in hearing about new opportunities, collaborations, or interesting data challenges. Feel free to reach out!</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Riverdale, GA 30296</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:pamtekk@gmail.com">pamtekk@gmail.com</a></p>
+                        <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank">linkedin.com/in/pamela-austin-621a32a4/</a></p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

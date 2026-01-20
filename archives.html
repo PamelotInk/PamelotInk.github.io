@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="description" content="Archives - Pamela Austin">
+    <title>Archives | Pamela Austin</title>
+    <link rel="stylesheet" href="styles.css?v=18">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .archive-year {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: var(--spacing-xl) 0 var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+            z-index: 2;
+            background: rgba(248, 249, 250, 0.3);
+            padding: 0.5rem 0;
+        }
+        
+        .archive-item {
+            display: flex;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            width: 100%;
+            overflow: visible;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .archive-item:hover {
+            padding-left: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .archive-date {
+            min-width: 120px;
+            flex-shrink: 0;
+            color: #0d9488;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        body.dark-mode .archive-date {
+            color: #ff8c00;
+        }
+        
+        .archive-content {
+            flex: 1;
+            min-width: 0;
+            overflow: visible;
+        }
+        
+        .archive-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            font-size: 1.1rem;
+        }
+        
+        .archive-title a {
+            color: var(--text-primary);
+        }
+        
+        .archive-title a:hover {
+            color: var(--primary-color);
+        }
+        
+        .archive-category {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        .education-item {
+            align-items: center;
+        }
+        
+        .education-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .university-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .university-logo.nau {
+            background: #003366;
+        }
+        
+        .university-logo.uopx {
+            background: #CC0000;
+        }
+        
+        .education-details {
+            flex: 1;
+        }
+    </style>
+</head>
+<body class="no-sidebar">
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="resume.html" class="header-nav-link" target="_blank">
+                    <i class="fas fa-file-alt"></i> Resumé
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <h1 class="greeting">📚 Archives</h1>
+            
+            <!-- 2025 -->
+            <h2 class="archive-year">2025</h2>
+            
+            <div class="archive-item">
+                <div class="archive-date">June 2025</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-signet.html">Enterprise Data Deduplication Pipeline</a>
+                    </div>
+                    <div class="archive-category">Data Engineering • Signet Jewelers</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">Jun-Sep 2025</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-signet.html#data-volume">150M+ Record Processing at Signet Jewelers</a>
+                    </div>
+                    <div class="archive-category">AWS • Redshift • PySpark • Salesforce Integration</div>
+                </div>
+            </div>
+            
+            <!-- 2024 -->
+            <h2 class="archive-year">2024-2025</h2>
+            
+            <div class="archive-item">
+                <div class="archive-date">May-Nov 2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-att-ml.html">Predictive ML Forecasting Model for AT&T</a>
+                    </div>
+                    <div class="archive-category">Machine Learning • Revenue Forecasting • AT&T</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">May-Nov 2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-att-ml.html#forecast-accuracy">Ensemble ML Model: 94.2% Accuracy, $12M Savings</a>
+                    </div>
+                    <div class="archive-category">Azure ML • Databricks • Python • Snowflake • Tableau</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2024-2025</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-att-ml.html#data-pipeline">Time Series ML Pipeline with 512M Records</a>
+                    </div>
+                    <div class="archive-category">Machine Learning • AT&T</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">Jan-Nov 2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-att-marketing.html">Marketing Analytics Platform Integration</a>
+                    </div>
+                    <div class="archive-category">Business Intelligence • AT&T</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">Jan-Nov 2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-att-marketing.html#platform-integration">Workfront + Bynder + Webphone Unified Platform</a>
+                    </div>
+                    <div class="archive-category">Snowflake • Fivetran • dbt • Power BI</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="#financial-dashboards">Financial Performance Dashboards</a>
+                    </div>
+                    <div class="archive-category">Financial Analytics • Power BI • AT&T</div>
+                </div>
+            </div>
+            
+            <!-- 2016-2024 -->
+            <h2 class="archive-year">2016-2024</h2>
+            
+            <div class="archive-item">
+                <div class="archive-date">2016-2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-product-analytics.html">Product Analytics & A/B Testing Framework</a>
+                    </div>
+                    <div class="archive-category">Product Analytics • Syilum LLC</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2016-2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-product-analytics.html#platform-architecture">IBM Cloud Pak for Data Implementation</a>
+                    </div>
+                    <div class="archive-category">IBM CP4D • Watson Query • Tableau • Syilum LLC</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2016-2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-product-analytics.html#executive-dashboard">Executive KPI Dashboard Suite</a>
+                    </div>
+                    <div class="archive-category">Business Intelligence • KPI Tracking • Syilum LLC</div>
+                </div>
+            </div>
+            
+            <!-- 2013-2016 -->
+            <h2 class="archive-year">2013-2016</h2>
+            
+            <div class="archive-item">
+                <div class="archive-date">2013-2016</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-healthcare.html">Healthcare Quality Analytics Dashboard</a>
+                    </div>
+                    <div class="archive-category">Healthcare Analytics • Support Optics</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2013-2016</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-healthcare.html#hedis-measures">HEDIS Measure Tracking & CMS Star Ratings</a>
+                    </div>
+                    <div class="archive-category">SQL Server • SSIS • Tableau • HEDIS • Epic/Cerner/Allscripts</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2013-2016</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-healthcare.html#care-gaps">Care Gap Analysis & Readmission Reduction Platform</a>
+                    </div>
+                    <div class="archive-category">HL7 Integration • HIPAA Compliance • Healthcare Quality • Support Optics</div>
+                </div>
+            </div>
+            
+            <!-- 2010-2013 -->
+            <h2 class="archive-year">2010-2013</h2>
+            
+            <div class="archive-item">
+                <div class="archive-date">2010-2013</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-yp-campaigns.html">Campaign Performance & ROI Optimization</a>
+                    </div>
+                    <div class="archive-category">Marketing Analytics • YP Advertising</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2010-2013</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-yp-campaigns.html">100+ Digital Campaign Analysis</a>
+                    </div>
+                    <div class="archive-category">Digital Marketing • SQL • Tableau • YP Advertising</div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2010-2013</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        <a href="case-study-yp-campaigns.html">Audience Segmentation Framework</a>
+                    </div>
+                    <div class="archive-category">Marketing Analytics • Customer Segmentation • YP Advertising</div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <h2 class="archive-year">Education</h2>
+            
+            <div class="archive-item education-item">
+                <div class="archive-date">2016</div>
+                <div class="archive-content education-content">
+                    <img src="https://www.national.edu/wp-content/uploads/2021/02/NAU-logo-white@2x.png" 
+                         alt="National American University Logo" 
+                         class="university-logo nau"
+                         onerror="this.style.display='none'">
+                    <div class="education-details">
+                        <div class="archive-title">
+                            B.S. Computer Science
+                        </div>
+                        <div class="archive-category">National American University (NAU)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="archive-item education-item">
+                <div class="archive-date">2011</div>
+                <div class="archive-content education-content">
+                    <img src="https://www.phoenix.edu/content/dam/uopx-logos/uopx-logo-white.png" 
+                         alt="University of Phoenix Logo" 
+                         class="university-logo uopx"
+                         onerror="this.style.display='none'">
+                    <div class="education-details">
+                        <div class="archive-title">
+                            A.S. Finance & Accounting
+                        </div>
+                        <div class="archive-category">University of Phoenix (UOPX)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="archive-item">
+                <div class="archive-date">2024</div>
+                <div class="archive-content">
+                    <div class="archive-title">
+                        IBM Data Science Professional Certificate
+                    </div>
+                    <div class="archive-category">SQL for Data Science</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-toggle" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

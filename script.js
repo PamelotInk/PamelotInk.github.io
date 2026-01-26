@@ -4,6 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('.sidebar');
     const sidebarToggle = document.getElementById('sidebarToggle');
     const mainContent = document.querySelector('.main-content');
+
+    // Header mobile menu (for header links)
+    const stickyHeader = document.querySelector('.sticky-header');
+    const headerMenuToggle = document.getElementById('headerMenuToggle');
+    const headerNav = document.getElementById('headerNav');
+
+    const closeHeaderMenu = function() {
+        if (!stickyHeader || !headerMenuToggle) return;
+        stickyHeader.classList.remove('menu-open');
+        headerMenuToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const toggleHeaderMenu = function() {
+        if (!stickyHeader || !headerMenuToggle) return;
+        const isOpen = stickyHeader.classList.toggle('menu-open');
+        headerMenuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
     
     // Sidebar collapse/expand toggle
     if (sidebarToggle) {
@@ -27,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function() {
+            if (!sidebar) return;
             sidebar.classList.toggle('active');
             
             // Close sidebar when clicking outside on mobile
@@ -45,13 +63,49 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    if (headerMenuToggle && stickyHeader && headerNav) {
+        headerMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleHeaderMenu();
+        });
+
+        // Close header menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (window.innerWidth > 768) return;
+            if (!stickyHeader.classList.contains('menu-open')) return;
+            if (!stickyHeader.contains(e.target)) {
+                closeHeaderMenu();
+            }
+        });
+
+        // Close header menu when clicking a header link
+        headerNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    closeHeaderMenu();
+                }
+            });
+        });
+
+        // If user rotates/resizes to desktop, ensure menu closes
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeHeaderMenu();
+            }
+        });
+    }
     
     // Close mobile menu when clicking nav links
     const navLinks = document.querySelectorAll('.sidebar-nav .nav-link, .header-nav .header-nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
-                sidebar.classList.remove('active');
+                if (sidebar) {
+                    sidebar.classList.remove('active');
+                }
+                closeHeaderMenu();
             }
             
             // Smooth scroll to top for home links

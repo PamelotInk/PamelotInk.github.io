@@ -211,6 +211,32 @@ body.dark-mode .header-theme-toggle .moon-icon {
     overflow: visible;
 }
 
+/* Header Mobile Menu Toggle (for header links) */
+.header-menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-card);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    color: var(--text-secondary);
+}
+
+.header-menu-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    background: var(--bg-body);
+}
+
+body.dark-mode .header-menu-toggle:hover {
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+}
+
 .header-nav-link {
     color: var(--text-secondary);
     font-weight: 500;
@@ -1125,6 +1151,55 @@ body.dark-mode .disclaimer h4 i {
 @media (max-width: 768px) {
     body {
         display: block;
+    }
+
+    /* Fix mobile clipping caused by desktop width calc */
+    .main-content {
+        width: 100%;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Header: collapse links into a hamburger menu */
+    .header-content {
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-sm);
+        justify-content: flex-start;
+    }
+
+    .header-menu-toggle {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .header-nav {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: var(--spacing-md);
+        right: var(--spacing-md);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.25rem;
+        padding: var(--spacing-sm);
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        z-index: 2001;
+    }
+
+    .sticky-header.menu-open .header-nav {
+        display: flex;
+    }
+
+    .header-nav-link {
+        width: 100%;
+        justify-content: flex-start;
     }
     
     .sidebar {

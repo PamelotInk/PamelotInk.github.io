@@ -21,3 +21,7 @@ streamlit.err
 
 # Local databases
 *.db
+# Backup files and large archives
+backups/
+*.zip
+*.tar.gz

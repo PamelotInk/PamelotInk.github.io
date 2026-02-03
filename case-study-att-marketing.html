@@ -74,6 +74,47 @@
         }
         body.dark-mode .surprise-finding strong { color: #fbcfe8; }
         body.dark-mode .surprise-finding p { color: #fce7f3; }
+        
+        /* Dark mode for Pipeline Metrics SVG */
+        body.dark-mode svg rect[fill="#e0f2fe"] { fill: #1e3a5f !important; }
+        body.dark-mode svg rect[fill="#fef3c7"] { fill: #4a3800 !important; }
+        body.dark-mode svg rect[fill="#ddd6fe"] { fill: #3d2b6e !important; }
+        body.dark-mode svg rect[fill="#d1fae5"] { fill: #064e3b !important; }
+        body.dark-mode svg rect[fill="#fce7f3"] { fill: #4a0d2f !important; }
+        body.dark-mode svg rect[fill="#f8fafc"] { fill: #1e293b !important; }
+        
+        body.dark-mode svg rect[stroke="#0284c7"] { stroke: #38bdf8 !important; }
+        body.dark-mode svg rect[stroke="#f59e0b"] { stroke: #fbbf24 !important; }
+        body.dark-mode svg rect[stroke="#7c3aed"] { stroke: #c084fc !important; }
+        body.dark-mode svg rect[stroke="#10b981"] { stroke: #34d399 !important; }
+        body.dark-mode svg rect[stroke="#ec4899"] { stroke: #f472b6 !important; }
+        body.dark-mode svg rect[stroke="#cbd5e1"] { stroke: #475569 !important; }
+        
+        body.dark-mode svg text[fill="#0c4a6e"] { fill: #bfdbfe !important; }
+        body.dark-mode svg text[fill="#92400e"] { fill: #fde68a !important; }
+        body.dark-mode svg text[fill="#5b21b6"] { fill: #e9d5ff !important; }
+        body.dark-mode svg text[fill="#065f46"] { fill: #86efac !important; }
+        body.dark-mode svg text[fill="#831843"] { fill: #fbcfe8 !important; }
+        body.dark-mode svg text[fill="#475569"] { fill: #cbd5e1 !important; }
+        body.dark-mode svg text[fill="#334155"] { fill: #cbd5e1 !important; }
+        
+        /* Dark mode for inline styled divs */
+        body.dark-mode .pipeline-summary-box { background: var(--bg-white) !important; color: var(--text-dark) !important; }
+        body.dark-mode .pipeline-tech-stack { background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%) !important; border-color: #38bdf8 !important; }
+        body.dark-mode .pipeline-tech-stack h4 { color: #bfdbfe !important; }
+        body.dark-mode .pipeline-tech-stack .tech-box { background: var(--bg-white) !important; }
+        body.dark-mode .pipeline-tech-stack strong { color: #a78bfa !important; }
+        body.dark-mode .pipeline-tech-stack span { color: var(--text-dark) !important; }
+        
+        body.dark-mode .pipeline-data-flow { background: linear-gradient(135deg, #4a3800 0%, #3d2910 100%) !important; border-color: #fbbf24 !important; }
+        body.dark-mode .pipeline-data-flow h4 { color: #fde68a !important; }
+        body.dark-mode .pipeline-data-flow .flow-box { background: var(--bg-white) !important; color: var(--text-dark) !important; }
+        body.dark-mode .pipeline-data-flow strong { color: #fbbf24 !important; }
+        
+        body.dark-mode .pipeline-achievements { background: linear-gradient(135deg, #064e3b 0%, #065f46 100%) !important; border-color: #34d399 !important; }
+        body.dark-mode .pipeline-achievements h4 { color: #86efac !important; }
+        body.dark-mode .pipeline-achievements span:not(.achievement-check) { color: var(--text-dark) !important; }
+        body.dark-mode .pipeline-achievements .achievement-check { color: #34d399 !important; }
     </style>
 </head>
 <body>
@@ -554,15 +595,15 @@
                 </svg>
                 
                 <!-- Summary Explanation -->
-                <div style="margin-top: 15px; padding: 10px 12px; background: #f8fafc; border-left: 4px solid var(--primary-color); border-radius: 6px;">
+                <div class="pipeline-summary-box" style="margin-top: 15px; padding: 10px 12px; background: #f8fafc; border-left: 4px solid var(--primary-color); border-radius: 6px;">
                     <h4 style="color: var(--primary-color); font-size: 0.85rem; margin-bottom: 6px; font-weight: 700;">How It Works</h4>
-                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin-bottom: 5px;">
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin-bottom: 5px;">
                         This automated pipeline extracts marketing data from 4 systems (Workfront, Bynder, Webphone, Salesforce) using Fivetran connectors and custom APIs.
                     </p>
-                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin-bottom: 5px;">
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin-bottom: 5px;">
                         Data lands in Snowflake's cloud warehouse where dbt transforms raw data into analytics-ready models, applying business logic for campaign attribution and ROI calculations.
                     </p>
-                    <p style="font-size: 0.7rem; line-height: 1.4; color: #475569; margin: 0;">
+                    <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin: 0;">
                         Power BI connects directly to Snowflake, delivering real-time dashboards to 50+ users with 15-minute data latency, replacing manual Excel processes that took 15+ hours weekly.
                     </p>
                 </div>
@@ -573,24 +614,24 @@
                 </div>
                 
                 <!-- Technical Specifications -->
-                <div style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 6px; border: 1px solid #bae6fd;">
+                <div class="pipeline-tech-stack" style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border-radius: 6px; border: 1px solid #bae6fd;">
                     <h4 style="color: #0c4a6e; font-size: 0.85rem; margin-bottom: 6px; font-weight: 700; display: flex; align-items: center;">
                         <span style="margin-right: 6px;">⚙️</span> Technical Stack
                     </h4>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7rem;">
-                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                        <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #0284c7;">Ingestion:</strong><br/>
                             <span style="color: #475569;">Fivetran (3 sources)<br/>Python REST API (Webphone)</span>
                         </div>
-                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                        <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #7c3aed;">Storage:</strong><br/>
                             <span style="color: #475569;">Snowflake XL Warehouse<br/>Auto-scaling enabled</span>
                         </div>
-                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                        <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #10b981;">Transform:</strong><br/>
                             <span style="color: #475569;">dbt Cloud<br/>42 models, 18 tests</span>
                         </div>
-                        <div style="background: white; padding: 6px; border-radius: 4px;">
+                        <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #ec4899;">Visualization:</strong><br/>
                             <span style="color: #475569;">Power BI Pro<br/>Direct Query mode</span>
                         </div>
@@ -598,21 +639,21 @@
                 </div>
                 
                 <!-- Data Flow Metrics -->
-                <div style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); border-radius: 6px; border: 1px solid #fde047;">
+                <div class="pipeline-data-flow" style="margin-top: 10px; padding: 10px 12px; background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%); border-radius: 6px; border: 1px solid #fde047;">
                     <h4 style="color: #92400e; font-size: 0.85rem; margin-bottom: 6px; font-weight: 700; display: flex; align-items: center;">
                         <span style="margin-right: 6px;">📊</span> Data Flow Metrics
                     </h4>
-                    <div style="font-size: 0.7rem; color: #475569; line-height: 1.5;">
-                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                    <div style="font-size: 0.7rem; color: var(--text-gray); line-height: 1.5;">
+                        <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
                             <strong style="color: #f59e0b;">Daily Processing:</strong> 2.3GB raw data → 680MB transformed
                         </div>
-                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                        <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
                             <strong style="color: #f59e0b;">Sync Frequency:</strong> Workfront (1hr), Bynder (4hr), Webphone (real-time), Salesforce (1hr)
                         </div>
-                        <div style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
+                        <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
                             <strong style="color: #f59e0b;">Row Counts:</strong> 1.2M call records, 200K project tasks, 12K assets, 150K leads
                         </div>
-                        <div style="background: white; padding: 5px 8px; border-radius: 4px;">
+                        <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px;">
                             <strong style="color: #f59e0b;">Pipeline SLA:</strong> 99.7% uptime, <5min error recovery
                         </div>
                     </div>
@@ -621,25 +662,25 @@
             </div>
             
             <!-- Key Achievements - Bottom Center -->
-            <div style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 6px; border: 1px solid #86efac;">
+            <div class="pipeline-achievements" style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto; padding: 12px; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-radius: 6px; border: 1px solid #86efac;">
                 <h4 style="text-align: center; color: #065f46; font-size: 0.95rem; margin-bottom: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">
                     <span style="margin-right: 6px;">🎯</span> Key Achievements
                 </h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: #475569;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: var(--text-gray);">
                     <div style="display: flex; align-items: start;">
-                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
                         <span><strong>Reduced reporting time</strong> from 15.3 hrs to 45 min weekly</span>
                     </div>
                     <div style="display: flex; align-items: start;">
-                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
                         <span><strong>Improved data accuracy</strong> from 73% to 98.2%</span>
                     </div>
                     <div style="display: flex; align-items: start;">
-                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
                         <span><strong>Eliminated manual errors</strong> saving $2.3M in misallocated spend</span>
                     </div>
                     <div style="display: flex; align-items: start;">
-                        <span style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
+                        <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
                         <span><strong>Enabled real-time decisions</strong> with 15-min latency vs 5-7 day lag</span>
                     </div>
                 </div>

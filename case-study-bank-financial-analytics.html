@@ -120,6 +120,159 @@
             color: #f3e8ff;
         }
 
+        /* Notebook Cell Styling */
+        .notebook-cell {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--bg-white);
+            transition: all 0.2s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .notebook-cell:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cell-input {
+            display: flex;
+            position: relative;
+            width: 100%;
+        }
+
+        .cell-prompt {
+            background: var(--bg-light);
+            padding: 1rem;
+            min-width: 80px;
+            max-width: 80px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            border-right: 1px solid var(--border-color);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .cell-content {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            min-width: 0;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .markdown-cell {
+            background: var(--bg-white);
+            border: none;
+            padding: 1.5rem 2rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .markdown-cell p {
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .code-cell {
+            background: #282c34;
+        }
+
+        .code-cell .cell-content {
+            padding: 0;
+        }
+
+        .code-cell pre {
+            margin: 0;
+            padding: 1rem 1.5rem;
+            background: #282c34;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        .code-cell code {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #abb2bf;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .cell-output {
+            background: var(--bg-light);
+            border-top: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            margin-left: 80px;
+            width: calc(100% - 80px);
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+
+        .output-text {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Dark mode for notebook cells */
+        body.dark-mode .code-cell {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .code-cell pre {
+            background: #1e1e1e;
+        }
+
+        body.dark-mode .code-cell code {
+            color: #d4d4d4;
+        }
+
+        body.dark-mode .cell-output {
+            background: var(--bg-light);
+        }
+
+        body.dark-mode .output-text {
+            color: var(--text-dark);
+        }
+
+        /* Mobile responsiveness for notebook cells */
+        @media (max-width: 768px) {
+            .cell-prompt {
+                min-width: 60px;
+                max-width: 60px;
+                font-size: 0.75rem;
+                padding: 0.75rem 0.5rem;
+            }
+
+            .cell-content {
+                padding: 0.75rem 1rem;
+            }
+
+            .cell-output {
+                margin-left: 60px;
+                width: calc(100% - 60px);
+                padding: 0.75rem 1rem;
+            }
+
+            .code-cell code {
+                font-size: 0.75rem;
+            }
+
+            .output-text {
+                font-size: 0.75rem;
+            }
+        }
+
         /* Power BI Dashboard Styling */
         .powerbi-frame {
             background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);

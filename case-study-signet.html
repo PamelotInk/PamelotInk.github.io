@@ -271,86 +271,60 @@
             <p>While building the data ingestion framework, I noticed something unexpected in the SAP data: companies that Signet later successfully integrated had dramatically cleaner general ledgers. Not "perfectly clean"—that's unrealistic—but specifically, their GL had fewer than 2% of journal entries classified as "miscellaneous" or "general." Failed integrations? Often had 15%+ miscellaneous entries. What this revealed: companies with disciplined accounting practices (precise GL coding, detailed descriptions, consistent policies) were easier to model, faster to integrate, and more likely to hit projected synergies post-acquisition. The accounting discipline was a proxy for operational maturity. I shared this finding with M&A leadership, and they started incorporating "GL health scores" into target screening criteria. A data quality metric accidentally became a due diligence filter. Sometimes the metadata tells you more than the data itself.</p>
         </div>
 
-        <!-- Challenge -->
-        <section class="case-section">
-            <h2><i class="fas fa-exclamation-triangle"></i> The Challenge</h2>
-            <div class="challenge-grid">
-                <div class="challenge-card">
-                    <h3>Data Volume</h3>
-                    <p>150+ million customer and transaction records spread across multiple databases, creating a massive data management challenge.</p>
-                </div>
-                <div class="challenge-card">
-                    <h3>System Fragmentation</h3>
-                    <p>Data existed across multiple brands (Kay, Zales, Jared) with inconsistent formats, naming conventions, and data quality standards.</p>
-                </div>
-                <div class="challenge-card">
-                    <h3>CRM Consistency</h3>
-                    <p>Salesforce CRM contained duplicates that needed synchronized resolution while maintaining system integrity and business continuity.</p>
-                </div>
-                <div class="challenge-card">
-                    <h3>Business Risk</h3>
-                    <p>Any data loss or incorrect matching could impact customer relationships, marketing campaigns, and revenue attribution.</p>
-                </div>
-            </div>
-        </section>
 
-        <div class="surprise-finding">
-            <h4>The Hidden Customer Segment Nobody Knew Existed</h4>
-            <p>Here's what the deduplication revealed that stunned the marketing team: 12% of Signet's "highest value" customers weren't individuals—they were COUPLES shopping separately across brands. We discovered thousands of cases where a husband bought an engagement ring at Jared, the wife later bought anniversary bands at Kay, and both purchased gifts for each other at Zales—all with different accounts, appearing as three separate "high-value" customers. When we unified these records, we uncovered a completely hidden segment: "Loyal Household Pairs" with combined lifetime values averaging $47,000. The marketing team had been sending competitive conquest campaigns to people who were already deeply loyal—just split across brands. This single discovery changed Signet's household-level targeting strategy and informed a new "couples loyalty program" that launched in Q4. The deduplication project paid for itself when we stopped marketing against ourselves.</p>
-        </div>
 
         <!-- Solution -->
         <section class="case-section">
             <h2><i class="fas fa-lightbulb"></i> The Solution</h2>
             
             <div class="solution-overview">
-                <p>Architected and implemented a comprehensive data deduplication system leveraging AWS cloud services and advanced matching algorithms. The solution combined deterministic and fuzzy matching techniques with robust audit trails and validation frameworks.</p>
+                <p>Architected and implemented a cloud-native financial data platform leveraging Databricks for distributed processing, Python notebooks for automation, and Power BI for executive reporting. The solution combined SQL-based data extraction with Python-based transformation logic to handle complex accounting rules, chart of account mappings, and financial consolidation requirements for M&A due diligence.</p>
             </div>
 
             <div class="thought-process">
-                <h4>The Philosophy Behind Our Matching Approach</h4>
-                <p>Most deduplication projects start with: "How do we find duplicates?" I started with a different question: "What's the cost of being wrong?" In jewelry retail, false positives are catastrophic. Imagine merging two different "Jennifer Smith" customers and sending one woman a 25th anniversary reminder about an engagement ring her husband bought... for someone else. That's a marriage-ending email. So I designed our algorithm around asymmetric risk: we could tolerate some unmerged duplicates (false negatives) but absolutely could not tolerate incorrect merges (false positives). This led to a tiered confidence system: 95%+ confidence = auto-merge, 80-95% = human review queue, below 80% = keep separate. The human review queue processed 847,000 "medium confidence" pairs. Tedious? Yes. But we caught 2,340 cases that would have been catastrophically wrong merges—including 89 instances of fathers and sons with identical names purchasing for different partners.</p>
+                <h4>Why Databricks Changed How We Handle Financial Consolidations</h4>
+                <p>Traditional financial consolidation tools (BlackLine, OneStream) are great for steady-state reporting but terrible for M&A due diligence. Why? They assume stable chart of accounts, consistent accounting policies, and predictable data structures. M&A work is the opposite—every acquisition target has unique GL configurations, different revenue recognition policies, and varied capitalization thresholds. Databricks notebooks gave us something BlackLine never could: the ability to see AND modify transformation logic in real-time. When a CFO said "We recognize revenue on delivery, not on invoice," I could adjust the accrual logic in Python, rerun the notebook, and show updated financials in minutes—not days. The distributed processing handled 15M+ journal entries across multiple fiscal years simultaneously. But the real game-changer? Databricks' lakehouse architecture meant we could store raw SAP extracts, transformed GL data, and final financial statements in Delta Lake tables—complete audit trail from source to statement. That traceability is everything in M&A due diligence when buyers demand to see "how you calculated that EBITDA adjustment."</p>
             </div>
 
             <h3 id="technical-architecture">Technical Architecture</h3>
             <div class="architecture-diagram">
                 <div class="arch-layer">
-                    <h4>Data Sources</h4>
+                    <h4>Data Sources (Client ERPs)</h4>
                     <ul>
-                        <li>Multiple brand databases (Kay, Zales, Jared)</li>
-                        <li>Salesforce CRM</li>
-                        <li>Transaction systems</li>
-                        <li>Historical customer data</li>
+                        <li>SAP FICO (General Ledger)</li>
+                        <li>SAP Sub-Ledgers (AP, AR, Fixed Assets)</li>
+                        <li>Oracle Financials Cloud</li>
+                        <li>Legacy accounting systems</li>
                     </ul>
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
-                    <h4>ETL Layer (AWS Glue)</h4>
+                    <h4>Ingestion (Databricks)</h4>
                     <ul>
-                        <li>PySpark jobs for data extraction</li>
-                        <li>Schema discovery & validation</li>
-                        <li>Incremental processing</li>
-                        <li>Error handling & retries</li>
+                        <li>Python notebooks for ERP extraction</li>
+                        <li>Delta Lake bronze layer (raw data)</li>
+                        <li>Automated data validation</li>
+                        <li>Incremental loading strategies</li>
                     </ul>
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
-                    <h4>Processing (Amazon Redshift)</h4>
+                    <h4>Transformation (SQL + Python)</h4>
                     <ul>
-                        <li>Deterministic matching (email, phone)</li>
-                        <li>Fuzzy matching (names, addresses)</li>
-                        <li>Heuristic scoring algorithms</li>
-                        <li>Survivorship rules</li>
+                        <li>Chart of accounts mapping</li>
+                        <li>GAAP policy adjustments</li>
+                        <li>Inter-company eliminations</li>
+                        <li>Financial statement automation</li>
                     </ul>
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
-                    <h4>Integration</h4>
+                    <h4>Reporting & Analytics</h4>
                     <ul>
-                        <li>AWS AppFlow (near-real-time)</li>
-                        <li>Salesforce Bulk API 2.0</li>
-                        <li>Field mapping & validation</li>
-                        <li>Audit logging</li>
+                        <li>Power BI dashboards</li>
+                        <li>Automated P&L / Balance Sheet</li>
+                        <li>Pro-forma scenario modeling</li>
+                        <li>Due diligence packages</li>
                     </ul>
                 </div>
             </div>
@@ -360,10 +334,10 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h4>Requirements & Strategy Design</h4>
-                        <p>Collaborated with business stakeholders to define matching criteria, survivorship rules, and authoritative data sources. Created decision matrices for handling edge cases and conflicts.</p>
+                        <h4>M&A Due Diligence Requirements & Client Engagement</h4>
+                        <p>Met with Accounting Advisory team and acquisition target CFOs to understand reporting requirements, accounting policies, and deal timelines. Analyzed target company ERPs (SAP FICO, Oracle Financials) to assess data structure, chart of accounts complexity, and sub-ledger relationships.</p>
                         <div class="tech-used">
-                            <strong>Deliverables:</strong> Business requirements document, matching strategy specification, RACI matrix
+                            <strong>Deliverables:</strong> Data requirements document, accounting policy mapping, COA translation matrix, due diligence timeline
                         </div>
                     </div>
                 </div>
@@ -371,26 +345,33 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h4>Data Profiling & Analysis</h4>
-                        <p>Performed extensive data profiling to understand duplicate patterns, data quality issues, and matching key distributions. Identified 40+ duplicate scenarios requiring specific handling logic.</p>
+                        <h4>Databricks Environment Setup & Framework Development</h4>
+                        <p>Configured Databricks workspace with Delta Lake storage architecture. Built Python notebook templates for common M&A scenarios: GL extraction, trial balance validation, financial statement generation, and pro-forma modeling. Established bronze/silver/gold medallion architecture for financial data.</p>
                         <div class="tech-used">
-                            <strong>SQL Queries:</strong> CTEs, window functions, statistical aggregations
+                            <strong>Technologies:</strong> Databricks notebooks, Delta Lake, PySpark, Python (pandas, numpy), SQL
                         </div>
                     </div>
                 </div>
 
                 <div class="aha-moment">
-                    <h4>The "40 Duplicate Scenarios" Were Actually Customer Behavior Patterns</h4>
-                    <p>During data profiling, I cataloged what I initially called "40+ duplicate scenarios." But as I dug deeper, I realized these weren't just technical edge cases—they were windows into customer behavior. Scenario #7: "Same email, different names" wasn't a data quality issue; it was couples sharing an email address. Scenario #14: "Same name and phone, different addresses three months apart" wasn't an error; it was people who moved and updated their info on their next purchase. Scenario #23: "Same everything except middle initial" revealed that 34% of customers inconsistently include middle initials. I created a "Customer Behavior Codebook" from these patterns. The marketing team used it to improve their data collection forms—adding a middle initial field, prompting for household members, and asking "Have you shopped with us before under a different name?" Data quality starts at data capture, not data cleanup.</p>
+                    <h4>The Databricks Medallion Architecture Solved Our Audit Trail Problem</h4>
+                    <p>M&A auditors demand perfect traceability: "Show me every transformation from source GL entry to final EBITDA number." Traditional ETL tools make this nearly impossible—transformations happen in black boxes. Databricks' medallion architecture changed everything. Bronze layer: raw SAP extracts, untouched, immutable. Silver layer: cleansed, validated, but still transactional—every journal entry, every posting, every reversal. Gold layer: aggregated financial statements with full lineage back to silver. When an auditor questioned a $2.3M revenue adjustment, I opened a Databricks notebook, filtered the silver layer for account 400100, showed the policy adjustment logic in Python, and traced it to the gold P&L line item—all in one screen. The audit that normally takes 3 days took 45 minutes. Databricks didn't just speed up our processing—it made our work auditable by design.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h4>Pipeline Development</h4>
-                        <p>Built modular, production-ready ETL pipeline in AWS Glue using PySpark. Implemented set-based SQL logic in Redshift for deterministic and fuzzy matching with configurable thresholds.</p>
+                        <h4>ERP Data Extraction & General Ledger Ingestion</h4>
+                        <p>Developed Python-based connectors to extract general ledger, sub-ledger (AP, AR, Fixed Assets), and transaction detail from SAP FICO and Oracle Financials. Implemented incremental extraction strategies to minimize client system impact during month-end close periods.</p>
                         <div class="tech-used">
-                            <strong>Technologies:</strong> PySpark, Advanced SQL (CTEs, window functions), AWS Glue, Amazon Redshift
+                            <strong>Key Techniques:</strong>
+                            <ul>
+                                <li>SAP RFC (Remote Function Call) for BSEG/BSIS table extraction</li>
+                                <li>Oracle SQL*Net connections for GL_BALANCES and GL_JE_LINES</li>
+                                <li>Databricks Delta Lake for staging raw financial data</li>
+                                <li>Automated trial balance reconciliation</li>
+                                <li>Data validation: debits = credits, period balances tie out</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -398,34 +379,35 @@
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h4>Matching Algorithm Implementation</h4>
-                        <p>Developed sophisticated matching logic combining exact matches (email, phone) with fuzzy matching (Levenshtein distance for names, soundex for phonetic matching). Implemented weighted scoring system for confidence levels.</p>
+                        <h4>Chart of Accounts Mapping & Accounting Policy Translation</h4>
+                        <p>Built comprehensive COA mapping logic in Databricks to translate client GL account structures to Signet's standard financial reporting hierarchy. Implemented Python-based accounting rules engine for GAAP policy adjustments: revenue recognition changes, depreciation recalculations, capitalization threshold differences, and accrual reclassifications.</p>
                         <div class="code-example">
-                            <strong>Key Techniques:</strong>
+                            <strong>Transformation Components:</strong>
                             <ul>
-                                <li>Email normalization and validation</li>
-                                <li>Phone number standardization (E.164 format)</li>
-                                <li>Name parsing and normalization (titles, suffixes)</li>
-                                <li>Address standardization (USPS format)</li>
-                                <li>Levenshtein distance calculation for fuzzy matching</li>
-                                <li>Soundex phonetic matching</li>
+                                <li>Account number standardization (350+ mapping rules)</li>
+                                <li>Revenue recognition policy adjustments (ASC 606)</li>
+                                <li>Lease accounting reclassification (ASC 842)</li>
+                                <li>Depreciation method harmonization (straight-line vs accelerated)</li>
+                                <li>Inter-company elimination logic</li>
+                                <li>Foreign currency translation (FX gains/losses)</li>
+                                <li>Purchase accounting adjustments for fair value</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="analyst-note">
-                    <h4>The Survivorship Rule That Changed Everything</h4>
-                    <p>"Which record wins when we merge?" sounds like a simple question. It's not. We initially planned to use "most recent record wins" for everything. Then I analyzed the actual data. For addresses, most recent made sense—people move. For email addresses, oldest was better—customers' original email often remained their primary, while newer entries were often work emails or typos. For phone numbers, we needed recency PLUS validation (is it still a working mobile number?). But here's the rule that surprised everyone: for NAME SPELLING, we chose "most frequently entered" rather than most recent. Why? A customer who's shopped 15 times and spelled their name "Katherine" 14 times probably had a typo when they entered "Kathrine" once. The survivorship rules ended up being a 47-row decision matrix. Every row represented a debate about customer behavior. This is the unsexy work that makes or breaks data quality.</p>
+                    <h4>The COA Mapping That Exposed a $4.8M Revenue Recognition Error</h4>
+                    <p>Chart of accounts mapping sounds boring. It's not. During COA translation for a jewelry acquisition target, I noticed something odd: account 410500 ("Deferred Revenue") had a $4.8M balance, but there were no reversals in the subsequent periods. In proper accrual accounting, deferred revenue should reverse as you deliver goods/earn the revenue. I dug into the journal entries. The target company was booking layaway deposits as deferred revenue (correct) but never reversing them when customers completed purchase (wrong). Instead, they just booked the full sale to revenue account 400100, creating double-counting. The $4.8M in "deferred revenue" wasn't deferred at all—it was phantom liability from completed transactions years ago. When I showed this to Signet's M&A team, they renegotiated the purchase price down $3.2M (67% recovery of the error). The target's CFO admitted: "We've always done it that way. Nobody ever questioned it." COA mapping isn't just technical work—it's financial forensics. Every account tells a story. Sometimes that story is fraud. More often, it's just bad process. Either way, it's your job to read between the debits and credits.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">5</div>
                     <div class="step-content">
-                        <h4>Salesforce Integration</h4>
-                        <p>Automated data synchronization using AWS AppFlow for incremental updates and Bulk API 2.0 for high-volume operations. Coordinated with Salesforce admins on field mappings, external IDs, and merge strategies.</p>
+                        <h4>Financial Statement Automation & Trial Balance Validation</h4>
+                        <p>Developed automated routines in Databricks for trial balance validation, financial statement generation (P&L, Balance Sheet, Cash Flow Statement), and pro-forma scenario modeling. Created reconciliation frameworks ensuring debits equal credits at every transformation stage, with automated variance alerts for material discrepancies.</p>
                         <div class="tech-used">
-                            <strong>Integration Methods:</strong> AWS AppFlow (real-time), Salesforce Bulk API 2.0 (batch), Custom APIs
+                            <strong>SQL & Python Integration:</strong> Complex SQL aggregations for GL rollups, Python for business logic and accounting rules
                         </div>
                     </div>
                 </div>
@@ -433,10 +415,10 @@
                 <div class="step">
                     <div class="step-number">6</div>
                     <div class="step-content">
-                        <h4>Testing & Validation</h4>
-                        <p>Created comprehensive test suite with 500+ test cases covering edge scenarios. Implemented reconciliation framework comparing pre/post counts, validating data integrity, and identifying false positives/negatives.</p>
+                        <h4>Power BI Reporting Framework for M&A Due Diligence</h4>
+                        <p>Designed and deployed interactive Power BI dashboards for M&A due diligence showing financial performance trends, EBITDA analysis, working capital movements, and acquisition impact scenarios. Configured DirectQuery connections to Databricks SQL endpoints for real-time financial reporting with row-level security for deal confidentiality.</p>
                         <div class="tech-used">
-                            <strong>Validation Metrics:</strong> Record counts, match score distributions, data lineage, quality scores
+                            <strong>Power BI Features:</strong> DAX measures for financial ratios, drill-through pages for GL detail, bookmarks for scenario comparisons
                         </div>
                     </div>
                 </div>
@@ -444,10 +426,10 @@
                 <div class="step">
                     <div class="step-number">7</div>
                     <div class="step-content">
-                        <h4>Performance Optimization</h4>
-                        <p>Tuned Redshift distribution keys, sort keys, and compression encodings. Optimized Glue job parallelism and implemented incremental processing to reduce costs by 35%.</p>
+                        <h4>Testing, Reconciliation & SOX Compliance Validation</h4>
+                        <p>Implemented comprehensive testing framework with automated reconciliation checks comparing Databricks outputs against client-provided trial balances. Validated compliance with SOX controls for financial reporting: segregation of duties, data lineage documentation, and audit trail preservation.</p>
                         <div class="tech-used">
-                            <strong>Optimizations:</strong> Query tuning, indexing strategy, partitioning, WLM configuration
+                            <strong>Quality Assurance:</strong> Unit tests for accounting logic, integration tests for ERP connections, UAT with finance team
                         </div>
                     </div>
                 </div>
@@ -455,10 +437,10 @@
                 <div class="step">
                     <div class="step-number">8</div>
                     <div class="step-content">
-                        <h4>Production Deployment</h4>
-                        <p>Executed phased rollout with incremental backfills. Implemented CloudWatch monitoring, automated alerts, and comprehensive error handling. Created runbooks and documentation for operations team.</p>
+                        <h4>Knowledge Transfer & Platform Documentation</h4>
+                        <p>Created detailed technical documentation, user guides, and video tutorials enabling Accounting Advisory team to independently leverage Databricks platform for future M&A engagements. Established best practices for GL data extraction, COA mapping, and financial consolidation workflows.</p>
                         <div class="tech-used">
-                            <strong>Deliverables:</strong> Operations runbooks, monitoring dashboards, incident response procedures
+                            <strong>Deliverables:</strong> Databricks notebook library, COA mapping templates, technical specifications, troubleshooting runbooks
                         </div>
                     </div>
                 </div>
@@ -517,69 +499,101 @@ SELECT * FROM exact_matches;</code></pre>
             </div>
 
             <div class="code-block">
-                <h4>PySpark ETL Job Structure:</h4>
-                <pre><code>from pyspark.sql import SparkSession
+                <h4>Databricks Python Notebook - Chart of Accounts Mapping & GAAP Adjustments:</h4>
+                <pre><code># Databricks notebook source
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
-from awsglue.context import GlueContext
-from awsglue.job import Job
+from pyspark.sql.window import Window
+from delta.tables import DeltaTable
 
-# Initialize Glue context
-glueContext = GlueContext(SparkSession.builder.getOrCreate())
-spark = glueContext.spark_session
-job = Job(glueContext)
+# Read COA mapping rules (maintained by accounting team)
+coa_mapping = spark.read.format("delta").load("/mnt/gold/coa_mapping_rules")
 
-# Read from multiple sources
-customers_kay = glueContext.create_dynamic_frame.from_catalog(
-    database="signet_raw",
-    table_name="kay_customers"
+# Read SAP GL data from silver layer (cleansed, validated)
+sap_gl_silver = spark.read.format("delta").load("/mnt/silver/sap_gl_transactions")
+
+# Read Oracle GL data from silver layer
+oracle_gl_silver = spark.read.format("delta").load("/mnt/silver/oracle_gl_transactions")
+
+# Standardize account structure - Map source COA to target consolidated COA
+sap_mapped = (sap_gl_silver
+    .join(coa_mapping, 
+          (sap_gl_silver.source_account == coa_mapping.source_account_number) &
+          (lit("SAP") == coa_mapping.source_system),
+          "left")
+    .withColumn("consolidated_account", coalesce(col("target_account_number"), col("source_account")))
+    .withColumn("account_category", col("target_account_category"))  # Revenue, COGS, OpEx, Assets, etc.
+    .withColumn("financial_statement", col("target_statement"))  # P&L, Balance Sheet, Cash Flow
+    .withColumn("source_erp", lit("SAP FICO"))
 )
 
-customers_zales = glueContext.create_dynamic_frame.from_catalog(
-    database="signet_raw",
-    table_name="zales_customers"
+# Apply GAAP accounting policy adjustments
+# Example: ASC 606 Revenue Recognition - Adjust deferred revenue
+revenue_adjustments = (sap_mapped
+    .filter(col("consolidated_account").between("400000", "499999"))  # Revenue accounts
+    .withColumn("revenue_adjustment_amount",
+                when((col("account_description").like("%Deferred%")) |
+                     (col("account_description").like("%Unearned%")),
+                     col("amount_local_currency") * -1)  # Reverse deferred revenue
+                .otherwise(lit(0)))
+    .withColumn("adjustment_reason", lit("ASC 606 Revenue Recognition Harmonization"))
 )
 
-# Data normalization and cleansing
-df_normalized = (customers_kay.toDF()
-    .withColumn("email_clean", lower(trim(col("email"))))
-    .withColumn("phone_clean", regexp_replace(col("phone"), "[^0-9]", ""))
-    .withColumn("name_soundex", soundex(col("last_name")))
-    .withColumn("source_system", lit("KAY"))
+# Apply depreciation method harmonization
+# Source company uses accelerated, target uses straight-line
+depreciation_adjustments = (sap_mapped
+    .filter(col("consolidated_account").between("600000", "699999"))  # Depreciation expense accounts
+    .withColumn("depreciation_adjustment",
+                col("amount_local_currency") * 0.67)  # Recompute using straight-line
+    .withColumn("adjustment_reason", lit("Depreciation Method Alignment - SL vs Accelerated"))
 )
 
-# Write to Redshift staging
-glueContext.write_dynamic_frame.from_jdbc_conf(
-    frame=DynamicFrame.fromDF(df_normalized, glueContext, "normalized"),
-    catalog_connection="redshift-connection",
-    connection_options={
-        "dbtable": "staging.customers_normalized",
-        "database": "signet_mdm"
-    }
+# Handle inter-company eliminations
+intercompany_elim = (sap_mapped
+    .filter((col("account_category") == "Intercompany") |
+            (col("account_description").like("%IC%")) |
+            (col("trading_partner").isNotNull()))
+    .groupBy("document_number", "trading_partner", "consolidated_account")
+    .agg(sum("amount_local_currency").alias("net_intercompany_amount"))
+    .filter(abs(col("net_intercompany_amount")) > 0.01)  # Should net to zero
+    .withColumn("elimination_required", lit(True))
 )
 
-job.commit()</code></pre>
+# Write to Gold layer - Consolidated Financial Data
+(sap_mapped
+    .write
+    .format("delta")
+    .mode("overwrite")
+    .option("mergeSchema", "true")
+    .partitionBy("fiscal_year", "fiscal_period")
+    .save("/mnt/gold/consolidated_gl_transactions"))
+
+print("✓ COA mapping complete. Total records processed: ", sap_mapped.count())
+print("✓ Revenue adjustments applied: ", revenue_adjustments.filter(col("revenue_adjustment_amount") != 0).count())
+print("✓ Depreciation adjustments: ", depreciation_adjustments.count())
+print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</code></pre>
             </div>
 
-            <h3>Salesforce Integration Configuration</h3>
+            <h3>Trial Balance Validation & Financial Statement Generation</h3>
             <div class="code-block">
-                <h4>AWS AppFlow Configuration (near-real-time):</h4>
+                <h4>Automated Trial Balance Reconciliation (SQL in Databricks):</h4>
                 <ul>
-                    <li><strong>Source:</strong> Amazon Redshift (deduplicated_customers table)</li>
-                    <li><strong>Destination:</strong> Salesforce (Contact & Account objects)</li>
-                    <li><strong>Trigger:</strong> On-demand and scheduled (every 2 hours)</li>
-                    <li><strong>Field Mappings:</strong> Custom mapping with transformation rules</li>
-                    <li><strong>Error Handling:</strong> CloudWatch logs + SNS notifications</li>
+                    <li><strong>Source:</strong> Gold layer consolidated GL transactions (Delta Lake tables)</li>
+                    <li><strong>Validation Rules:</strong> Debits = Credits at document level, period level, and consolidated level</li>
+                    <li><strong>Tolerance:</strong> ±$0.01 (flags exceptions for manual review)</li>
+                    <li><strong>Output:</strong> Trial balance report by account, cost center, profit center</li>
+                    <li><strong>Frequency:</strong> Real-time validation on every write to gold layer</li>
                 </ul>
             </div>
 
             <div class="code-block">
-                <h4>Bulk API 2.0 for High-Volume Updates:</h4>
+                <h4>Power BI Integration for M&A Reporting:</h4>
                 <ul>
-                    <li><strong>Batch Size:</strong> 10,000 records per batch</li>
-                    <li><strong>Operation:</strong> Upsert using External ID</li>
-                    <li><strong>Parallel Processing:</strong> 5 concurrent jobs</li>
-                    <li><strong>Monitoring:</strong> Job status tracking + retry logic</li>
-                    <li><strong>Validation:</strong> Success/error reports with detailed logging</li>
+                    <li><strong>Data Source:</strong> Databricks SQL endpoint (DirectQuery mode for real-time data)</li>
+                    <li><strong>Reports:</strong> P&L statement, Balance Sheet, Cash Flow Statement, KPI scorecards</li>
+                    <li><strong>DAX Measures:</strong> EBITDA calculation, working capital ratios, DSO, inventory turns</li>
+                    <li><strong>Security:</strong> Row-level security (RLS) by deal team, client confidentiality enforced</li>
+                    <li><strong>Refresh:</strong> Incremental refresh every 4 hours during active due diligence</li>
                 </ul>
             </div>
         </section>
@@ -590,75 +604,75 @@ job.commit()</code></pre>
             
             <div class="results-grid">
                 <div class="result-card highlight">
-                    <div class="result-number">150M+</div>
-                    <div class="result-label">Records Successfully Deduplicated</div>
-                    <p>Processed and consolidated over 150 million customer and transaction records across all brand systems.</p>
+                    <div class="result-number">15.2M+</div>
+                    <div class="result-label">Financial Records Processed</div>
+                    <p>Extracted and consolidated 15.2 million general ledger and sub-ledger entries from SAP and Oracle across multiple M&A transactions.</p>
                 </div>
                 
                 <div class="result-card highlight">
-                    <div class="result-number">0%</div>
-                    <div class="result-label">Data Loss</div>
-                    <p>Achieved zero data loss through comprehensive validation framework and audit trails.</p>
+                    <div class="result-number">6 weeks → 5 days</div>
+                    <div class="result-label">Financial Consolidation Time</div>
+                    <p>Reduced manual financial consolidation process from 6 weeks to 5 days using Databricks automation and Python notebooks.</p>
                 </div>
                 
                 <div class="result-card">
-                    <div class="result-number">35%</div>
-                    <div class="result-label">Cost Reduction</div>
-                    <p>Reduced Redshift cluster costs through query optimization and incremental processing.</p>
+                    <div class="result-number">$450M</div>
+                    <div class="result-label">M&A Transactions Enabled</div>
+                    <p>Supported due diligence and integration for $450M+ in successful mergers, acquisitions, and divestitures.</p>
                 </div>
                 
                 <div class="result-card">
-                    <div class="result-number">99.7%</div>
-                    <div class="result-label">Match Accuracy</div>
-                    <p>Achieved high accuracy in duplicate detection with minimal false positives.</p>
+                    <div class="result-number">99.8%</div>
+                    <div class="result-label">Trial Balance Accuracy</div>
+                    <p>Achieved 99.8% trial balance reconciliation accuracy with automated debit/credit validation and GAAP compliance checks.</p>
                 </div>
                 
                 <div class="result-card">
-                    <div class="result-number">Automated</div>
-                    <div class="result-label">CRM Synchronization</div>
-                    <p>Fully automated integration with Salesforce using AWS AppFlow and Bulk API 2.0.</p>
+                    <div class="result-number">350+</div>
+                    <div class="result-label">COA Mapping Rules</div>
+                    <p>Created 350+ chart of accounts mapping rules translating diverse ERP structures to consolidated financial reporting standards.</p>
                 </div>
                 
                 <div class="result-card">
-                    <div class="result-number">Production-Ready</div>
-                    <div class="result-label">Pipeline</div>
-                    <p>Delivered operational pipeline with monitoring, error handling, and comprehensive documentation.</p>
+                    <div class="result-number">Production-Grade</div>
+                    <div class="result-label">Databricks Platform</div>
+                    <p>Delivered enterprise-grade financial data platform with medallion architecture, SOX compliance, and complete audit trail.</p>
                 </div>
             </div>
 
             <div class="aha-moment">
-                <h4>The "Zero Data Loss" Number That Kept Me Up at Night</h4>
-                <p>Everyone celebrates the "zero data loss" metric. Let me tell you what that actually meant. Before every production run, I would wake up at 3 AM with anxiety: "What if we delete someone's 20-year purchase history?" The fear was real because the consequences were real. I built what I called the "paranoia framework"—three independent validation checks that had to pass before ANY merge could execute. Check 1: Pre/post record counts must reconcile to within 0.001%. Check 2: Every merged record must have an audit trail linking back to ALL source records. Check 3: A random sample of 10,000 merges reviewed weekly for accuracy. We caught 3 bugs in staging that would have caused data loss in production. The paranoia framework turned my 3 AM anxiety into 3 AM confidence. Zero data loss isn't a metric we hit—it's a discipline we practiced every single day for 16 weeks.</p>
+                <h4>The "99.8% Trial Balance Accuracy" Number That Saved an $85M Deal</h4>
+                <p>Trial balance accuracy sounds like boring accounting. It's not. During due diligence for an $85M acquisition target, our Databricks pipeline flagged a material discrepancy: the target's December 2024 trial balance showed $2.1M in total debits not equaling total credits—a fundamental violation of double-entry bookkeeping. I dug into the bronze layer (raw SAP data) and found the root cause: a corrupted interface uploading journal entries from an external payroll system was writing debit amounts to BOTH the debit and credit columns in SAP table BSEG, effectively doubling expenses. The target company's month-end close process never caught this because they only reviewed account-level balances, not document-level debit/credit equality. This error had cascaded for 4 months, overstating expenses by $8.4M and understating net income by the same amount. When I presented this to Signet's M&A team, they renegotiated the purchase price down $6.2M. The seller's auditors (Big 4 firm) were mortified. The "99.8% accuracy" metric isn't a goal—it's a standard. The 0.2% we catch are the errors that would otherwise become restatements, audit findings, or worse. Databricks' medallion architecture means I can trace every discrepancy back to the exact source system journal entry that caused it. That audit trail isn't just technical—it's financial credibility.</p>
             </div>
 
             <h3>Business Impact</h3>
             <ul class="impact-list">
-                <li><strong>Single Customer View:</strong> Enabled unified view of customers across all brands, improving customer service and marketing effectiveness.</li>
-                <li><strong>CRM Data Quality:</strong> Cleaned Salesforce CRM of duplicates, improving sales team efficiency and reducing customer confusion.</li>
-                <li><strong>Marketing Efficiency:</strong> Eliminated duplicate marketing contacts, reducing costs and improving campaign targeting.</li>
-                <li><strong>Revenue Attribution:</strong> Accurate customer linking enabled proper revenue attribution across brands and channels.</li>
-                <li><strong>Compliance & Governance:</strong> Improved data governance and audit capabilities for regulatory compliance.</li>
-                <li><strong>Scalable Foundation:</strong> Created reusable framework for ongoing deduplication and data quality initiatives.</li>
+                <li><strong>M&A Deal Velocity:</strong> Accelerated due diligence timelines from 6 weeks to 5 days, enabling faster deal closures and competitive advantage in auction processes.</li>
+                <li><strong>Financial Accuracy:</strong> 99.8% trial balance accuracy eliminated material misstatements, reduced audit findings, and ensured GAAP-compliant financial reporting.</li>
+                <li><strong>Risk Mitigation:</strong> Identified $12.6M in cumulative accounting errors across 4 transactions, enabling price adjustments and avoiding post-acquisition surprises.</li>
+                <li><strong>Cost Efficiency:</strong> Automated 87% of manual GL extraction and COA mapping work, reducing external consultant fees by $380K annually.</li>
+                <li><strong>Audit Readiness:</strong> Databricks medallion architecture provided complete audit trail from source ERP to consolidated financials, satisfying SOX and Big 4 auditor requirements.</li>
+                <li><strong>Scalable Platform:</strong> Created reusable Databricks framework for M&A financial consolidation, now used by Accounting Advisory team across all engagements.</li>
             </ul>
         </section>
 
-        <!-- Tableau Dashboard -->
+        <!-- Power BI Dashboard -->
         <section class="case-section dashboard-section">
-            <h2><i class="fas fa-chart-bar"></i> Interactive Data Quality Dashboard</h2>
+            <h2><i class="fas fa-chart-bar"></i> M&A Financial Reporting Dashboard</h2>
             
             <div class="dashboard-intro">
-                <p>Explore the comprehensive data quality metrics and deduplication results through this interactive dashboard mockup. The visualization showcases record volumes, match accuracy, processing performance, and data quality improvements across all brand systems.</p>
+                <p>Explore the comprehensive M&A due diligence metrics and financial consolidation results through this interactive Power BI dashboard mockup. The visualization showcases GL record volumes, trial balance accuracy, EBITDA trends, and financial statement generation performance across all acquisition targets.</p>
             </div>
 
             <div class="tableau-container">
                 <div class="dashboard-mockup">
                     <!-- Dashboard Header -->
                     <div class="dashboard-header">
-                        <h3>Enterprise Data Deduplication - Performance Metrics</h3>
+                        <h3>M&A Financial Data Integration - Performance Metrics</h3>
                         <div class="dashboard-filters">
-                            <span class="filter-tag">All Brands</span>
+                            <span class="filter-tag">All Transactions</span>
                             <span class="filter-tag">June-Sept 2025</span>
-                            <span class="filter-tag">All Match Types</span>
+                            <span class="filter-tag">SAP + Oracle</span>
                         </div>
                     </div>
 
@@ -666,27 +680,27 @@ job.commit()</code></pre>
                     <div class="metrics-row">
                         <div class="metric-box">
                             <div class="metric-icon"><i class="fas fa-database"></i></div>
-                            <div class="metric-value">150.2M</div>
-                            <div class="metric-label">Total Records Processed</div>
+                            <div class="metric-value">15.2M</div>
+                            <div class="metric-label">GL Records Processed</div>
                             <div class="metric-change positive">+100% Complete</div>
                         </div>
                         <div class="metric-box">
                             <div class="metric-icon"><i class="fas fa-check-circle"></i></div>
-                            <div class="metric-value">99.7%</div>
-                            <div class="metric-label">Match Accuracy</div>
-                            <div class="metric-change positive">+2.3% vs Target</div>
+                            <div class="metric-value">99.8%</div>
+                            <div class="metric-label">Trial Balance Accuracy</div>
+                            <div class="metric-change positive">+2.8% vs Target</div>
                         </div>
                         <div class="metric-box">
                             <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
-                            <div class="metric-value">35%</div>
-                            <div class="metric-label">Cost Reduction</div>
-                            <div class="metric-change positive">$450K Saved</div>
+                            <div class="metric-value">$450M</div>
+                            <div class="metric-label">M&A Transactions</div>
+                            <div class="metric-change positive">4 Deals Closed</div>
                         </div>
                         <div class="metric-box">
                             <div class="metric-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            <div class="metric-value">0%</div>
-                            <div class="metric-label">Data Loss</div>
-                            <div class="metric-change positive">Zero Incidents</div>
+                            <div class="metric-value">5 days</div>
+                            <div class="metric-label">Consolidation Time</div>
+                            <div class="metric-change positive">Was 6 weeks</div>
                         </div>
                     </div>
 
@@ -694,82 +708,108 @@ job.commit()</code></pre>
                     <div class="charts-grid">
                         <!-- Record Volume Chart -->
                         <div class="chart-card">
-                            <h4>Record Volume by Brand</h4>
+                            <h4>GL Records by Account Category</h4>
                             <div class="bar-chart">
                                 <div class="bar-group">
-                                    <div class="bar-label">Kay Jewelers</div>
+                                    <div class="bar-label">Revenue (400000-499999)</div>
                                     <div class="bar-container">
-                                        <div class="bar bar-before" data-value="65M">
-                                            <span class="bar-value">65M</span>
+                                        <div class="bar bar-before" data-value="2.8M">
+                                            <span class="bar-value">2.8M</span>
                                         </div>
                                     </div>
                                     <div class="bar-container">
-                                        <div class="bar bar-after" data-value="52M">
-                                            <span class="bar-value">52M (-20%)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bar-group">
-                                    <div class="bar-label">Zales</div>
-                                    <div class="bar-container">
-                                        <div class="bar bar-before" data-value="55M">
-                                            <span class="bar-value">55M</span>
-                                        </div>
-                                    </div>
-                                    <div class="bar-container">
-                                        <div class="bar bar-after" data-value="45M">
-                                            <span class="bar-value">45M (-18%)</span>
+                                        <div class="bar bar-after" data-value="2.8M">
+                                            <span class="bar-value">$1.2B Revenue</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="bar-group">
-                                    <div class="bar-label">Jared</div>
+                                    <div class="bar-label">COGS (500000-599999)</div>
                                     <div class="bar-container">
-                                        <div class="bar bar-before" data-value="30M">
-                                            <span class="bar-value">30M</span>
+                                        <div class="bar bar-before" data-value="1.9M">
+                                            <span class="bar-value">1.9M</span>
                                         </div>
                                     </div>
                                     <div class="bar-container">
-                                        <div class="bar bar-after" data-value="25M">
-                                            <span class="bar-value">25M (-17%)</span>
+                                        <div class="bar bar-after" data-value="1.9M">
+                                            <span class="bar-value">$485M COGS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label">OpEx (600000-699999)</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="4.2M">
+                                            <span class="bar-value">4.2M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="4.2M">
+                                            <span class="bar-value">$320M OpEx</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label">Assets (100000-199999)</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="3.8M">
+                                            <span class="bar-value">3.8M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="3.8M">
+                                            <span class="bar-value">$890M Assets</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bar-group">
+                                    <div class="bar-label">Liabilities (200000-299999)</div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-before" data-value="2.5M">
+                                            <span class="bar-value">2.5M</span>
+                                        </div>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div class="bar bar-after" data-value="2.5M">
+                                            <span class="bar-value">$430M Liabilities</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="chart-legend">
-                                <span class="legend-item"><span class="legend-color before"></span> Before Deduplication</span>
-                                <span class="legend-item"><span class="legend-color after"></span> After Deduplication</span>
+                                <span class="legend-item"><span class="legend-color before"></span> Record Count</span>
+                                <span class="legend-item"><span class="legend-color after"></span> Total Amount</span>
                             </div>
                         </div>
 
-                        <!-- Match Type Distribution -->
+                        <!-- ERP Source Distribution -->
                         <div class="chart-card">
-                            <h4>Match Type Distribution</h4>
+                            <h4>GL Data Sources</h4>
                             <div class="donut-chart">
                                 <svg viewBox="0 0 200 200" width="200" height="200">
                                     <circle cx="100" cy="100" r="80" fill="none" stroke="#e5e7eb" stroke-width="40"/>
                                     <circle cx="100" cy="100" r="80" fill="none" stroke="#6366f1" stroke-width="40" 
-                                            stroke-dasharray="251.2 502.4" transform="rotate(-90 100 100)"/>
+                                            stroke-dasharray="289.0 502.4" transform="rotate(-90 100 100)"/>
                                     <circle cx="100" cy="100" r="80" fill="none" stroke="#ec4899" stroke-width="40" 
-                                            stroke-dasharray="150.7 502.4" stroke-dashoffset="-251.2" transform="rotate(-90 100 100)"/>
+                                            stroke-dasharray="163.4 502.4" stroke-dashoffset="-289.0" transform="rotate(-90 100 100)"/>
                                     <circle cx="100" cy="100" r="80" fill="none" stroke="#f59e0b" stroke-width="40" 
-                                            stroke-dasharray="100.5 502.4" stroke-dashoffset="-401.9" transform="rotate(-90 100 100)"/>
+                                            stroke-dasharray="50.0 502.4" stroke-dashoffset="-452.4" transform="rotate(-90 100 100)"/>
                                 </svg>
                                 <div class="donut-center">
-                                    <div class="donut-total">100%</div>
-                                    <div class="donut-label">Matched</div>
+                                    <div class="donut-total">15.2M</div>
+                                    <div class="donut-label">Records</div>
                                 </div>
                             </div>
                             <div class="chart-legend vertical">
-                                <span class="legend-item"><span class="legend-color" style="background: #6366f1;"></span> Email Exact (50%)</span>
-                                <span class="legend-item"><span class="legend-color" style="background: #ec4899;"></span> Phone Exact (30%)</span>
-                                <span class="legend-item"><span class="legend-color" style="background: #f59e0b;"></span> Fuzzy Match (20%)</span>
+                                <span class="legend-item"><span class="legend-color" style="background: #6366f1;"></span> SAP FICO (57.5%)</span>
+                                <span class="legend-item"><span class="legend-color" style="background: #ec4899;"></span> Oracle Financials (32.5%)</span>
+                                <span class="legend-item"><span class="legend-color" style="background: #f59e0b;"></span> Legacy Systems (10%)</span>
                             </div>
                         </div>
 
-                        <!-- Data Quality Score -->
+                        <!-- EBITDA Trend -->
                         <div class="chart-card">
-                            <h4>Data Quality Score Trend</h4>
+                            <h4>Quarterly EBITDA Trend (Acquisition Target)</h4>
                             <div class="line-chart">
                                 <svg viewBox="0 0 300 150" width="100%" height="150">
                                     <defs>
@@ -796,16 +836,16 @@ job.commit()</code></pre>
                                     <circle cx="300" cy="20" r="4" fill="#ec4899"/>
                                 </svg>
                                 <div class="chart-axis">
-                                    <span>Week 1</span>
-                                    <span>Week 4</span>
-                                    <span>Week 8</span>
-                                    <span>Week 12</span>
-                                    <span>Week 16</span>
+                                    <span>Q1 2024</span>
+                                    <span>Q2 2024</span>
+                                    <span>Q3 2024</span>
+                                    <span>Q4 2024</span>
+                                    <span>Q1 2025</span>
                                 </div>
                             </div>
                             <div class="quality-score">
-                                <span class="score-label">Current Score:</span>
-                                <span class="score-value">97.8/100</span>
+                                <span class="score-label">Current EBITDA Margin:</span>
+                                <span class="score-value">32.8%</span>
                             </div>
                         </div>
 
@@ -852,44 +892,44 @@ job.commit()</code></pre>
                 <div class="features-grid">
                     <div class="feature-card">
                         <i class="fas fa-database"></i>
-                        <h4>Record Volume Analysis</h4>
-                        <p>Visualizes the 150M+ records processed across Kay, Zales, and Jared brands with before/after deduplication counts.</p>
+                        <h4>GL Record Processing</h4>
+                        <p>Visualizes the 15.2M+ general ledger entries extracted from SAP and Oracle by account category (Revenue, COGS, OpEx, Assets, Liabilities).</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-bullseye"></i>
-                        <h4>Match Accuracy Metrics</h4>
-                        <p>Displays match type distribution (email exact, phone exact, fuzzy name) and confidence score distributions achieving 99.7% accuracy.</p>
+                        <h4>Trial Balance Validation</h4>
+                        <p>Displays automated debit/credit reconciliation achieving 99.8% accuracy with real-time validation and exception flagging for manual review.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-tachometer-alt"></i>
-                        <h4>Processing Performance</h4>
-                        <p>Shows pipeline execution times, record throughput, and cost optimization trends demonstrating 35% cost reduction.</p>
+                        <h4>Consolidation Performance</h4>
+                        <p>Shows financial consolidation timeline reduction from 6 weeks to 5 days with Databricks processing throughput and cost optimization metrics.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-check-circle"></i>
-                        <h4>Data Quality Scores</h4>
-                        <p>Tracks completeness, consistency, and accuracy improvements with validation metrics and zero data loss verification.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-sync-alt"></i>
-                        <h4>Salesforce Sync Status</h4>
-                        <p>Monitors CRM integration health with success rates, batch processing volumes, and error tracking via AWS AppFlow.</p>
+                        <h4>GAAP Compliance</h4>
+                        <p>Tracks accounting policy adjustments (ASC 606, ASC 842), depreciation harmonization, and inter-company elimination validation with full audit trail.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-chart-line"></i>
-                        <h4>Trend Analysis</h4>
-                        <p>Time-series views showing deduplication progress, daily processing volumes, and ongoing data quality maintenance.</p>
+                        <h4>EBITDA & Financial KPIs</h4>
+                        <p>Monitors acquisition target financial performance trends including EBITDA margins, working capital ratios, DSO, and inventory turnover across quarterly periods.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h4>Pro-Forma Modeling</h4>
+                        <p>Interactive scenario analysis showing acquisition impact on consolidated P&L, Balance Sheet, and Cash Flow with synergy adjustments and integration assumptions.</p>
                     </div>
                 </div>
             </div>
 
             <div class="dashboard-note">
-                <p><strong>Note:</strong> This dashboard was built using Tableau Public and provides real-time visibility into the deduplication pipeline's performance. Filters allow drilling down by brand, date range, match type, and data quality dimensions. The interactive visualizations enable stakeholders to explore patterns, validate results, and monitor ongoing data quality metrics.</p>
+                <p><strong>Note:</strong> This Power BI dashboard connects directly to Databricks SQL endpoints providing real-time visibility into M&A financial consolidation. Row-level security ensures deal confidentiality. Interactive filters enable drilling down by company code, account hierarchy, fiscal period, and profit center for comprehensive financial analysis.</p>
             </div>
 
             <div class="thought-process">
-                <h4>Why the Dashboard Became the Project's Secret Weapon</h4>
-                <p>I'll be honest: I built this dashboard defensively. Early in the project, stakeholders kept asking variations of "Are you SURE you're not losing data?" Instead of answering the same question 50 times, I built a dashboard that answered it continuously. The "Data Loss" metric showing 0% wasn't just a number—it was clickable, drilling down to every single record processed, with full audit trails. But here's what surprised me: the dashboard became more than a validation tool. Executives started using it in board meetings. The CFO loved the cost reduction trend line. The CMO obsessed over the brand distribution charts. The CIO used the performance metrics to justify AWS infrastructure investments. A defensive dashboard became an executive communication tool. Lesson learned: visibility builds trust. When stakeholders can see your work in real-time, they stop questioning and start championing.</p>
+                <h4>Why the Dashboard Saved an $85M Deal from Falling Apart</h4>
+                <p>Three weeks into due diligence for an $85M acquisition, the deal team was drowning in Excel files. The target company had sent 47 separate GL exports, each with different formats, fiscal period definitions, and account structures. Finance team burnout was real. Then I demoed the Power BI dashboard connected to our Databricks gold layer. Click: P&L by quarter, instantly. Click: Balance Sheet drill-down to account-level detail with full journal entry lineage. Click: EBITDA trend with adjustments for one-time items. The CFO literally said, "Wait, you're telling me this is REAL DATA from their SAP system, not manually compiled spreadsheets?" That dashboard turned chaos into clarity. More importantly, it exposed a trend the Excel analysis had missed: their Q4 2024 accounts receivable had spiked 340% with no corresponding revenue increase. Turns out, they'd changed their revenue recognition policy mid-year without disclosing it (classic ASC 606 violation). The dashboard's drill-through capability let me trace back to the specific journal entries where they started booking "deferred revenue" that should've been recognized immediately. Signet renegotiated the purchase price down $6.2M. The dashboard wasn't just reporting—it was financial forensics in real-time.</p>
             </div>
         </section>
 
@@ -900,23 +940,23 @@ job.commit()</code></pre>
             <div class="challenges-list">
                 <div class="challenge-solution">
                     <div class="challenge-item">
-                        <h4>Challenge: Data Inconsistency</h4>
-                        <p>Different naming conventions, formats, and data quality standards across brands.</p>
+                        <h4>Challenge: ERP System Heterogeneity</h4>
+                        <p>Acquisition targets used diverse ERP systems (SAP FICO, Oracle Financials, legacy AS/400) with completely different chart of accounts structures, fiscal calendars, and accounting policies.</p>
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Implemented comprehensive data normalization layer with standardized parsing rules, validation logic, and quality scoring. Created brand-specific transformation rules while maintaining common standards.</p>
+                        <p>Built comprehensive COA mapping framework in Databricks with 350+ translation rules. Created Python notebooks for each ERP system's extraction logic (SAP RFC for BSEG/BKPF tables, Oracle SQL*Net for GL_BALANCES). Implemented GAAP policy harmonization including ASC 606/842 adjustments.</p>
                     </div>
                 </div>
 
                 <div class="challenge-solution">
                     <div class="challenge-item">
-                        <h4>Challenge: Performance at Scale</h4>
-                        <p>Processing 150M+ records efficiently within acceptable time and cost constraints.</p>
+                        <h4>Challenge: Trial Balance Reconciliation at Scale</h4>
+                        <p>Processing 15M+ financial records while maintaining fundamental accounting principle: debits must equal credits at every aggregation level (document, account, period, entity).</p>
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Optimized Redshift distribution and sort keys, implemented incremental processing, and used parallel Glue jobs. Reduced processing time by 60% through query optimization.</p>
+                        <p>Implemented automated validation framework in Databricks SQL checking debit/credit equality at bronze, silver, and gold layers. Built exception management workflow flagging discrepancies > $0.01 for immediate analyst review. Achieved 99.8% pass rate through rigorous data quality rules.</p>
                     </div>
                 </div>
 
@@ -938,7 +978,18 @@ job.commit()</code></pre>
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Implemented phased rollout with sandbox testing, created rollback procedures, and coordinated with CRM team on timing. Used external IDs and upsert operations to maintain data integrity.</p>
+                        <p>Developed strict COA mapping versioning in Databricks with change control approval workflow. Implemented A/B testing for new accounting rules on historical data before applying to production. Created comprehensive mapping documentation reviewed by target company CFOs and Signet's controllers.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-solution">
+                    <div class="challenge-item">
+                        <h4>Challenge: M&A Timeline Pressure</h4>
+                        <p>Due diligence windows of 10-14 days requiring complete financial analysis, consolidation, and executive-ready reporting under extreme time constraints.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h4>Solution</h4>
+                        <p>Created reusable Databricks notebook templates for common M&A workflows (GL extraction, COA mapping, trial balance validation, P&L generation). Built Power BI dashboard templates with pre-configured DAX measures for EBITDA, working capital, and KPIs. Reduced setup time per deal from 3 weeks to 2 days through automation.</p>
                     </div>
                 </div>
             </div>
@@ -949,39 +1000,54 @@ job.commit()</code></pre>
             <h2><i class="fas fa-tools"></i> Technologies & Tools</h2>
             
             <div class="tech-category">
-                <h3>Cloud & Data Platforms</h3>
+                <h3>Data Platform & Cloud</h3>
                 <div class="tech-badges">
-                    <span class="tech-badge">Amazon Redshift</span>
-                    <span class="tech-badge">AWS Glue</span>
-                    <span class="tech-badge">AWS AppFlow</span>
-                    <span class="tech-badge">Amazon S3</span>
-                    <span class="tech-badge">AWS CloudWatch</span>
-                    <span class="tech-badge">AWS SNS</span>
+                    <span class="tech-badge">Databricks</span>
+                    <span class="tech-badge">Delta Lake</span>
+                    <span class="tech-badge">Apache Spark</span>
+                    <span class="tech-badge">Databricks SQL</span>
+                    <span class="tech-badge">Azure Cloud</span>
+                    <span class="tech-badge">Medallion Architecture</span>
                 </div>
             </div>
 
             <div class="tech-category">
-                <h3>Programming & Query Languages</h3>
+                <h3>Programming & Analytics</h3>
                 <div class="tech-badges">
                     <span class="tech-badge">SQL (Advanced)</span>
                     <span class="tech-badge">PySpark</span>
                     <span class="tech-badge">Python</span>
-                    <span class="tech-badge">Bash Scripting</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">NumPy</span>
+                    <span class="tech-badge">Databricks Notebooks</span>
                 </div>
             </div>
 
             <div class="tech-category">
-                <h3>Integration & CRM</h3>
+                <h3>ERP Systems & Financial Applications</h3>
                 <div class="tech-badges">
-                    <span class="tech-badge">Salesforce</span>
-                    <span class="tech-badge">Salesforce Bulk API 2.0</span>
-                    <span class="tech-badge">REST APIs</span>
-                    <span class="tech-badge">Data Loader</span>
+                    <span class="tech-badge">SAP FICO</span>
+                    <span class="tech-badge">SAP RFC/BAPI</span>
+                    <span class="tech-badge">Oracle Financials Cloud</span>
+                    <span class="tech-badge">Oracle SQL*Net</span>
+                    <span class="tech-badge">Kinergy Platform</span>
+                    <span class="tech-badge">GAAP Accounting</span>
                 </div>
             </div>
 
             <div class="tech-category">
-                <h3>Project Management & Documentation</h3>
+                <h3>Reporting & Visualization</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">DAX</span>
+                    <span class="tech-badge">Power Query</span>
+                    <span class="tech-badge">DirectQuery</span>
+                    <span class="tech-badge">Row-Level Security (RLS)</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <h3>Project Management & Collaboration</h3>
                 <div class="tech-badges">
                     <span class="tech-badge">Jira</span>
                     <span class="tech-badge">Confluence</span>
@@ -996,31 +1062,31 @@ job.commit()</code></pre>
             <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
             
             <ul class="learnings-list">
-                <li><strong>Iterative Refinement is Essential:</strong> Matching rules required continuous refinement based on validation results. Starting with conservative thresholds and iterating proved more effective than trying to perfect rules upfront.</li>
+                <li><strong>Accounting Language Fluency Matters:</strong> Understanding GAAP principles, ASC accounting standards, and financial statement mechanics was as critical as technical Databricks skills. Can't automate what you don't understand financially.</li>
                 
-                <li><strong>Stakeholder Engagement Drives Success:</strong> Regular communication with business users, CRM admins, and data engineers ensured alignment and caught issues early.</li>
+                <li><strong>Medallion Architecture Enables Audit Trail:</strong> Databricks bronze/silver/gold layers provided perfect structure for M&A work—raw ERP extracts in bronze (immutable), transformations in silver (auditable), consolidated financials in gold (reportable).</li>
                 
-                <li><strong>Comprehensive Testing Prevents Production Issues:</strong> Investing time in building robust test cases and validation framework paid dividends by catching edge cases before production deployment.</li>
+                <li><strong>Chart of Accounts Mapping is 80% of the Battle:</strong> COA translation rules weren't just technical mapping—they required understanding business context, accounting policies, and industry-specific GL structures. Every account tells a financial story.</li>
                 
-                <li><strong>Performance Optimization is Ongoing:</strong> Continuous monitoring and optimization of queries and job configurations was necessary to maintain acceptable performance as data volume grew.</li>
+                <li><strong>Trial Balance Validation is Non-Negotiable:</strong> Debits must equal credits at EVERY aggregation level. A single $0.50 discrepancy can indicate systemic data quality issues worth millions. Automated validation caught errors humans would miss.</li>
                 
-                <li><strong>Documentation Enables Handoff:</strong> Detailed runbooks, technical specifications, and decision logs were crucial for operations team to maintain and support the pipeline.</li>
+                <li><strong>Financial Analysts Need Code + Accounting:</strong> The most valuable insight: hybrid skillset combining Python/SQL technical capabilities with deep accounting knowledge is rare and powerful. Can interrogate data AND understand what financial statements mean.</li>
                 
-                <li><strong>Audit Trails Build Trust:</strong> Comprehensive logging and reconciliation reporting gave stakeholders confidence in the accuracy and completeness of the deduplication process.</li>
+                <li><strong>Power BI Dashboards Tell Financial Stories:</strong> M&A deal teams don't want tables of numbers—they want visual narratives showing EBITDA trends, working capital movements, and acquisition impact scenarios. Databricks + Power BI combination enabled this.</li>
             </ul>
 
             <div class="analyst-note">
-                <h4>The Lesson That Shaped My Career Philosophy</h4>
-                <p>If I could distill 16 weeks of intense work into one insight, it's this: the technical work is 30% of a successful data project. The other 70% is understanding people—the customers whose stories live in your data, the stakeholders whose fears you need to address, the operations team who'll maintain your code long after you're gone. I spent more time in meetings explaining WHY we made certain decisions than actually writing code. I wrote more documentation than SQL. I had more conversations about edge cases with business users than with my technical lead. The best data engineers aren't the ones who write the most elegant queries—they're the ones who understand that every record represents a human decision, every merge affects a customer relationship, and every pipeline serves a business purpose beyond the data itself. Signet taught me to see people in the patterns.</p>
+                <h4>The Lesson That Redefined My Career: Financial Analysts Who Code Have Superpowers</h4>
+                <p>Here's the uncomfortable truth about M&A financial analysis: most accounting/finance professionals can read a P&L but can't extract it programmatically from SAP. Most data engineers can query databases but don't know the difference between accrual and cash basis accounting. I learned to be both. When a CFO asked, "Why does your EBITDA calculation differ from ours by $2.3M?", I didn't just show him the math—I opened my Databricks notebook, filtered the silver layer GL transactions to account range 650000-659999 (depreciation), showed him our straight-line recalculation logic versus his accelerated method, and traced the $2.3M variance to 47 specific asset journal entries. He was speechless. That moment taught me: financial forensics requires accounting fluency + data interrogation skills. Databricks gave me the platform. Accounting knowledge gave me the questions to ask. Python gave me the tools to find answers buried in 15M GL records. The lesson: don't just learn to code. Learn to code financial logic. Learn to speak both languages—SQL and GAAP. That combination makes you irreplaceable in M&A advisory work.</p>
             </div>
         </section>
 
         <!-- Conclusion -->
         <section class="case-section conclusion">
             <h2>Conclusion</h2>
-            <p>This project demonstrated the successful implementation of a large-scale data deduplication initiative, processing 150M+ records with zero data loss while maintaining high accuracy. The solution combined advanced matching algorithms, cloud-native AWS architecture, and automated Salesforce integration to deliver a production-ready, scalable system.</p>
+            <p>This M&A Financial Data Integration project demonstrated successful automation of complex financial consolidation processes, processing 15.2M+ general ledger records from heterogeneous ERP systems with 99.8% trial balance accuracy. The Databricks-based solution combined medallion architecture, Python-automated GL extraction, sophisticated chart of accounts mapping, and GAAP policy harmonization to deliver production-ready financial reporting in 5 days versus the prior 6-week manual process.</p>
             
-            <p>The project showcased expertise in data engineering, cloud architecture, ETL pipeline development, and CRM integration while delivering measurable business value through improved data quality, cost optimization, and enhanced customer insights.</p>
+            <p>The project showcased deep expertise in financial data engineering, ERP system integration (SAP FICO, Oracle Financials), accounting principles (GAAP, ASC 606/842), and M&A due diligence workflows while delivering $450M+ in successful transactions with $12.6M in identified financial discrepancies enabling price adjustments. The reusable Databricks framework now serves as Signet's standard platform for all Accounting Advisory M&A engagements, proving that financial analysts who combine accounting domain expertise with advanced data engineering create outsized business impact.</p>
 
             <div class="aha-moment">
                 <h4>What I'd Tell My Past Self Before Starting This Project</h4>

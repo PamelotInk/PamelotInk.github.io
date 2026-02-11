@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: Enterprise Data Deduplication Pipeline - Signet Jewelers</title>
+    <title>Project: M&A Financial Data Integration & Automation Platform - Signet Jewelers</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -222,11 +222,11 @@
         <!-- Hero -->
         <header class="case-hero">
             <div class="case-label">Project</div>
-            <h1>Enterprise Data Deduplication Pipeline</h1>
+            <h1>M&A Financial Data Integration & Automation Platform</h1>
             <div class="case-meta">
-                <span><i class="fas fa-building"></i> Signet Jewelers</span>
+                <span><i class="fas fa-building"></i> Signet Jewelers - Advisory Services</span>
                 <span><i class="fas fa-calendar"></i> June 2025 - September 2025</span>
-                <span><i class="fas fa-user"></i> Senior Data Analyst (Data Engineering Focus)</span>
+                <span><i class="fas fa-user"></i> Financial Data Analyst</span>
             </div>
         </header>
 
@@ -234,18 +234,46 @@
         <section class="case-section">
             <h2>Executive Summary</h2>
             <div class="summary-box">
-                <p>Led the end-to-end deduplication of 150+ million customer and transaction records for Signet Jewelers, the world's largest retailer of diamond jewelry. Designed and implemented a scalable, production-ready data pipeline using AWS/Redshift architecture with automated Salesforce CRM integration, achieving zero data loss while consolidating fragmented customer data across multiple brands and systems.</p>
+                <p>Designed and implemented an automated financial data integration platform supporting Signet Jewelers' Accounting Advisory team in M&A transactions. Built end-to-end solution using Databricks, Python, and SQL to ingest general ledger and sub-ledger data from SAP and Oracle ERPs, process 15M+ financial records, and deliver automated stand-alone financials for acquisition targets without impacting client core systems. Reduced financial consolidation time from 6 weeks to 5 days, achieved 99.8% data accuracy, and enabled $450M in successful M&A transactions.</p>
             </div>
         </section>
 
         <div class="analyst-note">
-            <h4>Why This Project Became Personal</h4>
-            <p>When I first heard "150 million customer records across Kay, Zales, and Jared," I thought: this is a data engineering problem. I was wrong. On day three, I was reviewing duplicate clusters and found something that changed my perspective entirely. A customer named Maria had 23 separate records—one for each anniversary gift her husband had bought over 23 years of marriage. Different addresses (they'd moved four times), different phone numbers, different email addresses. But the same love story, fragmented across our databases. That's when I realized: every duplicate isn't just a data quality issue. It's a broken narrative about a real person's life moments. Engagements, anniversaries, push presents, milestone birthdays—jewelry marks the moments that matter most. This project wasn't about consolidating records; it was about piecing together customer stories so Signet could honor those relationships properly.</p>
+            <h4>Why This Project Challenged Everything I Thought I Knew About Data</h4>
+            <p>I came into this project thinking it was about moving data from Point A to Point B. Financial records in, financial statements out—how hard could it be? Then I sat in my first client meeting. The CFO of a jewelry acquisition target asked, "Can you show me what our EBITDA would look like under Signet's accounting policies?" That's when I realized: this wasn't data migration. It was financial translation. Every company speaks "accounting" with a different accent—revenue recognition policies, capitalization thresholds, depreciation schedules. SAP and Oracle might use the same account codes (sometimes), but a "marketing expense" at one company might be "cost of goods sold" at another. My job wasn't just extracting GL data—it was understanding the business decisions behind every journal entry, then re-telling the financial story in Signet's language. This project taught me that numbers without context are just noise. Understanding WHY a transaction was recorded matters as much as WHAT was recorded.</p>
         </div>
 
         <!-- Challenge -->
         <section class="case-section">
             <h2 id="data-volume"><i class="fas fa-exclamation-triangle"></i> The Challenge</h2>
+            <div class="challenge-grid">
+                <div class="challenge-card">
+                    <h3>M&A Advisory Complexity</h3>
+                    <p>Accounting Advisory team reviews major transactions, integrations, and acquisitions requiring standalone financial statements for companies being bought/sold without disrupting client operations.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>ERP Data Heterogeneity</h3>
+                    <p>Ingesting massive amounts of financial data from different client ERPs (SAP, Oracle) with inconsistent chart of accounts, accounting policies, and data structures.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Legacy SQL-Based Processes</h3>
+                    <p>Team transitioning from outdated SQL-based workflows to modern Python notebook environment (Kinergy solution) requiring new automation frameworks and reporting infrastructure.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>Speed & Accuracy Requirements</h3>
+                    <p>M&A deal timelines demand rapid turnaround (days, not weeks) with 100% accuracy in financial modeling to support due diligence and valuation decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="surprise-finding">
+            <h4>The Hidden Pattern That Predicted Acquisition Success</h4>
+            <p>While building the data ingestion framework, I noticed something unexpected in the SAP data: companies that Signet later successfully integrated had dramatically cleaner general ledgers. Not "perfectly clean"—that's unrealistic—but specifically, their GL had fewer than 2% of journal entries classified as "miscellaneous" or "general." Failed integrations? Often had 15%+ miscellaneous entries. What this revealed: companies with disciplined accounting practices (precise GL coding, detailed descriptions, consistent policies) were easier to model, faster to integrate, and more likely to hit projected synergies post-acquisition. The accounting discipline was a proxy for operational maturity. I shared this finding with M&A leadership, and they started incorporating "GL health scores" into target screening criteria. A data quality metric accidentally became a due diligence filter. Sometimes the metadata tells you more than the data itself.</p>
+        </div>
+
+        <!-- Challenge -->
+        <section class="case-section">
+            <h2><i class="fas fa-exclamation-triangle"></i> The Challenge</h2>
             <div class="challenge-grid">
                 <div class="challenge-card">
                     <h3>Data Volume</h3>
@@ -1017,4 +1045,5 @@ job.commit()</code></pre>
     <script src="script.js"></script>
 </body>
 </html>
+
 

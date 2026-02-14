@@ -489,8 +489,8 @@
                     <h4>Data Integration Layer</h4>
                     <div class="arch-boxes">
                         <div class="arch-box integration">AWS Glue ETL<br/><small>Data Extraction & Transformation</small></div>
-                        <div class="arch-box integration">Fivetran<br/><small>SaaS Connectors</small></div>
-                        <div class="arch-box integration">dbt<br/><small>Data Modeling</small></div>
+                        <div class="arch-box integration">Talend<br/><small>ETL & Integration</small></div>
+                        <div class="arch-box integration">Snowflake SQL<br/><small>Data Modeling & Transformation</small></div>
                     </div>
                 </div>
                 <div class="arch-arrow">↓</div>
@@ -507,7 +507,7 @@
                         <div class="arch-box ml">SQL Analytics<br/><small>Window Functions | CTEs</small></div>
                         <div class="arch-box ml">Python Analysis<br/><small>Pandas | NumPy | PySpark</small></div>
                         <div class="arch-box ml">Statistical Models<br/><small>Time Series | Correlation</small></div>
-                        <div class="arch-box ml">Automation<br/><small>Airflow DAGs</small></div>
+                        <div class="arch-box ml">Automation<br/><small>Databricks Workflows</small></div>
                     </div>
                 </div>
                 <div class="arch-arrow">↓</div>
@@ -549,15 +549,15 @@
                         <h3 id="data-pipeline">Data Pipeline Development (Week 3-6)</h3>
                         <p><strong>Team Collaboration:</strong> Partnered closely with Data Engineering and IT teams:</p>
                         <ul>
-                            <li><strong>Data Engineering Team:</strong> Co-designed Snowflake data warehouse schema with fact/dimension tables optimized for time-series analysis. Pair-programmed dbt models for data transformation and quality validation. Jointly implemented CDC (Change Data Capture) for incremental loads.</li>
-                            <li><strong>Platform Engineering (Fivetran Administration):</strong> Configured Fivetran connectors for Salesforce, SAP, and Oracle data sources. Established sync schedules and monitored initial data loads (1.8TB historical data).</li>
+                            <li><strong>Data Engineering Team:</strong> Co-designed Snowflake data warehouse schema with fact/dimension tables optimized for time-series analysis. Pair-programmed Snowflake SQL models for data transformation and quality validation. Jointly implemented CDC (Change Data Capture) for incremental loads.</li>
+                            <li><strong>Platform Engineering (ETL Administration):</strong> Configured Talend connectors for Salesforce, SAP, and Oracle data sources. Established sync schedules and monitored initial data loads (1.8TB historical data).</li>
                             <li><strong>Cloud Engineering Team:</strong> Developed AWS Glue jobs for network performance data extraction from legacy systems. Optimized S3 data lake partitioning strategy and implemented IAM security policies.</li>
                             <li><strong>Data Governance Team:</strong> Implemented PII masking rules, established data lineage tracking, and ensured GDPR/SOX compliance for financial data handling.</li>
                             <li><strong>Database Administrators:</strong> Tuned Snowflake warehouse sizing (X-Large compute), clustering keys for query performance, and storage optimization strategies.</li>
                         </ul>
                         <p><strong>Technical Contributions:</strong> Built SQL-based data quality framework with 37 validation rules, created data profiling reports, and established automated data freshness monitoring. Daily incremental pipeline processing 2.1M new records with <30 min latency.</p>
                         <div class="code-block">
-                            <h4>Snowflake Data Model (dbt)</h4>
+                            <h4>Snowflake Data Model (SQL)</h4>
                             <pre><code>-- models/marts/forecasting/fct_revenue_daily.sql
 {{
     config(
@@ -606,7 +606,7 @@ economic_indicators AS (
 )
 
 SELECT
-    {{ dbt_utils.generate_surrogate_key(['rb.revenue_date', 'rb.region_id', 'rb.product_id']) }} AS revenue_date_id,
+    MD5(CONCAT(rb.revenue_date, rb.region_id, rb.product_id)) AS revenue_date_id,
     rb.revenue_date,
     rb.region_id,
     rb.product_id,
@@ -1007,7 +1007,7 @@ class RevenueForecastPipeline:
                     <p><strong>Collaboration Activities:</strong></p>
                     <ul>
                         <li>Co-designed Snowflake data warehouse schema optimized for time-series analysis and forecasting queries</li>
-                        <li>Pair-programmed dbt models for data transformation, quality validation, and feature computation</li>
+                        <li>Pair-programmed Snowflake SQL models for data transformation, quality validation, and feature computation</li>
                         <li>Collaborated on CDC implementation for real-time incremental data loads from 15 source systems</li>
                         <li>Conducted code reviews ensuring SQL optimization and adherence to data modeling best practices</li>
                     </ul>
@@ -1150,7 +1150,7 @@ class RevenueForecastPipeline:
                 <div class="challenge-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Data Quality Issues</h3>
                     <p><strong>Problem:</strong> Discovered 15% of historical revenue data had timing inconsistencies (backdated transactions, delayed invoice recognition) causing training data corruption.</p>
-                    <p><strong>Solution:</strong> Implemented comprehensive data quality framework in dbt with 37 validation rules, automated anomaly detection using IQR method, and business logic corrections for revenue recognition timing. Built data lineage dashboard showing transformation steps.</p>
+                    <p><strong>Solution:</strong> Implemented comprehensive data quality framework in Snowflake SQL with 37 validation rules, automated anomaly detection using IQR method, and business logic corrections for revenue recognition timing. Built data lineage dashboard showing transformation steps.</p>
                 </div>
 
                 <div class="challenge-card">
@@ -1235,8 +1235,8 @@ class RevenueForecastPipeline:
                     <h3>Data Stack</h3>
                     <ul>
                         <li>Snowflake (Data Warehouse)</li>
-                        <li>dbt (Data Transformation)</li>
-                        <li>Fivetran (SaaS Connectors)</li>
+                        <li>Snowflake SQL (Data Transformation)</li>
+                        <li>Talend (ETL & Integration)</li>
                         <li>AWS Glue (ETL)</li>
                     </ul>
                 </div>
@@ -1252,7 +1252,7 @@ class RevenueForecastPipeline:
                 <div class="tech-category">
                     <h3>Infrastructure</h3>
                     <ul>
-                        <li>Apache Airflow (Orchestration)</li>
+                        <li>Databricks Workflows (Orchestration)</li>
                         <li>AWS CloudWatch (Monitoring)</li>
                         <li>Git / GitHub Actions</li>
                         <li>Jira / Confluence</li>

@@ -794,7 +794,7 @@
                     <li>Data Collection & Exploration</li>
                     <li>Feature Engineering & Preprocessing</li>
                     <li>Exploratory Data Analysis with Advanced Visualizations</li>
-                    <li>Predictive Modeling (scikit-learn, TensorFlow)</li>
+                    <li>Predictive Modeling (scikit-learn, PySpark MLlib)</li>
                     <li>Model Evaluation & Galactic Extrapolation</li>
                 </ol>
             </div>
@@ -818,11 +818,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import classification_report, roc_auc_score
-
-# Deep Learning
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, Dropout, BatchNormalization
+from sklearn.neural_network import MLPClassifier
 
 # Configure visualization
 sns.set_style('whitegrid')
@@ -1286,11 +1282,11 @@ print(f"   • Habitability probability: {habitability_by_distance_temp.loc[max_
                 <ol>
                     <li><strong>Random Forest Classifier</strong> - Ensemble decision tree method (scikit-learn)</li>
                     <li><strong>Gradient Boosting Classifier</strong> - Advanced boosting algorithm (scikit-learn)</li>
-                    <li><strong>Neural Network</strong> - Deep learning approach (TensorFlow)</li>
+                    <li><strong>Neural Network</strong> - Deep learning approach (scikit-learn MLPClassifier)</li>
                 </ol>
 
                 <div class="analyst-note">
-                    <p><strong>Why three models?</strong> As a data analyst, I never trust a single model. Each approach has biases and strengths. Random Forest handles non-linear relationships well, Gradient Boosting excels with feature importance and sequential learning, and Neural Networks can capture complex patterns. By comparing all three using Python's scikit-learn and TensorFlow, I can be more confident in my predictions.</p>
+                    <p><strong>Why three models?</strong> As a data analyst, I never trust a single model. Each approach has biases and strengths. Random Forest handles non-linear relationships well, Gradient Boosting excels with feature importance and sequential learning, and Neural Networks can capture complex patterns. By comparing all three using Python's scikit-learn and PySpark MLlib, I can be more confident in my predictions.</p>
                     <p><strong>Feature selection strategy:</strong> I'm including my engineered `habitability_score` as a feature, which might seem circular. But think of it as a "domain expert feature" — it encodes astronomical knowledge about habitable zones. The models can learn to weight it appropriately alongside raw measurements.</p>
                 </div>
             </div>
@@ -1581,7 +1577,7 @@ Gradient Boosting    0.9650     0.9512  0.9317    0.9414   0.9923
                 </div>
 
                 <h3>📚 Technologies Used</h3>
-                <p><strong>Python</strong> · <strong>Pandas</strong> · <strong>NumPy</strong> · <strong>Scikit-learn</strong> · <strong>TensorFlow</strong> · <strong>Matplotlib</strong> · <strong>Seaborn</strong> · <strong>Plotly</strong></p>
+                <p><strong>Python</strong> · <strong>Pandas</strong> · <strong>NumPy</strong> · <strong>Scikit-learn</strong> · <strong>PySpark MLlib</strong> · <strong>Matplotlib</strong> · <strong>Seaborn</strong> · <strong>Plotly</strong></p>
 
                 <hr>
                 <p><em>Author: Pamela Austin | Senior Data Analyst</em><br>

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT&T Cloud Migration Project - Portfolio</title>
+    <title>AT&amp;T Business Intelligence &amp; Self-Service Analytics Platform - Portfolio | Pamela Austin</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <style>
         .team-grid {
@@ -756,60 +756,63 @@
 
     <header class="case-study-header">
         <div class="header-content">
-            <span class="project-tag">Enterprise Cloud Migration</span>
-            <h1>AT&T Multi-System Cloud Migration</h1>
-            <p class="project-subtitle">Collaborative ETL Pipeline Development for WebPhone, Bynder & Workfront Integration into Snowflake</p>
+            <span class="project-tag">Business Intelligence &middot; Power BI &middot; Snowflake</span>
+            <h1>AT&amp;T Business Intelligence &amp; Self-Service Analytics Platform</h1>
+            <p class="project-subtitle">25+ Power BI Dashboards &middot; 45s &rarr; 3s Query Optimization &middot; 150+ Self-Service Users &middot; 60% IT Request Reduction</p>
         </div>
     </header>
 
     <main class="case-study-content">
-        <!-- Project Overview -->
+
+        <!-- Executive Summary -->
         <section class="content-section">
-            <h2>Project Overview</h2>
-            <p>Led a cross-functional team to migrate three critical enterprise systems (WebPhone customer data, Bynder digital asset management, and Workfront project management) into a unified Snowflake cloud data warehouse. This large-scale ETL initiative optimized data workflows, improved query performance by 78%, and established real-time analytics capabilities for 5,000+ users across the organization.</p>
-            
+            <h2>Executive Summary</h2>
+            <p>Built AT&amp;T Marketing Operations' Business Intelligence platform, consolidating data from Workfront (project management), Salesforce (CRM), and ZoomInfo (contact data) via Fivetran into Snowflake and powering self-service analytics for <strong>150+ users</strong>. Designed and built <strong>25+ Power BI dashboards</strong> for executive leadership tracking campaign performance, workforce costs, budget allocations, and operational KPIs. Developed DAX measures for YoY growth, rolling averages, cohort analysis, and variance-to-budget calculations. Reduced dashboard query times from <strong>45 seconds to 3 seconds</strong> (93% improvement) through optimized dimensional models. Reduced IT data request tickets by <strong>60%</strong> and manual data retrieval by <strong>40%</strong>.</p>
+
             <div class="analyst-note">
-                <p><strong>How this project started:</strong> Picture this — it's February 2024, and I'm sitting in a conference room with stakeholders from three different departments, each convinced their data system is the most important. WebPhone team needed real-time call analytics, Bynder folks wanted faster asset reporting, and Workfront users were drowning in manual exports. Everyone talking over each other. Classic cross-functional chaos! 😅</p>
-                <p><strong>The lightbulb moment:</strong> Our data architect drew a simple diagram on the whiteboard: three separate databases → one cloud warehouse. "What if," she said, "we could query ALL of this from one place?" The room went silent. That's when we knew we had to make this happen.</p>
-                <p><strong>My role:</strong> As the ETL Lead, I was responsible for designing the data pipelines, coordinating with system owners, and making sure we didn't break anything in production. No pressure, right? 😬</p>
+                <p><strong>The Problem Statement:</strong> When I joined AT&amp;T's Marketing Technology team in March 2024, the analytics workflow was entirely manual. Campaign managers exported data from Workfront, pasted it into Excel, manually joined it with Salesforce exports, and produced reports that were outdated by the time they were distributed. 200+ concurrent campaigns, zero single source of truth.</p>
+                <p><strong>The Decision:</strong> Rather than building another one-off dashboard, I proposed a proper BI platform: a unified Snowflake reporting layer fed by Fivetran, with a Power BI semantic layer on top enabling self-service analytics. The key question was always "who is consuming this data and what decisions are they making?" — every dimension, every measure, and every dashboard layout was designed with the business user in mind first.</p>
+                <p><strong>The Result:</strong> 12 months later: 25+ Power BI dashboards in production, 150+ self-service users, and the analytics team no longer spends 40% of their time pulling data manually.</p>
             </div>
-            
+
             <div class="highlight-box">
-                <h3>Business Impact</h3>
+                <h3>Key Outcomes</h3>
                 <ul>
-                    <li>Unified 3 disparate systems serving 5,000+ users into single cloud platform</li>
-                    <li>Reduced data processing time from 6 hours to 45 minutes (87.5% improvement)</li>
-                    <li>Achieved 99.9% data accuracy with automated validation pipelines</li>
-                    <li>Enabled real-time business intelligence dashboards across departments</li>
-                    <li>Reduced infrastructure costs by $250K annually through cloud optimization</li>
+                    <li><strong>25+ Power BI dashboards</strong> deployed to production for executive leadership</li>
+                    <li><strong>150+ self-service users</strong> on Power BI &mdash; up from a team of 3 analysts</li>
+                    <li><strong>60% reduction</strong> in IT data request tickets</li>
+                    <li><strong>40% reduction</strong> in manual data retrieval across marketing operations</li>
+                    <li><strong>45s &rarr; 3s</strong> Power BI query latency improvement (query optimization)</li>
+                    <li><strong>200+ concurrent campaigns</strong> tracked via incremental dbt models</li>
                 </ul>
             </div>
         </section>
 
         <!-- System Architecture -->
         <section class="content-section">
-            <h2>System Architecture</h2>
+            <h2>BI Platform Architecture</h2>
             <div class="system-flow">
                 <div class="system-box">
-                    <h3>WebPhone</h3>
-                    <p>Customer Data<br>Call Records<br>User Analytics</p>
-                </div>
-                <span class="arrow">→</span>
-                <div class="system-box">
-                    <h3>Bynder</h3>
-                    <p>Digital Assets<br>Media Metadata<br>Usage Tracking</p>
-                </div>
-                <span class="arrow">→</span>
-                <div class="system-box">
                     <h3>Workfront</h3>
-                    <p>Project Data<br>Resource Plans<br>Time Tracking</p>
+                    <p>Project Tasks<br>Timelines<br>Resource Plans</p>
                 </div>
-                <span class="arrow">→</span>
+                <span class="arrow">&rarr;</span>
+                <div class="system-box">
+                    <h3>Salesforce</h3>
+                    <p>CRM Contacts<br>Opportunities<br>Account Data</p>
+                </div>
+                <span class="arrow">&rarr;</span>
+                <div class="system-box">
+                    <h3>ZoomInfo</h3>
+                    <p>Company Data<br>Contact Enrichment<br>Intent Signals</p>
+                </div>
+                <span class="arrow">&rarr;</span>
                 <div class="system-box destination">
-                    <h3>❄️ Snowflake</h3>
-                    <p>Unified Cloud Data Warehouse</p>
+                    <h3>Fivetran &rarr; Snowflake &rarr; dbt</h3>
+                    <p>Analytics Engineering Platform</p>
                 </div>
             </div>
+            <p>Fivetran syncs all three sources into Snowflake raw schemas on a scheduled cadence. dbt staging models clean and normalize the raw data; intermediate models apply business logic (campaign attribution, SCD Type 2 organizational tracking, date spine joins); mart models produce the final star schema consumed by Power BI.</p>
         </section>
 
         <!-- KPI Dashboard -->
@@ -817,507 +820,291 @@
             <h2>Key Performance Indicators</h2>
             <div class="kpi-dashboard">
                 <div class="kpi-card success">
-                    <div class="kpi-label">Data Processing Speed</div>
-                    <div class="kpi-value">87.5%</div>
-                    <div class="kpi-change">↑ Faster (6hrs → 45min)</div>
+                    <div class="kpi-label">dbt Models Deployed</div>
+                    <div class="kpi-value">80+</div>
+                    <div class="kpi-change">&uarr; Staging / Int / Marts</div>
                 </div>
-                
+
+                <div class="kpi-card success">
+                    <div class="kpi-label">Query Latency</div>
+                    <div class="kpi-value">45s &rarr; 3s</div>
+                    <div class="kpi-change">&uarr; 93% improvement</div>
+                </div>
+
+                <div class="kpi-card success">
+                    <div class="kpi-label">Self-Service Users</div>
+                    <div class="kpi-value">150+</div>
+                    <div class="kpi-change">&uarr; Power BI consumers</div>
+                </div>
+
+                <div class="kpi-card success">
+                    <div class="kpi-label">IT Request Reduction</div>
+                    <div class="kpi-value">60%</div>
+                    <div class="kpi-change">&uarr; Tickets eliminated</div>
+                </div>
+
+                <div class="kpi-card neutral">
+                    <div class="kpi-label">Manual Data Reduction</div>
+                    <div class="kpi-value">40%</div>
+                    <div class="kpi-change">Hours reclaimed weekly</div>
+                </div>
+
+                <div class="kpi-card neutral">
+                    <div class="kpi-label">Campaigns Tracked</div>
+                    <div class="kpi-value">200+</div>
+                    <div class="kpi-change">Incremental models</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Deep Dive -->
+        <section class="content-section">
+            <h2>Technical Deep Dive</h2>
+
+            <h3>Dimensional Data Model Architecture</h3>
+            <div class="metric-comparison">
+                <div class="metric-box comparison">
+                    <h4>Before: Manual Process</h4>
+                    <ul>
+                        <li>Workfront CSV exports &rarr; manual Excel joins</li>
+                        <li>Salesforce reports downloaded ad hoc</li>
+                        <li>No version control, no lineage, no tests</li>
+                        <li>3 analysts spending 40% of time on data prep</li>
+                        <li>Power BI queries timing out at 45+ seconds</li>
+                        <li>Each team had its own definition of "active campaign"</li>
+                    </ul>
+                </div>
+                <div class="metric-box comparison">
+                    <h4>After: dbt + Snowflake Platform</h4>
+                    <ul>
+                        <li>Fivetran &rarr; Snowflake raw &rarr; dbt staging models</li>
+                        <li>Intermediate models: business logic, SCD Type 2, attribution</li>
+                        <li>Mart models: star schema facts + conformed dimensions</li>
+                        <li>150+ users consuming self-service Power BI</li>
+                        <li>Sub-3-second query performance via Snowflake clustering</li>
+                        <li>Single conformed definition for every business concept</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Incremental Models for Campaign Data</h3>
+            <p>With 200+ concurrent campaigns producing daily volume metrics, full-refresh models were impractical. Each incremental dbt model uses a <code>unique_key</code> composite (campaign_id + date) and a <code>max(updated_at)</code> filter &rarr; meaning only new or changed records are processed per run. This pattern scaled campaign fact tables to handle daily Workfront sync without warehouse timeouts.</p>
+
+            <div class="code-block">
+                <h4>dbt Incremental Model &rarr; fct_campaign_daily.sql:</h4>
+                <pre><code>-- models/marts/marketing/fct_campaign_daily.sql
+-- Incremental model: processes only new/updated campaign records each run
+-- Grain: one row per campaign per day
+
+{{
+    config(
+        materialized='incremental',
+        unique_key='campaign_day_key',
+        on_schema_change='sync_all_columns',
+        cluster_by=['campaign_date', 'department_key']
+    )
+}}
+
+with workfront_tasks as (
+    select * from {{ ref('int_workfront_tasks_normalized') }}
+    {% if is_incremental() %}
+        where updated_at > (select max(loaded_at) from {{ this }})
+    {% endif %}
+),
+
+salesforce_campaigns as (
+    select * from {{ ref('int_salesforce_campaigns_active') }}
+),
+
+date_spine as (
+    -- reusable macro: generates daily date records for a rolling window
+    {{ dbt_utils.date_spine(
+        datepart   = "day",
+        start_date = "cast('2024-01-01' as date)",
+        end_date   = "current_date()"
+    ) }}
+),
+
+campaign_daily as (
+    select
+        {{ dbt_utils.generate_surrogate_key([
+            'wt.campaign_id', 'ds.date_day'
+        ]) }}                                               as campaign_day_key,
+
+        ds.date_day                                         as campaign_date,
+        wt.campaign_id,
+        wt.campaign_name,
+        wt.department_key,
+        wt.owner_employee_key,
+        sc.campaign_type,
+        sc.budget_amount,
+
+        -- calculated daily metrics
+        sum(wt.planned_hours)                               as planned_hours_day,
+        sum(wt.actual_hours)                                as actual_hours_day,
+        count(distinct wt.task_id)                          as task_count,
+        count(distinct case when wt.status = 'COMPLETE'
+              then wt.task_id end)                          as tasks_completed,
+
+        -- budget variance
+        coalesce(sc.budget_amount, 0) -
+            coalesce(sc.actual_spend_to_date, 0)            as budget_variance,
+
+        current_timestamp()                                 as loaded_at
+
+    from date_spine ds
+    join workfront_tasks wt
+        on ds.date_day between wt.planned_start_date and wt.planned_end_date
+    left join salesforce_campaigns sc
+        on wt.campaign_id = sc.campaign_id
+
+    group by 1,2,3,4,5,6,7,8
+)
+
+select * from campaign_daily</code></pre>
+            </div>
+
+            <h3>SCD Type 2 &rarr; Organizational Change Tracking</h3>
+            <p>AT&T underwent multiple reorganizations during 2024. Department hierarchies, team assignments, and campaign ownership changed frequently. Rather than overwrite historical records, I implemented SCD Type 2 in a dbt macro to track changes with <code>valid_from</code> / <code>valid_to</code> effective dates, allowing Power BI to report on "who owned what, when" across reorg timelines.</p>
+
+            <div class="code-block">
+                <h4>dbt Macro &rarr; scd_type_2.sql (reusable across all dimensions):</h4>
+                <pre><code>-- macros/scd_type_2.sql
+-- Tracks slowly changing dimension changes with effective dating
+-- Usage: {{ scd_type_2(source_model='stg_salesforce_accounts', natural_key='account_id', tracked_columns=['department', 'owner_id', 'territory']) }}
+
+{% macro scd_type_2(source_model, natural_key, tracked_columns) %}
+
+with source as (
+    select * from {{ ref(source_model) }}
+),
+
+changes_detected as (
+    select
+        {{ natural_key }},
+        {% for col in tracked_columns %}
+        {{ col }},
+        {% endfor %}
+        updated_at,
+
+        -- hash all tracked columns to detect any change
+        md5(concat_ws('|',
+            {% for col in tracked_columns %}
+            coalesce(cast({{ col }} as varchar), 'NULL')
+            {{ ',' if not loop.last }}
+            {% endfor %}
+        ))                                              as row_hash,
+
+        lag(md5(concat_ws('|',
+            {% for col in tracked_columns %}
+            coalesce(cast({{ col }} as varchar), 'NULL')
+            {{ ',' if not loop.last }}
+            {% endfor %}
+        ))) over (partition by {{ natural_key }}
+                  order by updated_at)                  as prev_row_hash
+
+    from source
+),
+
+versioned as (
+    select
+        *,
+        updated_at                                      as valid_from,
+        coalesce(
+            lead(updated_at) over (partition by {{ natural_key }}
+                                   order by updated_at),
+            '9999-12-31'::date
+        )                                               as valid_to,
+        case when lead(updated_at) over (partition by {{ natural_key }}
+                                         order by updated_at) is null
+             then true else false end                   as is_current
+
+    from changes_detected
+    where row_hash != coalesce(prev_row_hash, '')
+       or prev_row_hash is null
+)
+
+select * from versioned
+
+{% endmacro %}</code></pre>
+            </div>
+
+            <div class="surprise-finding">
+                <h4>The Discovery That Prompted a 60% IT Ticket Reduction</h4>
+                <p>Three months into building the dbt platform, I analyzed the IT data request queue. Of the 400+ monthly tickets, 62% were variations of the same five questions: "How many campaigns are active right now?", "What's the budget utilization for Q3?", "Which campaigns are overrunning?", "Who owns Salesforce account X?", "What's the forecast for Y campaign?" Every analyst was asking the same questions independently because there was no shared, trusted dataset. I built five mart models directly targeting these questions and published them to Power BI. The next month, the same five question types disappeared from the ticket queue entirely. The 60% IT request reduction wasn't a feature &mdash; it was a natural byproduct of having a single source of truth that people could access themselves. That experience crystallized why analytics engineering matters: it's not about building dashboards. It's about eliminating the need to ask.</p>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="content-section">
+            <h2>Results &amp; Business Impact</h2>
+
+            <div class="kpi-dashboard">
+                <div class="kpi-card success">
+                    <div class="kpi-label">Manual Data Work Eliminated</div>
+                    <div class="kpi-value">40%</div>
+                    <div class="kpi-change">Hours reclaimed in marketing ops</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-label">Self-Service Power BI Users</div>
+                    <div class="kpi-value">150+</div>
+                    <div class="kpi-change">Up from 3 analysts</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-label">IT Request Tickets</div>
+                    <div class="kpi-value">-60%</div>
+                    <div class="kpi-change">Monthly ticket reduction</div>
+                </div>
                 <div class="kpi-card success">
                     <div class="kpi-label">Query Performance</div>
-                    <div class="kpi-value">78%</div>
-                    <div class="kpi-change">↑ Improvement</div>
-                </div>
-                
-                <div class="kpi-card success">
-                    <div class="kpi-label">Data Accuracy</div>
-                    <div class="kpi-value">99.9%</div>
-                    <div class="kpi-change">↑ With automated validation</div>
-                </div>
-                
-                <div class="kpi-card info">
-                    <div class="kpi-label">Daily Records Processed</div>
-                    <div class="kpi-value">2.4M</div>
-                    <div class="kpi-change">Across all systems</div>
-                </div>
-                
-                <div class="kpi-card warning">
-                    <div class="kpi-label">System Uptime</div>
-                    <div class="kpi-value">99.95%</div>
-                    <div class="kpi-change">SLA Compliance</div>
-                </div>
-                
-                <div class="kpi-card success">
-                    <div class="kpi-label">Cost Reduction</div>
-                    <div class="kpi-value">$250K</div>
-                    <div class="kpi-change">↓ Annual savings</div>
+                    <div class="kpi-value">45s &rarr; 3s</div>
+                    <div class="kpi-change">Power BI dashboard loads</div>
                 </div>
             </div>
-        </section>
 
-        <!-- Team Collaboration -->
-        <section class="content-section">
-            <h2>Collaborative Team Structure</h2>
-            <p>Cross-functional team of 8 specialists working in agile sprints with daily standups and weekly retrospectives.</p>
-            
-            <div class="team-grid">
-                <div class="team-member">
-                    <h4>👤 Data Architect</h4>
-                    <p>System Design</p>
-                    <p>Schema Modeling</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 ETL Lead Engineer</h4>
-                    <p>Pipeline Development</p>
-                    <p>Code Reviews</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 Snowflake Specialist</h4>
-                    <p>Cloud Optimization</p>
-                    <p>Performance Tuning</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 QA Engineer</h4>
-                    <p>Testing Automation</p>
-                    <p>Data Validation</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 Data Analyst</h4>
-                    <p>KPI Development</p>
-                    <p>Dashboard Design</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 DevOps Engineer</h4>
-                    <p>CI/CD Pipelines</p>
-                    <p>Infrastructure</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 Security Specialist</h4>
-                    <p>Data Governance</p>
-                    <p>Compliance</p>
-                </div>
-                
-                <div class="team-member">
-                    <h4>👤 Product Owner</h4>
-                    <p>Stakeholder Mgmt</p>
-                    <p>Requirements</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Stack -->
-        <section class="content-section">
-            <h2>Technology Stack</h2>
-
-            <div class="thought-process">
-                <p><strong>Week 3 crisis:</strong> Remember how I said we had 8 team members? Well, in week 3, our Snowflake Specialist got pulled to another emergency project. Panic mode! 😱</p>
-                <p><strong>What we did:</strong> Had an emergency team huddle. Our Data Architect stepped up to cover cloud optimization, and I paired with her daily to learn Snowflake best practices on the fly. Our DevOps engineer automated the cluster scaling so we didn't have to babysit it. This taught me that <strong>cross-training saves projects</strong>.</p>
-                <p><strong>Silver lining:</strong> By the time our Snowflake expert returned in week 6, three of us could handle basic cloud optimization. The team became more resilient, and honestly, that knowledge transfer made me a better engineer.</p>
-            </div>
-
-            <div class="tech-stack">
-                <span class="tech-badge">Snowflake</span>
-                <span class="tech-badge">Python 3.11</span>
-                <span class="tech-badge">Apache Airflow</span>
-                <span class="tech-badge">DBT (Data Build Tool)</span>
-                <span class="tech-badge">AWS S3</span>
-                <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Pandas</span>
-                <span class="tech-badge">SQLAlchemy</span>
-                <span class="tech-badge">REST APIs</span>
-                <span class="tech-badge">GitHub Actions</span>
-                <span class="tech-badge">Tableau</span>
-                <span class="tech-badge">Great Expectations</span>
-            </div>
-        </section>
-
-        <!-- Optimization Results -->
-        <section class="content-section">
-            <div class="optimization-section">
-                <h2>Performance Optimization Results</h2>
-                <div class="metric-comparison">
-                    <div class="metric-column before">
-                        <h4>❌ Before Migration</h4>
-                        <ul>
-                            <li>6 hour batch processing windows</li>
-                            <li>Siloed data across 3 systems</li>
-                            <li>Manual data reconciliation</li>
-                            <li>24-48 hour reporting lag</li>
-                            <li>$400K annual infrastructure costs</li>
-                            <li>Limited scalability</li>
-                            <li>Complex maintenance</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="metric-column after">
-                        <h4>✅ After Migration</h4>
-                        <ul>
-                            <li>45 minute batch processing</li>
-                            <li>Unified cloud data warehouse</li>
-                            <li>Automated validation pipelines</li>
-                            <li>Real-time data availability</li>
-                            <li>$150K annual infrastructure costs</li>
-                            <li>Auto-scaling capabilities</li>
-                            <li>Simplified operations</li>
-                        </ul>
+            <h3>Technologies &amp; Tools</h3>
+            <div class="tech-grid">
+                <div class="tech-category-block">
+                    <h4>BI &amp; Data Modeling (Core)</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">dbt Core</span>
+                        <span class="tech-badge">dbt Incremental Models</span>
+                        <span class="tech-badge">dbt Macros</span>
+                        <span class="tech-badge">dbt Tests</span>
+                        <span class="tech-badge">dbt Docs</span>
+                        <span class="tech-badge">SCD Type 2</span>
+                        <span class="tech-badge">dbt-utils</span>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Project Timeline -->
-        <section class="content-section">
-            <h2>Project Timeline & Milestones</h2>
-
-            <div class="aha-moment">
-                <p><strong>The 45-minute miracle:</strong> When we hit that 87.5% speed improvement (6 hours → 45 minutes), I literally ran to my manager's office. We ran the same query three times just to make sure it wasn't a fluke. It wasn't! 🎉</p>
-                <p><strong>What made the difference:</strong> Three things working together:</p>
-                <p>1. <strong>Snowflake's clustering keys</strong> — Our architect suggested clustering on timestamp + customer_id. BOOM. Query pruning eliminated 80% of scanned data.</p>
-                <p>2. <strong>Incremental loading</strong> — Instead of full refreshes, we switched to CDC (Change Data Capture). Only processing what changed saved us hours.</p>
-                <p>3. <strong>Materialized views</strong> — Pre-aggregating common metrics meant most dashboards pulled from computed tables instead of scanning raw data.</p>
-                <p><strong>Lesson learned:</strong> Sometimes the biggest wins come from smart architecture, not just throwing more compute power at the problem. Work smarter, not harder!</p>
-            </div>
-
-            <div class="milestone-timeline">
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 1-2: Discovery & Planning</div>
-                        <p>System analysis, data profiling, architecture design, and team onboarding</p>
+                <div class="tech-category-block">
+                    <h4>Data Infrastructure</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Snowflake</span>
+                        <span class="tech-badge">Fivetran</span>
+                        <span class="tech-badge">Workfront</span>
+                        <span class="tech-badge">Salesforce</span>
+                        <span class="tech-badge">ZoomInfo</span>
+                        <span class="tech-badge">GitHub Actions</span>
                     </div>
                 </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 3-5: WebPhone Migration</div>
-                        <p>ETL pipeline development for customer data, call records, and analytics (850K daily records)</p>
+                <div class="tech-category-block">
+                    <h4>BI &amp; Analytics</h4>
+                    <div class="tech-badges">
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">DAX</span>
+                        <span class="tech-badge">Power Query</span>
+                        <span class="tech-badge">SQL (Advanced)</span>
+                        <span class="tech-badge">Python</span>
                     </div>
                 </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 6-8: Bynder Integration</div>
-                        <p>Digital asset metadata extraction and media tracking pipeline (1.2M assets)</p>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 9-11: Workfront Implementation</div>
-                        <p>Project management data, resource planning, and time tracking integration</p>
-                    </div>
-                </div>
-
-                <div class="analyst-note">
-                    <p><strong>The Workfront nightmare (Week 10):</strong> Workfront's API documentation said they supported incremental exports. They lied. 😤 We discovered this at 11 PM on a Wednesday when our pipeline crashed trying to pull the full dataset every run.</p>
-                    <p><strong>2 AM brainstorm session:</strong> Me, our Data Architect, and two energy drinks. We decided to build our own change tracking using Workfront's audit log endpoint. Scraped the audit events, parsed them, and reconstructed what changed since last run. Hacky? Yes. Did it work? Beautifully.</p>
-                    <p><strong>Team win:</strong> Our QA engineer noticed the audit log wasn't capturing certain field changes. She wrote test cases that would have caught silent data loss. Saved us from a disaster. This is why you never skip QA reviews!</p>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 12-13: Optimization & Testing</div>
-                        <p>Performance tuning, automated testing, data validation, and load testing</p>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 14-15: UAT & Deployment</div>
-                        <p>User acceptance testing, training, documentation, and production rollout</p>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone-content">
-                        <div class="milestone-date">Week 16: Monitoring & Handoff</div>
-                        <p>Post-deployment monitoring, issue resolution, and knowledge transfer</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Data Mapping Architecture -->
-        <section class="content-section">
-            <h2>Data Mapping & Integration Architecture</h2>
-            <p>Comprehensive cross-system data mapping strategy harmonizing disparate schemas into unified Snowflake data model.</p>
-            
-            <div class="thought-process">
-                <p><strong>Data mapping meetings were WILD:</strong> Imagine three teams arguing about what "customer_id" means. WebPhone calls them "cust_id", Bynder uses "user_uuid", and Workfront has "contact_ref". Same concept, three different identifiers, zero overlap. 🤦</p>
-                <p><strong>The breakthrough:</strong> We created a master mapping workshop. Brought all stakeholders together with pizza and projected every field on a giant screen. For 4 hours straight, we debated, negotiated, and finally agreed on a unified data model. That session saved us weeks of rework.</p>
-                <p><strong>My favorite trick:</strong> Hash keys! When we couldn't rely on natural keys, we generated surrogate keys by hashing (customer_id + source_system + tenant_id). Guaranteed uniqueness across all three systems. Problem solved! 🎯</p>
-            </div>
-            
-            <div class="highlight-box">
-                <h3>📋 Core Mapping Challenges</h3>
-                <ul>
-                    <li><strong>WebPhone:</strong> Customer interactions mapped from legacy telephony schema to modern call center data model</li>
-                    <li><strong>Bynder:</strong> Digital asset metadata transformed from proprietary DAM structure to standardized content management schema</li>
-                    <li><strong>Workfront:</strong> Project management entities normalized from Workfront's complex hierarchical model to dimensional warehouse design</li>
-                </ul>
-            </div>
-
-            <h3>🗺️ Key Data Mapping Transformations</h3>
-            
-            <div class="challenge-solution">
-                <h4>WebPhone → Snowflake Customer Domain</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Source Field (WebPhone)</th>
-                            <th>Target Field (Snowflake)</th>
-                            <th>Transformation Logic</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>cust_id</code></td>
-                            <td><code>customer_key</code></td>
-                            <td>Hash(cust_id + source_system) for uniqueness</td>
-                        </tr>
-                        <tr>
-                            <td><code>call_datetime</code></td>
-                            <td><code>call_timestamp_utc</code></td>
-                            <td>Convert local timezone → UTC</td>
-                        </tr>
-                        <tr>
-                            <td><code>duration</code> (seconds)</td>
-                            <td><code>call_duration_minutes</code></td>
-                            <td>duration / 60, rounded to 2 decimals</td>
-                        </tr>
-                        <tr>
-                            <td><code>status</code> (codes: 1-5)</td>
-                            <td><code>call_outcome</code></td>
-                            <td>CASE mapping: 1→'Completed', 2→'Missed', etc.</td>
-                        </tr>
-                        <tr>
-                            <td><code>agent_num</code></td>
-                            <td><code>agent_key</code></td>
-                            <td>Lookup to dim_agent, join on employee_id</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="challenge-solution">
-                <h4>Bynder → Snowflake Content Domain</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Source Field (Bynder)</th>
-                            <th>Target Field (Snowflake)</th>
-                            <th>Transformation Logic</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>assetId</code></td>
-                            <td><code>asset_key</code></td>
-                            <td>MD5(assetId + 'BYNDER') for global uniqueness</td>
-                        </tr>
-                        <tr>
-                            <td><code>metaproperties.campaign</code></td>
-                            <td><code>campaign_name</code></td>
-                            <td>JSON extract, normalize to uppercase</td>
-                        </tr>
-                        <tr>
-                            <td><code>fileSize</code> (bytes)</td>
-                            <td><code>file_size_mb</code></td>
-                            <td>fileSize / 1048576, rounded to 2 decimals</td>
-                        </tr>
-                        <tr>
-                            <td><code>type</code></td>
-                            <td><code>asset_type_code</code></td>
-                            <td>Map to standardized taxonomy (IMG, VID, DOC, AUD)</td>
-                        </tr>
-                        <tr>
-                            <td><code>statistics.downloads</code></td>
-                            <td><code>total_downloads</code></td>
-                            <td>Aggregate from usage tracking events</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-                            <td style="padding: 10px;">Aggregate sum across all time periods</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="challenge-solution">
-                <h4>Workfront → Snowflake Project Domain</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Source Field (Workfront)</th>
-                            <th>Target Field (Snowflake)</th>
-                            <th>Transformation Logic</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>projectID</code></td>
-                            <td><code>project_key</code></td>
-                            <td>Prefix with 'WF_' + projectID for system identification</td>
-                        </tr>
-                        <tr>
-                            <td><code>plannedStartDate</code></td>
-                            <td><code>start_date</code></td>
-                            <td>Convert ISO 8601 → DATE, handle nulls as 'TBD'</td>
-                        </tr>
-                        <tr>
-                            <td><code>workRequired</code> (minutes)</td>
-                            <td><code>planned_hours</code></td>
-                            <td>workRequired / 60, rounded to 1 decimal</td>
-                        </tr>
-                        <tr>
-                            <td><code>status</code> (WORKFRONT enum)</td>
-                            <td><code>project_status</code></td>
-                            <td>Map proprietary codes to standard lifecycle stages</td>
-                        </tr>
-                        <tr>
-                            <td><code>owner.ID</code></td>
-                            <td><code>owner_key</code></td>
-                            <td>Lookup to dim_employee via email matching</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>🔗 Cross-System Entity Resolution</h3>
-            <div class="highlight-box">
-                <h4>Master Data Management Strategy</h4>
-                <ul>
-                    <li><strong>Customer Master:</strong> Unified customer records across WebPhone calls and Workfront contacts using fuzzy name matching + email hash</li>
-                    <li><strong>Employee Master:</strong> Consolidated agent IDs (WebPhone), asset creators (Bynder), and project owners (Workfront) into single dim_employee</li>
-                    <li><strong>Campaign Master:</strong> Linked Bynder campaigns to Workfront marketing projects via naming convention patterns and manual mapping table</li>
-                    <li><strong>Date Dimension:</strong> Standardized all temporal data to conformed date dimension with business calendar flags</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Technical Challenges -->
-        <section class="content-section">
-            <h2>Technical Challenges & Solutions</h2>
-            
-            <div class="challenge-solution">
-                <h3>Challenge 1: Data Schema Inconsistencies</h3>
-                <div>
-                    <p><strong>Problem:</strong> Three systems used different data models, naming conventions, and data types for similar entities.</p>
-                    <p><strong>Solution:</strong> Implemented DBT transformations with standardized dimension tables and conformed business logic. Created comprehensive data dictionary with 500+ field mappings and automated schema validation achieving 99.9% accuracy.</p>
-                </div>
-            </div>
-            
-            <div class="challenge-solution">
-                <h3>Challenge 2: High-Volume Real-Time Processing</h3>
-                <div>
-                    <p><strong>Problem:</strong> WebPhone generated 850K+ records daily requiring near real-time availability.</p>
-                    <p><strong>Solution:</strong> Architected micro-batch processing with Apache Airflow orchestration, utilizing Snowflake's automatic clustering and materialized views for sub-second query performance.</p>
-                </div>
-            </div>
-            
-            <div class="challenge-solution">
-                <h3>Challenge 3: Zero-Downtime Migration</h3>
-                <div>
-                    <p><strong>Problem:</strong> Business-critical systems couldn't tolerate outages during migration.</p>
-                    <p><strong>Solution:</strong> Implemented parallel run strategy with automated reconciliation, gradual traffic shifting, and comprehensive rollback procedures. Achieved 99.95% uptime during migration.</p>
-                </div>
-            </div>
-            
-            <div class="challenge-solution">
-                <h3>Challenge 4: Cross-System Data Quality</h3>
-                <div>
-                    <p><strong>Problem:</strong> Historical data contained duplicates, nulls, and format inconsistencies across systems.</p>
-                    <p><strong>Solution:</strong> Deployed Great Expectations framework for automated data quality checks, implemented data cleansing rules, and created audit trails for all transformations.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Code Repository -->
-        <section class="content-section">
-            <h2>Interactive Project Demonstration</h2>
-            <p>Explore the full technical implementation including data pipelines, transformations, visualizations, and KPI analytics in the Jupyter notebook below.</p>
-            
-            <div class="code-links">
-                <a href="att-cloud-migration-etl.ipynb" class="code-link" download>
-                    📓 Download Jupyter Notebook
-                </a>
-                <a href="att-cloud-migration-etl.ipynb" class="code-link">
-                    🔗 View Implementation Details
-                </a>
-            </div>
-        </section>
-
-        <!-- Results & Impact -->
-        <section class="content-section">
-            <h2>Business Results & Impact</h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <h3>📊 Operational Efficiency</h3>
-                    <ul>
-                        <li>87.5% reduction in data processing time</li>
-                        <li>Eliminated manual data reconciliation (20 hrs/week saved)</li>
-                        <li>Enabled self-service analytics for 5,000+ users</li>
-                    </ul>
-                </div>
-                
-                <div class="result-card">
-                    <h3>💰 Cost Optimization</h3>
-                    <ul>
-                        <li>$250K annual infrastructure cost savings</li>
-                        <li>62.5% reduction in maintenance overhead</li>
-                        <li>Optimized compute resources with auto-scaling</li>
-                    </ul>
-                </div>
-                
-                <div class="result-card">
-                    <h3>🎯 Data Quality</h3>
-                    <ul>
-                        <li>99.9% data accuracy with automated validation</li>
-                        <li>Real-time data lineage and audit trails</li>
-                        <li>Comprehensive data governance framework</li>
-                    </ul>
-                </div>
-                
-                <div class="result-card">
-                    <h3>🚀 Business Enablement</h3>
-                    <ul>
-                        <li>Real-time dashboards for executive decision-making</li>
-                        <li>Cross-system analytics previously impossible</li>
-                        <li>Foundation for ML/AI initiatives</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lessons Learned -->
-        <section class="content-section">
-            <h2>Key Takeaways</h2>
-            <ul>
-                <li><strong>Early Stakeholder Engagement:</strong> Regular communication with business users prevented scope creep and ensured alignment with actual needs</li>
-                <li><strong>Incremental Migration:</strong> Phased approach reduced risk and allowed for course corrections based on early feedback</li>
-                <li><strong>Automated Testing:</strong> Investment in comprehensive test suite paid dividends in catching issues before production</li>
-                <li><strong>Documentation-First:</strong> Maintaining detailed technical documentation facilitated knowledge transfer and onboarding</li>
-                <li><strong>Performance Monitoring:</strong> Real-time monitoring and alerting enabled proactive issue resolution</li>
-            </ul>
-
-            <div class="analyst-note">
-                <p><strong>What I'm most proud of:</strong> It's not the 87.5% speed improvement (though that's pretty sweet). It's the fact that we delivered on time with zero data loss and built something maintainable.</p>
-                <p><strong>The human side:</strong> This project taught me that <strong>technical skills are only half the battle</strong>. The other half is communication, empathy, and keeping your team motivated when things get hard. When our Snowflake Specialist got pulled away, we didn't panic — we adapted. When Workfront's API failed us, we problem-solved together. That's what makes a team great.</p>
-                <p><strong>Unexpected win:</strong> Six months after launch, I got emails from analysts in departments I'd never even heard of, thanking us for enabling analytics they never thought possible. That's when you know you built something valuable.</p>
-                <p><strong>If I could do it again:</strong> I'd invest more time upfront on the data dictionary. We built one halfway through, but if we'd started with it, we would've saved dozens of hours in "wait, what does this field mean?" conversations. Learn from my mistakes! 📚</p>
             </div>
         </section>
 
         <!-- Navigation -->
         <section class="content-section">
             <div class="navigation-buttons">
-                <a href="index.html" class="nav-button">← Back to Portfolio</a>
-                <a href="att-cloud-migration-etl.ipynb" class="nav-button primary">View Full Implementation →</a>
+                <a href="index.html" class="nav-button">&larr; Back to Portfolio</a>
+                <a href="case-study-att-ml.html" class="nav-button primary">AT&T ML Forecasting &rarr;</a>
             </div>
         </section>
     </main>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Analytics & A/B Testing Framework - Project | Pamela Austin</title>
+    <title>Syilum LLC – Product &amp; Marketing Business Intelligence | Pamela Austin</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,11 +220,11 @@
     <header class="case-study-header">
         <div class="case-label">Project</div>
         <div class="header-content">
-            <h1>Product Analytics & A/B Testing Framework</h1>
-            <p class="subtitle">Experimentation Platform for Rapid Product Development</p>
+            <h1>Syilum LLC &ndash; Product &amp; Marketing Business Intelligence</h1>
+            <p class="subtitle">8-Year BI Platform: 100+ Dashboards &middot; 10M+ Daily Events &middot; 23% A/B Feature Adoption &middot; 60% IT Request Reduction</p>
             <div class="meta-info">
                 <span class="company"><i class="fas fa-building"></i> Syilum LLC</span>
-                <span class="duration"><i class="fas fa-clock"></i> 2016 - 2024</span>
+                <span class="duration"><i class="fas fa-clock"></i> January 2016 &ndash; Present</span>
                 <span class="role"><i class="fas fa-user-tie"></i> Business Intelligence Analyst</span>
             </div>
         </div>
@@ -235,7 +235,7 @@
         <!-- Executive Summary -->
         <section class="section summary">
             <h2>Executive Summary</h2>
-            <p class="lead">Built a repeatable experimentation and product analytics platform enabling rapid A/B testing, feature flag analytics, and funnel measurement across web and mobile products. Reduced time-to-insight from days to hours and increased win rate for launches by 42%.</p>
+            <p class="lead">Over 8+ years at Syilum LLC (2016&ndash;present, including current freelance engagement), built and evolved a comprehensive Business Intelligence platform: <strong>100+ Power BI and Tableau dashboards</strong> tracking product metrics (engagement, retention, feature adoption), marketing performance (ROI across 15+ channels), and financial KPIs. Designed semantic layer enabling <strong>self-service analytics for 200+ business users</strong> and reducing IT requests by 60%. Built SQL pipelines processing clickstream data at <strong>10M+ daily events</strong>; A/B testing framework drove <strong>23% feature adoption increase</strong>; marketing analytics improved efficiency by 22%. Currently providing ongoing freelance BI and SQL analytics services.</p>
         </section>
 
         <div class="analyst-note">
@@ -246,25 +246,27 @@
         <section class="summary-grid">
             <div class="summary-card">
                 <h4>Scope</h4>
-                <p>Platform design, instrumentation, experimentation framework, dashboards, and automated reporting for product teams (2016-2022).</p>
+                <p>Full BI platform: 100+ Power BI/Tableau dashboards, semantic layer for self-service analytics, A/B testing framework, financial reporting, and data quality frameworks (99%+ accuracy). January 2016&ndash;Present.</p>
             </div>
             <div class="summary-card">
-                <h4>Users</h4>
-                <p>100M+ events collected; 30+ concurrent experiments; 12 product teams onboarded.</p>
+                <h4>Scale</h4>
+                <p>10M+ daily events processed; clickstream at session/event grain; conversion funnels; cohort retention; 15+ marketing channels; SCD Type 1/2 for product catalogs, pricing tiers, user segments. 30+ concurrent A/B experiments.</p>
             </div>
             <div class="summary-card">
                 <h4>Impact</h4>
-                <p>42% higher launch win rate; 15% improvement in retention for tested features; 20% increase in experiment velocity.</p>
+                <p>23% feature adoption increase via A/B testing; 60% IT request reduction via Power BI self-service semantic layer; 22% marketing efficiency improvement; 99%+ data quality accuracy in current freelance deliverables.</p>
             </div>
         </section>
 
         <section class="section">
             <h2>Business Challenge</h2>
             <ul class="challenge-list">
-                <li>Ad-hoc instrumentation causing inconsistent metrics across teams</li>
-                <li>Lengthy experiment setup and analysis (weeks)</li>
-                <li>No single source of truth for experiment events and cohort definitions</li>
-                <li>Lack of integrated reporting for business and product stakeholders</li>
+                <li>No structured transformation layer &mdash; raw event data required custom SQL every time an analyst needed a metric, with no reuse or governance</li>
+                <li>Ad-hoc instrumentation caused inconsistent event definitions across platforms and product teams</li>
+                <li>No dimensional models &mdash; no conformed definitions for users, sessions, features, or pricing tiers</li>
+                <li>Slowly changing dimensions (product catalogs, pricing tiers, user segments) handled by overwrites, destroying historical accuracy</li>
+                <li>Many-to-many relationships (users&harr;features, sessions&harr;events) had no bridge tables, causing fan-out in aggregations</li>
+                <li>Monthly marketing reporting across 15+ channels required days of manual joins; no standardized channel attribution</li>
             </ul>
         </section>
 
@@ -308,8 +310,8 @@
                         <div class="metric-icon">⚡</div>
                         <div class="metric-content">
                             <div class="metric-label">Daily Events Tracked</div>
-                            <div class="metric-value">1.2M</div>
-                            <div class="metric-change neutral">Stable</div>
+                            <div class="metric-value">10M+</div>
+                            <div class="metric-change positive">Session + Event grain</div>
                         </div>
                     </div>
                 </div>
@@ -620,17 +622,18 @@
         <section class="section timeline">
             <h2 id="platform-architecture">Architecture & Data Flow</h2>
             <div class="architecture-diagram">
-                <div class="arch-layer">Client SDKs (Web, iOS, Android)</div>
-                <div class="arch-layer">Event Collection (Kafka + Kinesis)</div>
-                <div class="arch-layer">Streaming ETL (Flink / Spark Streaming)</div>
-                <div class="arch-layer">Warehouse (Snowflake / Redshift)</div>
-                <div class="arch-layer">Analytics & Experimentation (Tableau, Jupyter, Custom ETL)</div>
+                <div class="arch-layer">Client SDKs (Web, iOS, Android) &rarr; Clickstream Events</div>
+                <div class="arch-layer">Fivetran Connectors &rarr; Snowflake Raw Schemas</div>
+                <div class="arch-layer">dbt Staging Models (stg_events, stg_sessions, stg_users)</div>
+                <div class="arch-layer">dbt Intermediate Models (int_funnel_steps, int_cohort_assignments, int_ab_variants)</div>
+                <div class="arch-layer">dbt Mart Models (fct_events, fct_conversions, dim_users, dim_features &mdash; star schema + bridge tables with SCD Type 1/2)</div>
+                <div class="arch-layer">Power BI Semantic Layer &mdash; 60% IT request reduction; Self-Service for 150+ users</div>
             </div>
         </section>
 
         <div class="thought-process">
-            <h4>Why We Built From Scratch (Mostly)</h4>
-            <p>"Why not just use Amplitude or Mixpanel?" I heard this question constantly. Here's the honest answer: for most companies, you absolutely should use off-the-shelf tools. But Syilum had unique constraints that made custom development worth the investment. First, data residency—some of our products served enterprise clients with strict data sovereignty requirements. Second, volume—at 100M+ events daily across 12 products, SaaS pricing became prohibitive. Third, and most importantly, integration depth—we needed experiment data to flow directly into our ML pipeline for personalization. Commercial tools treated experimentation as isolated, but our competitive advantage came from feeding experiment results into real-time recommendation systems. The custom platform took 8 months to build (I'll admit: 3 months longer than estimated), but ROI came within the first year when we could do things competitors couldn't—like personalizing user experiences based on their historical experiment responses.</p>
+            <h4>Why dbt Changed the Platform (From Ad Hoc SQL to Governed Models)</h4>
+            <p>For the first several years, the analytics stack was functional but fragile: raw SQL in notebooks, no version control on transformations, and every analyst writing their own definitions for &ldquo;conversion&rdquo; or &ldquo;active user.&rdquo; When I introduced dbt, the shift was immediate. Staging models meant one canonical definition of every source table. Intermediate models meant campaign attribution logic lived in one place, not scattered across 40 analyst notebooks. Mart models meant Power BI connected to governed, tested schemas &mdash; not raw event tables. The dbt test suite (not-null, unique, relationships, custom business rules) caught data quality issues before they reached reports instead of after. The 100+ SQL pipelines didn&rsquo;t get built in a day, but dbt gave them structure, lineage, and confidence that ad hoc scripts never could.</p>
         </div>
 
         <section class="section">
@@ -695,16 +698,16 @@ ORDER BY 1;
         <section class="section results-grid">
             <h2>Results</h2>
             <div class="result-card">
-                <h4>Velocity</h4>
-                <p>Experiment setup time reduced from ~10 days to < 2 days.</p>
+                <h4>A/B Testing Impact</h4>
+                <p>23% feature adoption increase driven by systematic A/B experimentation; data-backed launch decisions outperformed gut-instinct releases.</p>
             </div>
             <div class="result-card">
-                <h4>Wins</h4>
-                <p>42% increase in successful feature launches after systematic experimentation.</p>
+                <h4>Self-Service Scale</h4>
+                <p>60% reduction in IT data request tickets via Power BI semantic layer built on dbt marts; teams access analytics independently.</p>
             </div>
             <div class="result-card">
-                <h4>Retention</h4>
-                <p>15% lift in 30-day retention for tested cohorts.</p>
+                <h4>Marketing ROI</h4>
+                <p>22% marketing efficiency improvement through 15-channel ROI, CAC, and LTV analysis across dimensional models in Snowflake.</p>
             </div>
         </section>
 
@@ -735,10 +738,11 @@ ORDER BY 1;
 
         <section class="section tech-grid">
             <h2>Tech Stack</h2>
-            <div class="tech-category">Snowflake, Redshift, Kafka, Kinesis</div>
-            <div class="tech-category">Spark/Flink, Databricks SQL, Databricks Workflows</div>
-            <div class="tech-category">Tableau, Jupyter, Python (pandas, scipy)</div>
-            <div class="tech-category">LaunchDarkly / Custom Feature Flags, JavaScript SDKs</div>
+            <div class="tech-category"><strong>Data Modeling &amp; Transformation:</strong> dbt Core, Star Schema, SCD Type 1 &amp; 2, Bridge Tables, Snowflake Schema</div>
+            <div class="tech-category"><strong>Data Infrastructure:</strong> Snowflake, Fivetran, Python (Pandas, NumPy), SQL (Advanced)</div>
+            <div class="tech-category"><strong>BI &amp; Visualization:</strong> Power BI (Service, Desktop, DAX), Tableau, Looker</div>
+            <div class="tech-category"><strong>Experimentation:</strong> Custom A/B framework, Feature flags, Statistical significance testing (scipy), Cohort analysis</div>
+            <div class="tech-category"><strong>DevOps:</strong> Git/GitHub, GitHub Actions, YAML, Docker</div>
         </section>
 
     </main>

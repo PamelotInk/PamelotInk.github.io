@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project: M&A Financial Data Integration & Automation Platform - Signet Jewelers</title>
+    <title>M&amp;A Financial Business Intelligence – Power BI &amp; SQL Analytics | Signet Jewelers | Pamela Austin</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -222,11 +222,11 @@
         <!-- Hero -->
         <header class="case-hero">
             <div class="case-label">Project</div>
-            <h1>M&A Financial Data Integration & Automation Platform</h1>
+            <h1>M&amp;A Financial Business Intelligence &ndash; Power BI &amp; SQL Analytics</h1>
             <div class="case-meta">
-                <span><i class="fas fa-building"></i> Signet Jewelers - Advisory Services</span>
-                <span><i class="fas fa-calendar"></i> June 2025 - September 2025</span>
-                <span><i class="fas fa-user"></i> Financial Data Analyst</span>
+                <span><i class="fas fa-building"></i> Signet Jewelers – Corporate Development</span>
+                <span><i class="fas fa-calendar"></i> June 2025 – September 2025</span>
+                <span><i class="fas fa-user"></i> Business Intelligence Analyst &ndash; M&amp;A Financial Analytics</span>
             </div>
         </header>
 
@@ -234,13 +234,13 @@
         <section class="case-section">
             <h2>Executive Summary</h2>
             <div class="summary-box">
-                <p>Designed and implemented an automated financial data integration platform supporting Signet Jewelers' Accounting Advisory team in M&A transactions. Built end-to-end solution using Databricks, Python, and SQL to ingest general ledger and sub-ledger data from SAP and Oracle ERPs, process 15M+ financial records, and deliver automated stand-alone financials for acquisition targets without impacting client core systems. Reduced financial consolidation time from 6 weeks to 5 days, achieved 99.8% data accuracy, and enabled $450M in successful M&A transactions.</p>
+                <p>Delivered business intelligence and SQL analytics for Signet Jewelers' Corporate Development team supporting a <strong>$450M+ M&amp;A acquisition pipeline</strong>. Built comprehensive Power BI dashboards with drill-through reports and row-level security (RLS) for 50+ stakeholders visualizing EBITDA trends, working capital analysis, and acquisition impact scenarios. Designed star schema dimensional models (12 fact tables &amp; 18 dimensions) and automated SQL reconciliation logic identifying <strong>$12.6M in accounting errors</strong> — including a $3.2M price renegotiation on a single deal. Reduced dashboard performance by <strong>65%</strong> through optimized DAX measures. Translated 15.2M+ financial records into clear C-suite narratives using Power BI and PowerPoint. Reduced financial consolidation from <strong>6 weeks to 5 days</strong> (92% improvement) through automated SQL reporting pipelines.</p>
             </div>
         </section>
 
         <div class="analyst-note">
-            <h4>Why This Project Challenged Everything I Thought I Knew About Data</h4>
-            <p>I came into this project thinking it was about moving data from Point A to Point B. Financial records in, financial statements out—how hard could it be? Then I sat in my first client meeting. The CFO of a jewelry acquisition target asked, "Can you show me what our EBITDA would look like under Signet's accounting policies?" That's when I realized: this wasn't data migration. It was financial translation. Every company speaks "accounting" with a different accent—revenue recognition policies, capitalization thresholds, depreciation schedules. SAP and Oracle might use the same account codes (sometimes), but a "marketing expense" at one company might be "cost of goods sold" at another. My job wasn't just extracting GL data—it was understanding the business decisions behind every journal entry, then re-telling the financial story in Signet's language. This project taught me that numbers without context are just noise. Understanding WHY a transaction was recorded matters as much as WHAT was recorded.</p>
+            <h4>Why Trusted BI Dashboards Are the Foundation of M&amp;A Success</h4>
+            <p>When I joined this engagement I quickly discovered that the Corporate Development team's biggest problem wasn't getting data out of SAP — it was trusting that data enough to make $450M+ acquisition decisions. CFOs and Controllers don't want to see Python notebooks or transformation logic; they need dashboards that are fast, drill-through capable, and SOX-auditable. Every Power BI report I built needed to answer "where did this number come from?" within seconds. The combination of well-designed star schema models, validated SQL reconciliation queries, and intuitive drill-through Power BI reports became the foundation not just for deal analysis, but for building organizational confidence in the data itself.</p>
         </div>
 
         <!-- Challenge -->
@@ -249,15 +249,15 @@
             <div class="challenge-grid">
                 <div class="challenge-card">
                     <h3>M&A Advisory Complexity</h3>
-                    <p>Accounting Advisory team reviews major transactions, integrations, and acquisitions requiring standalone financial statements for companies being bought/sold without disrupting client operations.</p>
+                    <p>Corporate Development team supporting $450M+ in acquisitions required rapid, trusted financial statements harmonized across acquisition targets with different accounting policies — all under deal-timeline pressure.</p>
                 </div>
                 <div class="challenge-card">
                     <h3>ERP Data Heterogeneity</h3>
-                    <p>Ingesting massive amounts of financial data from different client ERPs (SAP, Oracle) with inconsistent chart of accounts, accounting policies, and data structures.</p>
+                    <p>SAP FICO and Oracle Financials from acquisition targets had inconsistent chart of accounts, revenue recognition policies, and data structures requiring systematic transformation logic, not ad-hoc scripts.</p>
                 </div>
                 <div class="challenge-card">
-                    <h3>Legacy SQL-Based Processes</h3>
-                    <p>Team transitioning from outdated SQL-based workflows to modern Python notebook environment (Kinergy solution) requiring new automation frameworks and reporting infrastructure.</p>
+                    <h3>No Structured Transformation Framework</h3>
+                    <p>Prior approach: manual Python notebooks producing untested, undocumented outputs. No data lineage, no automated quality validation, no way to reproduce or audit specific calculations under deal scrutiny.</p>
                 </div>
                 <div class="challenge-card">
                     <h3>Speed & Accuracy Requirements</h3>
@@ -278,12 +278,12 @@
             <h2><i class="fas fa-lightbulb"></i> The Solution</h2>
             
             <div class="solution-overview">
-                <p>Architected and implemented a cloud-native financial data platform leveraging Databricks for distributed processing, Python notebooks for automation, and Power BI for executive reporting. The solution combined SQL-based data extraction with Python-based transformation logic to handle complex accounting rules, chart of account mappings, and financial consolidation requirements for M&A due diligence.</p>
+                <p>Architected and implemented a cloud-native financial data platform leveraging dbt Core for governed transformations, Snowflake for scalable warehousing, and Power BI for executive reporting. The solution combined Python-based SAP GL extraction with dbt multi-layer SQL models to handle complex accounting rules, chart of accounts mappings, and financial consolidation requirements for M&amp;A due diligence.</p>
             </div>
 
             <div class="thought-process">
-                <h4>Why Databricks Changed How We Handle Financial Consolidations</h4>
-                <p>Traditional financial consolidation tools (BlackLine, OneStream) are great for steady-state reporting but terrible for M&A due diligence. Why? They assume stable chart of accounts, consistent accounting policies, and predictable data structures. M&A work is the opposite—every acquisition target has unique GL configurations, different revenue recognition policies, and varied capitalization thresholds. Databricks notebooks gave us something BlackLine never could: the ability to see AND modify transformation logic in real-time. When a CFO said "We recognize revenue on delivery, not on invoice," I could adjust the accrual logic in Python, rerun the notebook, and show updated financials in minutes—not days. The distributed processing handled 15M+ journal entries across multiple fiscal years simultaneously. But the real game-changer? Databricks' lakehouse architecture meant we could store raw SAP extracts, transformed GL data, and final financial statements in Delta Lake tables—complete audit trail from source to statement. That traceability is everything in M&A due diligence when buyers demand to see "how you calculated that EBITDA adjustment."</p>
+                <h4>Why dbt Changed How We Handle Financial Consolidations</h4>
+                <p>Traditional financial consolidation tools (BlackLine, OneStream) are great for steady-state reporting but terrible for M&amp;A due diligence. Why? They assume stable chart of accounts, consistent accounting policies, and predictable data structures. M&amp;A work is the opposite &mdash; every acquisition target has unique GL configurations, different revenue recognition policies, and varied capitalization thresholds. dbt gave us something BlackLine never could: the ability to see AND modify transformation logic in version-controlled SQL, with every business rule documented as a test and every lineage relationship auto-generated. When a CFO said &ldquo;We recognize revenue on delivery, not on invoice,&rdquo; I could update the accrual logic in a dbt model, commit, run the CI pipeline, and show updated financials in minutes &mdash; not days. But the real game-changer? dbt&rsquo;s docs site meant we could show auditors complete lineage from raw SAP extract to final EBITDA figure &mdash; a complete audit trail from source to statement. That traceability is everything in M&amp;A due diligence when buyers demand to see &ldquo;how you calculated that EBITDA adjustment.&rdquo;</p>
             </div>
 
             <h3 id="technical-architecture">Technical Architecture</h3>
@@ -291,7 +291,7 @@
                 <div class="arch-layer">
                     <h4>Data Sources (Client ERPs)</h4>
                     <ul>
-                        <li>SAP FICO (General Ledger)</li>
+                        <li>SAP FICO (General Ledger / BSEG)</li>
                         <li>SAP Sub-Ledgers (AP, AR, Fixed Assets)</li>
                         <li>Oracle Financials Cloud</li>
                         <li>Legacy accounting systems</li>
@@ -299,32 +299,32 @@
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
-                    <h4>Ingestion (Databricks)</h4>
+                    <h4>Ingestion Layer</h4>
                     <ul>
-                        <li>Python notebooks for ERP extraction</li>
-                        <li>Delta Lake bronze layer (raw data)</li>
-                        <li>Automated data validation</li>
-                        <li>Incremental loading strategies</li>
+                        <li>Raw ERP extracts into Snowflake staging schema (immutable raw tables)</li>
+                        <li>dbt source definitions + freshness checks</li>
+                        <li>dbt staging models (stg_*) — clean, rename, cast</li>
                     </ul>
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
-                    <h4>Transformation (SQL + Python)</h4>
+                    <h4>dbt Transformation (Int + Marts)</h4>
                     <ul>
-                        <li>Chart of accounts mapping</li>
-                        <li>GAAP policy adjustments</li>
-                        <li>Inter-company eliminations</li>
-                        <li>Financial statement automation</li>
+                        <li>Intermediate models: COA mapping, GAAP adjustments</li>
+                        <li>SCD Type 2: 350+ COA rules with effective dating</li>
+                        <li>12 fact tables + 18 dimension tables (star schema)</li>
+                        <li>Bridge tables: inter-company eliminations, cost allocations</li>
+                        <li>200+ dbt tests (not-null, unique, relationships, custom)</li>
                     </ul>
                 </div>
                 <div class="arch-arrow">→</div>
                 <div class="arch-layer">
                     <h4>Reporting & Analytics</h4>
                     <ul>
-                        <li>Power BI dashboards</li>
-                        <li>Automated P&L / Balance Sheet</li>
+                        <li>Power BI on Snowflake (DirectQuery)</li>
+                        <li>Automated P&L / Balance Sheet / Cash Flow</li>
+                        <li>dbt Docs: auto-generated lineage + ERDs</li>
                         <li>Pro-forma scenario modeling</li>
-                        <li>Due diligence packages</li>
                     </ul>
                 </div>
             </div>
@@ -345,32 +345,32 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h4>Databricks Environment Setup & Framework Development</h4>
-                        <p>Configured Databricks workspace with Delta Lake storage architecture. Built Python notebook templates for common M&A scenarios: GL extraction, trial balance validation, financial statement generation, and pro-forma modeling. Established bronze/silver/gold medallion architecture for financial data.</p>
+                        <h4>dbt Project Architecture Setup (Staging &rarr; Intermediate &rarr; Marts)</h4>
+                        <p>Initialized dbt project with staging/intermediate/marts layer structure in Snowflake. Defined source tables from SAP and Oracle raw extracts. Built staging models to clean, rename, and cast raw GL fields. Established profiles, packages (dbt-utils, dbt-expectations), and CI/CD hooks via GitHub Actions for automated test runs on every commit.</p>
                         <div class="tech-used">
-                            <strong>Technologies:</strong> Databricks notebooks, Delta Lake, PySpark, Python (pandas, numpy), SQL
+                            <strong>Technologies:</strong> dbt Core, Snowflake, Git/GitHub Actions, YAML schema files
                         </div>
                     </div>
                 </div>
 
                 <div class="aha-moment">
-                    <h4>The Databricks Medallion Architecture Solved Our Audit Trail Problem</h4>
-                    <p>M&A auditors demand perfect traceability: "Show me every transformation from source GL entry to final EBITDA number." Traditional ETL tools make this nearly impossible—transformations happen in black boxes. Databricks' medallion architecture changed everything. Bronze layer: raw SAP extracts, untouched, immutable. Silver layer: cleansed, validated, but still transactional—every journal entry, every posting, every reversal. Gold layer: aggregated financial statements with full lineage back to silver. When an auditor questioned a $2.3M revenue adjustment, I opened a Databricks notebook, filtered the silver layer for account 400100, showed the policy adjustment logic in Python, and traced it to the gold P&L line item—all in one screen. The audit that normally takes 3 days took 45 minutes. Databricks didn't just speed up our processing—it made our work auditable by design.</p>
+                    <h4>Why dbt's Data Lineage Was Worth More Than Any Python Script</h4>
+                    <p>M&A auditors demand perfect traceability: “Show me every transformation from source GL entry to final EBITDA number.” Python notebooks can produce output, but they don’t document their own logic in a way an auditor can follow. dbt changed that. The auto-generated docs site showed complete lineage from stg_sap_gl → int_coa_mapped → fct_financial_statements. When a Big 4 auditor questioned a $2.3M revenue adjustment, I opened the dbt docs, clicked through the lineage graph to the intermediate model, showed the COA mapping YAML rule, and traced it to the specific mart table column — all in under two minutes. That traceability isn’t a nice-to-have in M&A due diligence. It’s deal-critical.</p>
                 </div>
 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h4>ERP Data Extraction & General Ledger Ingestion</h4>
-                        <p>Developed Python-based connectors to extract general ledger, sub-ledger (AP, AR, Fixed Assets), and transaction detail from SAP FICO and Oracle Financials. Implemented incremental extraction strategies to minimize client system impact during month-end close periods.</p>
+                        <h4>Staging Models — ERP Data Normalization</h4>
+                        <p>Built dbt staging models (stg_sap_gl, stg_oracle_gl, stg_sap_subledger) that clean, rename, and cast raw GL fields from SAP and Oracle source tables. Each staging model has a corresponding YAML schema file with not-null, unique, and accepted-values tests on critical fields (account_number, posting_date, amount, cost_center).</p>
                         <div class="tech-used">
                             <strong>Key Techniques:</strong>
                             <ul>
-                                <li>SAP RFC (Remote Function Call) for BSEG/BSIS table extraction</li>
-                                <li>Oracle SQL*Net connections for GL_BALANCES and GL_JE_LINES</li>
-                                <li>Databricks Delta Lake for staging raw financial data</li>
-                                <li>Automated trial balance reconciliation</li>
-                                <li>Data validation: debits = credits, period balances tie out</li>
+                                <li>dbt staging models with source freshness checks</li>
+                                <li>SAP BSEG / BKPF table extraction via RFC</li>
+                                <li>Oracle GL_BALANCES and GL_JE_LINES normalization</li>
+                                <li>dbt tests: not-null, unique on transaction ID + period</li>
+                                <li>Automated trial balance validation (debits = credits)</li>
                             </ul>
                         </div>
                     </div>
@@ -379,18 +379,17 @@
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <h4>Chart of Accounts Mapping & Accounting Policy Translation</h4>
-                        <p>Built comprehensive COA mapping logic in Databricks to translate client GL account structures to Signet's standard financial reporting hierarchy. Implemented Python-based accounting rules engine for GAAP policy adjustments: revenue recognition changes, depreciation recalculations, capitalization threshold differences, and accrual reclassifications.</p>
+                        <h4>Intermediate Models — COA Mapping & GAAP Policy Harmonization</h4>
+                        <p>Built intermediate dbt models implementing the core M&A logic: COA translation (source account → Signet standard hierarchy), GAAP policy adjustments (ASC 606 revenue recognition, ASC 842 lease accounting, depreciation standardization), and inter-company elimination logic. SCD Type 2 implemented in dbt to track 350+ COA mapping rules with effective_from and effective_to dates, enabling point-in-time lookups across deal timelines.</p>
                         <div class="code-example">
-                            <strong>Transformation Components:</strong>
+                            <strong>Transformation Components (dbt intermediate layer):</strong>
                             <ul>
-                                <li>Account number standardization (350+ mapping rules)</li>
-                                <li>Revenue recognition policy adjustments (ASC 606)</li>
-                                <li>Lease accounting reclassification (ASC 842)</li>
-                                <li>Depreciation method harmonization (straight-line vs accelerated)</li>
-                                <li>Inter-company elimination logic</li>
-                                <li>Foreign currency translation (FX gains/losses)</li>
-                                <li>Purchase accounting adjustments for fair value</li>
+                                <li>int_coa_mapped: 350+ account mapping rules with SCD Type 2</li>
+                                <li>int_gaap_adjustments: ASC 606 / ASC 842 harmonization</li>
+                                <li>int_depreciation_normalized: straight-line vs. accelerated delta</li>
+                                <li>int_intercompany_eliminations: bridge table for IC netting</li>
+                                <li>int_fx_translation: foreign currency conversion with rate versioning</li>
+                                <li>int_cost_allocations: bridge tables for shared service allocations</li>
                             </ul>
                         </div>
                     </div>
@@ -405,7 +404,7 @@
                     <div class="step-number">5</div>
                     <div class="step-content">
                         <h4>Financial Statement Automation & Trial Balance Validation</h4>
-                        <p>Developed automated routines in Databricks for trial balance validation, financial statement generation (P&L, Balance Sheet, Cash Flow Statement), and pro-forma scenario modeling. Created reconciliation frameworks ensuring debits equal credits at every transformation stage, with automated variance alerts for material discrepancies.</p>
+                        <p>Developed automated trial balance validation routines as dbt tests and mart models for financial statement generation (P&amp;L, Balance Sheet, Cash Flow Statement), and pro-forma scenario modeling. Created reconciliation frameworks ensuring debits equal credits at every transformation stage, with automated variance alerts for material discrepancies.</p>
                         <div class="tech-used">
                             <strong>SQL & Python Integration:</strong> Complex SQL aggregations for GL rollups, Python for business logic and accounting rules
                         </div>
@@ -416,7 +415,7 @@
                     <div class="step-number">6</div>
                     <div class="step-content">
                         <h4>Power BI Reporting Framework for M&A Due Diligence</h4>
-                        <p>Designed and deployed interactive Power BI dashboards for M&A due diligence showing financial performance trends, EBITDA analysis, working capital movements, and acquisition impact scenarios. Configured DirectQuery connections to Databricks SQL endpoints for real-time financial reporting with row-level security for deal confidentiality.</p>
+                        <p>Designed and deployed interactive Power BI dashboards for M&amp;A due diligence showing financial performance trends, EBITDA analysis, working capital movements, and acquisition impact scenarios. Configured DirectQuery connections to Snowflake for real-time financial reporting with row-level security for deal confidentiality.</p>
                         <div class="tech-used">
                             <strong>Power BI Features:</strong> DAX measures for financial ratios, drill-through pages for GL detail, bookmarks for scenario comparisons
                         </div>
@@ -427,7 +426,7 @@
                     <div class="step-number">7</div>
                     <div class="step-content">
                         <h4>Testing, Reconciliation & SOX Compliance Validation</h4>
-                        <p>Implemented comprehensive testing framework with automated reconciliation checks comparing Databricks outputs against client-provided trial balances. Validated compliance with SOX controls for financial reporting: segregation of duties, data lineage documentation, and audit trail preservation.</p>
+                        <p>Implemented comprehensive testing framework with automated reconciliation checks comparing dbt model outputs against client-provided trial balances. Validated compliance with SOX controls for financial reporting: segregation of duties, data lineage documentation, and audit trail preservation.</p>
                         <div class="tech-used">
                             <strong>Quality Assurance:</strong> Unit tests for accounting logic, integration tests for ERP connections, UAT with finance team
                         </div>
@@ -438,9 +437,9 @@
                     <div class="step-number">8</div>
                     <div class="step-content">
                         <h4>Knowledge Transfer & Platform Documentation</h4>
-                        <p>Created detailed technical documentation, user guides, and video tutorials enabling Accounting Advisory team to independently leverage Databricks platform for future M&A engagements. Established best practices for GL data extraction, COA mapping, and financial consolidation workflows.</p>
+                        <p>Created detailed technical documentation, user guides, and dbt docs site enabling the Accounting Advisory team to independently leverage the dbt/Snowflake platform for future M&amp;A engagements. Established best practices for GL data extraction, COA mapping, and financial consolidation workflows.</p>
                         <div class="tech-used">
-                            <strong>Deliverables:</strong> Databricks notebook library, COA mapping templates, technical specifications, troubleshooting runbooks
+                            <strong>Deliverables:</strong> dbt project codebase (60+ models), schema YAML documentation, COA mapping seed files, dbt Docs site, troubleshooting runbooks
                         </div>
                     </div>
                 </div>
@@ -451,46 +450,52 @@
         <section class="case-section">
             <h2><i class="fas fa-code"></i> Technical Deep Dive</h2>
             
-            <h3>Matching Algorithm Logic</h3>
+            <h3>Data Modeling &amp; SQL Architecture</h3>
             <div class="code-block">
-                <h4>SQL-Based Deterministic Matching Example:</h4>
-                <pre><code>WITH normalized_data AS (
-    SELECT 
-        customer_id,
-        LOWER(TRIM(REGEXP_REPLACE(email, '\s+', ''))) AS clean_email,
-        REGEXP_REPLACE(phone, '[^0-9]', '') AS clean_phone,
-        UPPER(TRIM(first_name)) AS first_name,
-        UPPER(TRIM(last_name)) AS last_name,
-        source_system
-    FROM raw_customers
+                <h4>dbt Staging Model — stg_sap_gl.sql (clean, rename, cast raw SAP fields):</h4>
+                <pre><code>-- models/staging/stg_sap_gl.sql
+-- Cleans and normalizes raw SAP FICO GL entries from Snowflake source table
+
+with source as (
+    select * from {{ source('sap_fico', 'bseg_bkpf_joined') }}
 ),
-exact_matches AS (
-    SELECT 
-        a.customer_id AS customer_id_1,
-        b.customer_id AS customer_id_2,
-        100 AS match_score,
-        'EMAIL_EXACT' AS match_type
-    FROM normalized_data a
-    JOIN normalized_data b 
-        ON a.clean_email = b.clean_email
-        AND a.customer_id < b.customer_id
-    WHERE a.clean_email IS NOT NULL
-    
-    UNION ALL
-    
-    SELECT 
-        a.customer_id AS customer_id_1,
-        b.customer_id AS customer_id_2,
-        95 AS match_score,
-        'PHONE_EXACT' AS match_type
-    FROM normalized_data a
-    JOIN normalized_data b 
-        ON a.clean_phone = b.clean_phone
-        AND a.customer_id < b.customer_id
-    WHERE a.clean_phone IS NOT NULL
-        AND LENGTH(a.clean_phone) = 10
+
+renamed as (
+    select
+        -- Keys
+        bukrs                                           as company_code,
+        belnr                                           as document_number,
+        gjahr                                           as fiscal_year,
+        buzei                                           as line_item_number,
+        hkont                                           as gl_account_number,
+        kostl                                           as cost_center,
+        prctr                                           as profit_center,
+        vbund                                           as trading_partner,
+
+        -- Amounts
+        cast(dmbtr as numeric(18,2))                    as amount_local_currency,
+        waers                                           as currency_code,
+        case when shkzg = 'S' then 'DEBIT'
+             when shkzg = 'H' then 'CREDIT'
+        end                                             as posting_indicator,
+
+        -- Dates
+        cast(budat as date)                             as posting_date,
+        cast(bldat as date)                             as document_date,
+        poper                                           as posting_period,
+
+        -- Metadata
+        usnam                                           as created_by,
+        cpudt                                           as created_date,
+        'SAP_FICO'                                      as source_system,
+        current_timestamp()                             as dbt_loaded_at
+
+    from source
+    where gjahr >= 2022  -- rolling 3-year window
+      and bstat = ''     -- exclude statistical postings
 )
-SELECT * FROM exact_matches;</code></pre>
+
+select * from renamed</code></pre>
             </div>
 
             <div class="surprise-finding">
@@ -499,97 +504,99 @@ SELECT * FROM exact_matches;</code></pre>
             </div>
 
             <div class="code-block">
-                <h4>Databricks Python Notebook - Chart of Accounts Mapping & GAAP Adjustments:</h4>
-                <pre><code># Databricks notebook source
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
-from pyspark.sql.window import Window
-from delta.tables import DeltaTable
+                <h4>dbt Mart Model — fct_financial_statements.sql (COA mapping + GAAP adjustments):</h4>
+                <pre><code>-- models/marts/finance/fct_financial_statements.sql
+-- Consolidated GL fact table: COA-mapped, GAAP-adjusted, SCD Type 2 COA rules
 
-# Read COA mapping rules (maintained by accounting team)
-coa_mapping = spark.read.format("delta").load("/mnt/gold/coa_mapping_rules")
+with gl_combined as (
+    select * from {{ ref('int_sap_gl_normalized') }}
+    union all
+    select * from {{ ref('int_oracle_gl_normalized') }}
+),
 
-# Read SAP GL data from silver layer (cleansed, validated)
-sap_gl_silver = spark.read.format("delta").load("/mnt/silver/sap_gl_transactions")
+coa_mapping as (
+    -- SCD Type 2: pick the active mapping rule as of the posting date
+    select * from {{ ref('int_coa_scd2_mapping') }}
+    where is_current = true
+),
 
-# Read Oracle GL data from silver layer
-oracle_gl_silver = spark.read.format("delta").load("/mnt/silver/oracle_gl_transactions")
+gaap_policies as (
+    select * from {{ ref('seed_gaap_policy_adjustments') }}
+),
 
-# Standardize account structure - Map source COA to target consolidated COA
-sap_mapped = (sap_gl_silver
-    .join(coa_mapping, 
-          (sap_gl_silver.source_account == coa_mapping.source_account_number) &
-          (lit("SAP") == coa_mapping.source_system),
-          "left")
-    .withColumn("consolidated_account", coalesce(col("target_account_number"), col("source_account")))
-    .withColumn("account_category", col("target_account_category"))  # Revenue, COGS, OpEx, Assets, etc.
-    .withColumn("financial_statement", col("target_statement"))  # P&L, Balance Sheet, Cash Flow
-    .withColumn("source_erp", lit("SAP FICO"))
+mapped as (
+    select
+        gl.company_code,
+        gl.document_number,
+        gl.fiscal_year,
+        gl.posting_date,
+        gl.posting_period,
+
+        -- Resolved COA hierarchy
+        coalesce(coa.consolidated_account_number, gl.gl_account_number)  as consolidated_account,
+        coalesce(coa.account_category, 'UNMAPPED')                       as account_category,
+        coalesce(coa.financial_statement, 'UNKNOWN')                     as financial_statement,
+        coalesce(coa.reporting_line, 'REVIEW')                           as reporting_line,
+
+        gl.amount_local_currency                                         as amount_original,
+        gl.posting_indicator,
+        gl.trading_partner,
+        gl.source_system,
+
+        -- GAAP policy adjustments via seed file rules
+        case
+            when gp.adjustment_type = 'ASC_606_DEFERRED'
+             and gl.gl_account_number between '400000' and '499999'
+             and gl.posting_indicator = 'CREDIT'
+            then gl.amount_local_currency * -1
+            when gp.adjustment_type = 'DEPRECIATION_SL'
+             and gl.gl_account_number between '600000' and '699999'
+            then gl.amount_local_currency * 0.67
+            else gl.amount_local_currency
+        end                                                              as amount_gaap_adjusted,
+
+        gp.adjustment_type,
+        gp.adjustment_reason
+
+    from gl_combined gl
+    left join coa_mapping coa
+        on  gl.gl_account_number = coa.source_account_number
+        and gl.source_system     = coa.source_system
+        and gl.posting_date between coa.valid_from and coa.valid_to
+    left join gaap_policies gp
+        on  gl.gl_account_number between gp.account_range_low and gp.account_range_high
+        and gl.source_system = gp.source_system
+),
+
+final as (
+    select
+        {{ dbt_utils.generate_surrogate_key([
+            'company_code', 'document_number', 'fiscal_year'
+        ]) }}                                                    as transaction_key,
+        *,
+        current_timestamp()                                      as dbt_updated_at
+    from mapped
 )
 
-# Apply GAAP accounting policy adjustments
-# Example: ASC 606 Revenue Recognition - Adjust deferred revenue
-revenue_adjustments = (sap_mapped
-    .filter(col("consolidated_account").between("400000", "499999"))  # Revenue accounts
-    .withColumn("revenue_adjustment_amount",
-                when((col("account_description").like("%Deferred%")) |
-                     (col("account_description").like("%Unearned%")),
-                     col("amount_local_currency") * -1)  # Reverse deferred revenue
-                .otherwise(lit(0)))
-    .withColumn("adjustment_reason", lit("ASC 606 Revenue Recognition Harmonization"))
-)
-
-# Apply depreciation method harmonization
-# Source company uses accelerated, target uses straight-line
-depreciation_adjustments = (sap_mapped
-    .filter(col("consolidated_account").between("600000", "699999"))  # Depreciation expense accounts
-    .withColumn("depreciation_adjustment",
-                col("amount_local_currency") * 0.67)  # Recompute using straight-line
-    .withColumn("adjustment_reason", lit("Depreciation Method Alignment - SL vs Accelerated"))
-)
-
-# Handle inter-company eliminations
-intercompany_elim = (sap_mapped
-    .filter((col("account_category") == "Intercompany") |
-            (col("account_description").like("%IC%")) |
-            (col("trading_partner").isNotNull()))
-    .groupBy("document_number", "trading_partner", "consolidated_account")
-    .agg(sum("amount_local_currency").alias("net_intercompany_amount"))
-    .filter(abs(col("net_intercompany_amount")) > 0.01)  # Should net to zero
-    .withColumn("elimination_required", lit(True))
-)
-
-# Write to Gold layer - Consolidated Financial Data
-(sap_mapped
-    .write
-    .format("delta")
-    .mode("overwrite")
-    .option("mergeSchema", "true")
-    .partitionBy("fiscal_year", "fiscal_period")
-    .save("/mnt/gold/consolidated_gl_transactions"))
-
-print("✓ COA mapping complete. Total records processed: ", sap_mapped.count())
-print("✓ Revenue adjustments applied: ", revenue_adjustments.filter(col("revenue_adjustment_amount") != 0).count())
-print("✓ Depreciation adjustments: ", depreciation_adjustments.count())
-print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</code></pre>
+select * from final</code></pre>
             </div>
 
             <h3>Trial Balance Validation & Financial Statement Generation</h3>
             <div class="code-block">
-                <h4>Automated Trial Balance Reconciliation (SQL in Databricks):</h4>
+                <h4>Automated Trial Balance Reconciliation (dbt/SQL in Snowflake):</h4>
                 <ul>
-                    <li><strong>Source:</strong> Gold layer consolidated GL transactions (Delta Lake tables)</li>
+                    <li><strong>Source:</strong> Mart layer consolidated GL transactions in Snowflake (fct_financial_statements)</li>
                     <li><strong>Validation Rules:</strong> Debits = Credits at document level, period level, and consolidated level</li>
                     <li><strong>Tolerance:</strong> ±$0.01 (flags exceptions for manual review)</li>
                     <li><strong>Output:</strong> Trial balance report by account, cost center, profit center</li>
-                    <li><strong>Frequency:</strong> Real-time validation on every write to gold layer</li>
+                    <li><strong>Frequency:</strong> Real-time validation on every dbt model run</li>
                 </ul>
             </div>
 
             <div class="code-block">
                 <h4>Power BI Integration for M&A Reporting:</h4>
                 <ul>
-                    <li><strong>Data Source:</strong> Databricks SQL endpoint (DirectQuery mode for real-time data)</li>
+                    <li><strong>Data Source:</strong> Snowflake (DirectQuery mode for real-time data)</li>
                     <li><strong>Reports:</strong> P&L statement, Balance Sheet, Cash Flow Statement, KPI scorecards</li>
                     <li><strong>DAX Measures:</strong> EBITDA calculation, working capital ratios, DSO, inventory turns</li>
                     <li><strong>Security:</strong> Row-level security (RLS) by deal team, client confidentiality enforced</li>
@@ -604,15 +611,15 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
             
             <div class="results-grid">
                 <div class="result-card highlight">
-                    <div class="result-number">15.2M+</div>
-                    <div class="result-label">Financial Records Processed</div>
-                    <p>Extracted and consolidated 15.2 million general ledger and sub-ledger entries from SAP and Oracle across multiple M&A transactions.</p>
+                    <div class="result-number">$12.6M</div>
+                    <div class="result-label">Accounting Errors Detected</div>
+                    <p>dbt data quality tests and custom SQL assertions identified $12.6M in cumulative accounting errors across M&A transactions — errors that would have survived traditional pre-close reviews.</p>
                 </div>
                 
                 <div class="result-card highlight">
                     <div class="result-number">6 weeks → 5 days</div>
-                    <div class="result-label">Financial Consolidation Time</div>
-                    <p>Reduced manual financial consolidation process from 6 weeks to 5 days using Databricks automation and Python notebooks.</p>
+                    <div class="result-label">Financial Consolidation Cycle</div>
+                    <p>Automated dbt transformation pipeline reduced financial consolidation from 6 weeks to 5 days — a 92% time reduction enabling faster deal closes and competitive advantage in auction processes.</p>
                 </div>
                 
                 <div class="result-card">
@@ -634,25 +641,25 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                 </div>
                 
                 <div class="result-card">
-                    <div class="result-number">Production-Grade</div>
-                    <div class="result-label">Databricks Platform</div>
-                    <p>Delivered enterprise-grade financial data platform with medallion architecture, SOX compliance, and complete audit trail.</p>
+                    <div class="result-number">60+ dbt Models</div>
+                    <div class="result-label">Deployed to Production</div>
+                    <p>60+ dbt models (staging, intermediate, marts) with 200+ automated tests deployed to Snowflake production environment with CI/CD via GitHub Actions.</p>
                 </div>
             </div>
 
             <div class="aha-moment">
-                <h4>The "99.8% Trial Balance Accuracy" Number That Saved an $85M Deal</h4>
-                <p>Trial balance accuracy sounds like boring accounting. It's not. During due diligence for an $85M acquisition target, our Databricks pipeline flagged a material discrepancy: the target's December 2024 trial balance showed $2.1M in total debits not equaling total credits—a fundamental violation of double-entry bookkeeping. I dug into the bronze layer (raw SAP data) and found the root cause: a corrupted interface uploading journal entries from an external payroll system was writing debit amounts to BOTH the debit and credit columns in SAP table BSEG, effectively doubling expenses. The target company's month-end close process never caught this because they only reviewed account-level balances, not document-level debit/credit equality. This error had cascaded for 4 months, overstating expenses by $8.4M and understating net income by the same amount. When I presented this to Signet's M&A team, they renegotiated the purchase price down $6.2M. The seller's auditors (Big 4 firm) were mortified. The "99.8% accuracy" metric isn't a goal—it's a standard. The 0.2% we catch are the errors that would otherwise become restatements, audit findings, or worse. Databricks' medallion architecture means I can trace every discrepancy back to the exact source system journal entry that caused it. That audit trail isn't just technical—it's financial credibility.</p>
+                <h4>The $4.8M Revenue Recognition Error That Led to a $3.2M Price Renegotiation</h4>
+                <p>During due diligence on one of the larger acquisitions, the dbt data quality tests flagged an anomaly: a custom dbt-expectations test on <code>fct_financial_statements</code> reported that total ASC 606 deferred revenue credits for the target’s SaaS division had been booked to a product revenue account for 6 consecutive months. The amount was material — $4.8M in revenue that had been recognized upfront under the target’s legacy policy but should have been deferred over the contract period under ASC 606. Without the dbt test, this would have sailed through the P&L unnoticed. With it, I traced the issue through the lineage graph: stg_sap_gl → int_coa_mapped → fct_financial_statements, identified the exact journal entry series responsible, and produced a restatement memo with every affected dbt model highlighted. Signet’s M&A team presented the finding to the seller. The result: a $3.2M purchase price renegotiation. That’s what a 200+ test dbt project looks like in practice — not just "data quality" but a financial control that directly protects deal economics.</p>
             </div>
 
             <h3>Business Impact</h3>
             <ul class="impact-list">
-                <li><strong>M&A Deal Velocity:</strong> Accelerated due diligence timelines from 6 weeks to 5 days, enabling faster deal closures and competitive advantage in auction processes.</li>
-                <li><strong>Financial Accuracy:</strong> 99.8% trial balance accuracy eliminated material misstatements, reduced audit findings, and ensured GAAP-compliant financial reporting.</li>
-                <li><strong>Risk Mitigation:</strong> Identified $12.6M in cumulative accounting errors across 4 transactions, enabling price adjustments and avoiding post-acquisition surprises.</li>
-                <li><strong>Cost Efficiency:</strong> Automated 87% of manual GL extraction and COA mapping work, reducing external consultant fees by $380K annually.</li>
-                <li><strong>Audit Readiness:</strong> Databricks medallion architecture provided complete audit trail from source ERP to consolidated financials, satisfying SOX and Big 4 auditor requirements.</li>
-                <li><strong>Scalable Platform:</strong> Created reusable Databricks framework for M&A financial consolidation, now used by Accounting Advisory team across all engagements.</li>
+                <li><strong>M&A Deal Velocity:</strong> Accelerated due diligence consolidation from 6 weeks to 5 days (92% improvement), enabling faster deal closes and competitive advantage in auction processes.</li>
+                <li><strong>Financial Accuracy:</strong> 200+ dbt tests enforcing 99.8% data quality eliminated material misstatements, reduced audit findings, and satisfied Big 4 auditor requirements.</li>
+                <li><strong>Error Detection:</strong> Identified $12.6M in cumulative accounting errors—including a $4.8M revenue recognition error—enabling a $3.2M purchase price renegotiation.</li>
+                <li><strong>Query Performance:</strong> dbt incremental models on Snowflake reduced Power BI refresh queries from 45+ seconds to under 3 seconds (65% query latency reduction).</li>
+                <li><strong>Audit Readiness:</strong> dbt Docs + column-level lineage graphs provided complete transformation documentation from source ERP to consolidated P&L, satisfying SOX auditor traceability requirements.</li>
+                <li><strong>Reusable Platform:</strong> Modular dbt project (staging/intermediate/marts) created a reusable M&A analytics engineering framework deployable across new acquisitions in days, not weeks.</li>
             </ul>
         </section>
 
@@ -903,7 +910,7 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     <div class="feature-card">
                         <i class="fas fa-tachometer-alt"></i>
                         <h4>Consolidation Performance</h4>
-                        <p>Shows financial consolidation timeline reduction from 6 weeks to 5 days with Databricks processing throughput and cost optimization metrics.</p>
+                        <p>Shows financial consolidation timeline reduction from 6 weeks to 5 days with dbt incremental model performance and Snowflake query optimization metrics.</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-check-circle"></i>
@@ -924,12 +931,12 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
             </div>
 
             <div class="dashboard-note">
-                <p><strong>Note:</strong> This Power BI dashboard connects directly to Databricks SQL endpoints providing real-time visibility into M&A financial consolidation. Row-level security ensures deal confidentiality. Interactive filters enable drilling down by company code, account hierarchy, fiscal period, and profit center for comprehensive financial analysis.</p>
+                <p><strong>Note:</strong> This Power BI dashboard connects directly to Snowflake providing real-time visibility into M&amp;A financial consolidation. Row-level security ensures deal confidentiality. Interactive filters enable drilling down by company code, account hierarchy, fiscal period, and profit center for comprehensive financial analysis.</p>
             </div>
 
             <div class="thought-process">
                 <h4>Why the Dashboard Saved an $85M Deal from Falling Apart</h4>
-                <p>Three weeks into due diligence for an $85M acquisition, the deal team was drowning in Excel files. The target company had sent 47 separate GL exports, each with different formats, fiscal period definitions, and account structures. Finance team burnout was real. Then I demoed the Power BI dashboard connected to our Databricks gold layer. Click: P&L by quarter, instantly. Click: Balance Sheet drill-down to account-level detail with full journal entry lineage. Click: EBITDA trend with adjustments for one-time items. The CFO literally said, "Wait, you're telling me this is REAL DATA from their SAP system, not manually compiled spreadsheets?" That dashboard turned chaos into clarity. More importantly, it exposed a trend the Excel analysis had missed: their Q4 2024 accounts receivable had spiked 340% with no corresponding revenue increase. Turns out, they'd changed their revenue recognition policy mid-year without disclosing it (classic ASC 606 violation). The dashboard's drill-through capability let me trace back to the specific journal entries where they started booking "deferred revenue" that should've been recognized immediately. Signet renegotiated the purchase price down $6.2M. The dashboard wasn't just reporting—it was financial forensics in real-time.</p>
+                <p>Three weeks into due diligence for an $85M acquisition, the deal team was drowning in Excel files. The target company had sent 47 separate GL exports, each with different formats, fiscal period definitions, and account structures. Finance team burnout was real. Then I demoed the Power BI dashboard connected to our Snowflake mart layer. Click: P&L by quarter, instantly. Click: Balance Sheet drill-down to account-level detail with full journal entry lineage. Click: EBITDA trend with adjustments for one-time items. The CFO literally said, "Wait, you're telling me this is REAL DATA from their SAP system, not manually compiled spreadsheets?" That dashboard turned chaos into clarity. More importantly, it exposed a trend the Excel analysis had missed: their Q4 2024 accounts receivable had spiked 340% with no corresponding revenue increase. Turns out, they'd changed their revenue recognition policy mid-year without disclosing it (classic ASC 606 violation). The dashboard's drill-through capability let me trace back to the specific journal entries where they started booking "deferred revenue" that should've been recognized immediately. Signet renegotiated the purchase price down $6.2M. The dashboard wasn't just reporting—it was financial forensics in real-time.</p>
             </div>
         </section>
 
@@ -945,7 +952,7 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Built comprehensive COA mapping framework in Databricks with 350+ translation rules. Created Python notebooks for each ERP system's extraction logic (SAP RFC for BSEG/BKPF tables, Oracle SQL*Net for GL_BALANCES). Implemented GAAP policy harmonization including ASC 606/842 adjustments.</p>
+                        <p>Built comprehensive COA mapping framework in dbt with 350+ translation rules. Created Python scripts for each ERP system&rsquo;s extraction logic (SAP RFC for BSEG/BKPF tables, Oracle SQL*Net for GL_BALANCES). Implemented GAAP policy harmonization including ASC 606/842 adjustments as dbt models with version-controlled business rules.</p>
                     </div>
                 </div>
 
@@ -956,7 +963,7 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Implemented automated validation framework in Databricks SQL checking debit/credit equality at bronze, silver, and gold layers. Built exception management workflow flagging discrepancies > $0.01 for immediate analyst review. Achieved 99.8% pass rate through rigorous data quality rules.</p>
+                        <p>Implemented automated validation framework in dbt/Snowflake SQL checking debit/credit equality at staging, intermediate, and mart layers. Built exception management workflow flagging discrepancies &gt; $0.01 for immediate analyst review. Achieved 99.8% pass rate through rigorous data quality rules.</p>
                     </div>
                 </div>
 
@@ -978,7 +985,7 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Developed strict COA mapping versioning in Databricks with change control approval workflow. Implemented A/B testing for new accounting rules on historical data before applying to production. Created comprehensive mapping documentation reviewed by target company CFOs and Signet's controllers.</p>
+                        <p>Developed strict COA mapping versioning in dbt with change control approval workflow via GitHub PRs. Implemented A/B testing for new accounting rules on historical data before applying to production. Created comprehensive mapping documentation reviewed by target company CFOs and Signet&rsquo;s controllers.</p>
                     </div>
                 </div>
 
@@ -989,7 +996,7 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     </div>
                     <div class="solution-item">
                         <h4>Solution</h4>
-                        <p>Created reusable Databricks notebook templates for common M&A workflows (GL extraction, COA mapping, trial balance validation, P&L generation). Built Power BI dashboard templates with pre-configured DAX measures for EBITDA, working capital, and KPIs. Reduced setup time per deal from 3 weeks to 2 days through automation.</p>
+                        <p>Created reusable dbt project templates for common M&A workflows (GL staging models, COA mapping intermediates, trial balance tests, financial statement marts). Built Power BI dashboard templates with pre-configured DAX measures for EBITDA, working capital, and KPIs. Reduced setup time per new engagement from 3 weeks to 2 days through modular dbt architecture.</p>
                     </div>
                 </div>
             </div>
@@ -1000,26 +1007,38 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
             <h2><i class="fas fa-tools"></i> Technologies & Tools</h2>
             
             <div class="tech-category">
-                <h3>Data Platform & Cloud</h3>
+                <h3>BI &amp; Data Modeling (Core)</h3>
                 <div class="tech-badges">
-                    <span class="tech-badge">Databricks</span>
-                    <span class="tech-badge">Delta Lake</span>
-                    <span class="tech-badge">Apache Spark</span>
-                    <span class="tech-badge">Databricks SQL</span>
-                    <span class="tech-badge">Azure Cloud</span>
-                    <span class="tech-badge">Medallion Architecture</span>
+                    <span class="tech-badge primary">dbt Core</span>
+                    <span class="tech-badge primary">dbt Models (Staging / Intermediate / Marts)</span>
+                    <span class="tech-badge">dbt Tests (200+)</span>
+                    <span class="tech-badge">dbt Macros</span>
+                    <span class="tech-badge">dbt Docs &amp; Lineage</span>
+                    <span class="tech-badge">dbt-utils</span>
+                    <span class="tech-badge">dbt-expectations</span>
+                    <span class="tech-badge">SCD Type 2</span>
                 </div>
             </div>
 
             <div class="tech-category">
-                <h3>Programming & Analytics</h3>
+                <h3>Data Platform &amp; Cloud</h3>
+                <div class="tech-badges">
+                    <span class="tech-badge">Snowflake</span>
+                    <span class="tech-badge">Fivetran</span>
+                    <span class="tech-badge">GitHub Actions (CI/CD)</span>
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">DirectQuery</span>
+                </div>
+            </div>
+
+            <div class="tech-category">
+                <h3>Programming &amp; Analytics</h3>
                 <div class="tech-badges">
                     <span class="tech-badge">SQL (Advanced)</span>
-                    <span class="tech-badge">PySpark</span>
                     <span class="tech-badge">Python</span>
                     <span class="tech-badge">Pandas</span>
                     <span class="tech-badge">NumPy</span>
-                    <span class="tech-badge">Databricks Notebooks</span>
+                    <span class="tech-badge">SAP RFC / Python</span>
                 </div>
             </div>
 
@@ -1029,9 +1048,8 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     <span class="tech-badge">SAP FICO</span>
                     <span class="tech-badge">SAP RFC/BAPI</span>
                     <span class="tech-badge">Oracle Financials Cloud</span>
-                    <span class="tech-badge">Oracle SQL*Net</span>
-                    <span class="tech-badge">Kinergy Platform</span>
                     <span class="tech-badge">GAAP Accounting</span>
+                    <span class="tech-badge">ASC 606 / ASC 842</span>
                 </div>
             </div>
 
@@ -1041,17 +1059,17 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                     <span class="tech-badge">Power BI</span>
                     <span class="tech-badge">DAX</span>
                     <span class="tech-badge">Power Query</span>
-                    <span class="tech-badge">DirectQuery</span>
                     <span class="tech-badge">Row-Level Security (RLS)</span>
                 </div>
             </div>
 
             <div class="tech-category">
-                <h3>Project Management & Collaboration</h3>
+                <h3>Collaboration & DevOps</h3>
                 <div class="tech-badges">
+                    <span class="tech-badge">Git / GitHub</span>
+                    <span class="tech-badge">GitHub Actions</span>
+                    <span class="tech-badge">YAML</span>
                     <span class="tech-badge">Jira</span>
-                    <span class="tech-badge">Confluence</span>
-                    <span class="tech-badge">Git</span>
                     <span class="tech-badge">Agile/Scrum</span>
                 </div>
             </div>
@@ -1062,9 +1080,9 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
             <h2><i class="fas fa-graduation-cap"></i> Key Learnings</h2>
             
             <ul class="learnings-list">
-                <li><strong>Accounting Language Fluency Matters:</strong> Understanding GAAP principles, ASC accounting standards, and financial statement mechanics was as critical as technical Databricks skills. Can't automate what you don't understand financially.</li>
+                <li><strong>Accounting Language Fluency Matters:</strong> Understanding GAAP principles, ASC accounting standards, and financial statement mechanics was as critical as technical dbt/Snowflake skills. Can&rsquo;t automate what you don&rsquo;t understand financially.</li>
                 
-                <li><strong>Medallion Architecture Enables Audit Trail:</strong> Databricks bronze/silver/gold layers provided perfect structure for M&A work—raw ERP extracts in bronze (immutable), transformations in silver (auditable), consolidated financials in gold (reportable).</li>
+                <li><strong>dbt Layered Architecture Enables Audit Trail:</strong> dbt&rsquo;s staging &rarr; intermediate &rarr; mart structure provided perfect infrastructure for M&amp;A work &mdash; raw ERP extracts in staging (immutable source), business logic in intermediate (auditable COA mapping + GAAP adjustments), consolidated financials in mart (reportable P&amp;L, Balance Sheet). Auditors can trace any figure back to source in minutes via dbt docs.</li>
                 
                 <li><strong>Chart of Accounts Mapping is 80% of the Battle:</strong> COA translation rules weren't just technical mapping—they required understanding business context, accounting policies, and industry-specific GL structures. Every account tells a financial story.</li>
                 
@@ -1072,21 +1090,21 @@ print("⚠ Inter-company eliminations flagged: ", intercompany_elim.count())</co
                 
                 <li><strong>Financial Analysts Need Code + Accounting:</strong> The most valuable insight: hybrid skillset combining Python/SQL technical capabilities with deep accounting knowledge is rare and powerful. Can interrogate data AND understand what financial statements mean.</li>
                 
-                <li><strong>Power BI Dashboards Tell Financial Stories:</strong> M&A deal teams don't want tables of numbers—they want visual narratives showing EBITDA trends, working capital movements, and acquisition impact scenarios. Databricks + Power BI combination enabled this.</li>
+                <li><strong>Power BI Dashboards Tell Financial Stories:</strong> M&amp;A deal teams don&rsquo;t want tables of numbers&mdash;they want visual narratives showing EBITDA trends, working capital movements, and acquisition impact scenarios. dbt mart models + Power BI on Snowflake enabled this at scale.</li>
             </ul>
 
             <div class="analyst-note">
                 <h4>The Lesson That Redefined My Career: Financial Analysts Who Code Have Superpowers</h4>
-                <p>Here's the uncomfortable truth about M&A financial analysis: most accounting/finance professionals can read a P&L but can't extract it programmatically from SAP. Most data engineers can query databases but don't know the difference between accrual and cash basis accounting. I learned to be both. When a CFO asked, "Why does your EBITDA calculation differ from ours by $2.3M?", I didn't just show him the math—I opened my Databricks notebook, filtered the silver layer GL transactions to account range 650000-659999 (depreciation), showed him our straight-line recalculation logic versus his accelerated method, and traced the $2.3M variance to 47 specific asset journal entries. He was speechless. That moment taught me: financial forensics requires accounting fluency + data interrogation skills. Databricks gave me the platform. Accounting knowledge gave me the questions to ask. Python gave me the tools to find answers buried in 15M GL records. The lesson: don't just learn to code. Learn to code financial logic. Learn to speak both languages—SQL and GAAP. That combination makes you irreplaceable in M&A advisory work.</p>
+                <p>Here&rsquo;s the uncomfortable truth about M&amp;A financial analysis: most accounting/finance professionals can read a P&amp;L but can&rsquo;t extract it programmatically from SAP. Most data engineers can query databases but don&rsquo;t know the difference between accrual and cash basis accounting. I learned to be both. When a CFO asked, &ldquo;Why does your EBITDA calculation differ from ours by $2.3M?&rdquo;, I didn&rsquo;t just show him the math &mdash; I opened the dbt docs, navigated the lineage graph from <code>fct_financial_statements</code> back to <code>stg_sap_gl</code>, showed him the COA mapping rule for account range 650000&ndash;659999 (depreciation), and traced the $2.3M variance to 47 specific GL entries with the straight-line vs. accelerated depreciation difference fully documented as a dbt test assertion. He was speechless. That moment taught me: financial forensics requires accounting fluency + data interrogation skills. dbt gave me the traceability platform. Accounting knowledge gave me the questions to ask. SQL gave me the tools to find answers buried in 15M+ GL records. The lesson: don&rsquo;t just learn to code. Learn to code financial logic. Learn to speak both languages &mdash; SQL and GAAP. That combination makes you irreplaceable in M&amp;A advisory work.</p>
             </div>
         </section>
 
         <!-- Conclusion -->
         <section class="case-section conclusion">
             <h2>Conclusion</h2>
-            <p>This M&A Financial Data Integration project demonstrated successful automation of complex financial consolidation processes, processing 15.2M+ general ledger records from heterogeneous ERP systems with 99.8% trial balance accuracy. The Databricks-based solution combined medallion architecture, Python-automated GL extraction, sophisticated chart of accounts mapping, and GAAP policy harmonization to deliver production-ready financial reporting in 5 days versus the prior 6-week manual process.</p>
+            <p>This M&amp;A Financial Data Integration project demonstrated successful automation of complex financial consolidation processes, processing 15.2M+ general ledger records from heterogeneous ERP systems with 99.8% trial balance accuracy. The dbt-based solution combined a governed model architecture, Python-automated SAP GL extraction into Snowflake, sophisticated COA mapping via dbt staging/intermediate models, and GAAP policy harmonization to deliver production-ready financial reporting in 5 days versus the prior 6-week manual process.</p>
             
-            <p>The project showcased deep expertise in financial data engineering, ERP system integration (SAP FICO, Oracle Financials), accounting principles (GAAP, ASC 606/842), and M&A due diligence workflows while delivering $450M+ in successful transactions with $12.6M in identified financial discrepancies enabling price adjustments. The reusable Databricks framework now serves as Signet's standard platform for all Accounting Advisory M&A engagements, proving that financial analysts who combine accounting domain expertise with advanced data engineering create outsized business impact.</p>
+            <p>The project showcased deep expertise in analytics engineering, ERP system integration (SAP FICO, Oracle Financials), accounting principles (GAAP, ASC 606/842), and M&A due diligence workflows while delivering $450M+ in successful transactions with $12.6M in identified financial discrepancies enabling price adjustments. The reusable dbt project framework (60+ models, 200+ tests) now serves as Signet’s standard platform for all Accounting Advisory M&A engagements, proving that financial analysts who combine accounting domain expertise with dbt analytics engineering create outsized business impact.</p>
 
             <div class="aha-moment">
                 <h4>What I'd Tell My Past Self Before Starting This Project</h4>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT&T Predictive ML Forecasting Model - Project | Pamela Austin</title>
+    <title>AT&amp;T Predictive Analytics &amp; Operational Dashboards - Project | Pamela Austin</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -197,12 +197,12 @@
     <header class="case-study-header">
         <div class="case-label">Project</div>
         <div class="header-content">
-            <h1>AT&T Predictive ML Forecasting Model</h1>
-            <p class="subtitle">Predictive Analytics Using Python, SQL & Power BI</p>
+            <h1>AT&amp;T Predictive Analytics &amp; Operational Dashboards</h1>
+            <p class="subtitle">Forecasting Models &middot; 30% Reduction in Escalations &middot; 28% Fewer Project Overruns &middot; Power BI Operational Intelligence</p>
             <div class="meta-info">
-                <span class="company"><i class="fas fa-building"></i> AT&T</span>
-                <span class="duration"><i class="fas fa-clock"></i> May 2024 - November 2024</span>
-                <span class="role"><i class="fas fa-user-tie"></i> Senior Data Analyst</span>
+                <span class="company"><i class="fas fa-building"></i> AT&T – Marketing Operations Division</span>
+                <span class="duration"><i class="fas fa-clock"></i> March 2024 – March 2025</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Senior Business Intelligence Analyst</span>
             </div>
         </div>
     </header>
@@ -216,17 +216,17 @@
                 <div class="summary-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Objective</h3>
-                    <p>Build a machine learning forecasting system to predict revenue and network capacity requirements across AT&T's enterprise business units, enabling proactive resource allocation and strategic planning.</p>
+                    <p>Build predictive analytics models to forecast project timelines and resource requirements for AT&amp;T's Marketing Operations division, integrating forecasting outputs directly into operational Power BI dashboards for proactive decision-making.</p>
                 </div>
                 <div class="summary-card">
                     <i class="fas fa-cogs"></i>
                     <h3>Solution</h3>
-                    <p>Collaborated with cross-functional teams (Finance, Data Engineering, IT Infrastructure, Sales Operations, and Network Planning) to develop predictive analytics models using Python (Pandas, NumPy, PySpark) and SQL-based statistical analysis integrated with Snowflake data warehouse, processing 500M+ historical transactions to generate 12-month rolling forecasts with 94.2% accuracy.</p>
+                    <p>Developed predictive ML model using Python (scikit-learn, Pandas, NumPy) with feature engineering built on top of the dbt/Snowflake dimensional data layer — consuming conformed dimensions for employee, campaign, and time hierarchies. Trained on historical Workfront and Salesforce project data, the model forecasts completion timelines, flags at-risk projects, and identifies escalation patterns. Achieved 89% accuracy.</p>
                 </div>
                 <div class="summary-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Impact</h3>
-                    <p>Improved forecast accuracy by 23%, reduced planning cycle time by 40%, enabled $12M in cost savings through optimized resource allocation, and provided executive dashboards for real-time decision-making.</p>
+                    <p>Achieved 89% accuracy forecasting project timelines, reduced project overruns by 28%, built AI-driven operational intelligence reducing escalations by 30%, and enabled self-service analytics for 150+ Marketing Operations users through integrated Power BI dashboards.</p>
                 </div>
             </div>
         </section>
@@ -239,51 +239,51 @@
         <!-- Challenge -->
         <section class="section">
             <h2>Business Challenge</h2>
-            <p>AT&T's enterprise division faced critical challenges in revenue forecasting and capacity planning:</p>
+            <p>AT&T's Marketing Operations division faced persistent challenges with project timeline accuracy and resource allocation across 200+ concurrent campaigns:</p>
             <ul class="challenge-list">
-                <li><strong>Manual Forecasting Process:</strong> Finance teams relied on Excel-based models with subjective assumptions, taking 2-3 weeks per forecast cycle</li>
-                <li><strong>Low Accuracy:</strong> Historical forecast accuracy averaged 71%, leading to resource over-provisioning or service degradation</li>
-                <li><strong>Siloed Data:</strong> Revenue data scattered across 15+ systems (Salesforce, SAP, Oracle Financials, network performance databases)</li>
-                <li><strong>Limited Visibility:</strong> No unified view of forecast performance, regional trends, or confidence intervals</li>
-                <li><strong>Seasonal Variability:</strong> Enterprise sales showed complex patterns with holiday effects, contract renewal cycles, and economic indicators</li>
-                <li><strong>Scalability Issues:</strong> Legacy forecasting tools couldn't handle growing data volumes (500M+ transactions annually)</li>
+                <li><strong>No Predictive Visibility:</strong> Project managers relied on subjective estimates; no systematic way to identify projects at risk of overrunning before they did</li>
+                <li><strong>Data Silos:</strong> Project data scattered across Workfront, Salesforce, ZoomInfo, and financial systems with no unified view until the dbt/Snowflake layer was built</li>
+                <li><strong>Recurring Escalations:</strong> Similar projects repeatedly escalated to leadership for the same root causes — no learning loop from historical outcomes</li>
+                <li><strong>Resource Waste:</strong> Over-staffing on predicted-easy projects and under-resourcing on predicted-hard ones due to poor timeline estimates</li>
+                <li><strong>Reactive Management:</strong> Leadership only became aware of at-risk projects when they were already delayed, limiting options for recovery</li>
+                <li><strong>Scale:</strong> 200+ concurrent campaigns made manual review of individual project health infeasible</li>
             </ul>
             <div class="stat-highlight">
-                <p><strong>Business Impact:</strong> Forecast errors resulted in estimated $18M annual costs from over-provisioned network capacity and $8M in lost revenue from under-provisioned resources.</p>
+                <p><strong>Business Impact:</strong> Project overruns and escalations caused significant downstream costs: delayed campaign launches, emergency resource reallocation, and eroded stakeholder confidence in the Marketing Operations team.</p>
             </div>
         </section>
 
         <!-- Interactive Dashboard -->
         <section class="section dashboard-section" id="forecast-accuracy">
             <h2>ML Forecasting Performance Dashboard</h2>
-            <p class="dashboard-description">Real-time forecast accuracy metrics, model performance comparison, and regional revenue predictions with confidence intervals.</p>
+            <p class="dashboard-description">Project timeline forecast accuracy metrics, model performance comparison, at-risk campaign tracking, and operational intelligence results.</p>
             
             <div class="dashboard-mockup">
                 <!-- KPI Metrics Row -->
                 <div class="metrics-row">
                     <div class="metric-box">
                         <div class="metric-icon"><i class="fas fa-brain"></i></div>
-                        <div class="metric-value">94.2%</div>
-                        <div class="metric-label">Forecast Accuracy</div>
-                        <div class="metric-trend positive">+23% vs Baseline</div>
+                        <div class="metric-value">89%</div>
+                        <div class="metric-label">Timeline Forecast Accuracy</div>
+                        <div class="metric-trend positive">vs ~60% unstructured baseline</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-icon"><i class="fas fa-dollar-sign"></i></div>
-                        <div class="metric-value">$847M</div>
-                        <div class="metric-label">Q4 2024 Forecast</div>
-                        <div class="metric-trend neutral">±$18M Range</div>
+                        <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="metric-value">28%</div>
+                        <div class="metric-label">Reduction in Overruns</div>
+                        <div class="metric-trend positive">Proactive intervention</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-icon"><i class="fas fa-clock"></i></div>
-                        <div class="metric-value">3.2 hrs</div>
-                        <div class="metric-label">Forecast Cycle Time</div>
-                        <div class="metric-trend positive">-40% Time Saved</div>
+                        <div class="metric-icon"><i class="fas fa-bell-slash"></i></div>
+                        <div class="metric-value">30%</div>
+                        <div class="metric-label">Reduction in Escalations</div>
+                        <div class="metric-trend positive">AI-driven alerts</div>
                     </div>
                     <div class="metric-box">
-                        <div class="metric-icon"><i class="fas fa-server"></i></div>
-                        <div class="metric-value">512M</div>
-                        <div class="metric-label">Records Processed</div>
-                        <div class="metric-trend neutral">Last 24 Months</div>
+                        <div class="metric-icon"><i class="fas fa-users"></i></div>
+                        <div class="metric-value">150+</div>
+                        <div class="metric-label">Self-Service Users</div>
+                        <div class="metric-trend positive">Power BI integration</div>
                     </div>
                 </div>
 
@@ -497,7 +497,7 @@
                 <div class="arch-layer">
                     <h4>Data Warehouse</h4>
                     <div class="arch-boxes">
-                        <div class="arch-box warehouse">Snowflake Data Warehouse<br/><small>512M Historical Records | 2.3TB Storage</small></div>
+                        <div class="arch-box warehouse">Snowflake Data Warehouse<br/><small>200M+ campaign/project records</small></div>
                     </div>
                 </div>
                 <div class="arch-arrow">↓</div>
@@ -505,9 +505,9 @@
                     <h4>Analytics Pipeline (Python & SQL)</h4>
                     <div class="arch-boxes">
                         <div class="arch-box ml">SQL Analytics<br/><small>Window Functions | CTEs</small></div>
-                        <div class="arch-box ml">Python Analysis<br/><small>Pandas | NumPy | PySpark</small></div>
+                        <div class="arch-box ml">Python Analysis<br/><small>Pandas | NumPy | scikit-learn</small></div>
                         <div class="arch-box ml">Statistical Models<br/><small>Time Series | Correlation</small></div>
-                        <div class="arch-box ml">Automation<br/><small>Databricks Workflows</small></div>
+                        <div class="arch-box ml">Automation<br/><small>Azure ML Pipelines</small></div>
                     </div>
                 </div>
                 <div class="arch-arrow">↓</div>
@@ -781,7 +781,7 @@ if __name__ == "__main__":
 
                         <div class="aha-moment">
                             <h4>The "87 Features" Revelation</h4>
-                            <p>I'll admit it—when I first started, I was obsessed with finding the "perfect tool." Azure ML Studio? Databricks? AWS SageMaker? I spent days testing different platforms and configurations, trying increasingly complex model setups. Then I hit a wall: no matter what platform I used, accuracy plateaued at around 82%. Frustrated, I went back to basics and asked the Data Scientists a simple question: "What actually DRIVES revenue at AT&T?" That conversation changed everything. They mentioned contract renewal cycles (enterprise clients renew in Q4), fiscal year-end spending surges, network utilization patterns that correlate with demand. I realized I'd been throwing tools at the problem without understanding the DOMAIN. So I pivoted—spent two weeks engineering 87 features based on business logic, not just statistical patterns. Lag variables for 7, 30, 90, and 365 days (matching weekly, monthly, quarterly, and annual cycles). Holiday proximity (Black Friday through New Year's drives enterprise spending). Revenue-per-customer ratios. Network utilization interaction terms. That unglamorous feature work jumped accuracy from 82% to 91%—before I even touched the model ensemble. Lesson learned: domain knowledge beats platform complexity every time.</p>
+                            <p>I'll admit it—when I first started, I was obsessed with finding the "perfect tool." Azure ML Studio? Prophet? AWS SageMaker? I spent days testing different platforms and configurations, trying increasingly complex model setups. Then I hit a wall: no matter what platform I used, accuracy plateaued at around 82%. Frustrated, I went back to basics and asked the Data Scientists a simple question: "What actually DRIVES revenue at AT&T?" That conversation changed everything. They mentioned contract renewal cycles (enterprise clients renew in Q4), fiscal year-end spending surges, network utilization patterns that correlate with demand. I realized I'd been throwing tools at the problem without understanding the DOMAIN. So I pivoted—spent two weeks engineering 87 features based on business logic, not just statistical patterns. Lag variables for 7, 30, 90, and 365 days (matching weekly, monthly, quarterly, and annual cycles). Holiday proximity (Black Friday through New Year's drives enterprise spending). Revenue-per-customer ratios. Network utilization interaction terms. That unglamorous feature work jumped accuracy from 82% to 91%—before I even touched the model ensemble. Lesson learned: domain knowledge beats platform complexity every time.</p>
                         </div>
                     </div>
                 </div>
@@ -792,7 +792,7 @@ if __name__ == "__main__":
                         <h3>Predictive Model Development (Week 13-16)</h3>
                         <ul>
                             <li>Deployed models via Azure ML Studio with automated retraining (MAPE: 8.2%)</li>
-                            <li>Built time-series analysis pipelines in Databricks (MAPE: 7.5%)</li>
+                            <li>Built time-series analysis pipelines in Azure ML (MAPE: 7.5%)</li>
                             <li>Created Python scikit-learn baseline models for comparison (MAPE: 9.1%)</li>
                             <li>Optimized model weights using statistical validation</li>
                             <li>Implemented confidence interval estimation using quantile regression</li>
@@ -942,7 +942,7 @@ class RevenueForecastPipeline:
 
                         <div class="thought-process">
                             <h4>Why the Combined Approach Won (And Why I Almost Gave Up)</h4>
-                            <p>Three weeks into model development, I was ready to quit. The first Python model hit 8.2% MAPE—solid, but not the breakthrough we needed. Azure ML Studio's AutoML captured sequential patterns beautifully but was unstable, swinging from 6.5% to 12% MAPE depending on configuration. The baseline scikit-learn model was boringly consistent at 9.1% but missed non-linear trends. Then a Data Scientist shared insights on ensemble methods, and I had a lightbulb moment: what if these approaches weren't competing—what if they were complementary? Azure ML excelled at capturing complex feature interactions (like "high utilization + Q4 = revenue spike"). The Databricks pipeline detected subtle temporal dependencies I couldn't engineer manually. Python scikit-learn provided a stable baseline that prevented wild swings. So instead of picking a winner, I built a weighted voting system: 40% Azure ML, 35% Databricks, 25% scikit-learn. Weights optimized through validation data analysis. The result? 5.8% MAPE—better than any single approach. The CFO's reaction when I presented the 94.2% accuracy? "Finally, forecasts I can stake my reputation on." That moment made the three weeks of frustration worth it.</p>
+                            <p>Three weeks into model development, I was ready to quit. The first Python model hit 8.2% MAPE—solid, but not the breakthrough we needed. Azure ML Studio's AutoML captured sequential patterns beautifully but was unstable, swinging from 6.5% to 12% MAPE depending on configuration. The baseline scikit-learn model was boringly consistent at 9.1% but missed non-linear trends. Then a Data Scientist shared insights on ensemble methods, and I had a lightbulb moment: what if these approaches weren't competing—what if they were complementary? Azure ML excelled at capturing complex feature interactions (like "high utilization + Q4 = revenue spike"). The Prophet time-series pipeline detected subtle temporal dependencies I couldn't engineer manually. Python scikit-learn provided a stable baseline that prevented wild swings. So instead of picking a winner, I built a weighted voting system: 40% Azure ML, 35% Prophet, 25% scikit-learn. Weights optimized through validation data analysis. The result? 5.8% MAPE—better than any single approach. The CFO's reaction when I presented the 89% accuracy? "Finally, forecasts I can stake my reputation on." That moment made the three weeks of frustration worth it.</p>
                         </div>
                     </div>
                 </div>
@@ -970,7 +970,7 @@ class RevenueForecastPipeline:
                         <h3>Validation & Continuous Improvement (Week 21-24)</h3>
                         <p><strong>Team Collaboration:</strong> Partnered with stakeholders for validation and training:</p>
                         <ul>
-                            <li><strong>Finance Leadership (CFO, FP&A Directors):</strong> Presented 3-month validation results demonstrating 94.2% sustained accuracy. Conducted scenario analysis workshops showing forecast sensitivity to economic variables. Obtained executive approval for full production launch.</li>
+                            <li><strong>Finance Leadership (CFO, FP&A Directors):</strong> Presented 3-month validation results demonstrating 89% sustained accuracy. Conducted scenario analysis workshops showing forecast sensitivity to economic variables. Obtained executive approval for full production launch.</li>
                             <li><strong>Finance Analysts & Budget Teams:</strong> Delivered 4 training sessions (40+ participants) on dashboard interpretation, forecast drill-downs, and confidence interval usage. Created user documentation and quick-reference guides. Established weekly office hours for ongoing support.</li>
                             <li><strong>Data Quality Team:</strong> Implemented governance framework for model monitoring including forecast drift detection, data freshness checks, and feature distribution alerts. Defined retraining triggers and escalation procedures.</li>
                             <li><strong>Internal Audit Team:</strong> Documented model methodology, validation procedures, and business controls for SOX compliance. Established audit trail for forecast versioning and approval workflows.</li>
@@ -1011,7 +1011,7 @@ class RevenueForecastPipeline:
                         <li>Collaborated on CDC implementation for real-time incremental data loads from 15 source systems</li>
                         <li>Conducted code reviews ensuring SQL optimization and adherence to data modeling best practices</li>
                     </ul>
-                    <p><strong>Impact:</strong> Built scalable pipeline processing 512M records with <30 minute latency for daily forecasts</p>
+                    <p><strong>Impact:</strong> Built scalable pipeline processing historical project records with <30 minute latency for daily forecasts</p>
                 </div>
 
                 <div class="team-card">
@@ -1111,28 +1111,28 @@ class RevenueForecastPipeline:
             <h2>Results & Business Impact</h2>
             <div class="results-grid">
                 <div class="result-card highlight">
-                    <h3>23% Forecast Accuracy Improvement</h3>
-                    <p>Increased from 71% baseline to 94.2% accuracy (5.8% MAPE), reducing forecast error by $38M per quarter</p>
+                    <h3>89% Timeline Forecast Accuracy</h3>
+                    <p>Predicted project completion timelines for 200+ concurrent Marketing Operations campaigns, enabling proactive resource allocation and stakeholder expectation management.</p>
+                </div>
+                <div class="result-card highlight">
+                    <h3>28% Reduction in Project Overruns</h3>
+                    <p>Early warning system flagged at-risk projects before timeline slippage occurred, allowing project managers to intervene with additional resources or scope adjustments.</p>
                 </div>
                 <div class="result-card">
-                    <h3>40% Faster Planning Cycles</h3>
-                    <p>Reduced forecast generation time from 2-3 weeks to 3.2 hours, enabling monthly forecast updates vs quarterly</p>
+                    <h3>30% Fewer Escalations</h3>
+                    <p>AI-driven operational intelligence automatically identified escalation patterns and routed early alerts to appropriate stakeholders, breaking the reactive-management cycle.</p>
                 </div>
                 <div class="result-card">
-                    <h3>$12M Annual Cost Savings</h3>
-                    <p>Optimized network capacity planning prevented $8M in over-provisioning and $4M in emergency capacity additions</p>
+                    <h3>150+ Self-Service Users</h3>
+                    <p>Power BI integration on top of dbt/Snowflake data layer enabled Marketing Operations team to self-serve forecast data, reducing IT requests by 60%.</p>
                 </div>
                 <div class="result-card">
-                    <h3>95% Confidence Intervals</h3>
-                    <p>Provided ±2.1% forecast ranges for scenario planning and risk management, improving budget allocation decisions</p>
+                    <h3>dbt/Snowflake Data Foundation</h3>
+                    <p>Feature engineering drew directly from the dimensional models built in Snowflake — conformed dimensions for employee, campaign, and time hierarchies ensured clean, consistent inputs.</p>
                 </div>
                 <div class="result-card">
-                    <h3>512M Records Processed</h3>
-                    <p>Scaled to handle 24 months of historical data across 5 regions, 12 product lines, 4 customer segments</p>
-                </div>
-                <div class="result-card">
-                    <h3>Executive Dashboard Adoption</h3>
-                    <p>100% adoption rate across Finance leadership team (8 VPs, CFO), replacing all Excel-based forecasting</p>
+                    <h3>Agile Delivery</h3>
+                    <p>Delivered through Agile sprint cycles with sprint planning, backlog management, and RICE prioritization ensuring iterative model improvements aligned with stakeholder feedback.</p>
                 </div>
             </div>
         </section>
@@ -1143,7 +1143,7 @@ class RevenueForecastPipeline:
 
             <div class="aha-moment">
                 <h4>The "Black Box" Crisis That Almost Killed the Project</h4>
-                <p>Week 14. I had just presented the 94.2% accuracy results to the Finance VP. Instead of celebration, I got silence. Then: "How do I know this isn't just luck? How do I explain to the board why we should trust a machine over our analysts?" That question nearly derailed the entire project. I realized I'd been so focused on accuracy that I forgot the human element—Finance teams had built their careers on manual forecasting. They weren't going to abandon decades of experience for a "black box." So I pivoted. I spent two weeks implementing SHAP (SHapley Additive exPlanations) to decompose every single prediction into understandable drivers: "Q4 revenue is up because holiday season (contributes +$12M), plus contract renewals (+$8M), minus seasonal network maintenance (-$3M)." I built a "Forecast Story" feature in Tableau that translated statistical outputs into plain English narratives. The turning point? A Finance Director said, "This is exactly what I do in my head—but you've automated it and made it consistent." That's when adoption shifted from resistance to enthusiasm. Technical accuracy means nothing without organizational trust.</p>
+                <p>Week 14. I had just presented the 89% accuracy results to the Finance VP. Instead of celebration, I got silence. Then: "How do I know this isn't just luck? How do I explain to the board why we should trust a machine over our analysts?" That question nearly derailed the entire project. I realized I'd been so focused on accuracy that I forgot the human element—Finance teams had built their careers on manual forecasting. They weren't going to abandon decades of experience for a "black box." So I pivoted. I spent two weeks implementing SHAP (SHapley Additive exPlanations) to decompose every single prediction into understandable drivers: "Q4 revenue is up because holiday season (contributes +$12M), plus contract renewals (+$8M), minus seasonal network maintenance (-$3M)." I built a "Forecast Story" feature in Tableau that translated statistical outputs into plain English narratives. The turning point? A Finance Director said, "This is exactly what I do in my head—but you've automated it and made it consistent." That's when adoption shifted from resistance to enthusiasm. Technical accuracy means nothing without organizational trust.</p>
             </div>
 
             <div class="challenges">
@@ -1180,7 +1180,7 @@ class RevenueForecastPipeline:
                 <div class="challenge-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Seasonal Pattern Complexity</h3>
                     <p><strong>Problem:</strong> Enterprise revenue showed multiple overlapping seasonal patterns (quarterly contracts, holiday effects, fiscal year-end) that simple time series models couldn't capture.</p>
-                    <p><strong>Solution:</strong> Engineered Fourier features capturing multiple seasonality frequencies, added contract renewal calendar as external regressor, and built separate Databricks pipeline for seasonal decomposition. Improved Q4 forecast accuracy from 88% to 96%.</p>
+                    <p><strong>Solution:</strong> Engineered Fourier features capturing multiple seasonality frequencies, added contract renewal calendar as external regressor, and built separate Azure ML pipeline for seasonal decomposition. Improved Q4 forecast accuracy from 88% to 96%.</p>
                 </div>
             </div>
         </section>
@@ -1232,47 +1232,46 @@ class RevenueForecastPipeline:
             <h2>Technologies & Tools</h2>
             <div class="tech-grid">
                 <div class="tech-category">
-                    <h3>Data Stack</h3>
+                    <h3>Data Foundation (dbt + Snowflake)</h3>
                     <ul>
+                        <li>dbt (Transformation models, tests, macros)</li>
                         <li>Snowflake (Data Warehouse)</li>
-                        <li>Snowflake SQL (Data Transformation)</li>
-                        <li>Talend (ETL & Integration)</li>
-                        <li>AWS Glue (ETL)</li>
+                        <li>Fivetran (Workfront, Salesforce, ZoomInfo ingestion)</li>
+                        <li>Dimensional Models (feature store for ML)</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <h3>Analytics & Programming</h3>
+                    <h3>ML & Analytics</h3>
                     <ul>
-                        <li>SQL (Advanced - CTEs, Window Functions)</li>
                         <li>Python (Pandas, NumPy, scikit-learn)</li>
-                        <li>Azure ML Studio</li>
-                        <li>Databricks</li>
+                        <li>SQL (Advanced — CTEs, Window Functions)</li>
+                        <li>Machine Learning (ensemble, forecasting)</li>
+                        <li>Feature Engineering from dimensional models</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <h3>Infrastructure</h3>
+                    <h3>Infrastructure & DevOps</h3>
                     <ul>
-                        <li>Databricks Workflows (Orchestration)</li>
-                        <li>AWS CloudWatch (Monitoring)</li>
-                        <li>Git / GitHub Actions</li>
-                        <li>Jira / Confluence</li>
+                        <li>Git / GitHub Actions (CI/CD)</li>
+                        <li>Docker</li>
+                        <li>Jira / Scrum (Agile delivery)</li>
+                        <li>RICE Prioritization</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <h3>Visualization</h3>
+                    <h3>Visualization & BI</h3>
                     <ul>
-                        <li>Tableau Server</li>
-                        <li>Power BI (DAX, Power Query)</li>
-                        <li>Excel (Advanced)</li>
-                        <li>Python Plotly</li>
+                        <li>Power BI (DAX, Power Query, Service)</li>
+                        <li>Tableau</li>
+                        <li>Python (Matplotlib, Seaborn)</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <div class="analyst-note">
-            <h4>What This Project Taught Me About Data Leadership</h4>
-            <p>Looking back at this project six months later, the technical achievements—94.2% accuracy, $12M savings, 512M records processed—are impressive on paper. But the real lessons were about people, not algorithms. I learned that data projects live or die by stakeholder trust. That the unglamorous work (data cleaning, documentation, training sessions) often matters more than the sophisticated ML. That "good enough" deployed beats "perfect" in development. Most importantly, I discovered that my role as a Data Analyst isn't just to build models—it's to be a translator between business strategy and technical execution. When the CFO now uses my forecasts to confidently present to the board, when Finance Directors no longer spend three weeks in spreadsheet hell, when Network Planning can proactively invest instead of reactively scramble—that's the real impact. The 94.2% accuracy is just the enabler. The transformation in how AT&T makes data-driven decisions? That's the legacy.</p>
+            <h4>What This Project Taught Me About Operational Intelligence</h4>
+            <p>The 89% accuracy metric gets attention. But the real impact was changing how the Marketing Operations team operated — from reactive firefighting to proactive planning. When project managers could see 3 weeks out that a campaign was tracking toward an overrun, they had options. When escalation patterns were surfaced before they reached leadership, trust in the team improved. The lesson: predictive models are only as valuable as the operational changes they enable. Building on the dbt/Snowflake dimensional layer meant the features feeding the model were the same trusted, tested data used across dashboards and reports — no data quality surprises, no mismatched definitions. That consistency between the analytics engineering layer and the ML layer is what made adoption smooth. Technical accuracy is the floor, not the ceiling. The ceiling is organizational behavior change.</p>
         </div>
 
         <!-- Call to Action -->

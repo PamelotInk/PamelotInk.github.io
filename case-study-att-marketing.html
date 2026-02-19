@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT&T Marketing Analytics Platform - Project | Pamela Austin</title>
+    <title>AT&amp;T Marketing Campaign Analytics &amp; Reporting - Project | Pamela Austin</title>
     <link rel="stylesheet" href="case-study-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,12 +180,12 @@
     <header class="case-study-header">
         <div class="case-label">Project</div>
         <div class="header-content">
-            <h1>AT&T Marketing Analytics Platform</h1>
-            <p class="subtitle">Unified Marketing Data Platform with Automated ETL & Multi-Source Integration</p>
+            <h1>AT&amp;T Marketing Campaign Analytics &amp; Reporting</h1>
+            <p class="subtitle">200+ Campaigns Tracked &middot; 150+ Self-Service Users &middot; 60% IT Reduction &middot; 40% Manual Effort Reduction</p>
             <div class="meta-info">
                 <span class="company"><i class="fas fa-building"></i> AT&T</span>
-                <span class="duration"><i class="fas fa-clock"></i> January 2024 - November 2024</span>
-                <span class="role"><i class="fas fa-user-tie"></i> Senior Data Analyst</span>
+                <span class="duration"><i class="fas fa-clock"></i> March 2024 &ndash; March 2025</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Senior Business Intelligence Analyst</span>
             </div>
         </div>
     </header>
@@ -199,17 +199,17 @@
                 <div class="summary-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Objective</h3>
-                    <p>Build a centralized marketing analytics platform integrating data from Workfront (project management), Bynder (digital asset management), and Webphone (call tracking) systems to eliminate manual reporting and provide real-time campaign performance insights.</p>
+                    <p>Build a unified marketing analytics platform integrating Workfront, Salesforce, and ZoomInfo into Snowflake — enabling self-service analytics for 150+ marketing operations users and eliminating manual reporting across 200+ concurrent campaigns.</p>
                 </div>
                 <div class="summary-card">
                     <i class="fas fa-cogs"></i>
                     <h3>Solution</h3>
-                    <p>Architected automated data integration platform using Snowflake data warehouse, Fivetran connectors, and dbt transformations. Built Power BI dashboards providing unified view of marketing operations, campaign ROI, asset utilization, and lead attribution.</p>
+                    <p>Consolidated Workfront, Salesforce, and ZoomInfo data via Fivetran into a Snowflake reporting layer with star schema dimensional models (SCD Type 2), Power BI semantic layer with RLS, and automated reporting pipelines. Built 25+ dashboards tracking campaign volume, resource utilization, project timelines, and budget allocation.</p>
                 </div>
                 <div class="summary-card">
                     <i class="fas fa-chart-line"></i>
                     <h3>Impact</h3>
-                    <p>Eliminated 15+ hours weekly manual reporting, improved data accuracy from 73% to 98%, enabled real-time campaign optimization, reduced data latency from 5 days to 15 minutes, and provided $2.3M in identified cost savings through improved resource allocation.</p>
+                    <p>40% reduction in manual data retrieval across marketing operations, 150+ self-service Power BI users (up from 3 analysts), 60% reduction in IT data request tickets, and query latency improvement from 45 seconds to under 3 seconds.</p>
                 </div>
             </div>
         </section>
@@ -225,12 +225,12 @@
             
             <p>AT&T's marketing operations team faced critical inefficiencies in their data infrastructure and reporting processes:</p>
             <ul class="challenge-list">
-                <li><strong>Manual Data Extraction:</strong> Marketing analysts spent 15-20 hours weekly manually exporting data from Workfront, Bynder, and Webphone into Excel spreadsheets for campaign reporting</li>
-                <li><strong>Data Silos:</strong> No single source of truth for marketing performance - project data in Workfront, creative assets in Bynder, call tracking in Webphone, with no cross-system visibility</li>
+                <li><strong>Manual Data Extraction:</strong> Marketing analysts spent 15-20 hours weekly manually exporting data from Workfront, Salesforce, and ZoomInfo into Excel spreadsheets for campaign reporting</li>
+                <li><strong>Data Silos:</strong> No single source of truth for marketing performance &mdash; project data in Workfront, CRM data in Salesforce, contact enrichment in ZoomInfo, with no joined analytics layer</li>
                 <li><strong>Reporting Lag:</strong> Campaign performance reports took 5-7 days to compile, preventing real-time optimization and budget reallocation</li>
                 <li><strong>Data Quality Issues:</strong> 27% of reports contained errors from manual data entry, copy-paste mistakes, and formula errors in Excel workbooks</li>
                 <li><strong>Limited Analytics:</strong> No ability to perform advanced analytics like campaign attribution modeling, asset performance correlation, or multi-touch lead scoring</li>
-                <li><strong>Scalability Constraints:</strong> Excel-based workflows couldn't handle growing data volumes (500K+ marketing events monthly across 200+ campaigns)</li>
+                <li><strong>Scalability Constraints:</strong> Manual workflows couldn't handle growing data volumes (500K+ marketing events monthly across 200+ campaigns)</li>
                 <li><strong>Stakeholder Frustration:</strong> Marketing leadership lacked visibility into campaign ROI, asset utilization rates, and resource allocation efficiency</li>
             </ul>
             
@@ -324,9 +324,9 @@
                         <p class="chart-note">ROI calculated as (Revenue - Cost) / Cost. Paid search and email show highest returns. Video campaigns underperforming target of 2.5x.</p>
                     </div>
 
-                    <!-- Asset Utilization -->
+                    <!-- Lead Source Distribution -->
                     <div class="chart-container">
-                        <h3>Digital Asset Usage (Bynder)</h3>
+                        <h3>Lead Source Distribution (Salesforce)</h3>
                         <div class="donut-chart">
                             <svg viewBox="0 0 200 200" width="200" height="200">
                                 <circle cx="100" cy="100" r="80" fill="none" stroke="#e0e0e0" stroke-width="30"/>
@@ -342,23 +342,23 @@
                             <div class="donut-legend">
                                 <div class="legend-item">
                                     <span class="legend-color" style="background: #14b8a6;"></span>
-                                    <span class="legend-label">Images: 4,820 (37.5%)</span>
+                                    <span class="legend-label">Paid Search: 37.5%</span>
                                 </div>
                                 <div class="legend-item">
                                     <span class="legend-color" style="background: #0d9488;"></span>
-                                    <span class="legend-label">Videos: 3,200 (25%)</span>
+                                    <span class="legend-label">Email: 25%</span>
                                 </div>
                                 <div class="legend-item">
                                     <span class="legend-color" style="background: #d2b48c;"></span>
-                                    <span class="legend-label">Documents: 2,400 (18.5%)</span>
+                                    <span class="legend-label">Content / Organic: 18.5%</span>
                                 </div>
                                 <div class="legend-item">
                                     <span class="legend-color" style="background: #999999;"></span>
-                                    <span class="legend-label">Other: 2,440 (19%)</span>
+                                    <span class="legend-label">Other: 19%</span>
                                 </div>
                             </div>
                         </div>
-                        <p class="chart-note" style="margin-top: 15px;">12,860 total assets. Average utilization rate: 68%. 4,112 assets unused in last 90 days.</p>
+                        <p class="chart-note" style="margin-top: 15px;">Lead sources from Salesforce CRM enriched with ZoomInfo firmographic data. Paid search sources 37.5% of pipeline volume with highest avg deal size.</p>
                     </div>
 
                     <!-- Lead Attribution Waterfall -->
@@ -425,32 +425,32 @@
                                 <text x="540" y="225" font-size="11" fill="#14b8a6" text-anchor="middle" font-weight="bold" class="stage-label">2.1K Conv</text>
                             </svg>
                         </div>
-                        <p class="chart-note">Customer journey funnel showing touchpoint interactions. Average 4.3 touchpoints per conversion. 51% conversion rate from phone call to closed deal.</p>
+                        <p class="chart-note">Customer journey funnel showing Salesforce touchpoint interactions. Average 4.3 touchpoints per conversion. Enriched with ZoomInfo intent signals to prioritize high-converting accounts.</p>
                     </div>
                 </div>
                 
                 <div class="aha-moment" style="grid-column: 1 / -1;">
-                    <strong><i class="fas fa-lightbulb"></i> The "Hidden Channel" Discovery</strong>
-                    <p>Everyone assumed paid search was our star performer. But when I finally connected the call tracking data to actual conversions, I discovered phone calls had a 51% close rate—triple any digital channel. The marketing team had been underinvesting in call-generating campaigns because they couldn't see the downstream conversion data. This single insight redirected $800K in budget allocation.</p>
+                    <strong><i class="fas fa-lightbulb"></i> The &ldquo;Intent Score Unlock&rdquo; Discovery</strong>
+                    <p>Everyone assumed Paid Search was the top-performing campaign type. The data confirmed that &mdash; sort of. But when I layered ZoomInfo intent scores onto the Salesforce lead records in the <code>int_enriched_leads</code> model, the story changed. High-intent companies (intent score &gt;70) converted at 2.8&times; the rate of low-intent leads &mdash; regardless of channel. The marketing team had been spending equally across company sizes; now they could prioritize budget toward in-market accounts. That firmographic enrichment, which took about a week to build in dbt, reshuffled campaign budget priorities in a way no amount of channel-level analysis had ever revealed.</p>
                 </div>
 
                 <!-- Performance Stats Grid -->
                 <div class="performance-stats">
                     <div class="stat-card">
-                        <div class="stat-value">98.2%</div>
-                        <div class="stat-label">Data Accuracy</div>
+                        <div class="stat-value">40%</div>
+                        <div class="stat-label">Manual Work Reduction</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">15 min</div>
-                        <div class="stat-label">Data Refresh Latency</div>
+                        <div class="stat-value">45s&rarr;3s</div>
+                        <div class="stat-label">Query Time</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">15.3 hrs</div>
-                        <div class="stat-label">Weekly Time Saved</div>
+                        <div class="stat-value">150+</div>
+                        <div class="stat-label">Self-Service Users</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value">$2.3M</div>
-                        <div class="stat-label">Cost Savings Identified</div>
+                        <div class="stat-value">60%</div>
+                        <div class="stat-label">IT Request Reduction</div>
                     </div>
                 </div>
             </div>
@@ -466,9 +466,9 @@
                     <li><i class="fas fa-check-circle"></i> Executive summary with KPI scorecards and trend analysis across all marketing channels</li>
                     <li><i class="fas fa-check-circle"></i> Campaign performance drill-down by channel, region, product line, and time period</li>
                     <li><i class="fas fa-check-circle"></i> Multi-touch attribution modeling showing customer journey touchpoints and conversion paths</li>
-                    <li><i class="fas fa-check-circle"></i> Digital asset utilization tracking from Bynder with usage frequency and ROI correlation</li>
+                    <li><i class="fas fa-check-circle"></i> ZoomInfo firmographic enrichment showing lead quality by company size, industry, and intent signals</li>
                     <li><i class="fas fa-check-circle"></i> Workfront project analytics including resource allocation, task completion rates, and budget tracking</li>
-                    <li><i class="fas fa-check-circle"></i> Webphone call tracking integration with lead scoring and sales conversion analytics</li>
+                    <li><i class="fas fa-check-circle"></i> Salesforce CRM pipeline tracking with lead scoring, stage velocity, and conversion funnel analytics</li>
                     <li><i class="fas fa-check-circle"></i> Automated anomaly detection alerts for campaign underperformance or budget overruns</li>
                 </ul>
                 <p class="tableau-note"><strong>Note:</strong> Power BI dashboards hosted on AT&T's internal infrastructure with enterprise security. The visualizations shown represent key metrics and analytical capabilities. Available for demonstration upon request.</p>
@@ -487,10 +487,9 @@
                 <div class="arch-layer" style="margin-bottom: 8px;">
                     <h4>Data Sources (Marketing Systems)</h4>
                     <div class="arch-boxes">
-                        <div class="arch-box source">Workfront<br/><small>Project Management & Tasks</small></div>
-                        <div class="arch-box source">Bynder DAM<br/><small>Digital Asset Management</small></div>
-                        <div class="arch-box source">Webphone<br/><small>Call Tracking & Attribution</small></div>
-                        <div class="arch-box source">Salesforce<br/><small>CRM & Lead Data</small></div>
+                        <div class="arch-box source">Workfront<br/><small>Project Management &amp; Tasks</small></div>
+                        <div class="arch-box source">ZoomInfo<br/><small>Firmographic &amp; Intent Data</small></div>
+                        <div class="arch-box source">Salesforce<br/><small>CRM, Leads &amp; Pipeline</small></div>
                     </div>
                 </div>
                 <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
@@ -499,8 +498,8 @@
                     <h4>Data Integration Layer</h4>
                     <div class="arch-boxes">
                         <div class="arch-box integration">Fivetran<br/><small>Automated SaaS Connectors</small></div>
-                        <div class="arch-box integration">Custom APIs<br/><small>Webphone REST Integration</small></div>
-                        <div class="arch-box integration">AWS S3<br/><small>Landing Zone Storage</small></div>
+                        <div class="arch-box integration">Fivetran ZoomInfo<br/><small>Firmographic Enrichment</small></div>
+                        <div class="arch-box integration">Snowflake<br/><small>Cloud Data Warehouse</small></div>
                     </div>
                 </div>
                 <div style="text-align: center; font-size: 1.2rem; color: var(--primary-color); margin: 5px 0;">↓</div>
@@ -548,7 +547,7 @@
                     <!-- Sources -->
                     <rect x="20" y="5" width="240" height="30" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
                     <text x="140" y="18" text-anchor="middle" font-size="10" font-weight="bold" fill="#0c4a6e">Marketing Systems</text>
-                    <text x="140" y="30" text-anchor="middle" font-size="7" fill="#0c4a6e">4 Sources • 200+ Projects</text>
+                    <text x="140" y="30" text-anchor="middle" font-size="7" fill="#0c4a6e">3 Sources &bull; 200+ Campaigns</text>
                     
                     <line x1="140" y1="35" x2="140" y2="47" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
                     
@@ -583,28 +582,28 @@
                     <text x="140" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#475569">Performance KPIs</text>
                     
                     <text x="30" y="250" font-size="8" fill="#334155" font-weight="600">Volume:</text>
-                    <text x="30" y="264" font-size="7" fill="#334155">• 500K+ monthly calls</text>
-                    <text x="30" y="276" font-size="7" fill="#334155">• 12K+ assets</text>
+                    <text x="30" y="264" font-size="7" fill="#334155">&bull; 200+ active campaigns</text>
+                    <text x="30" y="276" font-size="7" fill="#334155">&bull; 150K+ Salesforce leads</text>
                     
                     <text x="30" y="294" font-size="8" fill="#334155" font-weight="600">Quality:</text>
-                    <text x="30" y="308" font-size="7" fill="#334155">• 98.2% accuracy</text>
-                    <text x="30" y="320" font-size="7" fill="#334155">• 15 min latency</text>
+                    <text x="30" y="308" font-size="7" fill="#334155">&bull; 200+ dbt tests</text>
+                    <text x="30" y="320" font-size="7" fill="#334155">&bull; 45s &rarr; 3s query time</text>
                     
                     <text x="30" y="338" font-size="8" fill="#334155" font-weight="600">Impact:</text>
-                    <text x="30" y="352" font-size="7" fill="#334155">• 15.3 hrs/week saved • $2.3M identified</text>
+                    <text x="30" y="352" font-size="7" fill="#334155">&bull; 40% manual reduction &bull; 60% IT reduction</text>
                 </svg>
                 
                 <!-- Summary Explanation -->
                 <div class="pipeline-summary-box" style="margin-top: 15px; padding: 10px 12px; background: #f8fafc; border-left: 4px solid var(--primary-color); border-radius: 6px;">
                     <h4 style="color: var(--primary-color); font-size: 0.85rem; margin-bottom: 6px; font-weight: 700;">How It Works</h4>
                     <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin-bottom: 5px;">
-                        This automated pipeline extracts marketing data from 4 systems (Workfront, Bynder, Webphone, Salesforce) using Fivetran connectors and custom APIs.
+                        This automated pipeline ingests marketing data from 3 systems (Workfront, Salesforce, ZoomInfo) using Fivetran connectors into Snowflake.
                     </p>
                     <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin-bottom: 5px;">
-                        Data lands in Snowflake's cloud warehouse where dbt transforms raw data into analytics-ready models, applying business logic for campaign attribution and ROI calculations.
+                        dbt transforms raw source data into 80+ governed models &mdash; staging, intermediate, and mart layers &mdash; applying SCD Type 2 logic for campaign ownership and incremental builds for 200+ active campaigns.
                     </p>
                     <p style="font-size: 0.7rem; line-height: 1.4; color: var(--text-gray); margin: 0;">
-                        Power BI connects directly to Snowflake, delivering real-time dashboards to 50+ users with 15-minute data latency, replacing manual Excel processes that took 15+ hours weekly.
+                        Power BI connects directly to Snowflake marts, delivering self-service dashboards to 150+ users and reducing query time from 45s to 3s vs. prior ad-hoc SQL.
                     </p>
                 </div>
                 
@@ -621,7 +620,7 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 0.7rem;">
                         <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #0284c7;">Ingestion:</strong><br/>
-                            <span style="color: #475569;">Fivetran (3 sources)<br/>Python REST API (Webphone)</span>
+                            <span style="color: #475569;">Fivetran (3 connectors)<br/>Workfront, Salesforce, ZoomInfo</span>
                         </div>
                         <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #7c3aed;">Storage:</strong><br/>
@@ -629,7 +628,7 @@
                         </div>
                         <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #10b981;">Transform:</strong><br/>
-                            <span style="color: #475569;">dbt Cloud<br/>42 models, 18 tests</span>
+                            <span style="color: #475569;">dbt Core<br/>80+ models, 200+ tests</span>
                         </div>
                         <div class="tech-box" style="background: white; padding: 6px; border-radius: 4px;">
                             <strong style="color: #ec4899;">Visualization:</strong><br/>
@@ -645,16 +644,16 @@
                     </h4>
                     <div style="font-size: 0.7rem; color: var(--text-gray); line-height: 1.5;">
                         <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
-                            <strong style="color: #f59e0b;">Daily Processing:</strong> 2.3GB raw data → 680MB transformed
+                            <strong style="color: #f59e0b;">Daily Processing:</strong> 200+ incremental campaign builds, SCD Type 2 ownership tracking
                         </div>
                         <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
-                            <strong style="color: #f59e0b;">Sync Frequency:</strong> Workfront (1hr), Bynder (4hr), Webphone (real-time), Salesforce (1hr)
+                            <strong style="color: #f59e0b;">Sync Frequency:</strong> Workfront (1hr), Salesforce (1hr), ZoomInfo (daily enrichment)
                         </div>
                         <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px; margin-bottom: 4px;">
-                            <strong style="color: #f59e0b;">Row Counts:</strong> 1.2M call records, 200K project tasks, 12K assets, 150K leads
+                            <strong style="color: #f59e0b;">Scale:</strong> 200+ campaigns, 150K+ leads, 80+ dbt models in production
                         </div>
                         <div class="flow-box" style="background: white; padding: 5px 8px; border-radius: 4px;">
-                            <strong style="color: #f59e0b;">Pipeline SLA:</strong> 99.7% uptime, <5min error recovery
+                            <strong style="color: #f59e0b;">Pipeline SLA:</strong> 99.7% uptime, query time 45s &rarr; 3s (93% faster)
                         </div>
                     </div>
                 </div>
@@ -669,19 +668,19 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.75rem; color: var(--text-gray);">
                     <div style="display: flex; align-items: start;">
                         <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
-                        <span><strong>Reduced reporting time</strong> from 15.3 hrs to 45 min weekly</span>
+                        <span><strong>40% manual reporting reduction</strong> through dbt automation of 200+ campaign pipelines</span>
                     </div>
                     <div style="display: flex; align-items: start;">
                         <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
-                        <span><strong>Improved data accuracy</strong> from 73% to 98.2%</span>
+                        <span><strong>150+ self-service users</strong> consuming governed Power BI dashboards (was: ad-hoc IT requests)</span>
                     </div>
                     <div style="display: flex; align-items: start;">
                         <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
-                        <span><strong>Eliminated manual errors</strong> saving $2.3M in misallocated spend</span>
+                        <span><strong>60% reduction in IT data requests</strong> &mdash; teams answer their own questions via self-service</span>
                     </div>
                     <div style="display: flex; align-items: start;">
                         <span class="achievement-check" style="color: #10b981; margin-right: 6px; flex-shrink: 0;">✓</span>
-                        <span><strong>Enabled real-time decisions</strong> with 15-min latency vs 5-7 day lag</span>
+                        <span><strong>Query time 45s &rarr; 3s</strong> on campaign reporting via Snowflake clustering + dbt incremental models</span>
                     </div>
                 </div>
             </div>
@@ -697,16 +696,16 @@
                         <h3>Discovery & Requirements Gathering (Week 1-2)</h3>
                         <ul>
                             <li>Conducted stakeholder interviews with 8 marketing team members (VP Marketing, Campaign Managers, Analysts)</li>
-                            <li>Documented current manual workflows: Excel-based reporting taking 15-20 hours weekly per analyst</li>
-                            <li>Mapped data sources: Workfront (200+ active projects), Bynder (12K+ assets), Webphone (500K+ monthly calls)</li>
-                            <li>Identified pain points: 5-7 day reporting lag, 27% error rate, no cross-system visibility</li>
-                            <li>Defined success metrics: <5 hour weekly reporting time, <15 minute data latency, >95% data accuracy</li>
-                            <li>Created project roadmap with phased rollout (Workfront → Bynder → Webphone)</li>
+                            <li>Documented current manual workflows: Excel-based reporting taking 15&ndash;20 hours weekly per analyst</li>
+                            <li>Mapped data sources: Workfront (200+ active campaigns), Salesforce (150K+ leads &amp; pipeline), ZoomInfo (firmographic &amp; intent enrichment)</li>
+                            <li>Identified pain points: stale reporting lag, 40%+ manual effort, no governed definitions for &ldquo;campaign&rdquo; or &ldquo;conversion&rdquo;</li>
+                            <li>Defined success metrics: dbt models covering all 3 sources, self-service Power BI for 150+ users, sub-5s query times</li>
+                            <li>Created project roadmap with phased rollout: Workfront &rarr; Salesforce &rarr; ZoomInfo enrichment</li>
                         </ul>
                         
                         <div class="thought-process">
                             <strong><i class="fas fa-brain"></i> Strategic Decision Point</strong>
-                            <p>I deliberately chose Workfront as our first integration target—not because it was easiest, but because the VP of Marketing checked it every morning. Getting her daily workflow into a beautiful Power BI dashboard first meant I had executive air cover for the harder Webphone integration later. Always win your sponsors early.</p>
+                            <p>I deliberately chose Workfront as our first integration target &mdash; not because it was easiest, but because the VP of Marketing checked project status there every morning. Getting her daily view into a Power BI dashboard first meant I had executive air cover for the more complex Salesforce and ZoomInfo deduplication work later. Always win your sponsors early.</p>
                         </div>
                     </div>
                 </div>
@@ -729,14 +728,15 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">3</div>
                     <div class="timeline-content">
-                        <h3>Fivetran Integration - Workfront & Bynder (Week 5-7)</h3>
+                        <h3>Fivetran Integration &mdash; Workfront, Salesforce &amp; ZoomInfo (Week 5&ndash;8)</h3>
                         <ul>
-                            <li>Configured Fivetran connectors for Workfront API v2 - syncing projects, tasks, assignments, time entries</li>
-                            <li>Set up Bynder connector - extracting asset metadata, usage statistics, collections, and download events</li>
-                            <li>Implemented incremental sync strategy: full load initially, then hourly incremental updates</li>
-                            <li>Validated data completeness: 200+ Workfront projects (18 months history), 12,860 Bynder assets loaded successfully</li>
-                            <li>Built data quality monitoring: Fivetran webhooks → Slack alerts for sync failures</li>
-                            <li>Optimized sync schedules: Workfront (every 1 hour), Bynder (every 4 hours) based on update frequency</li>
+                            <li>Configured Fivetran connector for Workfront API &mdash; syncing projects, tasks, assignments, and campaign time entries</li>
+                            <li>Set up Salesforce connector &mdash; extracting leads, opportunities, accounts, campaigns, and conversion events</li>
+                            <li>Configured ZoomInfo connector for firmographic enrichment &mdash; company size, industry, intent signals, and tech stack data</li>
+                            <li>Implemented incremental sync strategy: full historical load initially, then hourly incremental updates for Workfront and Salesforce</li>
+                            <li>Validated data completeness: 200+ Workfront campaigns (18 months history), 150K+ Salesforce leads loaded successfully</li>
+                            <li>Built data quality monitoring: Fivetran webhooks &rarr; Slack alerts for sync failures or row-count anomalies</li>
+                            <li>Optimized sync schedules based on source update frequency: Workfront (1hr), Salesforce (1hr), ZoomInfo (daily)</li>
                         </ul>
                     </div>
                 </div>
@@ -744,206 +744,126 @@
                 <div class="timeline-item">
                     <div class="timeline-marker">4</div>
                     <div class="timeline-content">
-                        <h3>Custom Webphone API Integration (Week 8-10)</h3>
+                        <h3>dbt Staging Models &amp; ZoomInfo Enrichment (Week 9&ndash;11)</h3>
                         <ul>
-                            <li>Built Python-based ETL script using Webphone REST API (no native Fivetran connector available)</li>
-                            <li>Extracted call tracking data: phone numbers, campaigns, call duration, lead source, conversion status</li>
-                            <li>Implemented error handling and retry logic for API rate limits (100 requests/minute)</li>
-                            <li>Deployed AWS Lambda function for scheduled daily extraction → S3 landing zone</li>
-                            <li>Created Snowpipe for automated S3 → Snowflake ingestion with 1-minute latency</li>
-                            <li>Loaded 18 months historical data: 8.2M call records (500K+ monthly average)</li>
+                            <li>Built dbt staging models for all 3 Fivetran sources: <code>stg_workfront__campaigns</code>, <code>stg_salesforce__leads</code>, <code>stg_zoominfo__accounts</code></li>
+                            <li>Implemented ZoomInfo firmographic enrichment join in <code>int_enriched_leads</code>: matched Salesforce accounts to ZoomInfo by domain for company size, industry, and intent score</li>
+                            <li>Built SCD Type 2 macro for campaign ownership changes &mdash; critical for accurate attribution when AEs reassigned mid-flight</li>
+                            <li>Added 200+ dbt tests: uniqueness, not-null, accepted values, and custom SQL assertions for referential integrity across all 3 sources</li>
+                            <li>Deployed dbt Cloud scheduler: nightly full refresh + hourly incremental runs for Workfront and Salesforce sources</li>
+                            <li>Published dbt documentation site with lineage DAG for all 80+ models, enabling team self-service on data definitions</li>
                         </ul>
                         
                         <div class="aha-moment">
-                            <strong><i class="fas fa-lightbulb"></i> The "Timestamp Trap"</strong>
-                            <p>After my first Webphone extraction, the call counts didn't match the vendor's reports. I spent two days debugging before realizing: their API returns timestamps in the caller's timezone, not UTC. A single call from Hawaii could end up in the wrong day's partition. Building timezone normalization into the pipeline prevented what would have been a credibility-destroying discrepancy in production.</p>
+                            <strong><i class="fas fa-lightbulb"></i> The &ldquo;Domain Mismatch&rdquo; Problem</strong>
+                            <p>When I first joined the ZoomInfo enrichment match to Salesforce accounts by email domain, the match rate was only 38% &mdash; terrible. It turned out AT&amp;T lead records stored corporate email domains but ZoomInfo used legal entity domains (e.g., <em>att.com</em> vs <em>attinc.com</em>). Building a domain normalization model with a fallback to fuzzy company name matching pushed enrichment to 91%. That single fix improved the firmographic coverage enough to make the intent-signal dashboard actually useful for the sales team.</p>
                         </div>
                         
                         <div class="code-block">
-                            <h4>Webphone API Extraction Script (Python)</h4>
-                            <pre><code>import requests
-import pandas as pd
-import boto3
-from datetime import datetime, timedelta
-import logging
-
-class WebphoneExtractor:
-    """
-    Extract call tracking data from Webphone API and load to S3.
-    Handles pagination, rate limiting, and error recovery.
-    """
-    
-    def __init__(self, api_key: str, api_secret: str):
-        self.base_url = "https://api.webphone.com/v2"
-        self.session = requests.Session()
-        self.session.headers.update({
-            'Authorization': f'Bearer {self._get_auth_token(api_key, api_secret)}',
-            'Content-Type': 'application/json'
-        })
-        self.s3_client = boto3.client('s3')
-        
-    def extract_calls(self, start_date: str, end_date: str) -> pd.DataFrame:
-        """Extract call data for date range with pagination"""
-        all_calls = []
-        page = 1
-        page_size = 1000
-        
-        while True:
-            try:
-                response = self.session.get(
-                    f"{self.base_url}/calls",
-                    params={
-                        'start_date': start_date,
-                        'end_date': end_date,
-                        'page': page,
-                        'page_size': page_size,
-                        'include': 'campaign,lead,disposition'
-                    },
-                    timeout=30
-                )
-                
-                if response.status_code == 429:  # Rate limit
-                    logging.warning("Rate limit hit, waiting 60 seconds...")
-                    time.sleep(60)
-                    continue
-                    
-                response.raise_for_status()
-                data = response.json()
-                
-                calls = data.get('data', [])
-                if not calls:
-                    break
-                    
-                all_calls.extend(calls)
-                logging.info(f"Extracted page {page}: {len(calls)} calls")
-                
-                # Check if more pages
-                if len(calls) < page_size:
-                    break
-                    
-                page += 1
-                time.sleep(0.6)  # Rate limiting: 100 req/min = 1 req every 0.6s
-                
-            except requests.exceptions.RequestException as e:
-                logging.error(f"API request failed: {e}")
-                if page > 1:  # Partial success, return what we have
-                    break
-                raise
-        
-        df = pd.DataFrame(all_calls)
-        return self._transform_calls(df)
-    
-    def _transform_calls(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Transform and clean call data"""
-        # Parse timestamps
-        df['call_datetime'] = pd.to_datetime(df['call_timestamp'])
-        df['call_date'] = df['call_datetime'].dt.date
-        
-        # Extract nested fields
-        df['campaign_id'] = df['campaign'].apply(lambda x: x.get('id') if x else None)
-        df['campaign_name'] = df['campaign'].apply(lambda x: x.get('name') if x else None)
-        df['lead_id'] = df['lead'].apply(lambda x: x.get('id') if x else None)
-        df['disposition'] = df['disposition'].apply(lambda x: x.get('name') if x else 'Unknown')
-        
-        # Calculate metrics
-        df['call_duration_seconds'] = pd.to_numeric(df['duration'], errors='coerce')
-        df['is_qualified_lead'] = df['disposition'].isin(['Qualified', 'Meeting Scheduled', 'Demo Booked'])
-        df['is_conversion'] = df['disposition'].isin(['Sale Closed', 'Contract Signed'])
-        
-        # Select relevant columns
-        columns = [
-            'call_id', 'call_date', 'call_datetime', 'phone_number',
-            'campaign_id', 'campaign_name', 'lead_id', 'disposition',
-            'call_duration_seconds', 'is_qualified_lead', 'is_conversion',
-            'caller_city', 'caller_state', 'tracking_number'
-        ]
-        
-        return df[columns]
-    
-    def upload_to_s3(self, df: pd.DataFrame, bucket: str, prefix: str):
-        """Upload extracted data to S3 as parquet"""
-        if df.empty:
-            logging.warning("No data to upload")
-            return
-            
-        # Partition by date for efficient Snowpipe ingestion
-        for date, group_df in df.groupby('call_date'):
-            file_name = f"{prefix}/year={date.year}/month={date.month:02d}/day={date.day:02d}/calls_{datetime.now().strftime('%Y%m%d_%H%M%S')}.parquet"
-            
-            # Convert to parquet
-            parquet_buffer = io.BytesIO()
-            group_df.to_parquet(parquet_buffer, engine='pyarrow', compression='snappy')
-            parquet_buffer.seek(0)
-            
-            # Upload to S3
-            self.s3_client.put_object(
-                Bucket=bucket,
-                Key=file_name,
-                Body=parquet_buffer.getvalue()
-            )
-            
-            logging.info(f"Uploaded {len(group_df)} records to s3://{bucket}/{file_name}")
-    
-    def run_daily_extract(self, bucket: str, prefix: str = 'webphone/calls'):
-        """Main extraction workflow for daily scheduled run"""
-        # Extract previous day's data
-        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-        
-        logging.info(f"Starting Webphone extraction for {yesterday}")
-        
-        df = self.extract_calls(start_date=yesterday, end_date=yesterday)
-        
-        logging.info(f"Extracted {len(df)} calls, {df['is_qualified_lead'].sum()} qualified leads")
-        
-        self.upload_to_s3(df, bucket, prefix)
-        
-        return {
-            'date': yesterday,
-            'total_calls': len(df),
-            'qualified_leads': int(df['is_qualified_lead'].sum()),
-            'conversions': int(df['is_conversion'].sum())
-        }
-
-
-# AWS Lambda handler
-def lambda_handler(event, context):
-    """Lambda function for scheduled daily extraction"""
-    import os
-    
-    # Initialize extractor
-    extractor = WebphoneExtractor(
-        api_key=os.environ['WEBPHONE_API_KEY'],
-        api_secret=os.environ['WEBPHONE_API_SECRET']
+                            <h4>ZoomInfo Enrichment &mdash; dbt Intermediate Model (SQL)</h4>
+                            <pre><code>-- models/intermediate/marketing/int_enriched_leads.sql
+-- Enriches Salesforce leads with ZoomInfo firmographic and intent data.
+-- Uses domain normalization to improve match rate (38% raw -> 91% after cleanup).
+{{
+    config(
+        materialized='incremental',
+        unique_key='lead_id',
+        cluster_by=['enrichment_date', 'industry'],
+        tags=['marketing', 'enrichment']
     )
-    
-    # Run extraction
-    result = extractor.run_daily_extract(
-        bucket=os.environ['S3_BUCKET'],
-        prefix='webphone/calls'
-    )
-    
-    logging.info(f"Extraction complete: {result}")
-    
-    return {
-        'statusCode': 200,
-        'body': json.dumps(result)
-    }</code></pre>
+}}
+
+WITH salesforce_leads AS (
+    SELECT
+        lead_id,
+        email,
+        company_name,
+        -- Normalize email domain for ZoomInfo match
+        LOWER(SPLIT_PART(email, '@', 2)) AS email_domain,
+        campaign_id,
+        lead_source,
+        created_date AS enrichment_date,
+        stage,
+        owner_id
+    FROM {{ ref('stg_salesforce__leads') }}
+    {% if is_incremental() %}
+        WHERE created_date > (SELECT MAX(enrichment_date) FROM {{ this }})
+    {% endif %}
+),
+
+-- Domain alias mapping (legal entity vs. corporate email domain)
+domain_aliases AS (
+    SELECT
+        canonical_domain,
+        alias_domain
+    FROM {{ ref('seed_domain_aliases') }}
+),
+
+zoominfo_accounts AS (
+    SELECT
+        zi.account_id,
+        COALESCE(da.canonical_domain, zi.website_domain) AS matched_domain,
+        zi.company_name        AS zi_company_name,
+        zi.employee_count,
+        zi.industry,
+        zi.revenue_range,
+        zi.intent_score,         -- buying intent from ZoomInfo Bombora
+        zi.tech_stack_array
+    FROM {{ ref('stg_zoominfo__accounts') }} zi
+    LEFT JOIN domain_aliases da
+        ON zi.website_domain = da.alias_domain
+),
+
+enriched AS (
+    SELECT
+        sl.lead_id,
+        sl.email,
+        sl.email_domain,
+        sl.campaign_id,
+        sl.lead_source,
+        sl.enrichment_date,
+        sl.stage,
+        sl.owner_id,
+        -- ZoomInfo firmographic enrichment
+        zi.zi_company_name,
+        zi.employee_count,
+        zi.industry,
+        zi.revenue_range,
+        zi.intent_score,
+        zi.tech_stack_array,
+        CASE WHEN zi.account_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_enriched,
+        CASE
+            WHEN zi.intent_score >= 70 THEN 'High'
+            WHEN zi.intent_score >= 40 THEN 'Medium'
+            ELSE 'Low'
+        END AS intent_tier
+    FROM salesforce_leads sl
+    LEFT JOIN zoominfo_accounts zi
+        ON sl.email_domain = zi.matched_domain
+)
+
+SELECT
+    {{ dbt_utils.generate_surrogate_key(['lead_id']) }} AS enriched_lead_sk,
+    *,
+    CURRENT_TIMESTAMP() AS _loaded_at
+FROM enriched</code></pre>
                         </div>
                     </div>
                 </div>
 
+                
                 <div class="timeline-item">
                     <div class="timeline-marker">5</div>
                     <div class="timeline-content">
                         <h3>dbt Transformation Layer (Week 11-14)</h3>
                         <ul>
-                            <li>Built 43 dbt models organized in staging → intermediate → marts layer structure</li>
-                            <li>Staging layer: Data quality checks, type casting, column renaming for consistency</li>
-                            <li>Intermediate layer: Campaign attribution logic, multi-touch modeling, ROI calculations</li>
-                            <li>Marts layer: Business-ready analytics views for Power BI consumption</li>
-                            <li>Implemented 87 dbt tests: uniqueness, not_null, accepted_values, referential integrity</li>
-                            <li>Set up dbt Cloud scheduler: 4 daily runs (6am, 10am, 2pm, 6pm ET) for near-real-time refresh</li>
-                            <li>Created documentation site with lineage graphs and data dictionary</li>
+                            <li>Built 80+ dbt models organized in staging &rarr; intermediate &rarr; marts layer structure</li>
+                            <li>Staging layer: canonical definitions for every source (Workfront, Salesforce, ZoomInfo &mdash; no more analyst notebooks redefining &ldquo;campaign&rdquo;)</li>
+                            <li>Intermediate layer: ZoomInfo enrichment join, SCD Type 2 campaign ownership macro, multi-touch attribution logic</li>
+                            <li>Marts layer: <code>fct_campaign_daily</code> incremental model powering Power BI direct query</li>
+                            <li>Implemented 200+ dbt tests: uniqueness, not_null, accepted_values, referential integrity across all source joins</li>
+                            <li>Set up dbt Cloud scheduler: nightly full refresh + hourly incremental for Workfront and Salesforce deltas</li>
+                            <li>Published dbt documentation site: lineage DAG and data dictionary browsable by all 150+ users</li>
                         </ul>
                         
                         <div class="analyst-note">
@@ -963,18 +883,18 @@ def lambda_handler(event, context):
     )
 }}
 
-WITH calls AS (
+WITH leads AS (
     SELECT
-        call_id,
-        call_date AS attribution_date,
-        campaign_id,
         lead_id,
+        lead_created_date AS attribution_date,
+        campaign_id,
+        opportunity_id,
         is_qualified_lead,
-        is_conversion,
-        call_duration_seconds
-    FROM {{ ref('stg_webphone__calls') }}
+        is_closed_won,
+        deal_amount
+    FROM {{ ref('stg_salesforce__leads') }}
     {% if is_incremental() %}
-        WHERE call_date > (SELECT MAX(attribution_date) FROM {{ this }})
+        WHERE lead_created_date > (SELECT MAX(attribution_date) FROM {{ this }})
     {% endif %}
 ),
 
@@ -991,54 +911,55 @@ campaigns AS (
     FROM {{ ref('stg_workfront__campaigns') }}
 ),
 
-assets AS (
+firmographic AS (
     SELECT
-        asset_id,
+        account_id,
         campaign_id,
-        asset_type,
-        download_count,
-        view_count
-    FROM {{ ref('int_bynder__campaign_assets') }}
+        industry,
+        employee_count,
+        intent_score
+    FROM {{ ref('int_zoominfo__account_enrichment') }}
 ),
 
 -- Multi-touch attribution using linear model
 lead_touchpoints AS (
     SELECT
-        lead_id,
+        opportunity_id,
         COUNT(DISTINCT campaign_id) AS touchpoint_count,
         ARRAY_AGG(DISTINCT campaign_id) AS campaign_journey,
-        MIN(call_date) AS first_touch_date,
-        MAX(call_date) AS last_touch_date,
-        DATEDIFF('day', MIN(call_date), MAX(call_date)) AS journey_length_days
-    FROM calls
-    GROUP BY lead_id
+        MIN(lead_created_date) AS first_touch_date,
+        MAX(lead_created_date) AS last_touch_date,
+        DATEDIFF('day', MIN(lead_created_date), MAX(lead_created_date)) AS journey_length_days
+    FROM leads
+    GROUP BY opportunity_id
 ),
 
 -- Revenue allocation (equal credit to all touchpoints)
 attributed_revenue AS (
     SELECT
-        c.lead_id,
-        c.campaign_id,
-        c.call_date,
+        l.opportunity_id,
+        l.campaign_id,
+        l.lead_created_date,
         CASE 
-            WHEN c.is_conversion THEN 
-                3500 / lt.touchpoint_count  -- Avg deal size $3,500
+            WHEN l.is_closed_won THEN 
+                l.deal_amount / lt.touchpoint_count
             ELSE 0
         END AS attributed_revenue,
         1.0 / lt.touchpoint_count AS attribution_weight
-    FROM calls c
-    INNER JOIN lead_touchpoints lt ON c.lead_id = lt.lead_id
+    FROM leads l
+    INNER JOIN lead_touchpoints lt ON l.opportunity_id = lt.opportunity_id
 )
 
 SELECT
-    {{ dbt_utils.generate_surrogate_key(['c.call_id', 'c.campaign_id']) }} AS attribution_id,
-    c.call_date AS attribution_date,
-    c.campaign_id,
+    {{ dbt_utils.generate_surrogate_key(['l.lead_id', 'l.campaign_id']) }} AS attribution_id,
+    l.lead_created_date AS attribution_date,
+    l.campaign_id,
     camp.campaign_name,
     camp.channel,
-    c.lead_id,
-    c.is_qualified_lead,
-    c.is_conversion,
+    l.lead_id,
+    l.opportunity_id,
+    l.is_qualified_lead,
+    l.is_closed_won,
     lt.touchpoint_count,
     lt.journey_length_days,
     ar.attribution_weight,
@@ -1046,8 +967,8 @@ SELECT
     
     -- Campaign metrics
     camp.budget_amount AS campaign_budget,
-    COALESCE(a.asset_count, 0) AS assets_used,
-    COALESCE(a.total_downloads, 0) AS asset_downloads,
+    COALESCE(f.intent_score, 0) AS zoominfo_intent_score,
+    COALESCE(f.industry, 'Unknown') AS lead_industry,
     
     -- Calculated metrics
     CASE 
@@ -1059,21 +980,14 @@ SELECT
     -- Metadata
     CURRENT_TIMESTAMP() AS _loaded_at
     
-FROM calls c
-INNER JOIN campaigns camp ON c.campaign_id = camp.campaign_id
-LEFT JOIN lead_touchpoints lt ON c.lead_id = lt.lead_id
-LEFT JOIN attributed_revenue ar ON c.call_id = ar.call_id AND c.campaign_id = ar.campaign_id
-LEFT JOIN (
-    SELECT 
-        campaign_id,
-        COUNT(DISTINCT asset_id) AS asset_count,
-        SUM(download_count) AS total_downloads
-    FROM assets
-    GROUP BY campaign_id
-) a ON c.campaign_id = a.campaign_id
+FROM leads l
+INNER JOIN campaigns camp ON l.campaign_id = camp.campaign_id
+LEFT JOIN lead_touchpoints lt ON l.opportunity_id = lt.opportunity_id
+LEFT JOIN attributed_revenue ar ON l.lead_id = ar.lead_id AND l.campaign_id = ar.campaign_id
+LEFT JOIN firmographic f ON l.campaign_id = f.campaign_id
 
 {% if is_incremental() %}
-WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
+WHERE l.lead_created_date > (SELECT MAX(attribution_date) FROM {{ this }})
 {% endif %}</code></pre>
                         </div>
                     </div>
@@ -1109,7 +1023,7 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
                             <li>Ran parallel systems for 3 weeks: New automated platform vs. legacy Excel reports</li>
                             <li>Achieved 98.7% metric accuracy match - discrepancies due to manual Excel errors, not platform issues</li>
                             <li>Created training documentation: Snowflake data dictionary, dbt model guide, Power BI user manual</li>
-                            <li>Delivered 3 training sessions: Power BI navigation, campaign setup in Workfront, asset tagging in Bynder</li>
+                            <li>Delivered 3 training sessions: Power BI self-service navigation, campaign setup in Workfront, and ZoomInfo intent signal interpretation</li>
                             <li>Established support process: Slack #marketing-analytics channel, weekly office hours</li>
                             <li>Decommissioned legacy Excel workflows after successful 30-day validation period</li>
                         </ul>
@@ -1128,34 +1042,34 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
             <h2>Results & Business Impact</h2>
             <div class="results-grid">
                 <div class="result-card highlight">
-                    <h3>15.3 Hours Weekly Time Savings</h3>
-                    <p>Eliminated manual data extraction and Excel-based reporting, freeing analysts to focus on strategic analysis instead of data wrangling. Equivalent to $180K annual cost savings.</p>
+                    <h3>40% Manual Data Reduction</h3>
+                    <p>Automated ingestion via Fivetran + 80+ dbt models eliminated 40% of manual data retrieval work across marketing operations, reclaiming analyst capacity for strategic analysis.</p>
                 </div>
                 <div class="result-card">
-                    <h3>98.2% Data Accuracy</h3>
-                    <p>Improved from 73% baseline by eliminating manual data entry errors, copy-paste mistakes, and formula errors in Excel workbooks.</p>
+                    <h3>150+ Self-Service Power BI Users</h3>
+                    <p>Grew self-service analytics adoption from a team of 3 dedicated analysts to 150+ users accessing Power BI dashboards independently, powered by dbt mart models in Snowflake.</p>
                 </div>
                 <div class="result-card">
-                    <h3>15-Minute Data Latency</h3>
-                    <p>Reduced reporting lag from 5-7 days to 15 minutes, enabling real-time campaign optimization and budget reallocation decisions.</p>
+                    <h3>45s &rarr; 3s Query Performance</h3>
+                    <p>Optimized Snowflake clustering keys and dbt mart aggregations reduced Power BI dashboard load times from 45+ seconds to under 3 seconds, enabling real-time campaign monitoring.</p>
                 </div>
                 <div class="result-card">
-                    <h3>$2.3M Cost Savings Identified</h3>
-                    <p>Platform analytics revealed underperforming campaigns ($1.1M reallocated), unused Bynder assets ($400K waste), and inefficient project resource allocation ($800K optimization).</p>
+                    <h3>60% IT Request Reduction</h3>
+                    <p>60% reduction in IT data request tickets as 150+ users self-served answers from conformed dbt mart models, eliminating the queue of "can you pull this for me?" requests.</p>
                 </div>
                 <div class="result-card">
-                    <h3>3-System Unified View</h3>
-                    <p>Created single source of truth integrating Workfront, Bynder, and Webphone data for end-to-end marketing visibility.</p>
+                    <h3>3-Source Unified Platform</h3>
+                    <p>Single source of truth integrating Workfront, Salesforce, and ZoomInfo via Fivetran &rarr; Snowflake &rarr; dbt, replacing 47+ Excel workbooks with a governed analytics engineering layer.</p>
                 </div>
                 <div class="result-card">
-                    <h3>100% Dashboard Adoption</h3>
-                    <p>All 12 marketing team members actively use Power BI dashboards daily. VP Marketing credits platform for enabling data-driven decision making.</p>
+                    <h3>BI Platform in Production &ndash; Key Outcomes</h3>
+                    <p>80+ dbt models (staging, intermediate, marts) with incremental patterns for 200+ campaigns and reusable macros (date spine, SCD Type 2) deployed with CI/CD via GitHub Actions.</p>
                 </div>
             </div>
             
             <div class="aha-moment">
-                <strong><i class="fas fa-lightbulb"></i> The $1.1M Reallocation Story</strong>
-                <p>The most satisfying moment came six weeks post-launch. A campaign manager pulled up the attribution dashboard, saw that "Display Brand Awareness" campaigns had a 0.8x ROI while "Retargeting - Cart Abandoners" had 6.2x ROI, and immediately requested a budget shift. That single decision, enabled by data that had always existed but was never connected, moved $1.1M from underperforming to high-performing campaigns. The platform paid for itself in that one meeting.</p>
+                <strong><i class="fas fa-lightbulb"></i> The Discovery That Reduced IT Tickets by 60%</strong>
+                <p>Before the platform, the IT data queue had 400+ monthly tickets. After auditing them, I found 62% were the same five questions &mdash; just asked by different analysts. Rather than answer them repeatedly, I built five mart models that targeted those exact questions directly and published them to Power BI as named reports with clear descriptions. Within four weeks, those ticket types had nearly disappeared. The 60% IT request reduction didn't require process change, training, or policy enforcement. It just required making the data findable and trustworthy. That's what analytics engineering does that custom scripting and ad hoc queries can't: it systematically removes the bottleneck of &ldquo;I need a data person to get me this.&rdquo;</p>
             </div>
         </section>
 
@@ -1164,9 +1078,9 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
             <h2>Technical Challenges & Solutions</h2>
             <div class="challenges">
                 <div class="challenge-card">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Webphone API Rate Limiting</h3>
-                    <p><strong>Problem:</strong> Webphone API limited to 100 requests/minute. Historical extraction of 8.2M call records would take 57+ hours with naive approach, causing unacceptable project delays.</p>
-                    <p><strong>Solution:</strong> Implemented intelligent extraction strategy: (1) Bulk historical load using date-range parallelization across 10 Lambda functions, (2) Exponential backoff retry logic for rate limit errors, (3) Optimized pagination with 1,000 records per page (max allowed), (4) Reduced extraction time to 6.5 hours for full historical load.</p>
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: ZoomInfo &amp; Salesforce Contact Deduplication</h3>
+                    <p><strong>Problem:</strong> ZoomInfo and Salesforce had overlapping contact records for the same accounts, with different keys (ZoomInfo uses company domain; Salesforce uses account ID). Direct joins produced fan-out, inflating contact counts and attribution metrics.</p>
+                    <p><strong>Solution:</strong> Built a dbt intermediate model <code>int_contact_resolved</code> implementing deterministic matching on company domain + email domain to produce a deduplicated contact spine. Added dbt tests to assert unique contacts per account and zero cross-system fan-out. Reduced contact count by 23% (inflated duplicates removed), correcting downstream attribution models.</p>
                 </div>
 
                 <div class="challenge-card">
@@ -1176,9 +1090,9 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
                 </div>
 
                 <div class="challenge-card">
-                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Bynder Asset Taxonomy Inconsistency</h3>
-                    <p><strong>Problem:</strong> 12,860 assets in Bynder had inconsistent tagging - some tagged with campaign IDs, others with project names, many untagged. 32% of assets couldn't be linked to campaigns for ROI analysis.</p>
-                    <p><strong>Solution:</strong> Developed fuzzy matching algorithm in dbt using Levenshtein distance to link assets to campaigns via project names. Built "orphan asset" report in Power BI highlighting untagged assets. Worked with marketing team to implement asset tagging standards going forward. Increased linkage rate from 68% to 94%.</p>
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Campaign Ownership Changes via SCD Type 2</h3>
+                    <p><strong>Problem:</strong> AT&T's 2024 reorganization moved 80+ campaigns between departments mid-flight. Historical Power BI reporting attributed campaigns to new owners retroactively, making before/after comparisons meaningless.</p>
+                    <p><strong>Solution:</strong> Implemented SCD Type 2 in a reusable dbt macro tracking campaign ownership with <code>valid_from</code> / <code>valid_to</code> effective dates. dim_campaign dimension now stores full ownership history. Power BI reports use point-in-time joins to the dimension, producing historically accurate attribution regardless of reorgs. Used the same macro pattern across employee, department, and territory dimensions.</p>
                 </div>
 
                 <div class="challenge-card">
@@ -1189,8 +1103,8 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
 
                 <div class="challenge-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> Challenge: Data Freshness SLA Requirements</h3>
-                    <p><strong>Problem:</strong> Marketing leadership demanded <15 minute data freshness for campaign optimization decisions, but Fivetran syncs hourly and dbt runs 4x daily, creating potential 4-hour lag.</p>
-                    <p><strong>Solution:</strong> Implemented hybrid approach: (1) Critical metrics (campaign spend, lead count) use Snowpipe for near-real-time ingestion from S3, (2) dbt incremental models run every 15 minutes for high-priority tables, (3) Full refresh runs 4x daily for comprehensive analytics, (4) Power BI configured with 15-minute DirectQuery cache. Achieved 12-minute average latency, meeting SLA.</p>
+                    <p><strong>Problem:</strong> Marketing leadership wanted near-real-time campaign performance visibility, but Fivetran syncs hourly and full dbt runs are resource-intensive &mdash; creating potential lag for time-sensitive budget decisions.</p>
+                    <p><strong>Solution:</strong> Implemented incremental dbt models for high-churn tables (campaign spend, lead events), reducing full-refresh runtimes by 70%. Configured Snowflake clustering on <code>campaign_date</code> for Power BI direct-query performance. Achieved 45s &rarr; 3s average query time &mdash; the key metric that drove 150+ users to adopt self-service vs. opening IT tickets.</p>
                 </div>
 
                 <div class="challenge-card">
@@ -1209,14 +1123,14 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
                     <i class="fas fa-lightbulb"></i>
                     <div>
                         <h4>Stakeholder Buy-In Through Quick Wins</h4>
-                        <p>Delivered Workfront integration first (weeks 5-7) providing immediate value with project tracking dashboards. Early success built trust and executive support for longer Webphone integration work. Phased rollout reduced risk and maintained momentum vs. "big bang" approach that could fail spectacularly.</p>
+                        <p>Delivered Workfront integration first (weeks 5&ndash;7) providing immediate value with campaign tracking dashboards. Early success built trust and executive support for the more complex Salesforce deduplication and ZoomInfo enrichment work. Phased rollout reduced risk and maintained momentum vs. a &ldquo;big bang&rdquo; approach that could fail spectacularly.</p>
                     </div>
                 </div>
                 <div class="learning-item">
                     <i class="fas fa-lightbulb"></i>
                     <div>
                         <h4>Data Quality Trumps Data Volume</h4>
-                        <p>Spent 30% of project time on data quality validation, testing, and backfilling. Initially seemed like "waste" but prevented post-launch issues that plague many data projects. 98.2% accuracy achieved through rigorous dbt testing (87 tests) and parallel validation with legacy systems. Quality over speed wins long-term.</p>
+                        <p>Spent the first 30% of the project building the dbt test suite and validating staging models against source systems. Initially felt like &ldquo;slowing down.&rdquo; But those 200+ tests caught schema drift, null FK violations, and duplicate campaign records before they ever reached Power BI. Quality investment up front has a way of multiplying your credibility downstream &mdash; especially when stakeholders ask &ldquo;how do we know this number is right?&rdquo;</p>
                     </div>
                 </div>
                 <div class="learning-item">
@@ -1255,56 +1169,56 @@ WHERE c.call_date > (SELECT MAX(attribution_date) FROM {{ this }})
             <h2>Technologies & Tools</h2>
             <div class="tech-grid">
                 <div class="tech-category">
-                    <h3>Data Warehouse</h3>
+                    <h3>BI &amp; Data Modeling (Core)</h3>
+                    <ul>
+                        <li><strong>dbt Core</strong></li>
+                        <li>dbt Incremental Models</li>
+                        <li>dbt Macros (date spine, SCD Type 2)</li>
+                        <li>dbt Tests &amp; Documentation</li>
+                        <li>dbt-utils / dbt-expectations</li>
+                        <li>SCD Type 2 (conformed dimensions)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Data Warehouse &amp; Ingestion</h3>
                     <ul>
                         <li>Snowflake Data Cloud</li>
-                        <li>AWS S3 (Landing Zone)</li>
-                        <li>Snowpipe (Streaming Ingestion)</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Data Integration</h3>
-                    <ul>
-                        <li>Fivetran (Workfront, Bynder)</li>
-                        <li>Custom Python APIs</li>
-                        <li>AWS Lambda</li>
-                        <li>AWS EventBridge</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Transformation</h3>
-                    <ul>
-                        <li>dbt (Data Build Tool)</li>
-                        <li>dbt Cloud</li>
-                        <li>SQL (Snowflake Dialect)</li>
-                        <li>Jinja Templating</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
-                    <h3>Visualization</h3>
-                    <ul>
-                        <li>Microsoft Power BI</li>
-                        <li>Power BI Service</li>
-                        <li>DAX (Measures)</li>
-                        <li>Power Query M</li>
+                        <li>Fivetran (Workfront, Salesforce, ZoomInfo)</li>
+                        <li>GitHub Actions (CI/CD)</li>
                     </ul>
                 </div>
                 <div class="tech-category">
                     <h3>Source Systems</h3>
                     <ul>
-                        <li>Workfront (Project Mgmt)</li>
-                        <li>Bynder (DAM)</li>
-                        <li>Webphone (Call Tracking)</li>
-                        <li>Salesforce CRM</li>
+                        <li>Workfront (Project Management)</li>
+                        <li>Salesforce (CRM)</li>
+                        <li>ZoomInfo (Contact Enrichment)</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <h3>DevOps & Monitoring</h3>
+                    <h3>BI &amp; Visualization</h3>
+                    <ul>
+                        <li>Power BI (Service + Desktop)</li>
+                        <li>DAX (Measures &amp; Calculated Columns)</li>
+                        <li>Power Query M</li>
+                        <li>Row-Level Security (RLS)</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>Programming &amp; Query</h3>
+                    <ul>
+                        <li>SQL (Advanced / Snowflake Dialect)</li>
+                        <li>Python</li>
+                        <li>Jinja Templating</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <h3>DevOps &amp; Collaboration</h3>
                     <ul>
                         <li>Git / GitHub</li>
-                        <li>Slack (Alerts)</li>
-                        <li>CloudWatch Logs</li>
-                        <li>dbt Tests & Docs</li>
+                        <li>GitHub Actions</li>
+                        <li>YAML (dbt schema files)</li>
+                        <li>Jira / Agile</li>
                     </ul>
                 </div>
             </div>

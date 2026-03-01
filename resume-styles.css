@@ -218,6 +218,61 @@ body.dark-mode .back-button:hover {
     gap: 12px;
 }
 
+/* Summary Bullets */
+.summary-bullets {
+    list-style-position: outside;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.summary-bullets li {
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    transition: color 0.3s ease;
+}
+
+/* Skills Table */
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.skills-table th,
+.skills-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.skills-table th {
+    color: var(--text-primary);
+    font-weight: 600;
+    background: var(--border-color);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.skills-table td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+body.dark-mode .skills-table th {
+    background: rgba(255, 140, 0, 0.1);
+}
+
+/* Job Description */
+.job-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
 .skill-category {
     display: grid;
     grid-template-columns: 200px 1fr;

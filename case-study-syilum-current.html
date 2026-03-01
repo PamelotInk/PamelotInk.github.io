@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syilum LLC &ndash; Product BI &amp; Self-Service Analytics | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Personal Analyst Note Styles */
+        .analyst-note {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-left: 4px solid #14b8a6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .analyst-note h4 {
+            color: #0d7377;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .analyst-note h4::before { content: "📝"; }
+        .analyst-note p { color: #1a5f5f; line-height: 1.7; margin: 0; }
+
+        .aha-moment {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .aha-moment h4 {
+            color: #b45309;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .aha-moment h4::before { content: "💡"; }
+        .aha-moment p { color: #92400e; line-height: 1.7; margin: 0; }
+
+        .thought-process {
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+            border-left: 4px solid #8b5cf6;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .thought-process h4 {
+            color: #6d28d9;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .thought-process h4::before { content: "🧠"; }
+        .thought-process p { color: #5b21b6; line-height: 1.7; margin: 0; }
+
+        .surprise-finding {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            border-left: 4px solid #ec4899;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+        .surprise-finding h4 {
+            color: #be185d;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .surprise-finding h4::before { content: "🎯"; }
+        .surprise-finding p { color: #9d174d; line-height: 1.7; margin: 0; }
+
+        /* Dark mode styles */
+        body.dark-mode .analyst-note {
+            background: linear-gradient(135deg, #134e4a 0%, #115e59 100%);
+            border-left-color: #2dd4bf;
+        }
+        body.dark-mode .analyst-note h4 { color: #5eead4; }
+        body.dark-mode .analyst-note p { color: #ccfbf1; }
+
+        body.dark-mode .aha-moment {
+            background: linear-gradient(135deg, #78350f 0%, #92400e 100%);
+            border-left-color: #fbbf24;
+        }
+        body.dark-mode .aha-moment h4 { color: #fde68a; }
+        body.dark-mode .aha-moment p { color: #fef3c7; }
+
+        body.dark-mode .thought-process {
+            background: linear-gradient(135deg, #581c87 0%, #6b21a8 100%);
+            border-left-color: #c084fc;
+        }
+        body.dark-mode .thought-process h4 { color: #e9d5ff; }
+        body.dark-mode .thought-process p { color: #f3e8ff; }
+
+        body.dark-mode .surprise-finding {
+            background: linear-gradient(135deg, #831843 0%, #9d174d 100%);
+            border-left-color: #f472b6;
+        }
+        body.dark-mode .surprise-finding h4 { color: #fbcfe8; }
+        body.dark-mode .surprise-finding p { color: #fce7f3; }
+    </style>
+</head>
+<body>
+    <script>
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+            <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Open menu" aria-controls="headerNav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="header-nav" id="headerNav">
+                <a href="index.html" class="header-nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="archives.html" class="header-nav-link"><i class="fas fa-archive"></i> Archives</a>
+                <a href="resume.html" class="header-nav-link" target="_blank"><i class="fas fa-file-alt"></i> Resumé</a>
+                <a href="index.html#case-studies" class="header-nav-link"><i class="fas fa-briefcase"></i> Projects</a>
+                <a href="index.html#contact" class="header-nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="case-nav">
+        <a href="index.html#case-studies" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="case-study-header">
+        <div class="case-label">Project</div>
+        <div class="header-content">
+            <h1>Syilum LLC &ndash; Product BI &amp; Self-Service Analytics</h1>
+            <p class="subtitle">Power BI Dashboards &middot; SQL Analytics &middot; Data Quality Frameworks &middot; 60% Ad-Hoc Reduction</p>
+            <div class="meta-info">
+                <span class="company"><i class="fas fa-building"></i> Syilum LLC (Remote)</span>
+                <span class="duration"><i class="fas fa-clock"></i> October 2025 &ndash; Present</span>
+                <span class="role"><i class="fas fa-user-tie"></i> Freelance Business Intelligence Analyst</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="case-study-content">
+        <!-- Executive Summary -->
+        <section class="section summary">
+            <h2>Executive Summary</h2>
+            <p class="lead">Providing business intelligence and analytics consulting for a technology company, delivering SQL-based insights and interactive dashboards supporting product and operational decision-making. Built <strong>Power BI dashboards</strong> tracking product KPIs (user engagement, feature adoption, retention) for product management and executive stakeholders. Write SQL queries analysing <strong>user behaviour patterns, conversion funnels, and feature usage</strong> informing product roadmap priorities. Developed <strong>data quality validation frameworks</strong> ensuring 99%+ accuracy for executive reporting and created <strong>self-service analytics solutions</strong> reducing ad-hoc report requests by 60%.</p>
+        </section>
+
+        <div class="analyst-note">
+            <h4>Returning to Syilum With Fresh Perspective</h4>
+            <p>Coming back to Syilum after my Signet Jewelers engagement was eye-opening. At Signet, I'd built financial consolidation pipelines processing 15.2M+ records, automated Databricks workflows, and delivered M&A intelligence for $450M+ in acquisitions. Returning to Syilum, I brought that enterprise rigor to product analytics. The first thing I did was audit the existing reporting: I found 23 dashboards with subtly different KPI definitions. "Active user" meant different things on different reports. My first deliverable wasn't a new dashboard&mdash;it was a governed KPI dictionary that everyone agreed on. That unglamorous work became the foundation for everything I've built since.</p>
+        </div>
+
+        <section class="summary-grid">
+            <div class="summary-card">
+                <h4>Scope</h4>
+                <p>Ongoing freelance BI consulting: Power BI dashboards, SQL analytics, data quality frameworks, and self-service reporting solutions for product and executive teams.</p>
+            </div>
+            <div class="summary-card">
+                <h4>Key Deliverables</h4>
+                <p>Product KPI dashboards (engagement, retention, feature adoption), conversion funnel analysis, user behaviour SQL queries, validated executive reports with 99%+ accuracy.</p>
+            </div>
+            <div class="summary-card">
+                <h4>Impact</h4>
+                <p>60% reduction in ad-hoc report requests through self-service analytics; 99%+ data accuracy; actionable product roadmap recommendations from SQL-driven user behaviour insights.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Business Challenge</h2>
+            <ul class="challenge-list">
+                <li><strong>Fragmented Product Metrics:</strong> Product KPIs (engagement, feature adoption, retention) were tracked inconsistently across multiple tools with no single source of truth for executive decision-making</li>
+                <li><strong>Ad-Hoc Overload:</strong> Product and engineering teams submitted frequent one-off data requests, consuming analyst time and creating bottlenecks for strategic work</li>
+                <li><strong>Data Quality Concerns:</strong> Executive reports lacked formal validation, leading to occasional discrepancies that eroded stakeholder confidence in the data</li>
+                <li><strong>Limited Self-Service:</strong> Business users relied entirely on analysts for every data question, creating dependency and slowing product decisions</li>
+                <li><strong>Conversion Visibility Gap:</strong> No structured analysis of user conversion funnels or feature usage patterns to inform product roadmap priorities</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 id="product-dashboards">Product KPI Dashboard</h2>
+            <p class="dashboard-description">Interactive Power BI dashboards tracking user engagement, feature adoption, retention cohorts, and conversion funnels for product management and executive stakeholders.</p>
+
+            <div class="dashboard-container">
+                <div class="metrics-row">
+                    <div class="metric-card">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-content">
+                            <div class="metric-label">User Engagement Score</div>
+                            <div class="metric-value">78.4</div>
+                            <div class="metric-change positive">+6.2 vs prior quarter</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">📈</div>
+                        <div class="metric-content">
+                            <div class="metric-label">Feature Adoption Rate</div>
+                            <div class="metric-value">64.7%</div>
+                            <div class="metric-change positive">+8.3% MoM</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-content">
+                            <div class="metric-label">30-Day Retention</div>
+                            <div class="metric-value">71.2%</div>
+                            <div class="metric-change positive">+4.1% vs baseline</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">🎯</div>
+                        <div class="metric-content">
+                            <div class="metric-label">Report Accuracy</div>
+                            <div class="metric-value">99.3%</div>
+                            <div class="metric-change positive">Validated framework</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Feature Adoption Trends (Last 6 Months)</h3>
+                        <div class="bar-chart">
+                            <div class="bar-group">
+                                <div class="bar-label">Core Workflow</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-best" style="width: 92%;" data-value="92%">
+                                        92% Adoption
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Dashboard Builder</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-best" style="width: 78%;" data-value="78%">
+                                        78% Adoption
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">API Integration</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-good" style="width: 64%;" data-value="64%">
+                                        64% Adoption
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Collaboration Tools</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-good" style="width: 51%;" data-value="51%">
+                                        51% Adoption
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bar-group">
+                                <div class="bar-label">Advanced Analytics</div>
+                                <div class="bar-wrapper">
+                                    <div class="bar bar-neutral" style="width: 38%;" data-value="38%">
+                                        38% Adoption
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-dot" style="background: #10b981;"></span>Above Target (&gt;60%)</span>
+                            <span class="legend-item"><span class="legend-dot" style="background: #94a3b8;"></span>Below Target</span>
+                        </div>
+                    </div>
+
+                    <div class="thought-process">
+                        <h4>Why I Start With Feature Adoption, Not Revenue</h4>
+                        <p>Most product dashboards lead with revenue or active users. I learned at Syilum that those are lagging indicators&mdash;by the time revenue dips, the underlying problem (low feature adoption, poor retention) has been festering for weeks. I structured the dashboard to surface leading indicators first: which features are users actually adopting? Where do they drop off? The Advanced Analytics module at 38% adoption immediately told the product team something was wrong with the onboarding flow for that feature. We traced it to a missing tooltip in the setup wizard. A $0 fix that's already pushed adoption to 38% from 22% the prior month.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Solution Architecture</h2>
+            <ol class="timeline-list">
+                <li><strong>Product KPI Dashboards:</strong> Built Power BI dashboards with DAX measures tracking user engagement scores, feature adoption rates, retention cohorts, and conversion funnels; configured scheduled refresh and row-level security for team-specific views</li>
+                <li><strong>SQL Analytics Engine:</strong> Wrote SQL queries in Snowflake analysing user behaviour patterns, conversion funnels, and feature usage; created reusable query templates for common product analysis patterns (cohort retention, funnel drop-off, engagement scoring)</li>
+                <li><strong>Data Quality Framework:</strong> Developed automated validation checks ensuring 99%+ accuracy for executive reporting; implemented row count reconciliation, null detection, outlier flagging, and cross-report consistency checks</li>
+                <li><strong>Self-Service Analytics Layer:</strong> Created Power BI semantic model enabling product managers and engineering leads to independently explore data; built guided report templates with embedded documentation reducing ad-hoc requests by 60%</li>
+                <li><strong>Product Roadmap Intelligence:</strong> Partnered with product and engineering teams translating business questions into SQL analysis and actionable recommendations; delivered weekly insights briefs identifying user behaviour trends and feature prioritization signals</li>
+            </ol>
+        </section>
+
+        <div class="aha-moment">
+            <h4>The Self-Service Breakthrough</h4>
+            <p>The 60% reduction in ad-hoc requests didn't come from fancy technology&mdash;it came from understanding what people actually needed. I spent a week logging every data request: who asked, what they wanted, how often, and what they did with the answer. Patterns emerged immediately. 70% of requests were variations of the same 8 questions: "How many active users this week?", "What's the conversion rate for feature X?", "Show me retention by cohort." Instead of building 8 custom reports, I built one semantic model with guided exploration paths. PMs could filter by feature, time range, and user segment without writing a single query. The remaining 30% of requests were genuinely complex&mdash;those became my strategic analysis work instead of repetitive SQL queries.</p>
+        </div>
+
+        <section class="section">
+            <h2>Sample SQL &mdash; Conversion Funnel Analysis</h2>
+            <div class="code-block">
+                <h4>SQL &mdash; Feature Adoption Funnel by User Segment</h4>
+                <pre><code>-- Conversion funnel: feature discovery → activation → adoption
+WITH funnel AS (
+    SELECT
+        u.user_segment,
+        COUNT(DISTINCT CASE WHEN e.event_name = 'feature_viewed' THEN e.user_id END) AS discovered,
+        COUNT(DISTINCT CASE WHEN e.event_name = 'feature_activated' THEN e.user_id END) AS activated,
+        COUNT(DISTINCT CASE WHEN e.event_name = 'feature_used_7d' THEN e.user_id END) AS adopted
+    FROM analytics.events e
+    JOIN analytics.dim_users u ON e.user_id = u.user_id
+    WHERE e.event_date >= DATEADD('day', -30, CURRENT_DATE)
+      AND e.feature_id = 'dashboard_builder'
+    GROUP BY 1
+)
+SELECT
+    user_segment,
+    discovered,
+    activated,
+    adopted,
+    ROUND(activated::FLOAT / NULLIF(discovered, 0) * 100, 1) AS activation_rate,
+    ROUND(adopted::FLOAT / NULLIF(activated, 0) * 100, 1) AS adoption_rate
+FROM funnel
+ORDER BY discovered DESC;
+</code></pre>
+            </div>
+        </section>
+
+        <div class="analyst-note">
+            <h4>Why Funnel Queries Need NULLIF</h4>
+            <p>That NULLIF in the query isn't just defensive coding&mdash;it's a lesson I learned the hard way. Early in my career, a division-by-zero error in a scheduled report went unnoticed for three days because the error was silently caught by the BI tool and displayed as "0% conversion." Three days of executive decisions based on a broken metric. Now every ratio calculation gets NULLIF protection, and I build alerting into the validation framework that flags any metric that drops to exactly zero&mdash;because zero is almost never a real business metric; it's almost always a data issue.</p>
+        </div>
+
+        <section class="section results-grid">
+            <h2>Results</h2>
+            <div class="result-card">
+                <h4>Self-Service Adoption</h4>
+                <p>60% reduction in ad-hoc report requests through self-service Power BI semantic model; product managers independently explore KPIs without analyst dependency.</p>
+            </div>
+            <div class="result-card">
+                <h4>Data Quality</h4>
+                <p>99%+ report accuracy achieved through automated validation framework; zero data discrepancy escalations since implementation.</p>
+            </div>
+            <div class="result-card">
+                <h4>Product Intelligence</h4>
+                <p>SQL-driven user behaviour analysis directly informed product roadmap priorities; identified feature adoption gaps leading to targeted UX improvements.</p>
+            </div>
+        </section>
+
+        <div class="surprise-finding">
+            <h4>The Report Nobody Asked For (That Everyone Uses)</h4>
+            <p>My most impactful deliverable wasn't in any SOW. While building the feature adoption dashboard, I noticed an interesting pattern in the SQL data: users who engaged with 3+ features in their first week had 4x higher 90-day retention than single-feature users. I built a "First Week Feature Breadth" report and shared it during a product review. The VP of Product immediately asked: "Can we identify users in their first week who haven't hit 3 features yet?" That question led to a targeted in-app nudge campaign for new users. It's now one of the most-viewed reports in the entire Power BI workspace. Sometimes the best analytics work isn't answering the question you were asked&mdash;it's surfacing the question nobody thought to ask.</p>
+        </div>
+
+        <section class="section">
+            <h2>Challenges &amp; Lessons</h2>
+            <ul class="learnings-list">
+                <li><strong>KPI Governance First:</strong> Standardizing metric definitions across teams before building dashboards prevented downstream confusion and rework.</li>
+                <li><strong>Self-Service Requires Guardrails:</strong> Unrestricted data access led to misinterpretation; guided exploration paths with embedded context improved data literacy.</li>
+                <li><strong>Validation is a Feature:</strong> Treating data quality checks as first-class deliverables (not afterthoughts) built executive trust and eliminated escalation incidents.</li>
+            </ul>
+        </section>
+
+        <section class="section tech-grid">
+            <h2>Tech Stack</h2>
+            <div class="tech-category"><strong>BI &amp; Visualization:</strong> Power BI (DAX, Power Query, Service, RLS), KPI Dashboards, Self-Service Semantic Models</div>
+            <div class="tech-category"><strong>Data &amp; Analytics:</strong> Snowflake, Advanced SQL (CTEs, Window Functions), Python (Pandas)</div>
+            <div class="tech-category"><strong>Quality &amp; Governance:</strong> Automated Validation Framework, Data Quality Checks, KPI Dictionary</div>
+            <div class="tech-category"><strong>Collaboration:</strong> Git, Product &amp; Engineering Partnership, Stakeholder Reporting</div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="case-study-footer">
+        <div class="footer-content">
+            <div class="disclaimer">
+                <p><i class="fas fa-shield-alt"></i> <strong>Disclaimer:</strong> This project presents composite scenarios and illustrative metrics based on professional experience. Specific numbers and examples are representative and do not reflect actual confidential data from any employer or client.</p>
+            </div>
+            <a href="index.html" class="footer-link">&larr; Back to Home</a>
+            <p>&copy; 2026 Pamela Austin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

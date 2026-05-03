@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exoplanet Habitability Analysis | Personal Project | Pamela Austin</title>
+    <link rel="stylesheet" href="case-study-styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +47,6 @@
         body {
             overflow-x: hidden !important;
             margin: 0 !important;
-            padding: 0 !important;
             background: var(--bg-light);
             color: var(--text-dark);
             font-family: 'Inter', sans-serif;
@@ -747,18 +747,62 @@
     </style>
 </head>
 <body class="notebook-page">
-    <nav class="notebook-nav">
-        <a href="index.html" class="nav-back">
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Mobile Header Menu Toggle (shows on small screens) -->
+            <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Open menu" aria-controls="headerNav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav" id="headerNav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="case-nav" style="display:flex; justify-content:space-between; align-items:center; position:relative;">
+        <a href="index.html#projects" class="back-link">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
-        <div class="nav-actions">
-            <a href="exoplanet-habitability-analysis.ipynb" class="btn-download" download>
-                <i class="fas fa-download"></i> <span>Download Notebook</span>
-            </a>
-            <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
+        <a href="exoplanet-habitability-analysis.ipynb" class="btn-download" download>
+            <i class="fas fa-download"></i> <span>Download Notebook</span>
+        </a>
     </nav>
 
     <main class="notebook-container">
@@ -1589,32 +1633,6 @@ Gradient Boosting    0.9650     0.9512  0.9317    0.9414   0.9923
     </main>
 
     <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-
-        // Check saved theme
-        const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === 'enabled') {
-            body.classList.add('dark-mode');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-
-        themeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        });
-
         // Collapsible code cells functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Add collapse headers to all code cells
@@ -1977,5 +1995,6 @@ Gradient Boosting    0.9650     0.9512  0.9317    0.9414   0.9923
         </div>
         <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

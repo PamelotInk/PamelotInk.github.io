@@ -123,6 +123,10 @@ body.dark-mode .header-theme-toggle .moon-icon {
     transform: rotate(0deg) scale(1);
 }
 
+.header-menu-toggle {
+    display: none;
+}
+
 .header-nav {
     display: flex;
     gap: 1.5rem;

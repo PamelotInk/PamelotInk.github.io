@@ -25,3 +25,4 @@ streamlit.err
 backups/
 *.zip
 *.tar.gz
+resume.html

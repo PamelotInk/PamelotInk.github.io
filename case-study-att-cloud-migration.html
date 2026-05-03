@@ -745,13 +745,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="case-study-nav">
-        <a href="index.html" class="back-button">
+    <script>
+        // Check for dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <!-- Theme Toggle - Top Left -->
+            <button class="header-theme-toggle" id="headerThemeToggle" aria-label="Toggle Theme">
+                <i class="fas fa-sun sun-icon"></i>
+                <i class="fas fa-moon moon-icon"></i>
+            </button>
+
+            <!-- Mobile Header Menu Toggle (shows on small screens) -->
+            <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Open menu" aria-controls="headerNav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Header Navigation -->
+            <nav class="header-nav" id="headerNav">
+                <a href="index.html" class="header-nav-link">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="archives.html" class="header-nav-link">
+                    <i class="fas fa-archive"></i> Archives
+                </a>
+                <a href="index.html#case-studies" class="header-nav-link">
+                    <i class="fas fa-briefcase"></i> Projects
+                </a>
+                <a href="index.html#contact" class="header-nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </nav>
+
+            <!-- Social Links -->
+            <div class="header-social-links">
+                <a href="https://www.linkedin.com/in/pamela-austin-621a32a4/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:pamtekk@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="case-nav">
+        <a href="index.html#projects" class="back-link">
             <i class="fas fa-arrow-left"></i> Back to Portfolio
         </a>
-        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
-            <i class="fas fa-moon"></i>
-        </button>
     </nav>
 
     <header class="case-study-header">
@@ -1116,32 +1162,6 @@ select * from versioned
         <p>&copy; 2025 Pamela Austin. All rights reserved.</p>
     </footer>
 
-    <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-
-        // Check saved theme
-        const darkMode = localStorage.getItem('darkMode');
-        if (darkMode === 'enabled') {
-            body.classList.add('dark-mode');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-
-        themeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

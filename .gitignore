@@ -26,3 +26,16 @@ backups/
 *.zip
 *.tar.gz
 resume.html
+
+# Resumes — kept local only
+Resume_PamelaAustin_*.docx
+~$*.docx
+*.pdf
+
+# Private project documentation — not for public
+AT&T-Predictive-ML-Forecasting.md
+AT&T-Cloud-Migration-ETL.md
+att_ml_*.py
+att_ml_*.pdf
+AT&T_ML_Forecasting_Cookbook.pdf
+*.ipynb
